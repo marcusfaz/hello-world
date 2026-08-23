@@ -270,6 +270,11 @@ tr.rowhide{display:none}
 .cvcell.bad{background:var(--ember-wash)}
 .cvcell.ok{background:var(--good-wash)}
 
+/* the single next action */
+.donow{border:1px solid var(--gold);border-left-width:1px;border-radius:8px;background:var(--gold-wash);padding:13px 17px;margin:4px 0 16px}
+.donow .lbl{font-family:"DM Mono",ui-monospace,monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-ink);display:block;margin-bottom:6px}
+.donow p{margin:0;font-size:17.5px;line-height:1.42;font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;font-weight:500;color:var(--ink);max-width:68ch}
+
 /* party roster board */
 .party{border:1px solid var(--line);border-radius:8px;background:var(--surface);margin:4px 0 26px;overflow:hidden}
 .party .ph{padding:12px 16px;border-bottom:1px solid var(--line);background:var(--surface2);display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
@@ -691,7 +696,7 @@ body:[
 ]}],
 ["h","The clock rule"],
 ["p","HeartGold reads the console clock constantly. Day/night changes which Pokémon spawn, gates Espeon and Umbreon evolutions, and drives the whole weekly calendar — the Bug-Catching Contest, the Week Siblings, the Lake of Rage Wednesday man, Friday Lapras, the Goldenrod lottery, and the Pokéathlon shop rotation."],
-["warn","Do <b>not</b> roll the Deck's clock forward or backward to farm daily events. Gen 4 notices, and daily/weekly events stall until real time catches up — you can lock yourself out of a day of progress for no gain. If you want a specific day's content, the honest fix is to play something else in the guide until that day arrives; this guide's <a href=\"#ref-days\">day planner</a> tells you what each day is worth."],
+["warn","Do <b>not</b> roll the Deck's clock forward or backward to farm daily events. Gen 4 notices, and daily/weekly events stall until real time catches up — you can lock yourself out of a day of progress for no gain. If you need a specific day's content, play the rest of the guide until that day comes round — this guide's <a href=\"#ref-days\">day planner</a> tells you what each day is worth."],
 ["tip","One clock change is usually harmless and sometimes necessary: setting the console to your actual local time <i>before</i> you start a new save. Do it once, at the beginning, then leave it alone."]
 ]});
 
@@ -729,15 +734,15 @@ body:[
 ["warn","Those three are the difference between “finished the game” and a literal complete National Dex. If the DNS route defeats you, the pragmatic alternative is <b>PKHeX</b> (runs on the Deck in Desktop Mode) to inject the event <i>gift</i> with correct, legal event data, then claim it in-game. That preserves the actual gameplay — you still play the Sinjoh Ruins episode — while skipping a dead server."],
 ["h","The Pokéwalker"],
 ["p","The Pokéwalker talked to the cartridge over infrared. melonDS does not emulate that link and no Deck-side accessory replaces it. You lose the walker’s exclusive routes, its item drops, and a set of special moves only obtainable there."],
-["p","There is no clean in-game workaround. Decide now which line you are taking, and the rest of this guide will make sense either way:"],
+["p","There is no clean in-game workaround, so here is the call to make once and stop thinking about:"],
 ["ul",[
- "<b>Purist</b> — accept that a handful of walker-only move variants stay out of reach. Everything else in this guide is still reachable, including a complete 493 dex if you handle the three events above.",
- "<b>Completionist</b> — use PKHeX to generate the walker-route Pokémon with legal walker origin data. Nothing else in the game changes."
+ "<b>Install PKHeX and use it for exactly two things:</b> the three event gifts above, and the Pokéwalker-route entries. Both are content that was distributed by hardware or servers that no longer exist — you are restoring access, not skipping gameplay. You still play the Sinjoh Ruins and Ilex Forest episodes yourself.",
+ "<b>Do not use it for anything else.</b> No generated team, no injected legendaries you could catch, no edited stats. Everything else in this guide is reachable by playing, and injecting it is how a 100-hour file stops being worth finishing."
 ]],
 ["h","Migrating from Gen 3"],
 ["p","Pal Park needs a GBA cartridge in the DS slot-2. melonDS can insert a GBA ROM into that slot, so migration from Ruby / Sapphire / Emerald / FireRed / LeafGreen works if you have those ROMs and their saves. It is the cheapest way to fill big blocks of the National Dex — six Pokémon per day, per game."],
 ["do",[
- "Decide purist vs. completionist and write it down. It changes what “100%” means for your file.",
+ "Install PKHeX in Desktop Mode and set your rule: event gifts and Pokéwalker entries only.",
  "Set up a second melonDS instance + a throwaway save now, so trade evolutions are never a blocker later.",
  "Back up your .sav for the first time."
 ]]
@@ -797,9 +802,9 @@ body:[
 ["table",{cols:["Starter","Line","The case for it","The cost"],rows:[
  ["<b>Cyndaquil</b>","Quilava → Typhlosion","The efficiency pick. Fire is nearly absent from Johto’s wild roster, so this is your only reliable answer to Bugsy, Jasmine and half the Elite Four. Big Special Attack, gets Flamethrower early enough to matter.","Bad matchups against Chuck, Clair and the entire Kanto Water block. Needs a partner that handles Rock and Water."],
  ["<b>Totodile</b>","Croconaw → Feraligatr","The balanced pick. Physical Water with Ice Fang and Crunch covers Clair, Pryce’s Piloswine and Lance’s dragons. Doubles as your Surf and Waterfall carrier, which frees a team slot.","Slow to come online, and it does nothing special against Whitney, Morty or Bugsy."],
- ["<b>Chikorita</b>","Bayleef → Meganium","The challenge run. Weak to Falkner, Bugsy, Morty, Jasmine and Pryce — five of eight Johto gyms — and its offensive typing is resisted everywhere.","Only take this if you want the run to be hard on purpose. If you do, plan on a second attacker much earlier."]
+ ["<b>Chikorita</b>","Bayleef → Meganium","The challenge run. Weak to Falkner, Bugsy, Morty, Jasmine and Pryce — five of eight Johto gyms — and its offensive typing is resisted almost everywhere.","Do not take this one. If you already have, set the toolbar selector to Chikorita and the guide will route you around it."]
 ]}],
-["team","<b>If you want one recommendation:</b> take <b>Cyndaquil</b>. Johto’s wild Pokémon give you Water, Flying, Ground and Electric for free, but they will not hand you a good Fire type for another twenty hours. Totodile is the fine second choice if you would rather have Surf on a real attacker."],
+["team","<b>Take Cyndaquil.</b> That is the recommendation — not a preference. Johto hands you Water, Flying, Ground and Electric for free from wild encounters, but it will not give you a usable Fire type for another twenty hours, and Fire is what beats Bugsy, Jasmine, Erika and Koga’s Forretress.<br><br>Already started with something else? Set the <b>starter selector in the toolbar</b> and every roster in this guide re-plans around it. Do not restart — all three finish the game."],
 ["h","A six that works, all catchable in Johto without trading"],
 ["catch",[
  {n:"Typhlosion", t:["Fire"], where:"Starter — New Bark Town", why:"Your special sweeper all game. Flamethrower via the Goldenrod Game Corner is the single biggest power spike available before badge five."},
@@ -809,13 +814,13 @@ body:[
  {n:"Heracross", t:["Bug","Fighting"], where:"Headbutt trees — Azalea Town, Routes 42/44/45/46", why:"The answer to Whitney, to Kanto's Normal walls, and to Karen's Dark types. Requires Headbutt from the Ilex Forest tutor, so it slots in right after badge two."},
  {n:"Quagsire", t:["Water","Ground"], where:"Wooper — Route 32 (night) and Union Cave", why:"Immune to Electric, resists Rock and Fire, and covers the Ground weakness on your Fire and Electric slots. Unspectacular but it plugs the exact holes this team has."}
 ]],
-["h","Strong alternatives, and what they cost you"],
+["h","The additions worth making — and the ones to skip"],
 ["ul",[
- "<b>Lapras</b> (Union Cave B2F, Fridays only, from badge four) — a better bulk option than Quagsire and the best HM carrier in the game. Costs you a week of real time if you miss the Friday window.",
- "<b>Espeon / Umbreon</b> (Eevee gift from Bill in Goldenrod) — Espeon is a better special attacker than almost anything else available at that point; Umbreon is the sturdiest thing in Johto. Evolve by levelling up with high friendship during the day (Espeon) or at night (Umbreon).",
- "<b>Dragonite</b> (Dratini gift in Dragon’s Den after Clair, or fishing there) — arrives at Lv 15 with ExtremeSpeed if you answer the elder’s questions kindly. Evolves at 55, so it is really an Elite Four and Kanto project.",
- "<b>Tyranitar</b> (Larvitar, Mt. Silver) — post-game only. Save it for the Elite Four rematch and the Frontier.",
- "<b>Steelix / Scizor / Gengar / Machamp / Alakazam</b> — all excellent, all need a trade. If you set up the two-instance trick in the setup chapter, they are on the table.",
+ "<b>Take it — Lapras</b> (Union Cave B2F, Fridays only, from badge four). Go on the first Friday after your fourth badge. It is bulkier than Quagsire and the best HM carrier in the game. If you miss the window, carry on without it — do not stall a week.",
+ "<b>Take it — Umbreon</b> (Eevee gift from Bill in Goldenrod). Level it up at <i>night</i> with high friendship. Umbreon over Espeon: it is immune to Psychic, which walls Will and Sabrina outright, and it survives things Espeon does not. Use the Goldenrod haircut brothers daily to get there.",
+ "<b>Skip it for Johto — Dragonite</b> (Dratini gift in Dragon’s Den after Clair). It evolves at 55, which is after the Elite Four. Take the gift, box it, and level it during Kanto for the Elite Four rematch.",
+ "<b>Take it, but later — Tyranitar</b> (Larvitar, Mt. Silver). Post-game only. Catch it on your first climb and level it before Red: Rock is 4× on his Charizard.",
+ "<b>Skip them for the main run — Steelix, Scizor, Gengar, Machamp, Alakazam.</b> All excellent, all need a trade. Set up the two-instance trick for the Pokédex, not for your playthrough team — the six below already beat every gym.",
  "<b>Togekiss</b> is <i>not</i> available: the Shiny Stone is post-game, and in Gen 4 Togekiss is Normal/Flying, not Fairy."
 ]],
 ["h","The HM problem, solved once"],
@@ -902,7 +907,7 @@ body:[
 ["h","Worth catching now"],
 ["catch",[
  {n:"Sentret", t:["Normal"], where:"Routes 29–31, day", why:"This is your HM mule. Furret learns Cut, Strength, Rock Smash, Surf and Whirlpool — five of the eight field moves on one body. It cannot learn Fly, Waterfall or Rock Climb."},
- {n:"Hoothoot", t:["Normal","Flying"], where:"Routes 29–31, night", why:"Early Flying coverage and a serviceable Fly carrier if you would rather not put Fly on Crobat."},
+ {n:"Hoothoot", t:["Normal","Flying"], where:"Routes 29–31, night", why:"Temporary Flying coverage for the first two badges. Fly goes on Crobat later — box Hoothoot at Stage 3."},
  {n:"Bellsprout", t:["Grass","Poison"], where:"Routes 30–31, Sprout Tower", why:"Catch a spare: a trainer beside the Violet City Pokémon Center trades an Onix for one."},
  {n:"Spinarak", t:["Bug","Poison"], where:"Routes 30–31, night (HeartGold only)", why:"Version exclusive — grab one for the dex while you are here rather than trekking back."},
  {n:"Pidgey / Rattata / Caterpie / Weedle", t:["Normal"], where:"Routes 29–31", why:"Dex entries you will otherwise forget about for thirty hours."}
@@ -944,7 +949,7 @@ team:[
  {m:"Pidgeotto", l:13, t:["Normal","Flying"], note:"Gust, Mud-Slap, Roost. The Mud-Slap accuracy drops are the whole fight — and it can heal."}
 ],
 plan:[
- "Electric or Rock wins outright. If you took Cyndaquil you have neither: lead with a Geodude from Dark Cave, or just out-level with Ember and Quick Attack.",
+ "Electric or Rock wins outright. Cyndaquil players have neither — do not detour for one, just arrive at level 12 and win with Ember and Quick Attack. Falkner is a level check, not a type check.",
  "Do not let Mud-Slap stack. If you eat two, switch out and come back — accuracy drops reset on switch, Roost does not.",
  "Totodile players: Water Gun is neutral here, so this is a level check, not a type check. Bring a Bellsprout for chip damage."
 ],
@@ -1184,7 +1189,7 @@ body:[
 ["warn","Roamers flee on turn one. Before you seriously chase Raikou and Entei, you want: a Pokémon with <b>Mean Look</b> or <b>Block</b> (Crobat learns Mean Look; Wobbuffet works), a way to inflict <b>sleep or paralysis</b>, and a stack of Ultra Balls. Trying to catch them with the tools you have at badge four is a recipe for burning them out of the encounter table for the rest of the run. Note their location on the Pokégear map and come back."],
 ["h","The Dance Theatre → Surf"],
 ["p","A Team Rocket grunt is harassing the Kimono Girls in the Dance Theatre. Deal with him and the old man there gives you <b>HM03 Surf</b> — the single largest map unlock in the game."],
-["tip","Put Surf on Gyarados or Lapras rather than the mule. It is a 95-power STAB move for either of them and you will use it in real fights for the next forty hours."],
+["tip","Put Surf on <b>Quagsire</b> now — it is the only real Water type you own at this point, and Surf is a 95-power STAB move on it. When Gyarados joins at Stage 12, teach Surf there instead and free Quagsire's move slot. Never put Surf on the mule."],
 ["boss",{
 name:"Morty", role:"Ecruteak City Gym · Ghost", badge:"Fog Badge",
 team:[
@@ -1277,7 +1282,7 @@ team:[
 plan:[
  "<b>Flying</b> and <b>Psychic</b> are both 2× on Primeape and Psychic is 2× on Poliwrath. A Crobat or a Kadabra ends this quickly.",
  "The Poliwrath answer is <b>Electric</b> or <b>Grass</b> — Ampharos is 2× on it and outruns nothing, so bring it in on a switch rather than trading hits.",
- "When Poliwrath uses <b>Mind Reader</b>, the follow-up Dynamic Punch is guaranteed. Either KO it that turn or switch to something you can afford to lose to confusion.",
+ "When Poliwrath uses <b>Mind Reader</b>, the follow-up Dynamic Punch is guaranteed. KO it that turn. If you cannot, switch Quagsire in and take the hit there — not on your sweeper.",
  "Do not lead with your Normal-type mule. Fighting is 2× and Primeape hits hard for its level."
 ],
 reward:"TM01 Focus Punch and the Storm Badge. Chuck’s wife, outside the gym, gives you <b>HM02 Fly</b>."
@@ -1481,7 +1486,7 @@ reward:"TM59 Dragon Pulse — but <b>not the badge</b>. Clair sends you to the D
 ]}],
 ["do",[
  "Take HM07 Waterfall and TM72 Avalanche from the Ice Path.",
- "Catch a Sneasel (and a Swinub, if you want a Mamoswine project).",
+ "Catch a Sneasel and a Swinub — both, while you are in the Ice Path.",
  "Beat Clair.",
  "Pass the Dragon’s Den quiz and collect the ExtremeSpeed Dratini and the Rising Badge.",
  "Visit the Move Deleter and Move Relearner before you leave town.",
@@ -1642,7 +1647,7 @@ plan:[
  "<b>Electric is 4× on Gyarados and Aerodactyl.</b> An Ampharos with Thunderbolt takes two Pokémon off the board.",
  "<b>Rock is 4× on Charizard.</b> Rock Slide from anything works.",
  "Every Dragonite has <b>Hyper Beam</b>. Survive it and you get a free turn while it recharges — a Focus Sash-style survival is not available here, so plan on switching a body in to eat it.",
- "Thunder Wave from the first Dragonite ruins your speed control. If your Ice user gets paralysed, consider switching it out and healing later rather than fighting through 25% full-paralysis rolls."
+ "Thunder Wave from the first Dragonite ruins your speed control. If your Ice user gets paralysed, switch it out immediately and cure it between fights — do not fight through 25% full-paralysis rolls with the Pokémon that beats half his team."
 ],
 reward:"The Hall of Fame, the credits, and the National Pokédex."
 }]
@@ -1797,7 +1802,7 @@ team:[
 plan:[
  "Only three Pokémon, all pure Psychic. <b>Dark</b> and <b>Bug</b> are the answers — Crunch, Bite, Megahorn, X-Scissor.",
  "A <b>Dark type is immune to Psychic</b> in Gen 4, so an Umbreon, Houndoom or Weavile can sit in front of this entire gym.",
- "They stack <b>Reflect</b> and <b>Light Screen</b>. Bring physical damage if they put up Light Screen and special if they put up Reflect — or just use a move that breaks through (Brick Break removes screens).",
+ "They stack <b>Reflect</b> and <b>Light Screen</b>. Bring <b>Brick Break</b> — it removes both screens outright and saves you guessing which one is up.",
  "Alakazam has <b>Recover</b> and huge Special Attack. Kill it in one turn with a physical Dark move."
 ],
 reward:"TM48 Skill Swap and the Marsh Badge."
@@ -2029,7 +2034,7 @@ reward:"Nothing but the ending. And the two things below."
 STAGES.push({
 id:"dex-what", ch:"dex", tag:"Completion", place:"Definitions",
 title:"What “100%” actually means in this game",
-lede:"There are four honest finish lines and they are very far apart. Pick one before you start grinding, because the last one is not reachable on a single cartridge by design.",
+lede:"There are four honest finish lines. <b>Aim for Tier 3</b> — it is everything one cartridge can hold, and it is the target the rest of this guide is written against. Tier 4 needs other games, by design.",
 body:[
 ["h","The four tiers"],
 ["table",{cols:["Tier","What it takes","Roughly"],rows:[
@@ -2268,12 +2273,12 @@ body:[
 ["h","The three routes around it"],
 ["ul",[
  "<b>A second instance.</b> melonDS emulates local wireless, so two copies on one Deck can trade. This solves version exclusives and every trade evolution. It is the cleanest option and requires nothing beyond a second save file.",
- "<b>A community Wi-Fi server.</b> Point the DS Wi-Fi settings at a replacement DNS (the widely used address is <code class=\"mono\">164.132.44.106</code>) with melonDS in direct networking mode. This restores Mystery Gift and the GTS. Fiddly on SteamOS, and worth attempting only if you want the event episodes played legitimately.",
+ "<b>Skip the community Wi-Fi server.</b> You can point the DS Wi-Fi settings at a replacement DNS (commonly <code class=\"mono\">164.132.44.106</code>) with melonDS in direct networking mode, which restores Mystery Gift and the GTS. On SteamOS it is genuinely fiddly, and PKHeX reaches the same three gifts in ten minutes. Only attempt this if you actively want to tinker.",
  "<b>PKHeX.</b> Runs on the Deck in Desktop Mode. Used carefully — generating the event <i>gift</i> rather than the Pokémon — you still play the Sinjoh Ruins and Ilex Forest episodes, you just skip a server that no longer exists."
 ]],
-["tip","If completion matters to you, decide the PKHeX question <i>before</i> you build a 493-entry plan. Injecting a Celebi and injecting a full living dex are very different decisions and only one of them leaves you with a game left to play."],
+["tip","Settle this before you build a 493-entry plan, and settle it the way the setup chapter says: <b>PKHeX for the three event gifts and the Pokéwalker routes, nothing else.</b> Injecting a Celebi and injecting a living dex are not the same decision, and only one of them leaves you with a game left to play."],
 ["do",[
- "Decide your stance on events and the Pokéwalker.",
+ "Restore the three event gifts and the Pokéwalker entries with PKHeX — and nothing else.",
  "Set up a SoulSilver save on a second instance for version exclusives.",
  "Migrate Gen 3 Pokémon via Pal Park if you have the ROMs.",
  "Trade in the Sinnoh legendaries if you have Diamond, Pearl or Platinum."
@@ -2587,7 +2592,7 @@ notes:{chikorita:"This is your best gym. Bayleef resists nothing relevant but ou
 R("j07",{lv:"20 → 23", form:"mid", sum:"The one stage where two of the three starters should actively recruit. Fire is nearly absent from Johto and Routes 36–37 are where you fix that.",
 slots:[
  {n:"%S%", role:"Lead", st:"keep", w:""},
- {n:"Growlithe", t:["Fire"], role:"Fire coverage", st:"add", only:["totodile","chikorita"], w:"Routes 36–37, HeartGold exclusive. This is your Fire answer for Jasmine and Erika — Cyndaquil players already have one and can skip it."},
+ {n:"Growlithe", t:["Fire"], role:"Fire specialist", st:"add", only:["totodile","chikorita"], w:"Routes 36–37, HeartGold exclusive. Evolve it with a Fire Stone. This is a specialist, not a permanent member: box it between gyms and swap it in for <b>Jasmine (Stage 11)</b> and <b>Erika and Janine (Kanto 04)</b>, where your starter does nothing."},
  {n:"Abra", t:["Psychic"], role:"Morty answer", st:"add", w:"Routes 33–35, rare and it Teleports on turn one. Kadabra's Psychic is 2× on every Pokémon in the next gym."},
  {n:"Heracross", t:["Bug","Fighting"], role:"Physical breaker", st:"keep", w:""},
  {n:"Flaaffy", t:["Electric"], role:"Special attacker", st:"keep", w:""},
@@ -2616,7 +2621,7 @@ slots:[
  {n:"Ampharos", t:["Electric"], role:"Special attacker", st:"keep", w:"Should be evolved by now."},
  {n:"Heracross", t:["Bug","Fighting"], role:"Physical breaker", st:"keep", w:""},
  {n:"Kadabra", t:["Psychic"], role:"Special coverage", st:"keep", w:"Still pulling weight against Chuck next stage."},
- {n:"Quagsire", t:["Water","Ground"], role:"Utility", st:"keep", w:"Evolves at 20. Teach it Surf when you can spare the slot — it is a fine second water carrier."}
+ {n:"Quagsire", t:["Water","Ground"], role:"Utility", st:"keep", w:"Evolves at 20. Teach it Surf now — it is your Surf carrier until Gyarados takes the job at Stage 12."}
 ]});
 
 R("j10",{lv:"28 → 32", form:"mid", sum:"Chuck is a Flying and Psychic check, and you are carrying both. The real prize is Fly, which changes how you move for the rest of the run.",
@@ -2634,7 +2639,9 @@ notes:{cyndaquil:"Quilava is 2× weak to Poliwrath's Surf and does nothing back.
 R("j11",{lv:"30 → 34", form:"mid", sum:"Jasmine is a Ground-then-Fire fight. Nothing new joins — this is about bringing the right two bodies and remembering that Gen 4 Steel resists Dark and Ghost.",
 slots:[
  {n:"Quagsire", t:["Water","Ground"], role:"Magnemite deleter", st:"keep", w:"Ground is <b>4×</b> on both Magnemite. Mud Bomb or Dig clears half the gym unassisted."},
- {n:"%S%", role:"Steelix answer", st:"keep", w:"Fire, Water and Fighting are all 2× on Steelix — whichever starter you took has one of them."},
+ {n:"%S%", role:"Steelix answer", st:"keep", only:["cyndaquil","totodile"], w:"Fire and Water are both 2× on Steelix. Lead with it after Quagsire clears the Magnemite."},
+ {n:"%S%", role:"Bench this gym", st:"bench", only:["chikorita"], w:"Grass does nothing to Steel and nothing to Magnemite. Meganium sits this badge out entirely."},
+ {n:"Arcanine", t:["Fire"], role:"Swap in — Steelix answer", st:"add", only:["chikorita"], w:"Bring in the Growlithe you caught on Route 36, evolved. Fire is 2× on Steelix and this is the fight you caught it for."},
  {n:"Heracross", t:["Bug","Fighting"], role:"Steelix answer", st:"keep", w:"Fighting is 2× on Steelix and it survives Iron Tail comfortably."},
  {n:"Crobat", t:["Poison","Flying"], role:"Fly carrier", st:"keep", w:"Poison does nothing to Steel — keep it out of the gym itself."},
  {n:"Ampharos", t:["Electric"], role:"Bench this gym", st:"bench", w:"Electric is resisted by Steelix and does nothing useful to Magnemite either."},
@@ -2650,11 +2657,11 @@ slots:[
  {n:"Crobat", t:["Poison","Flying"], role:"Fast sweeper · Fly", st:"keep", w:""},
  {n:"Heracross", t:["Bug","Fighting"], role:"Physical breaker", st:"keep", w:""},
  {n:"Quagsire", t:["Water","Ground"], role:"Utility · Ground", st:"keep", w:"Ice Beam goes nicely here too if Gyarados is busy."},
- {n:"Kadabra", t:["Psychic"], role:"Make room", st:"swap", w:"Box it for Gyarados. If you would rather keep Kadabra, drop Quagsire instead — but you lose your Electric immunity, which Lt. Surge punishes hard in Kanto."},
+ {n:"Kadabra", t:["Psychic"], role:"Make room", st:"swap", w:"Box it for Gyarados. Keep Quagsire — its Electric immunity is what beats Lt. Surge in Kanto, and Kadabra's best fights are already behind it. Do not box Quagsire instead."},
  {n:"Furret", t:["Normal"], role:"Off the team", st:"swap", w:"Gyarados now carries the water HMs, so the mule only needs to exist in the PC. Swap it in for Cut and Rock Smash, then swap it back out."}
 ],
 notes:{cyndaquil:"This is the fight your run has been waiting for. Typhlosion plus Gyarados covers almost everything Johto has left.",
-       totodile:"You now have two Water types. That is fine — Feraligatr is your physical attacker and Gyarados is the HM carrier — but consider boxing Quagsire rather than Kadabra to keep your coverage wide."}});
+       totodile:"You now have two Water types, and that is fine: Feraligatr attacks, Gyarados carries the HMs. Box Kadabra exactly as above — keep Quagsire. Its Electric immunity matters more in Kanto than Kadabra's Psychic does."}});
 
 R("j13",{lv:"34 → 38", form:"final", sum:"Your final six is now set. Pryce is an Ice gym, which means Electric, Fighting and — if you have it — Grass do the work.",
 slots:[
@@ -2684,7 +2691,7 @@ slots:[
  {n:"%S%", role:"Kingdra breaker", st:"keep", w:"Kingdra has no 2× weakness outside Dragon in Gen 4 — you beat it with raw neutral damage from your strongest attacker."},
  {n:"Heracross", t:["Bug","Fighting"], role:"Neutral damage", st:"keep", w:"Megahorn hits Kingdra hard even at neutral."},
  {n:"Crobat", t:["Poison","Flying"], role:"Speed control", st:"keep", w:""},
- {n:"Quagsire", t:["Water","Ground"], role:"Backup Ice Beam", st:"keep", w:"A second legal Ice Beam body if you would rather keep Gyarados physical."}
+ {n:"Quagsire", t:["Water","Ground"], role:"Backup Ice Beam", st:"keep", w:"Teach Ice Beam to Gyarados, not here. This is your fallback only if Gyarados goes down early."}
 ],
 notes:{totodile:"Feraligatr learns Ice Fang by level-up — you may not need the TM at all.",
        chikorita:"Meganium contributes almost nothing here. Lean on Gyarados and Ampharos and treat your starter as a body to absorb a Dragon Rage."}});
@@ -2704,7 +2711,7 @@ slots:[
  {n:"%S%", role:"Lead", st:"keep", w:"Aim for level 45 before you walk in."},
  {n:"Gyarados", t:["Water","Flying"], role:"Physical ace", st:"keep", w:"Make sure Ice Beam is on it before Victory Road — Lance is four Ice-weak Pokémon in a trench coat."},
  {n:"Ampharos", t:["Electric"], role:"Special attacker", st:"keep", w:"Thunderbolt is 4× on Lance's Gyarados and Aerodactyl."},
- {n:"Crobat", t:["Poison","Flying"], role:"Fast sweeper", st:"keep", w:"Consider Mean Look if you plan to chase Raikou and Entei — it is the only way to stop a roamer fleeing."},
+ {n:"Crobat", t:["Poison","Flying"], role:"Fast sweeper", st:"keep", w:"Teach it Mean Look. It is the only way to stop Raikou and Entei fleeing on turn one, and you will be chasing both in the post-game."},
  {n:"Heracross", t:["Bug","Fighting"], role:"Karen answer", st:"keep", w:"Your single most important Pokémon for the Elite Four."},
  {n:"Quagsire", t:["Water","Ground"], role:"Utility", st:"keep", w:"Pick up TM26 Earthquake in Victory Road and put it here."}
 ]});
@@ -2718,7 +2725,7 @@ slots:[
  {n:"Crobat", t:["Poison","Flying"], role:"vs Bruno", st:"keep", w:"Flying is 2× on four of Bruno's five, and Crobat outruns all of them."},
  {n:"Quagsire", t:["Water","Ground"], role:"vs Koga and Will", st:"keep", w:"Ground is 2× on Muk and Forretress. Earthquake earns its slot here."}
 ],
-notes:{chikorita:"Meganium is the weakest Elite Four starter by a distance — it has no favourable matchup across all five fights. Consider benching it for a Kadabra or a Dragonite you levelled from the Dragon's Den gift."}});
+notes:{chikorita:"Bench Meganium for this gauntlet — it has no favourable matchup across all five fights. Bring the Kadabra you boxed at Stage 12, levelled up: Psychic is 2× on Koga's entire team and on four of Bruno's five."}});
 
 R("k01",{lv:"46 → 52", form:"final", sum:"Kanto opens at levels 47–53 while you arrive around 46. Grind before you fight, and lead with the one Pokémon Lt. Surge cannot touch.",
 slots:[
@@ -2753,8 +2760,10 @@ notes:{chikorita:"Finally your stage. Meganium is 4× effective on Misty's Quags
 
 R("k04",{lv:"54 → 58", form:"final", sum:"Erika is a Fire check and Janine is a Psychic check. You own the first; the second you may need to buy.",
 slots:[
- {n:"%S%", role:"vs Erika", st:"keep", w:"Fire clears the entire Grass gym. Cyndaquil players sweep it; the other two should bring the Growlithe they caught on Route 36."},
- {n:"TM29 Psychic user", t:["Psychic"], role:"vs Janine", st:"add", w:"Psychic is 2× on all five of Janine's Pokémon and your six has no Psychic move. Buy <b>TM29</b> at the Celadon Game Corner and put it on Ampharos or your starter if either is compatible — otherwise bring a boxed Kadabra."},
+ {n:"%S%", role:"Gym killer — both gyms", st:"keep", only:["cyndaquil"], w:"Fire clears Erika outright, and Flamethrower is 2× on three of Janine's five. Typhlosion does both gyms on its own."},
+ {n:"%S%", role:"Bench both gyms", st:"bench", only:["totodile","chikorita"], w:"Grass is resisted by Erika's entire gym and Water does nothing special to either leader. Sit both out."},
+ {n:"Arcanine", t:["Fire"], role:"Swap in — both gyms", st:"add", only:["totodile","chikorita"], w:"The Growlithe from Route 36, evolved. Fire is 2× on all four of Erika's Pokémon and on three of Janine's five. This is its second and last scheduled job."},
+ {n:"Ampharos", t:["Electric"], role:"vs Janine's Crobat", st:"keep", w:"Thunderbolt is 2× on Crobat (Poison/Flying), the one Pokémon your Fire type does not cover. You do not need TM29 Psychic here — Fire, Electric and Ground cover all five between them."},
  {n:"Crobat", t:["Poison","Flying"], role:"vs Erika", st:"keep", w:"Flying is 2× on four of Erika's Pokémon and Poison is 2× on Grass."},
  {n:"Quagsire", t:["Water","Ground"], role:"vs Janine", st:"keep", w:"Ground is 2× on Weezing, and Quagsire is immune to nothing here but tanks Toxic poorly — watch it."},
  {n:"Heracross", t:["Bug","Fighting"], role:"Physical breaker", st:"keep", w:"Careful: 2× weak to Erika's Flying and to Janine's Psychic-move Venomoth."},
@@ -2799,12 +2808,44 @@ slots:[
  {n:"Heracross", t:["Bug","Fighting"], role:"vs Snorlax", st:"keep", w:"Fighting is 2× on Snorlax, which otherwise has more HP than you have patience for."},
  {n:"Tyranitar", t:["Rock","Dark"], role:"vs Charizard", st:"add", w:"Rock is <b>4×</b> on Charizard. Larvitar spawns on the Mt. Silver mountainside — catch it on the way up and level it here."},
  {n:"Ampharos", t:["Electric"], role:"vs Lapras and Blastoise", st:"keep", w:"2× on both of Red's Water types."},
- {n:"%S%", role:"vs Venusaur", st:"keep", w:"Fire is 2× on Venusaur. Water and Grass starters contribute much less to this fight — consider benching for a Psychic or Flying attacker."},
+ {n:"%S%", role:"vs Venusaur", st:"keep", w:"Fire is 2× on Venusaur, so Typhlosion earns its slot. Feraligatr and Meganium do not — bench them here and bring the Dragonite you levelled during Kanto instead."},
  {n:"Gyarados", t:["Water","Flying"], role:"Ice Beam body", st:"keep", w:"Still your Ice Beam carrier, and Intimidate softens Snorlax's Body Slam."}
 ],
 notes:{cyndaquil:"Typhlosion handles Venusaur cleanly and threatens nothing else — but Blast Burn from the Frontier tutor makes it a genuine nuke for one turn.",
        totodile:"Feraligatr is resisted by Blastoise and Lapras both. Its best target is Charizard, and Tyranitar does that better.",
        chikorita:"Meganium is 2× effective on Lapras and Blastoise, which is more than either other starter manages here. Keep it in."}});
+
+
+/* ---- the single next action for each stage ---- */
+const NOW = {
+ j01:"Run Elm's errand to Mr. Pokémon on Route 30. Catch a Sentret on Route 29 on the way, and a Hoothoot after dark.",
+ j02:"Clear Sprout Tower for TM70 Flash, trade a spare Bellsprout for the Onix beside the Pokémon Center, then beat Falkner.",
+ j03:"Catch a Mareep on Route 32 — that is the priority. Then take the Old Rod, add a Zubat and a Wooper, and cross Union Cave.",
+ j04:"Clear Slowpoke Well, take the King's Rock inside, hand Kurt a stack of green Apricorns, then beat Bugsy by leading Onix into Scyther.",
+ j05:"Herd the Farfetch'd for HM01 Cut, learn Headbutt from the Ilex Forest tutor, then headbutt Azalea's trees until a Heracross falls out.",
+ j06:"Buy the Amulet Coin in the Goldenrod department store basement, then beat Whitney: Onix eats the Rollouts, Heracross does the killing.",
+ j07:"Use the SquirtBottle on the Route 36 tree and <b>catch</b> Sudowoodo — do not knock it out. Then take HM06 Rock Smash and hunt an Abra.",
+ j08:"Fight through the Burned Tower, take HM03 Surf from the Dance Theatre, then beat Morty with Kadabra.",
+ j09:"Heal the Moomoo Farm Miltank for TM83, take the Good Rod in Olivine, then climb the lighthouse and talk to Jasmine.",
+ j10:"Surf south to Cianwood, take the SecretPotion, beat Chuck with Crobat, then collect HM02 Fly from his wife outside the gym.",
+ j11:"Open the Safari Zone and place your first blocks — it runs on a real-world clock, so starting it now costs you nothing. Then deliver the SecretPotion and beat Jasmine.",
+ j12:"Catch the red Gyarados at Lake of Rage, then fly to Route 30 and trade its Red Scale to Mr. Pokémon for the Exp. Share.",
+ j13:"Clear the Rocket base under the Mahogany souvenir shop, take HM05 Whirlpool from Lance, then beat Pryce with Ampharos and Heracross.",
+ j14:"Retake the Radio Tower through the Goldenrod Underground, free the Director, and take the Clear Bell.",
+ j15:"Take HM07 Waterfall from the Ice Path, teach Gyarados Ice Beam, beat Clair, then answer the elder's five questions exactly as listed below.",
+ j16:"Beat all five Kimono Girls back to back, then climb the Bell Tower and catch Ho-Oh with False Swipe and a sleep move.",
+ j17:"Sweep Victory Road for TM26 Earthquake, beat your rival, and get every team member to level 45 before you walk into the League.",
+ "lg-e4":"Buy 10 Full Restores, 5 Revives and 4 Full Heals at Indigo Plateau, save in-game, then start the gauntlet.",
+ k01:"Grind to level 50 before you fight anything in Kanto. Then take the Poké Doll from the Vermilion Fan Club and beat Lt. Surge with Quagsire.",
+ k02:"Recover the Machine Part from the Rocket in the Cerulean Gym, restore the Power Plant, take the EXPN Card at Lavender, then <b>catch</b> the Snorlax on Route 11.",
+ k03:"Beat Eusine on Route 25 and catch Suicune, then take Misty and Sabrina.",
+ k04:"Beat Erika and Janine with your Fire type, then buy the Celadon department store TMs you are missing.",
+ k05:"Talk to the old man in Pewter City and take the <b>Silver Wing</b> — it is the easiest key item in the game to walk past. Then beat Brock with Gyarados.",
+ k06:"Cross Seafoam Islands with Surf, Strength and Waterfall, beat Blaine, and note Articuno for a Rock Climb return.",
+ k07:"Beat Blue, then fly to Pallet Town and show Prof. Oak all 16 badges for HM08 Rock Climb.",
+ r01:"Catch a Larvitar on the Mt. Silver mountainside and level it to Tyranitar before you challenge Red. Everything else here is grinding to 75."
+};
+Object.keys(NOW).forEach(k => { if (ROSTERS[k]) ROSTERS[k].now = NOW[k]; });
 
 /* ---- attach a roster board to the top of every stage that has one ---- */
 STAGES.forEach(s => { if (ROSTERS[s.id]) s.body.unshift(["roster", s.id]); });
@@ -2821,7 +2862,8 @@ function rosterHTML(id){
   const slots = r.slots.filter(sl => !sl.only || sl.only.indexOf(STARTER) !== -1);
   const note = r.notes && r.notes[STARTER];
 
-  return '<div class="party">' +
+  return (r.now ? '<div class="donow"><span class="lbl">Do this now</span><p>' + starterTok(r.now, nm) + '</p></div>' : "") +
+    '<div class="party">' +
     '<div class="ph"><h4>Your party at this point</h4>' +
       '<span class="lv">target Lv ' + esc(r.lv) + '</span>' +
       '<span class="who">' + esc(nm) + ' run</span></div>' +
