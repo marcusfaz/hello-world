@@ -1,0 +1,2659 @@
+<title>The Johto Circuit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=DM+Mono:wght@400;500&display=swap">
+
+<style>
+/* ─────────────────────────────────────────────
+   THE JOHTO CIRCUIT — tokens
+   Light palette on :root, redefined for the two
+   dark states. Every colour comes from a token.
+   ───────────────────────────────────────────── */
+:root{
+  --bg:#F4F2EC; --surface:#FBFAF6; --surface2:#EAE6DC; --sunk:#E3DFD2;
+  --line:#DAD4C6; --line-soft:#E6E1D5;
+  --ink:#1F1D18; --ink2:#575142; --ink3:#847C6A;
+  --gold:#9E6D12; --gold-ink:#7A5309; --gold-wash:#F3E7C9;
+  --indigo:#2C3E63; --indigo-wash:#DFE4EE;
+  --ember:#9E3520; --ember-wash:#F5DFD9;
+  --good:#2A6244; --good-wash:#DCEBE1;
+  --shadow:0 1px 0 rgba(31,29,24,.05), 0 8px 24px -16px rgba(31,29,24,.35);
+  --rail:268px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#131210; --surface:#1B1915; --surface2:#22201A; --sunk:#100F0D;
+    --line:#332F28; --line-soft:#2A2721;
+    --ink:#F0EBDE; --ink2:#A79E8A; --ink3:#7E7664;
+    --gold:#E0AC4C; --gold-ink:#EFC475; --gold-wash:#33280F;
+    --indigo:#93ACDA; --indigo-wash:#1E2536;
+    --ember:#E2856B; --ember-wash:#33201A;
+    --good:#77C39A; --good-wash:#16281F;
+    --shadow:0 1px 0 rgba(0,0,0,.4), 0 10px 26px -18px rgba(0,0,0,.9);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#131210; --surface:#1B1915; --surface2:#22201A; --sunk:#100F0D;
+  --line:#332F28; --line-soft:#2A2721;
+  --ink:#F0EBDE; --ink2:#A79E8A; --ink3:#7E7664;
+  --gold:#E0AC4C; --gold-ink:#EFC475; --gold-wash:#33280F;
+  --indigo:#93ACDA; --indigo-wash:#1E2536;
+  --ember:#E2856B; --ember-wash:#33201A;
+  --good:#77C39A; --good-wash:#16281F;
+  --shadow:0 1px 0 rgba(0,0,0,.4), 0 10px 26px -18px rgba(0,0,0,.9);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Newsreader",Georgia,"Times New Roman",serif;
+  font-size:17px; line-height:1.62;
+  font-optical-sizing:auto;
+}
+h1,h2,h3,h4,.dsp{font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;font-weight:800;letter-spacing:-.02em;text-wrap:balance;line-height:1.12;margin:0}
+.mono,code,kbd,td.num,.num{font-family:"DM Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+a{color:var(--indigo);text-underline-offset:2px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:2px}
+button{font:inherit;color:inherit}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* ── shell: the two-screen layout ── */
+.shell{display:grid;grid-template-columns:var(--rail) minmax(0,1fr);max-width:1460px;margin:0 auto;min-height:100vh}
+.rail{
+  position:sticky;top:0;height:100vh;overflow-y:auto;overscroll-behavior:contain;
+  background:var(--surface);border-right:1px solid var(--line);
+  padding:20px 0 40px;
+}
+.rail::-webkit-scrollbar{width:9px}
+.rail::-webkit-scrollbar-thumb{background:var(--line);border-radius:9px}
+
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.42);z-index:55;display:none}
+.brand{padding:0 20px 16px;border-bottom:1px solid var(--line-soft);margin-bottom:14px}
+.brand .wing{font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px}
+.brand h1{font-size:23px;line-height:1.05}
+.brand p{margin:7px 0 0;font-size:13.5px;color:var(--ink2);line-height:1.45}
+
+.meter{display:flex;align-items:center;gap:9px;padding:10px 20px 14px}
+.meter .bar{flex:1;height:6px;background:var(--sunk);border-radius:99px;overflow:hidden}
+.meter .bar i{display:block;height:100%;background:var(--gold);width:0;transition:width .35s ease}
+.meter .pct{font-family:"DM Mono",monospace;font-size:12px;color:var(--ink2);font-variant-numeric:tabular-nums}
+
+.navgroup{margin:0 0 6px}
+.navgroup > .ghead{
+  display:flex;align-items:baseline;gap:8px;width:100%;text-align:left;
+  padding:9px 20px 5px;background:none;border:0;cursor:pointer;
+  font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3);
+}
+.navgroup > .ghead .gcount{margin-left:auto;font-size:10.5px;color:var(--ink3);font-variant-numeric:tabular-nums}
+.navlist{list-style:none;margin:0;padding:0}
+.navlist a{
+  display:flex;gap:9px;align-items:flex-start;
+  padding:6px 20px 6px 20px;font-family:"Bricolage Grotesque",sans-serif;font-weight:500;
+  font-size:14px;line-height:1.3;color:var(--ink2);text-decoration:none;border-left:2px solid transparent;
+}
+.navlist a:hover{color:var(--ink);background:var(--surface2)}
+.navlist a.on{color:var(--ink);border-left-color:var(--gold);background:var(--gold-wash)}
+.navlist a .tick{flex:0 0 auto;width:13px;height:13px;margin-top:3px;border:1.5px solid var(--line);border-radius:3px;background:var(--surface)}
+.navlist a.done .tick{background:var(--gold);border-color:var(--gold);position:relative}
+.navlist a.done .tick::after{content:"";position:absolute;left:3.5px;top:.5px;width:3px;height:7px;border:solid var(--surface);border-width:0 1.6px 1.6px 0;transform:rotate(42deg)}
+.navlist a .n{font-family:"DM Mono",monospace;font-size:11px;color:var(--ink3);margin-top:1px}
+
+/* ── main column ── */
+.main{min-width:0;padding:0 0 120px}
+.topbar{
+  position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 95%,transparent);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  display:flex;gap:10px;align-items:center;padding:10px 28px;flex-wrap:wrap;
+}
+.menubtn{display:none}
+.searchwrap{position:relative;flex:1;min-width:180px;max-width:420px}
+.searchwrap input{
+  width:100%;padding:8px 12px 8px 32px;border:1px solid var(--line);border-radius:5px;
+  background:var(--surface);color:var(--ink);font-family:"Bricolage Grotesque",sans-serif;font-size:14px;
+}
+.searchwrap input::placeholder{color:var(--ink3)}
+.searchwrap svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:14px;height:14px;stroke:var(--ink3);fill:none;stroke-width:2}
+.tbtn{
+  border:1px solid var(--line);background:var(--surface);border-radius:5px;padding:7px 11px;cursor:pointer;
+  font-family:"DM Mono",monospace;font-size:11.5px;letter-spacing:.04em;color:var(--ink2);white-space:nowrap;
+}
+.tbtn:hover{border-color:var(--gold);color:var(--ink)}
+.tbtn[aria-pressed="true"]{background:var(--gold-wash);border-color:var(--gold);color:var(--gold-ink)}
+.daypick{
+  border:1px solid var(--line);background:var(--surface);border-radius:5px;padding:7px 9px;
+  font-family:"DM Mono",monospace;font-size:11.5px;color:var(--ink2);
+}
+
+.wrap{padding:0 28px;max-width:920px}
+.wrap.wide{max-width:1100px}
+
+/* ── stage sections ── */
+.stage{padding:44px 0 8px;border-bottom:1px solid var(--line-soft);scroll-margin-top:64px}
+.stage:last-child{border-bottom:0}
+.stage.hide{display:none}
+.eyebrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.eyebrow .tag{font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ink);background:var(--gold-wash);padding:3px 8px;border-radius:3px}
+.eyebrow .where{font-family:"DM Mono",monospace;font-size:11.5px;color:var(--ink3)}
+.stage h2{font-size:clamp(26px,3.4vw,34px);margin-bottom:10px}
+.lede{font-size:18.5px;color:var(--ink2);margin:0 0 22px;max-width:66ch}
+.stage p{max-width:68ch}
+.stage h3{font-size:12.5px;font-weight:500;text-transform:uppercase;color:var(--ink3);margin:30px 0 10px;font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.13em}
+.stage ul.plain{max-width:68ch;padding-left:20px;margin:10px 0}
+.stage ul.plain li{margin:5px 0}
+
+/* level band strip */
+.band{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin:0 0 24px;background:var(--surface)}
+.band div{padding:9px 14px;border-right:1px solid var(--line-soft);flex:1;min-width:132px}
+.band div:last-child{border-right:0}
+.band dt{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:3px}
+.band dd{margin:0;font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:15px;font-variant-numeric:tabular-nums}
+
+/* checklists */
+.checks{list-style:none;margin:12px 0 6px;padding:0;max-width:70ch}
+.checks li{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px dotted var(--line)}
+.checks li:last-child{border-bottom:0}
+.checks input{
+  appearance:none;-webkit-appearance:none;flex:0 0 auto;margin:5px 0 0;
+  width:16px;height:16px;border:1.5px solid var(--line);border-radius:4px;background:var(--surface);cursor:pointer;position:relative;
+}
+.checks input:hover{border-color:var(--gold)}
+.checks input:checked{background:var(--gold);border-color:var(--gold)}
+.checks input:checked::after{content:"";position:absolute;left:4.5px;top:1px;width:4px;height:9px;border:solid var(--surface);border-width:0 1.8px 1.8px 0;transform:rotate(42deg)}
+.checks label{cursor:pointer;font-size:16.5px}
+.checks input:checked + label{color:var(--ink3);text-decoration:line-through;text-decoration-color:var(--line)}
+.checks .sub{display:block;font-size:14px;color:var(--ink3);font-family:"Bricolage Grotesque",sans-serif;font-weight:500;margin-top:1px}
+li.doneRow.hidden{display:none}
+
+/* callouts */
+.note{border:1px solid var(--line);border-radius:6px;padding:13px 16px;margin:18px 0;background:var(--surface);max-width:70ch}
+.note .lbl{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:5px}
+.note p{margin:0;font-size:16px}
+.note.tip{background:var(--indigo-wash);border-color:transparent}
+.note.tip .lbl{color:var(--indigo)}
+.note.warn{background:var(--ember-wash);border-color:transparent}
+.note.warn .lbl{color:var(--ember)}
+.note.team{background:var(--gold-wash);border-color:transparent}
+.note.team .lbl{color:var(--gold-ink)}
+
+/* chip grids: catches & loot */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:10px;margin:12px 0}
+.card{border:1px solid var(--line);border-radius:6px;padding:11px 13px;background:var(--surface)}
+.card .nm{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:15px;display:flex;gap:7px;align-items:baseline;flex-wrap:wrap}
+.card .loc{font-family:"DM Mono",monospace;font-size:11.5px;color:var(--ink3);margin-top:3px;display:block}
+.card .why{font-size:14.5px;color:var(--ink2);margin-top:5px;line-height:1.45}
+.kchip{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.08em;padding:2px 6px;border-radius:3px;background:var(--surface2);color:var(--ink2);text-transform:uppercase}
+.kchip.tm{background:var(--indigo-wash);color:var(--indigo)}
+.kchip.hm{background:var(--gold-wash);color:var(--gold-ink)}
+.kchip.key{background:var(--ember-wash);color:var(--ember)}
+
+/* boss dossier */
+.boss{border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:22px 0;background:var(--surface);box-shadow:var(--shadow)}
+.boss .bh{padding:15px 18px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px;align-items:baseline;background:var(--surface2)}
+.boss .bh h4{font-size:21px}
+.boss .bh .role{font-family:"DM Mono",monospace;font-size:11px;color:var(--ink3);letter-spacing:.06em}
+.boss .bh .badge{margin-left:auto;font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-ink);background:var(--gold-wash);padding:3px 8px;border-radius:3px}
+.tblwrap{overflow-x:auto}
+.tblwrap table{min-width:540px}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th{
+  font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);
+  text-align:left;padding:9px 14px;border-bottom:1px solid var(--line);white-space:nowrap;font-weight:400;
+}
+td{padding:8px 14px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.mon{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;white-space:nowrap}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink2)}
+td.mv{color:var(--ink2);font-size:14px}
+.boss .plan{padding:14px 18px;border-top:1px solid var(--line)}
+.boss .plan ul{margin:8px 0 0;padding-left:19px}
+.boss .plan li{margin:6px 0;font-size:16px}
+.boss .plan .lbl{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3)}
+
+/* type pills */
+.t{display:inline-block;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.05em;text-transform:uppercase;padding:1.5px 5px;border-radius:3px;background:var(--surface2);color:var(--ink2);white-space:nowrap}
+.t.normal{background:#D8D2C2;color:#3B372C}.t.fire{background:#F3C9A4;color:#6B3208}.t.water{background:#BBD4EE;color:#153A63}
+.t.electric{background:#F2DFA4;color:#5F4703}.t.grass{background:#C2DFB4;color:#2A4A1C}.t.ice{background:#BEE1E4;color:#164348}
+.t.fighting{background:#E6BDAE;color:#5E2717}.t.poison{background:#D8BEDE;color:#4A2352}.t.ground{background:#E2D3AE;color:#54401A}
+.t.flying{background:#CFD3EC;color:#2E3466}.t.psychic{background:#F2C3CE;color:#6B2038}.t.bug{background:#D3DFA8;color:#3F4A12}
+.t.rock{background:#DCD0AF;color:#4E4118}.t.ghost{background:#C6BEDD;color:#372C55}.t.dragon{background:#C3C3EE;color:#2C2C66}
+.t.dark{background:#C6BBB0;color:#332821}.t.steel{background:#CFD5DC;color:#2E3841}
+:root[data-theme="dark"] .t, :root:not([data-theme="light"]) .t{filter:none}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .t{filter:brightness(.42) saturate(1.5);color:#F7F3E8!important}}
+:root[data-theme="dark"] .t{filter:brightness(.42) saturate(1.5);color:#F7F3E8!important}
+
+/* reference tables */
+.reftable{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface);margin:18px 0}
+.reftable .rh{display:flex;gap:10px;align-items:center;padding:11px 14px;border-bottom:1px solid var(--line);background:var(--surface2);flex-wrap:wrap}
+.reftable .rh input{flex:1;min-width:150px;padding:6px 10px;border:1px solid var(--line);border-radius:4px;background:var(--surface);color:var(--ink);font-family:"DM Mono",monospace;font-size:12.5px}
+.reftable td .have{appearance:none;-webkit-appearance:none;width:15px;height:15px;border:1.5px solid var(--line);border-radius:3px;background:var(--bg);cursor:pointer;position:relative;vertical-align:-2px}
+.reftable td .have:checked{background:var(--gold);border-color:var(--gold)}
+.reftable td .have:checked::after{content:"";position:absolute;left:4px;top:1px;width:4px;height:8px;border:solid var(--surface);border-width:0 1.6px 1.6px 0;transform:rotate(42deg)}
+tr.rowhide{display:none}
+
+/* day planner */
+.dayboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:16px 0}
+.daycard{border:1px solid var(--line);border-radius:6px;background:var(--surface);padding:12px 14px}
+.daycard.today{border-color:var(--gold);background:var(--gold-wash)}
+.daycard h4{font-size:15px;margin-bottom:7px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.daycard h4 .mk{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-ink)}
+.daycard ul{margin:0;padding-left:17px;font-size:14.5px}
+.daycard li{margin:4px 0;line-height:1.45}
+
+/* team planner */
+.planner{border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:16px 18px;margin:18px 0}
+.slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:9px;margin:12px 0 4px}
+.slot{border:1px dashed var(--line);border-radius:6px;padding:9px 11px;min-height:62px;position:relative;background:var(--bg)}
+.slot.filled{border-style:solid;background:var(--surface2)}
+.slot .sn{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:14.5px}
+.slot .st{margin-top:4px;display:flex;gap:4px;flex-wrap:wrap}
+.slot .x{position:absolute;top:4px;right:5px;border:0;background:none;cursor:pointer;color:var(--ink3);font-size:15px;line-height:1;padding:2px 4px}
+.slot .x:hover{color:var(--ember)}
+.slot .empty{color:var(--ink3);font-family:"DM Mono",monospace;font-size:11px}
+.pool{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;max-height:190px;overflow-y:auto;padding:2px}
+.pool button{
+  border:1px solid var(--line);background:var(--bg);border-radius:99px;padding:4px 11px;cursor:pointer;
+  font-family:"Bricolage Grotesque",sans-serif;font-weight:500;font-size:13px;
+}
+.pool button:hover{border-color:var(--gold);background:var(--gold-wash)}
+.pool button[disabled]{opacity:.38;cursor:default}
+.cover{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:6px;margin-top:14px}
+.cvcell{border:1px solid var(--line-soft);border-radius:5px;padding:7px 9px;background:var(--bg)}
+.cvcell .cvt{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.cvcell .cvv{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:14px;margin-top:2px}
+.cvcell.bad{background:var(--ember-wash)}
+.cvcell.ok{background:var(--good-wash)}
+
+/* misc */
+.footnote{font-size:14px;color:var(--ink3);max-width:70ch;margin-top:26px}
+.srcs{font-size:13.5px;color:var(--ink3)}
+.srcs a{color:var(--ink2)}
+details.backup{border:1px solid var(--line);border-radius:6px;padding:10px 14px;background:var(--surface);margin:22px 0}
+details.backup summary{cursor:pointer;font-family:"DM Mono",monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+details.backup textarea{width:100%;height:110px;margin-top:10px;font-family:"DM Mono",monospace;font-size:11px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink2);padding:8px}
+.rowbtns{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.nores{padding:40px 0;color:var(--ink3);font-family:"DM Mono",monospace;font-size:13px}
+
+@media (max-width:960px){
+  .shell{grid-template-columns:1fr}
+  .rail{position:fixed;inset:0 auto 0 0;width:290px;z-index:60;transform:translateX(-100%);transition:transform .22s ease;box-shadow:var(--shadow)}
+  .rail.open{transform:none}
+  .menubtn{display:inline-flex;align-items:center;gap:6px}
+  .scrim.on{display:block}
+  .wrap{padding:0 18px}
+  body{font-size:16.5px}
+}
+</style>
+
+<div class="shell">
+  <nav class="rail" id="rail" aria-label="Guide contents">
+    <div class="brand">
+      <span class="wing">Pokémon HeartGold · 100% route</span>
+      <h1>The Johto Circuit</h1>
+      <p>A stage-by-stage completion guide, built for a Steam Deck playthrough.</p>
+    </div>
+    <div class="meter" title="Overall completion">
+      <div class="bar"><i id="globalbar"></i></div>
+      <span class="pct" id="globalpct">0%</span>
+    </div>
+    <div id="nav"></div>
+  </nav>
+  <div class="scrim" id="scrim"></div>
+
+  <main class="main">
+    <div class="topbar">
+      <button class="tbtn menubtn" id="menubtn" aria-label="Open contents">☰ Contents</button>
+      <div class="searchwrap">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>
+        <input id="search" type="search" placeholder="Search the guide — “Whitney”, “TM45”, “Heracross”…" autocomplete="off">
+      </div>
+      <select class="daypick" id="daypick" aria-label="In-game day"></select>
+      <button class="tbtn" id="hidedone" aria-pressed="false">Hide done</button>
+      <button class="tbtn" id="themebtn" aria-label="Toggle colour theme">◐</button>
+    </div>
+    <div id="content"></div>
+  </main>
+</div>
+<script>
+/* ============================================================
+   Engine: data containers, persistence, rendering, widgets.
+   Content is appended by the DATA scripts that follow.
+   ============================================================ */
+const CHAPTERS = [];
+const STAGES = [];
+const WIDGETS = {};                 // id -> function(mountEl)
+
+/* ---- persistence (per-browser; export/import below) ---- */
+const KEY = 'johto-circuit-v1';
+let DONE = {};
+try { DONE = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { DONE = {}; }
+function persist(){ try { localStorage.setItem(KEY, JSON.stringify(DONE)); } catch (e) {} }
+
+/* stable id from text so progress survives edits elsewhere in the page */
+function key(scope, text){
+  let h = 5381;
+  const s = scope + '|' + text;
+  for (let i = 0; i < s.length; i++) h = ((h * 33) ^ s.charCodeAt(i)) >>> 0;
+  return scope + '-' + h.toString(36);
+}
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const tpill = t => '<span class="t ' + String(t).toLowerCase() + '">' + esc(t) + '</span>';
+const tpills = a => (a || []).map(tpill).join(' ');
+
+/* ---- block renderers ---- */
+function renderBlock(b, stageId){
+  const kind = b[0], v = b[1];
+  switch (kind){
+    case 'p':    return '<p>' + v + '</p>';
+    case 'h':    return '<h3>' + esc(v) + '</h3>';
+    case 'ul':   return '<ul class="plain">' + v.map(x => '<li>' + x + '</li>').join('') + '</ul>';
+    case 'tip':  return '<div class="note tip"><span class="lbl">Worth knowing</span><p>' + v + '</p></div>';
+    case 'warn': return '<div class="note warn"><span class="lbl">Don\'t miss / can\'t undo</span><p>' + v + '</p></div>';
+    case 'team': return '<div class="note team"><span class="lbl">Team call</span><p>' + v + '</p></div>';
+    case 'html': return v;
+    case 'mount':return '<div data-widget="' + esc(v) + '"></div>';
+
+    case 'do': return '<ul class="checks">' + v.map(item => {
+        const t = typeof item === 'string' ? item : item.t;
+        const sub = (typeof item === 'object' && item.sub) ? '<span class="sub">' + item.sub + '</span>' : '';
+        const id = key(stageId, t);
+        const on = !!DONE[id];
+        return '<li class="doneRow' + (on ? ' isdone' : '') + '" data-k="' + id + '">' +
+          '<input type="checkbox" id="' + id + '" data-k="' + id + '"' + (on ? ' checked' : '') + '>' +
+          '<label for="' + id + '">' + t + sub + '</label></li>';
+      }).join('') + '</ul>';
+
+    case 'catch': return '<div class="grid">' + v.map(c =>
+        '<div class="card"><div class="nm">' + esc(c.n) + ' ' + tpills(c.t) + '</div>' +
+        '<span class="loc">' + esc(c.where) + '</span>' +
+        (c.why ? '<div class="why">' + c.why + '</div>' : '') + '</div>').join('') + '</div>';
+
+    case 'loot': return '<div class="grid">' + v.map(i => {
+        const cls = /^TM/.test(i.k) ? 'tm' : /^HM/.test(i.k) ? 'hm' : i.k === 'Key' ? 'key' : '';
+        return '<div class="card"><div class="nm"><span class="kchip ' + cls + '">' + esc(i.k) + '</span> ' + esc(i.n) + '</div>' +
+          '<span class="loc">' + esc(i.where) + '</span>' + (i.why ? '<div class="why">' + i.why + '</div>' : '') + '</div>';
+      }).join('') + '</div>';
+
+    case 'table': return '<div class="reftable"><div class="tblwrap"><table><thead><tr>' +
+        v.cols.map(c => '<th>' + esc(c) + '</th>').join('') + '</tr></thead><tbody>' +
+        v.rows.map(r => '<tr>' + r.map((c, i) => '<td' + (i ? ' class="mv"' : ' class="mon"') + '>' + c + '</td>').join('') + '</tr>').join('') +
+        '</tbody></table></div></div>';
+
+    case 'boss': {
+      const b2 = v;
+      return '<div class="boss"><div class="bh"><h4>' + esc(b2.name) + '</h4>' +
+        '<span class="role">' + esc(b2.role) + '</span>' +
+        (b2.badge ? '<span class="badge">' + esc(b2.badge) + '</span>' : '') + '</div>' +
+        '<div class="tblwrap"><table><thead><tr><th>Pokémon</th><th>Lv</th><th>Type</th><th>Watch for</th></tr></thead><tbody>' +
+        b2.team.map(m => '<tr><td class="mon">' + esc(m.m) + '</td><td class="num">' + esc(m.l) +
+          '</td><td>' + tpills(m.t) + '</td><td class="mv">' + (m.note || '') + '</td></tr>').join('') +
+        '</tbody></table></div>' +
+        '<div class="plan"><span class="lbl">How you win</span><ul>' +
+        b2.plan.map(p => '<li>' + p + '</li>').join('') + '</ul>' +
+        (b2.reward ? '<p style="margin:12px 0 0;font-size:15px;color:var(--ink2)"><b>Reward:</b> ' + b2.reward + '</p>' : '') +
+        '</div></div>';
+    }
+  }
+  return '';
+}
+
+/* ---- page render ---- */
+function renderAll(){
+  const content = document.getElementById('content');
+  content.innerHTML = STAGES.map(s => {
+    const band = (s.band || []).length
+      ? '<dl class="band">' + s.band.map(x => '<div><dt>' + esc(x.k) + '</dt><dd>' + x.v + '</dd></div>').join('') + '</dl>'
+      : '';
+    return '<section class="stage" id="' + s.id + '"><div class="wrap' + (s.wide ? ' wide' : '') + '">' +
+      '<div class="eyebrow"><span class="tag">' + esc(s.tag || chapterOf(s).name) + '</span>' +
+      (s.place ? '<span class="where">' + esc(s.place) + '</span>' : '') + '</div>' +
+      '<h2>' + esc(s.title) + '</h2>' +
+      (s.lede ? '<p class="lede">' + s.lede + '</p>' : '') + band +
+      s.body.map(b => renderBlock(b, s.id)).join('') +
+      '</div></section>';
+  }).join('');
+
+  content.querySelectorAll('[data-widget]').forEach(el => {
+    const fn = WIDGETS[el.dataset.widget];
+    if (fn) fn(el);
+  });
+
+  content.addEventListener('change', e => {
+    const cb = e.target.closest('input[type=checkbox][data-k]');
+    if (!cb) return;
+    if (cb.checked) DONE[cb.dataset.k] = 1; else delete DONE[cb.dataset.k];
+    persist();
+    const row = cb.closest('.doneRow');
+    if (row) row.classList.toggle('isdone', cb.checked);
+    updateProgress();
+    applyHideDone();
+  });
+
+  renderNav();
+  updateProgress();
+}
+function chapterOf(s){ return CHAPTERS.find(c => c.id === s.ch) || {name:''}; }
+
+function renderNav(){
+  const nav = document.getElementById('nav');
+  nav.innerHTML = CHAPTERS.map(c => {
+    const list = STAGES.filter(s => s.ch === c.id);
+    return '<div class="navgroup"><div class="ghead">' + esc(c.name) +
+      '<span class="gcount" data-chcount="' + c.id + '"></span></div><ul class="navlist">' +
+      list.map(s => '<li><a href="#' + s.id + '" data-nav="' + s.id + '">' +
+        '<span class="tick"></span><span>' + esc(s.title) + '</span></a></li>').join('') +
+      '</ul></div>';
+  }).join('');
+  nav.addEventListener('click', e => {
+    if (e.target.closest('a') && window.innerWidth <= 960) closeRail();
+  });
+}
+
+function stageStats(s){
+  let total = 0, done = 0;
+  document.querySelectorAll('#' + CSS.escape(s.id) + ' input[type=checkbox][data-k]').forEach(cb => {
+    total++; if (cb.checked) done++;
+  });
+  return {total, done};
+}
+function updateProgress(){
+  let gT = 0, gD = 0;
+  const perCh = {};
+  STAGES.forEach(s => {
+    const st = stageStats(s);
+    gT += st.total; gD += st.done;
+    perCh[s.ch] = perCh[s.ch] || {t:0, d:0, stages:0, full:0};
+    perCh[s.ch].t += st.total; perCh[s.ch].d += st.done; perCh[s.ch].stages++;
+    if (st.total && st.done === st.total) perCh[s.ch].full++;
+    const a = document.querySelector('[data-nav="' + s.id + '"]');
+    if (a) a.classList.toggle('done', st.total > 0 && st.done === st.total);
+  });
+  CHAPTERS.forEach(c => {
+    const el = document.querySelector('[data-chcount="' + c.id + '"]');
+    const p = perCh[c.id];
+    if (el && p) el.textContent = p.full + '/' + p.stages;
+  });
+  const pct = gT ? Math.round(gD / gT * 100) : 0;
+  document.getElementById('globalbar').style.width = pct + '%';
+  document.getElementById('globalpct').textContent = pct + '%';
+  document.getElementById('globalpct').title = gD + ' of ' + gT + ' steps';
+}
+
+/* ---- search ---- */
+function runSearch(q){
+  q = q.trim().toLowerCase();
+  const stages = document.querySelectorAll('.stage');
+  let shown = 0;
+  stages.forEach(el => {
+    const hit = !q || el.textContent.toLowerCase().includes(q);
+    el.classList.toggle('hide', !hit);
+    if (hit) shown++;
+  });
+  let msg = document.getElementById('nores');
+  if (!msg){
+    msg = document.createElement('div');
+    msg.id = 'nores'; msg.className = 'wrap nores';
+    document.getElementById('content').appendChild(msg);
+  }
+  msg.style.display = shown ? 'none' : 'block';
+  msg.textContent = 'Nothing matches “' + q + '”.';
+  document.querySelectorAll('[data-nav]').forEach(a => {
+    const s = document.getElementById(a.dataset.nav);
+    a.parentElement.style.display = (!s || s.classList.contains('hide')) ? 'none' : '';
+  });
+}
+
+/* ---- hide done ---- */
+let HIDE = false;
+function applyHideDone(){
+  document.querySelectorAll('.doneRow').forEach(li => {
+    li.classList.toggle('hidden', HIDE && li.classList.contains('isdone'));
+  });
+}
+
+/* ---- theme ---- */
+function initTheme(){
+  let saved = null;
+  try { saved = localStorage.getItem(KEY + ':theme'); } catch (e) {}
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+  document.getElementById('themebtn').addEventListener('click', () => {
+    const cur = document.documentElement.getAttribute('data-theme');
+    const sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const next = cur ? (cur === 'dark' ? 'light' : 'dark') : (sysDark ? 'light' : 'dark');
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem(KEY + ':theme', next); } catch (e) {}
+  });
+}
+
+/* ---- rail (mobile) ---- */
+function closeRail(){
+  document.getElementById('rail').classList.remove('open');
+  document.getElementById('scrim').classList.remove('on');
+}
+/* ---- scrollspy ---- */
+function initSpy(){
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      document.querySelectorAll('[data-nav]').forEach(a => a.classList.remove('on'));
+      const a = document.querySelector('[data-nav="' + en.target.id + '"]');
+      if (a){ a.classList.add('on'); }
+    });
+  }, {rootMargin:'-56px 0px -70% 0px', threshold:0});
+  document.querySelectorAll('.stage').forEach(s => obs.observe(s));
+}
+
+/* ---- Gen IV type chart (no Fairy; Steel resists Ghost & Dark) ---- */
+const TYPES = ['Normal','Fire','Water','Electric','Grass','Ice','Fighting','Poison','Ground','Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel'];
+const CHART = {
+  Normal:{Rock:.5,Ghost:0,Steel:.5},
+  Fire:{Fire:.5,Water:.5,Grass:2,Ice:2,Bug:2,Rock:.5,Dragon:.5,Steel:2},
+  Water:{Fire:2,Water:.5,Grass:.5,Ground:2,Rock:2,Dragon:.5},
+  Electric:{Water:2,Electric:.5,Grass:.5,Ground:0,Flying:2,Dragon:.5},
+  Grass:{Fire:.5,Water:2,Grass:.5,Poison:.5,Ground:2,Flying:.5,Bug:.5,Rock:2,Dragon:.5,Steel:.5},
+  Ice:{Fire:.5,Water:.5,Grass:2,Ice:.5,Ground:2,Flying:2,Dragon:2,Steel:.5},
+  Fighting:{Normal:2,Ice:2,Poison:.5,Flying:.5,Psychic:.5,Bug:.5,Rock:2,Ghost:0,Dark:2,Steel:2},
+  Poison:{Grass:2,Poison:.5,Ground:.5,Rock:.5,Ghost:.5,Steel:0},
+  Ground:{Fire:2,Electric:2,Grass:.5,Poison:2,Flying:0,Bug:.5,Rock:2,Steel:2},
+  Flying:{Electric:.5,Grass:2,Fighting:2,Bug:2,Rock:.5,Steel:.5},
+  Psychic:{Fighting:2,Poison:2,Psychic:.5,Dark:0,Steel:.5},
+  Bug:{Fire:.5,Grass:2,Fighting:.5,Poison:.5,Flying:.5,Psychic:2,Ghost:.5,Dark:2,Steel:.5},
+  Rock:{Fire:2,Ice:2,Fighting:.5,Ground:.5,Flying:2,Bug:2,Steel:.5},
+  Ghost:{Normal:0,Psychic:2,Ghost:2,Dark:.5,Steel:.5},
+  Dragon:{Dragon:2,Steel:.5},
+  Dark:{Fighting:.5,Psychic:2,Ghost:2,Dark:.5,Steel:.5},
+  Steel:{Fire:.5,Water:.5,Electric:.5,Ice:2,Rock:2,Steel:.5}
+};
+function eff(atk, defTypes){
+  return defTypes.reduce((m, d) => m * (CHART[atk] && CHART[atk][d] !== undefined ? CHART[atk][d] : 1), 1);
+}
+
+/* ---- boot ---- */
+function boot(){
+  initTheme();
+  renderAll();
+  initSpy();
+  document.getElementById('search').addEventListener('input', e => runSearch(e.target.value));
+  document.getElementById('hidedone').addEventListener('click', e => {
+    HIDE = !HIDE;
+    e.currentTarget.setAttribute('aria-pressed', String(HIDE));
+    applyHideDone();
+  });
+  document.getElementById('menubtn').addEventListener('click', () => {
+    document.getElementById('rail').classList.add('open');
+    document.getElementById('scrim').classList.add('on');
+  });
+  document.getElementById('scrim').addEventListener('click', closeRail);
+  document.addEventListener('keydown', e => {
+    if (e.key === '/' && document.activeElement.tagName !== 'INPUT'){
+      e.preventDefault(); document.getElementById('search').focus();
+    }
+    if (e.key === 'Escape') closeRail();
+  });
+  applyHideDone();
+}
+</script>
+<script>
+/* ===================== CHAPTERS ===================== */
+CHAPTERS.push(
+  {id:"setup", name:"Before you press start"},
+  {id:"core",  name:"How Gen 4 actually works"},
+  {id:"johto", name:"Johto — eight badges"},
+  {id:"league",name:"The Pokémon League"},
+  {id:"kanto", name:"Kanto — eight more"},
+  {id:"red",   name:"Mt. Silver"},
+  {id:"dex",   name:"Filling the Pokédex"},
+  {id:"ref",   name:"Reference desk"}
+);
+
+/* ===================== SETUP ===================== */
+STAGES.push({
+id:"set-emu", ch:"setup", tag:"Setup 01", place:"Steam Deck · Desktop Mode",
+title:"Getting HeartGold running on the Deck",
+lede:"melonDS is the right emulator for this game, and about twenty minutes of setup now saves you a lot of grief around the touch-screen minigames and the real-time clock later.",
+band:[{k:"Emulator",v:"melonDS"},{k:"Install path",v:"EmuDeck"},{k:"Deck load",v:"Trivial"},{k:"Time",v:"~20 min"}],
+body:[
+["p","<b>Why melonDS.</b> HeartGold leans on hardware the lazier emulators fudge: the real-time clock (day/night encounters, daily and weekly events), the touch screen, and local wireless for trade evolutions. melonDS emulates all three properly and runs a DS game at full speed on the Deck without breaking a sweat. DraStic is faster and lighter, but you will hit its edges when you get to the Pokéathlon and to trading."],
+["h","Install"],
+["do",[
+ {t:"Switch to Desktop Mode and install <b>EmuDeck</b>, then select melonDS in the emulator list.", sub:"EmuDeck sets up the folder structure, Steam Input profiles and hotkeys for you."},
+ {t:"Drop your HeartGold ROM into <code>Emulation/roms/nds</code>.", sub:"melonDS reads .nds (and .app). Keep the file name clean — Steam ROM Manager uses it for the artwork match."},
+ {t:"Run <b>Steam ROM Manager</b> and parse the NDS folder so the game gets a Gaming Mode entry with artwork.", sub:"This is what lets you launch it from the Deck's normal library with the right controller layout applied."},
+ {t:"Optional: drop real DS BIOS + firmware in <code>Emulation/bios</code> (<code>bios7.bin</code>, <code>bios9.bin</code>, <code>firmware.bin</code>).", sub:"melonDS ships an open-source BIOS and it works fine. Real firmware gives you the DS boot menu, a persistent console clock, and a console nickname — worth it if you plan to use local wireless trading."},
+ {t:"Launch once, confirm the intro plays at full speed, then quit and set your screen layout."}
+]],
+["h","Screen layout"],
+["p","Press <kbd>Select + R3</kbd> to drop out of fullscreen, then <b>Config → Screen layout</b>. The Deck's 16:10 panel gives you two good options:"],
+["ul",[
+ "<b>Hybrid</b> (EmuDeck's default) — big top screen with the touch screen inset. Best for overworld play, which is 90% of this game.",
+ "<b>Vertical</b> — both screens stacked, equal size. Switch to this for the Pokéathlon, Voltorb Flip, and Safari Zone block placement, where you need to hit small targets accurately."
+]],
+["tip","You can rebind a hotkey to <b>swap screens</b> (<kbd>L4</kbd>/<kbd>R4</kbd> in EmuDeck's default profile). Handy when you want the Pokégear map big."],
+["h","Sanity check before you commit to a save"],
+["do",[
+ "Confirm the in-game clock in the Pokégear matches the Deck's clock, and that the time-of-day tint (morning / day / night) looks right.",
+ "Confirm the touch screen responds to your trackpad — open the bag, tap an item.",
+ "Confirm fast-forward works and does not desync audio badly."
+]]
+]});
+
+STAGES.push({
+id:"set-controls", ch:"setup", tag:"Setup 02", place:"Steam Input",
+title:"Controls, the stylus problem, and the clock",
+lede:"Two things will bite you on a handheld: this game has touch-only minigames, and it silently punishes you for messing with the system date.",
+body:[
+["h","Give yourself a stylus"],
+["p","Several things in HeartGold cannot be done with buttons. The Pokéathlon events are entirely touch-driven, Voltorb Flip is a grid you tap, the Safari Zone block placement is drag-and-drop, and the Sinjoh Ruins ritual asks you to draw. Set this up now:"],
+["do",[
+ {t:"Map the <b>right trackpad</b> to <i>Mouse</i> in the Steam Input layout.", sub:"Trackpad as mouse gives you absolute-ish pointer control, which beats the stick for the Pokéathlon."},
+ {t:"Map <b>right trackpad click</b> (or <kbd>R2</kbd>) to <i>Left Mouse Click</i> — that is your stylus tap.", sub:"melonDS treats a left click inside the bottom screen as a touch."},
+ {t:"Turn trackpad haptics up a little so taps feel deliberate.", sub:"You will be tapping fast in the Pokéathlon; feedback matters."}
+]],
+["h","Hotkeys worth memorising"],
+["table",{cols:["Action","Default (EmuDeck)","When you use it"],rows:[
+ ["Save state","<kbd>Select + R1</kbd>","Before a legendary, before the Elite Four, before a Bug Contest run"],
+ ["Load state","<kbd>Select + L1</kbd>","Re-rolling a catch or a crit that killed a run"],
+ ["Fast-forward","<kbd>Select + R2</kbd>","Egg hatching, Battle Frontier streaks, Apricorn round trips, EV grinding"],
+ ["Pause","<kbd>Select + A</kbd>","Reading a long fight"],
+ ["Swap screens","<kbd>L4</kbd> / <kbd>R4</kbd>","Making the Pokégear map or a puzzle readable"],
+ ["Exit fullscreen","<kbd>Select + R3</kbd>","Getting to melonDS' own menus mid-session"]
+]}],
+["h","The clock rule"],
+["p","HeartGold reads the console clock constantly. Day/night changes which Pokémon spawn, gates Espeon and Umbreon evolutions, and drives the whole weekly calendar — the Bug-Catching Contest, the Week Siblings, the Lake of Rage Wednesday man, Friday Lapras, the Goldenrod lottery, and the Pokéathlon shop rotation."],
+["warn","Do <b>not</b> roll the Deck's clock forward or backward to farm daily events. Gen 4 notices, and daily/weekly events stall until real time catches up — you can lock yourself out of a day of progress for no gain. If you want a specific day's content, the honest fix is to play something else in the guide until that day arrives; this guide's <a href=\"#ref-days\">day planner</a> tells you what each day is worth."],
+["tip","One clock change is usually harmless and sometimes necessary: setting the console to your actual local time <i>before</i> you start a new save. Do it once, at the beginning, then leave it alone."]
+]});
+
+STAGES.push({
+id:"set-limits", ch:"setup", tag:"Setup 03", place:"Emulation caveats",
+title:"Saves, trading, and the three things emulation can’t give you",
+lede:"Read this before you get 40 hours in. Two of the four “100%” blockers have clean workarounds on a Deck; one does not.",
+body:[
+["h","Saving properly"],
+["do",[
+ {t:"Always use the <b>in-game save</b> as your source of truth.", sub:"That writes the .sav in Emulation/saves/melonds/saves — the file that survives emulator updates."},
+ {t:"Treat save states as a convenience, not a backup.", sub:"They embed emulator internals and can break across melonDS versions. Never rely on one to hold a legendary you did not also in-game save after catching."},
+ {t:"Copy your .sav somewhere synced before each legendary, the Elite Four, and anything involving the Battle Frontier.", sub:"A one-line cron or a Syncthing folder is enough. Losing 60 hours to a corrupted flash write is a real thing that happens."}
+]],
+["h","Trade evolutions"],
+["p","Nine species in this game evolve only by trading, and you need them for the Pokédex. The good news: melonDS emulates <b>local wireless</b>, so you can run two instances on the Deck (or one on the Deck and one on a PC on the same network) with two separate save files and trade with yourself."],
+["table",{cols:["Pokémon","Becomes","Condition"],rows:[
+ ["Kadabra","Alakazam","Trade"],
+ ["Machoke","Machamp","Trade"],
+ ["Graveler","Golem","Trade"],
+ ["Haunter","Gengar","Trade"],
+ ["Onix","Steelix","Trade holding Metal Coat"],
+ ["Scyther","Scizor","Trade holding Metal Coat"],
+ ["Poliwhirl","Politoed","Trade holding King’s Rock"],
+ ["Slowpoke","Slowking","Trade holding King’s Rock"],
+ ["Seadra","Kingdra","Trade holding Dragon Scale"],
+ ["Porygon → Porygon2","Porygon-Z","Trade with Up-Grade, then Dubious Disc"],
+ ["Clamperl","Huntail / Gorebyss","Trade with DeepSeaTooth / DeepSeaScale"],
+ ["Rhydon / Electabuzz / Magmar / Feebas / Dusclops","Rhyperior / Electivire / Magmortar / Milotic / Dusknoir","Trade with the matching Gen 4 item"]
+]}],
+["tip","The Metal Coat is easy: the traded Magneton in the Kanto Power Plant is holding one, wild Magnemite/Magneton and Steelix can hold them, and the Pokéathlon shop sells them. King’s Rock is in Slowpoke Well. Dragon Scale comes off wild Dratini/Horsea."],
+["h","The dead Wi-Fi"],
+["p","Nintendo’s Wi-Fi Connection is gone, which kills the GTS, Wi-Fi trades and official Mystery Gift. Community replacement servers still stand and Gen 4 games can be pointed at them by changing the DNS in the DS Wi-Fi settings (the widely used address is <code class=\"mono\">164.132.44.106</code>). On melonDS this needs the emulator’s networking set to direct mode with libpcap, and it is genuinely fiddly on SteamOS."],
+["p","What you would use it for: the event distributions that unlock content — the <b>Enigma Stone</b> (Latias in HeartGold), event <b>Celebi</b> (which triggers the Giovanni / Ilex Forest time-travel episode), and event <b>Arceus</b> (which unlocks the Sinjoh Ruins and a level 1 Dialga, Palkia or Giratina)."],
+["warn","Those three are the difference between “finished the game” and a literal complete National Dex. If the DNS route defeats you, the pragmatic alternative is <b>PKHeX</b> (runs on the Deck in Desktop Mode) to inject the event <i>gift</i> with correct, legal event data, then claim it in-game. That preserves the actual gameplay — you still play the Sinjoh Ruins episode — while skipping a dead server."],
+["h","The Pokéwalker"],
+["p","The Pokéwalker talked to the cartridge over infrared. melonDS does not emulate that link and no Deck-side accessory replaces it. You lose the walker’s exclusive routes, its item drops, and a set of special moves only obtainable there."],
+["p","There is no clean in-game workaround. Decide now which line you are taking, and the rest of this guide will make sense either way:"],
+["ul",[
+ "<b>Purist</b> — accept that a handful of walker-only move variants stay out of reach. Everything else in this guide is still reachable, including a complete 493 dex if you handle the three events above.",
+ "<b>Completionist</b> — use PKHeX to generate the walker-route Pokémon with legal walker origin data. Nothing else in the game changes."
+]],
+["h","Migrating from Gen 3"],
+["p","Pal Park needs a GBA cartridge in the DS slot-2. melonDS can insert a GBA ROM into that slot, so migration from Ruby / Sapphire / Emerald / FireRed / LeafGreen works if you have those ROMs and their saves. It is the cheapest way to fill big blocks of the National Dex — six Pokémon per day, per game."],
+["do",[
+ "Decide purist vs. completionist and write it down. It changes what “100%” means for your file.",
+ "Set up a second melonDS instance + a throwaway save now, so trade evolutions are never a blocker later.",
+ "Back up your .sav for the first time."
+]]
+]});
+</script>
+<script>
+/* ===================== CORE ===================== */
+STAGES.push({
+id:"core-rules", ch:"core", tag:"Fundamentals", place:"Generation IV",
+title:"The Gen 4 rules that decide your fights",
+lede:"Four mechanics separate this game from a modern Pokémon title. Get these wrong and half the guide’s advice will look like nonsense.",
+body:[
+["h","1 · There is no Fairy type"],
+["p","Fairy arrived in Gen 6. In HeartGold, <b>Clefairy is pure Normal</b>, <b>Mr. Mime is pure Psychic</b>, and Dragon has exactly two answers: Ice and Dragon. That is why Clair is the wall she is, and why an Ice move is worth a permanent team slot."],
+["h","2 · Steel resists Ghost and Dark"],
+["p","In Gen 4, Steel resists <i>eleven</i> types including Ghost and Dark — those resistances were removed in Gen 6. Practically: your Shadow Ball and Crunch are half-power against Steelix, Magneton, Forretress and Skarmory. Bring Fire, Fighting or Ground to those fights instead."],
+["h","3 · The physical/special split exists — use it"],
+["p","Gen 4 was the split. Damage is decided per move, not per type, so Gyarados can run Waterfall off its huge Attack and Ampharos can run Thunderbolt off Special Attack. Two consequences worth acting on:"],
+["ul",[
+ "Check which stat a move actually uses before you teach it. A special Fire move on a physical attacker is a wasted slot.",
+ "Old “bad” moves are suddenly good — Waterfall, Crunch, Shadow Claw, Iron Tail, Drain Punch and Poison Jab are all physical here."
+]],
+["h","4 · Badges gate your HMs and your obedience"],
+["p","You cannot use an HM in the field until the matching badge is in the case, and traded Pokémon above your badge level will ignore you. This is the actual pacing of the game:"],
+["table",{cols:["Badge","Leader","Unlocks in the field","Traded Pokémon obey to"],rows:[
+ ["Zephyr","Falkner","Rock Smash","Lv 20"],
+ ["Hive","Bugsy","Cut","Lv 30"],
+ ["Plain","Whitney","Strength","Lv 40"],
+ ["Fog","Morty","Surf","Lv 50"],
+ ["Storm","Chuck","Fly","Lv 60"],
+ ["Mineral","Jasmine","—","Lv 70"],
+ ["Glacier","Pryce","Whirlpool","Lv 80"],
+ ["Rising","Clair","Waterfall","Any level"],
+ ["16 badges","Prof. Oak","Rock Climb","—"]
+]}],
+["tip","HM moves are still sticky in Gen 4 — you cannot overwrite them normally. The <b>Move Deleter lives in Blackthorn City</b>, next to the Pokémon Center, and will strip an HM off any Pokémon. The <b>Move Relearner</b> is also in Blackthorn and takes Heart Scales."],
+["h","Status is stronger than it looks"],
+["ul",[
+ "<b>Sleep</b> lasts 1–5 turns in Gen 4 and the counter does not reset on switch — Hypnosis / Sing / Spore win fights outright.",
+ "<b>Paralysis</b> cuts Speed by 75% (not 50% as in Gen 7+). Thunder Wave neuters a sweeper completely.",
+ "<b>Burn</b> halves physical Attack. Will-O-Wisp is a legitimate answer to Machamp and to Bruno.",
+ "Confusion damage is 50% self-hit chance. Swagger + Psych Up strategies are real here, but so is losing to Whitney’s Attract."
+]],
+["h","Two coin-flip mechanics that will ruin a run"],
+["ul",[
+ "<b>Focus Band / Quick Claw / Attract</b> — every one of these appears on a Gym Leader Pokémon at some point. Save state before a wall fight if you value your time.",
+ "<b>Critical hits are 1/16</b> and ignore your defensive boosts. That is how Whitney’s Miltank ends things."
+]]
+]});
+
+STAGES.push({
+id:"core-team", ch:"core", tag:"Fundamentals", place:"Team planning",
+title:"Picking a starter and building a six that clears Johto",
+lede:"Johto has a genuinely thin early roster — Fire and Electric barely exist before the fourth badge — so team-building here is mostly about covering the region’s known potholes.",
+body:[
+["h","The starter decision"],
+["table",{cols:["Starter","Line","The case for it","The cost"],rows:[
+ ["<b>Cyndaquil</b>","Quilava → Typhlosion","The efficiency pick. Fire is nearly absent from Johto’s wild roster, so this is your only reliable answer to Bugsy, Jasmine and half the Elite Four. Big Special Attack, gets Flamethrower early enough to matter.","Bad matchups against Chuck, Clair and the entire Kanto Water block. Needs a partner that handles Rock and Water."],
+ ["<b>Totodile</b>","Croconaw → Feraligatr","The balanced pick. Physical Water with Ice Fang and Crunch covers Clair, Pryce’s Piloswine and Lance’s dragons. Doubles as your Surf and Waterfall carrier, which frees a team slot.","Slow to come online, and it does nothing special against Whitney, Morty or Bugsy."],
+ ["<b>Chikorita</b>","Bayleef → Meganium","The challenge run. Weak to Falkner, Bugsy, Morty, Jasmine and Pryce — five of eight Johto gyms — and its offensive typing is resisted everywhere.","Only take this if you want the run to be hard on purpose. If you do, plan on a second attacker much earlier."]
+]}],
+["team","<b>If you want one recommendation:</b> take <b>Cyndaquil</b>. Johto’s wild Pokémon give you Water, Flying, Ground and Electric for free, but they will not hand you a good Fire type for another twenty hours. Totodile is the fine second choice if you would rather have Surf on a real attacker."],
+["h","A six that works, all catchable in Johto without trading"],
+["catch",[
+ {n:"Typhlosion", t:["Fire"], where:"Starter — New Bark Town", why:"Your special sweeper all game. Flamethrower via the Goldenrod Game Corner is the single biggest power spike available before badge five."},
+ {n:"Gyarados", t:["Water","Flying"], where:"Red Gyarados, Lake of Rage — Lv 30, free, guaranteed", why:"Enormous Attack, arrives fully evolved right when the level curve gets steep, and carries Surf, Waterfall, Whirlpool and Strength. Intimidate blunts every physical gym leader."},
+ {n:"Ampharos", t:["Electric"], where:"Mareep — Route 32, then Route 42/43", why:"Johto's only convenient Electric line. Answers the Water and Flying that Typhlosion cannot, and Thunder Wave turns hard fights into manageable ones."},
+ {n:"Crobat", t:["Poison","Flying"], where:"Zubat — Dark Cave / Union Cave (evolves at high friendship)", why:"Absurdly fast, learns Fly, and Flying beats Bugsy, Chuck, Bruno and half of Karen's team. Friendship evolution pairs nicely with the Goldenrod haircut and Daisy's massages."},
+ {n:"Heracross", t:["Bug","Fighting"], where:"Headbutt trees — Azalea Town, Routes 42/44/45/46", why:"The answer to Whitney, to Kanto's Normal walls, and to Karen's Dark types. Requires Headbutt from the Ilex Forest tutor, so it slots in right after badge two."},
+ {n:"Quagsire", t:["Water","Ground"], where:"Wooper — Route 32 (night) and Union Cave", why:"Immune to Electric, resists Rock and Fire, and covers the Ground weakness on your Fire and Electric slots. Unspectacular but it plugs the exact holes this team has."}
+]],
+["h","Strong alternatives, and what they cost you"],
+["ul",[
+ "<b>Lapras</b> (Union Cave B2F, Fridays only, from badge four) — a better bulk option than Quagsire and the best HM carrier in the game. Costs you a week of real time if you miss the Friday window.",
+ "<b>Espeon / Umbreon</b> (Eevee gift from Bill in Goldenrod) — Espeon is a better special attacker than almost anything else available at that point; Umbreon is the sturdiest thing in Johto. Evolve by levelling up with high friendship during the day (Espeon) or at night (Umbreon).",
+ "<b>Dragonite</b> (Dratini gift in Dragon’s Den after Clair, or fishing there) — arrives at Lv 15 with ExtremeSpeed if you answer the elder’s questions kindly. Evolves at 55, so it is really an Elite Four and Kanto project.",
+ "<b>Tyranitar</b> (Larvitar, Mt. Silver) — post-game only. Save it for the Elite Four rematch and the Frontier.",
+ "<b>Steelix / Scizor / Gengar / Machamp / Alakazam</b> — all excellent, all need a trade. If you set up the two-instance trick in the setup chapter, they are on the table.",
+ "<b>Togekiss</b> is <i>not</i> available: the Shiny Stone is post-game, and in Gen 4 Togekiss is Normal/Flying, not Fairy."
+]],
+["h","The HM problem, solved once"],
+["p","Eight field moves, six team slots. The trick is to let real attackers carry the water HMs and to keep exactly one disposable carrier for the rest."],
+["table",{cols:["HM","Where you get it","Who should carry it"],rows:[
+ ["HM01 Cut","Ilex Forest — from the charcoal maker after you return his Farfetch’d","The mule (Furret is the classic — Sentret is on Routes 29–31)"],
+ ["HM02 Fly","Cianwood City — Chuck’s wife, after the gym","Crobat, or a Noctowl/Pidgeot mule"],
+ ["HM03 Surf","Ecruteak Dance Theatre — after the Kimono Girls’ Rocket","Gyarados or Lapras — Surf is a genuinely good attack"],
+ ["HM04 Strength","Route 42 — Hiker outside Mt. Mortar","Gyarados, Quagsire or the mule"],
+ ["HM05 Whirlpool","Rocket HQ — Lance gives it after the generator","Gyarados or Lapras"],
+ ["HM06 Rock Smash","Route 36 — man east of the Sudowoodo tree","The mule (and it breaks rocks hiding Heart Scales)"],
+ ["HM07 Waterfall","Ice Path 1F","Gyarados or Lapras — also a strong physical STAB"],
+ ["HM08 Rock Climb","Pallet Town — Prof. Oak, after all 16 badges","The mule, or Donphan"]
+]}],
+["tip","Build the mule early. A <b>Furret</b> caught on Route 29 covers Cut, Strength, Rock Smash, Rock Climb and Surf between them, which means your real team only ever needs Fly plus the two water HMs."],
+["mount","planner"]
+]});
+
+STAGES.push({
+id:"core-econ", ch:"core", tag:"Fundamentals", place:"Money, XP, items",
+title:"The economy: where levels, money and good moves actually come from",
+lede:"HeartGold gives you no Exp. Share until roughly the seventh badge. Knowing the real sources of progress is what keeps this from becoming a grind.",
+body:[
+["h","Experience"],
+["ul",[
+ "<b>There is no early Exp. Share.</b> You get it from Mr. Pokémon on Route 30 in exchange for the <b>Red Scale</b> the Red Gyarados drops at Lake of Rage — that is badge seven territory. Plan on levelling your team by using it, not by parking a low-level mon.",
+ "<b>Pokégear rematches are the main XP faucet.</b> Accept every trainer’s number, then answer their calls: they tell you when they want a rematch, and the same trainer levels up with you. The Route 39/38 and Route 42 trainers are the most convenient loops.",
+ "<b>The Lucky Egg</b> is held by ~5% of wild <b>Chansey</b> on Kanto Routes 13/14/15 and in the Safari Zone Meadow. Bring a Thief user or a lot of patience. It is worth the detour before you grind for the Elite Four rematch.",
+ "<b>Trainer House</b> in Viridian City can be battled once a day — good, fast XP late.",
+ "Rare Candies show up in the Goldenrod lottery and the Pokéathlon shop."
+]],
+["h","Money"],
+["ul",[
+ "<b>Amulet Coin</b> — Goldenrod Department Store basement. Doubles prize money when the holder participates. Get it the first time you are in Goldenrod and never take it off.",
+ "<b>Nuggets</b> — Team Rocket grunts drop them constantly through Slowpoke Well, the Rocket HQ and the Radio Tower. Sell them.",
+ "<b>Rematch calls</b> against Kanto trainers pay far better than Johto ones. Once the Magnet Train runs, a Kanto lap is the fastest money in the game."
+]],
+["h","Voltorb Flip is the biggest power spike in the game"],
+["p","In every non-Japanese release, the Game Corner slots were replaced with <b>Voltorb Flip</b> — a Minesweeper/Picross hybrid that is pure logic, not luck, once you learn it. It is also where the game hides its best mid-game moves:"],
+["table",{cols:["Prize","Corner","Cost","Why it matters"],rows:[
+ ["TM13 Ice Beam","Goldenrod","10,000 coins","Your answer to Clair, Lance and every Dragon and Ground type for the rest of the game"],
+ ["TM24 Thunderbolt","Goldenrod","10,000 coins","Answers Gyarados, Lance’s Gyarados, and the entire Kanto Water block"],
+ ["TM35 Flamethrower","Goldenrod","10,000 coins","Turns Typhlosion on properly; also the fix for Jasmine and Erika"],
+ ["TM75 Swords Dance","Goldenrod","4,000 coins","Makes Heracross and Gyarados win fights they should lose"],
+ ["Dratini","Goldenrod","2,100 coins","A second Dragonite project, well before Dragon’s Den"],
+ ["TM68 Giga Impact","Celadon","15,000 coins","Late-game nuke"],
+ ["TM29 Psychic","Celadon","10,000 coins","Cleans up Koga and the Fighting Dojo"]
+]}],
+["tip","Learn Voltorb Flip properly — the row/column numbers tell you exactly which tiles are safe, and a good player clears level 7 repeatedly. An hour of it around badge four buys Ice Beam <i>and</i> Flamethrower, which is worth more than ten levels."],
+["h","Held items worth chasing early"],
+["loot",[
+ {k:"Item", n:"Amulet Coin", where:"Goldenrod Dept. Store basement", why:"Double prize money."},
+ {k:"Item", n:"King’s Rock", where:"Slowpoke Well", why:"Flinch chance, and the Politoed / Slowking trade evolution item."},
+ {k:"Item", n:"Leftovers", where:"Held by the Snorlax on Kanto Route 11", why:"The best passive item in the game. Catch the Snorlax, do not just KO it."},
+ {k:"Item", n:"Macho Brace", where:"Held by the traded Machop “Muscle”, Goldenrod Dept. Store 4F", why:"EV training, if you go that far."},
+ {k:"Item", n:"Metal Coat", where:"Held by the traded Magneton in the Kanto Power Plant", why:"Steelix and Scizor."},
+ {k:"Item", n:"Exp. Share", where:"Mr. Pokémon, Route 30 — trade the Red Scale", why:"Bring an underlevelled sixth member up to the Elite Four."},
+ {k:"Item", n:"Heart Scales", where:"Rock Smash rocks (Violet, Cianwood, Dark Cave), Route 32 hidden, Pokéathlon shop", why:"Currency for the Blackthorn Move Relearner — how you get good moves onto old Pokémon."}
+]],
+["do",[
+ "Pick your starter and write down your intended six.",
+ "Plan which Pokémon carries which HM before you are forced to improvise.",
+ "Set a coin target for Voltorb Flip: 24,000 coins buys Ice Beam, Thunderbolt and Flamethrower."
+]]
+]});
+</script>
+<script>
+/* ===================== JOHTO 1–8 ===================== */
+STAGES.push({
+id:"j01", ch:"johto", tag:"Stage 01", place:"New Bark Town · Routes 29–31 · Cherrygrove",
+title:"The errand",
+lede:"An hour of scripted setup. The only decisions that matter are your starter and how many Pokémon you bother to catch before the first gym.",
+band:[{k:"Party level",v:"5 → 9"},{k:"Badges",v:"0"},{k:"New HMs",v:"none"}],
+body:[
+["p","Prof. Elm sends you to Mr. Pokémon on Route 30. Take the starter, take the Potion from the PC, and talk to your mother before you leave — she offers to bank your money, which is worth saying yes to."],
+["h","Route order"],
+["ul",[
+ "<b>New Bark Town</b> → pick your starter in Elm’s lab.",
+ "<b>Route 29</b> → <b>Cherrygrove City</b>. The old man walking around town gives you the <b>Map Card</b> for the Pokégear and a pair of Running Shoes come early — hold <kbd>B</kbd> permanently from here on.",
+ "<b>Route 30</b> → <b>Mr. Pokémon’s house</b>. He hands you the <b>Mystery Egg</b>; Prof. Oak is inside and gives you the <b>Pokédex</b>.",
+ "Back to Cherrygrove — Elm’s aide meets you with <b>five Poké Balls</b>, and your rival battles you at the town’s edge with the starter that beats yours.",
+ "<b>Route 29 → New Bark</b>, report to Elm, then head north through Route 30 to <b>Route 31</b>."
+]],
+["h","Worth catching now"],
+["catch",[
+ {n:"Sentret", t:["Normal"], where:"Routes 29–31, day", why:"This is your HM mule. Furret learns Cut, Strength, Rock Smash, Rock Climb and Surf — five of the eight field moves on one body."},
+ {n:"Hoothoot", t:["Normal","Flying"], where:"Routes 29–31, night", why:"Early Flying coverage and a serviceable Fly carrier if you would rather not put Fly on Crobat."},
+ {n:"Bellsprout", t:["Grass","Poison"], where:"Routes 30–31, Sprout Tower", why:"Catch a spare: a trainer beside the Violet City Pokémon Center trades an Onix for one."},
+ {n:"Spinarak", t:["Bug","Poison"], where:"Routes 30–31, night (HeartGold only)", why:"Version exclusive — grab one for the dex while you are here rather than trekking back."},
+ {n:"Pidgey / Rattata / Caterpie / Weedle", t:["Normal"], where:"Routes 29–31", why:"Dex entries you will otherwise forget about for thirty hours."}
+]],
+["tip","Apricorn trees start on <b>Route 30</b> (green and pink). Shake every apricorn tree you pass from now on — Kurt in Azalea turns them into the best balls in the game, and they refill daily."],
+["do",[
+ "Choose your starter.",
+ "Talk to Mom and let her save money for you.",
+ {t:"Collect the Map Card in Cherrygrove.", sub:"Pokégear → Map is how you will navigate Johto’s spaghetti routes."},
+ "Take the Mystery Egg from Mr. Pokémon and the Pokédex from Oak.",
+ "Beat your rival in Cherrygrove.",
+ "Catch a Sentret for the mule slot.",
+ "Start shaking apricorn trees on Route 30."
+]]
+]});
+
+STAGES.push({
+id:"j02", ch:"johto", tag:"Stage 02", place:"Violet City · Sprout Tower",
+title:"Zephyr Badge — Falkner",
+lede:"An easy gym with one nasty trick: Falkner’s Pidgeotto carries a Mud-Slap that blinds you, and both his birds hold a berry.",
+band:[{k:"Party level",v:"10 → 13"},{k:"Badge",v:"Zephyr"},{k:"Unlocks",v:"Rock Smash"}],
+body:[
+["h","Sprout Tower first"],
+["p","The gym doors are open, but Sprout Tower to the north is worth clearing first: the sages give steady experience, your rival fights you on the top floor, and <b>Elder Li</b> hands over <b>TM70 Flash</b> — which you need for Dark Cave and, much later, Cerulean Cave."],
+["catch",[
+ {n:"Gastly", t:["Ghost","Poison"], where:"Sprout Tower, night", why:"If you plan to trade for a Gengar later, catch it now — Gastly is much rarer after Johto."},
+ {n:"Zubat", t:["Poison","Flying"], where:"Dark Cave entrance (Route 31), Union Cave", why:"Crobat is one of the best Pokémon in this game and needs the longest friendship runway. Start it now."},
+ {n:"Dunsparce", t:["Normal"], where:"Dark Cave", why:"Dex entry, and it is annoying to find later."}
+]],
+["loot",[
+ {k:"TM70", n:"Flash", where:"Sprout Tower — Elder Li"},
+ {k:"Item", n:"Miracle Seed / potions", where:"Sprout Tower floors"},
+ {k:"Item", n:"Heart Scale", where:"Violet City — Rock Smash rocks, once you have the badge"}
+]],
+["boss",{
+name:"Falkner", role:"Violet City Gym · Flying", badge:"Zephyr Badge",
+team:[
+ {m:"Pidgey", l:9, t:["Normal","Flying"], note:"Tackle, Sand-Attack. Harmless."},
+ {m:"Pidgeotto", l:13, t:["Normal","Flying"], note:"Gust, Mud-Slap, Roost. The Mud-Slap accuracy drops are the whole fight — and it can heal."}
+],
+plan:[
+ "Electric or Rock wins outright. If you took Cyndaquil you have neither: lead with a Geodude from Dark Cave, or just out-level with Ember and Quick Attack.",
+ "Do not let Mud-Slap stack. If you eat two, switch out and come back — accuracy drops reset on switch, Roost does not.",
+ "Totodile players: Water Gun is neutral here, so this is a level check, not a type check. Bring a Bellsprout for chip damage."
+],
+reward:"TM51 Roost, the Zephyr Badge, and the ability to use Rock Smash outside battle."
+}],
+["h","After the badge"],
+["do",[
+ {t:"Collect the Mystery Egg from Elm’s aide at the Violet City Poké Mart.", sub:"It hatches into Togepi knowing Extrasensory — the only Togepi in the game."},
+ {t:"Trade a spare Bellsprout for <b>Onix</b> beside the Pokémon Center.", sub:"Rocky the Onix comes holding a Persim Berry and is a fine early wall."},
+ "Take TM70 Flash from Elder Li in Sprout Tower.",
+ "Beat Falkner.",
+ "Rock Smash the boulders around Violet City for a Heart Scale.",
+ {t:"Walk the Egg.", sub:"Ride the Route 32 stretch back and forth; it hatches in a few thousand steps and fast-forward makes it painless."}
+]]
+]});
+
+STAGES.push({
+id:"j03", ch:"johto", tag:"Stage 03", place:"Ruins of Alph · Route 32 · Union Cave",
+title:"Ruins, the long road south, and your Electric type",
+lede:"The most important thing on Route 32 is a Mareep. The second most important is the Old Rod.",
+band:[{k:"Party level",v:"12 → 16"},{k:"Badges",v:"1"},{k:"Return later",v:"Yes — 3 more Ruins chambers"}],
+body:[
+["h","Ruins of Alph"],
+["p","Four sealed chambers, each with a sliding-tile puzzle. Solve one and the wall opens onto an Unown room; the research centre nearby gives you the <b>Unown Report</b> and starts logging the forms you have seen. You can only reach the first chamber now — the others need Surf, Strength and Rock Smash, so put a pin in this."],
+["warn","There are <b>28 Unown forms</b> (A–Z plus ! and ?). They are a Pokédex entry apiece in the sense that the report tracks them, and the printed Unown puzzle rewards depend on how many you have logged. If you are going for a complete file, resolve to come back after you have all the HMs — it is far easier in one pass."],
+["h","Route 32"],
+["catch",[
+ {n:"Mareep", t:["Electric"], where:"Route 32 (also Routes 42/43)", why:"Johto’s only sensible Electric line and a core member of the recommended six. Ampharos at 30 hits like a truck."},
+ {n:"Wooper", t:["Water","Ground"], where:"Route 32 at night, Union Cave", why:"Quagsire: immune to Electric, resists Fire and Rock, and covers the ground your Fire and Electric slots leave open."},
+ {n:"Onix / Geodude", t:["Rock","Ground"], where:"Union Cave, Dark Cave", why:"Rock/Ground coverage for Falkner-types and a Rock Smash body if you skipped Sentret."},
+ {n:"Bellsprout / Hoppip / Ekans", t:["Grass"], where:"Route 32", why:"Dex filler while you walk."}
+]],
+["loot",[
+ {k:"Item", n:"Old Rod", where:"Route 32 — the fisherman in the gate house", why:"Magikarp now, which is the cheapest Gyarados insurance if you somehow miss the red one."},
+ {k:"TM09", n:"Bullet Seed", where:"Route 32"},
+ {k:"TM05", n:"Roar", where:"Route 32 — the plateau to the north-west (needs Cut, so come back)"},
+ {k:"Item", n:"Heart Scale", where:"Route 32 — hidden item, sweep with the Dowsing Machine"},
+ {k:"TM39", n:"Rock Tomb", where:"Union Cave B1F"}
+]],
+["tip","<b>Friday only:</b> a level 20 <b>Lapras</b> appears in Union Cave B2F once you can Surf. It respawns every Friday, so a missed week is not fatal — but note it now, because Lapras is the best all-round HM carrier in the game and a genuinely strong Pokémon."],
+["h","Route 33 → Azalea"],
+["p","Short hop. Kurt’s granddaughter runs past you into town, which is the game telling you that Team Rocket is in the Slowpoke Well."],
+["do",[
+ "Catch a Mareep.",
+ "Catch a Wooper (night on Route 32, or any time in Union Cave).",
+ "Take the Old Rod from the Route 32 fisherman.",
+ "Pick up TM09 Bullet Seed and TM39 Rock Tomb.",
+ "Solve the first Ruins of Alph chamber and collect the Unown Report.",
+ {t:"Note the Route 32 plateau (TM05 Roar) for a Cut return trip.", sub:"Also the second Dark Cave entrance and the northern Ruins entrance."}
+]]
+]});
+
+STAGES.push({
+id:"j04", ch:"johto", tag:"Stage 04", place:"Azalea Town · Slowpoke Well",
+title:"Hive Badge — Bugsy, and Kurt’s Poké Balls",
+lede:"Team Rocket’s first real appearance, the man who makes the best balls in the game, and a gym leader whose only threat is a level 17 Scyther.",
+band:[{k:"Party level",v:"15 → 18"},{k:"Badge",v:"Hive"},{k:"Unlocks",v:"Cut"}],
+body:[
+["h","Slowpoke Well"],
+["p","Rockets are cutting off Slowpoke tails. Fight your way down, beat the executive <b>Proton</b>, and the Slowpoke return. Grab the <b>King’s Rock</b> while you are down there — it is the evolution item for both Politoed and Slowking, and you will not find another easily."],
+["h","Kurt, and the ball economy"],
+["p","Kurt gives you a <b>Fast Ball</b> for the rescue and then offers his real service: hand him Apricorns and he returns custom Poké Balls the next day. In HeartGold he takes <i>multiples of one colour at a time</i>, so bring a stack."],
+["table",{cols:["Apricorn","Ball","What it is actually good at"],rows:[
+ ["Red","Level Ball","Catch rate scales when your Pokémon out-levels the target — the best ball in the game for cleaning up low-level dex entries"],
+ ["Blue","Lure Ball","Anything you hooked with a rod"],
+ ["Yellow","Moon Ball","Pokémon that evolve with a Moon Stone (Nidoran, Clefairy, Jigglypuff, Skitty)"],
+ ["Green","Friend Ball","Sets friendship to 200 on capture — this is how you fast-track a Crobat or a Golbat you catch late"],
+ ["Pink","Love Ball","Same species, opposite gender"],
+ ["White","Fast Ball","Pokémon with high base Speed — the answer to fleeing Pokémon"],
+ ["Black","Heavy Ball","Heavy Pokémon — Snorlax, Steelix, Onix"]
+]}],
+["tip","Feed Kurt <b>green Apricorns</b> early and keep a couple of Friend Balls in the bag. Catching a Zubat or an Eevee in one skips a large chunk of the friendship grind."],
+["boss",{
+name:"Bugsy", role:"Azalea Town Gym · Bug", badge:"Hive Badge",
+team:[
+ {m:"Metapod", l:15, t:["Bug"], note:"Harden, Tackle. Free."},
+ {m:"Kakuna", l:15, t:["Bug","Poison"], note:"Harden, Poison Sting. Free."},
+ {m:"Scyther", l:17, t:["Bug","Flying"], note:"Fury Cutter, Quick Attack, Leer, U-turn. Fury Cutter <b>doubles every time it connects</b> — by the fourth hit it one-shots almost anything you own."}
+],
+plan:[
+ "Kill the Scyther fast or force it out. Every turn Fury Cutter lands makes the next one twice as strong.",
+ "Fire and Rock are 4× and 2× respectively. Cyndaquil players win the fight on turn one with Ember; a Geodude’s Rock Throw does the same job.",
+ "If you are on Totodile or Chikorita, switching resets Fury Cutter’s counter — sac a Sentret to break the chain, then come back in.",
+ "Scyther holds a Sitrus-class berry in some encounters. Do not leave it on 20% and pass the turn."
+],
+reward:"TM89 U-turn, the Hive Badge, and Cut."
+}],
+["h","After the gym"],
+["ul",[
+ "Your rival fights you on the way out of town.",
+ "The <b>Charcoal Kiln</b> north-east of town gives you <b>Charcoal</b> (+Fire damage) once the Ilex Forest business is done — a real item for a Typhlosion.",
+ "Azalea’s trees are one of the best early <b>Heracross</b> spots once you have Headbutt."
+]],
+["do",[
+ "Clear the Slowpoke Well and beat Proton.",
+ "Pick up the King’s Rock in Slowpoke Well.",
+ "Take Kurt’s free Fast Ball and hand him your first batch of Apricorns.",
+ "Beat Bugsy.",
+ "Beat your rival outside town.",
+ {t:"Come back with Headbutt for Heracross.", sub:"Azalea, Route 33 and Routes 42/44/45/46 all have Heracross trees."}
+]]
+]});
+
+STAGES.push({
+id:"j05", ch:"johto", tag:"Stage 05", place:"Ilex Forest · Route 34 · Goldenrod City",
+title:"Cut, Headbutt, and the biggest city in Johto",
+lede:"Ilex Forest gives you two of the most useful field moves in the game. Goldenrod gives you everything else.",
+band:[{k:"Party level",v:"17 → 20"},{k:"Badges",v:"2"},{k:"Unlocks",v:"Cut · Headbutt"}],
+body:[
+["h","Ilex Forest"],
+["p","The charcoal maker’s <b>Farfetch’d</b> has run off. Herd it by approaching from the right side — it moves away from you — until it is boxed in. He rewards you with <b>HM01 Cut</b>."],
+["p","In the same forest, a man teaches <b>Headbutt</b> free of charge, as many times as you like. This is not optional: Headbutt is how you get Heracross, Pineco, Aipom, Exeggcute, Spinarak/Ledyba and a fistful of other dex entries out of trees."],
+["warn","The <b>Ilex Forest shrine</b> is where the event Celebi episode fires if you ever obtain the event Celebi. Nothing happens now — just know that this clearing is why people care about that distribution."],
+["h","Route 34"],
+["loot",[
+ {k:"TM63", n:"Embargo", where:"Route 34"},
+ {k:"Key", n:"Kenya (Spearow)", where:"The guard in the gate north of Route 34 asks you to carry it — deliver it to Webster on Route 31", why:"Completing the errand chain gets you TM44 Rest."},
+ {k:"Item", n:"Day-Care", where:"Route 34 — the couple raise and breed Pokémon", why:"Egg moves, friendship building, and the fastest way to hatch a better-natured starter if you care."}
+]],
+["catch",[
+ {n:"Abra", t:["Psychic"], where:"Routes 33–35 (rare, Teleports immediately)", why:"Kadabra is a monster for the next four badges, and Alakazam is one trade away. Throw a ball on turn one or use a Level Ball."},
+ {n:"Drowzee", t:["Psychic"], where:"Route 34", why:"Hypnosis makes catching everything else easier, and there is a Machop trade in Goldenrod that wants one."},
+ {n:"Ditto", t:["Normal"], where:"Route 34", why:"Breeding partner for everything. Grab it now, thank yourself later."}
+]],
+["h","Goldenrod City — the checklist"],
+["do",[
+ {t:"Department Store basement: <b>Amulet Coin</b>.", sub:"Doubles prize money. Put it on a team member and forget about it."},
+ {t:"Bike Shop: take the <b>Bicycle</b>.", sub:"Free in this version. It also unlocks the Cycling Road much later."},
+ {t:"Radio Tower 2F: answer the quiz for the <b>Radio Card</b>.", sub:"The radio drives swarms, the Buena password bonus, and later the Pokéflute."},
+ {t:"Underground: buy from the day-specific shops and find <b>TM82 Sleep Talk</b> in the warehouse."},
+ {t:"Underground: the <b>haircut brothers</b> raise friendship — once a day, each.", sub:"This is the fastest Crobat and Espeon/Umbreon accelerator in the game."},
+ {t:"Department Store 4F: trade a Drowzee for <b>Machop “Muscle”</b>.", sub:"It holds a Macho Brace."},
+ {t:"Name Rater, Move… and the Game Corner.", sub:"See below — the Game Corner is a bigger deal than it looks."},
+ {t:"Come back for <b>Eevee</b> from Bill later.", sub:"Bill is in Ecruteak first; after you meet him there he returns to his Goldenrod house and gives you an Eevee."}
+]],
+["tip","Play <b>Voltorb Flip</b> in the Game Corner now, not later. 10,000 coins each buys <b>Ice Beam</b>, <b>Thunderbolt</b> and <b>Flamethrower</b> — three moves that carry your team from here to the Elite Four. It is a logic puzzle, not a slot machine: the numbers on each row and column tell you exactly how many bomb tiles are there."],
+["h","Radio stations worth knowing"],
+["ul",[
+ "<b>Oak’s Pokémon Talk</b> — announces the day’s <b>swarm</b>, which is how several otherwise-rare Pokémon become catchable.",
+ "<b>Buena’s Password</b> (night) — a nightly password at the Goldenrod Radio Tower earns points for prizes.",
+ "<b>Pokégear Channels</b> unlock as you go; the Hoenn and Sinnoh Sound channels appear after the National Dex and are needed for some Kanto encounters."
+]]
+]});
+
+STAGES.push({
+id:"j06", ch:"johto", tag:"Stage 06", place:"Goldenrod Gym",
+title:"Plain Badge — Whitney, and the Miltank problem",
+lede:"The famous difficulty spike. It is not a hard fight once you understand that Rollout, Attract and Milk Drink are three separate problems that need three separate answers.",
+band:[{k:"Party level",v:"18 → 21"},{k:"Badge",v:"Plain"},{k:"Unlocks",v:"Strength"}],
+body:[
+["boss",{
+name:"Whitney", role:"Goldenrod City Gym · Normal", badge:"Plain Badge",
+team:[
+ {m:"Clefairy", l:17, t:["Normal"], note:"Pure <b>Normal</b> in Gen 4 — there is no Fairy type here. Doubleslap, Encore, Metronome. Encore can lock you into a status move."},
+ {m:"Miltank", l:19, t:["Normal"], note:"Rollout, Attract, Stomp, Milk Drink. Holds a Lum Berry in some encounters. This is the wall."}
+],
+plan:[
+ "<b>Rollout</b> doubles in power every consecutive hit and runs up to five turns. It is a <b>Rock</b> move: Geodude, Onix and Quagsire (Ground) resist or shrug it off. Rock Smashing a Geodude into your party for this one fight is a completely legitimate play.",
+ "<b>Attract</b> only works on the opposite gender. Miltank is always female — so lead with a <b>female or genderless</b> Pokémon and the move does nothing. Your starter is most likely male; this is the single biggest tip for this fight.",
+ "<b>Milk Drink</b> heals half its HP. You cannot win a damage race — you need burst. Fighting moves are 2×; Heracross with Brick Break, a Machop from the Goldenrod trade, or Rock Smash off anything will out-pace the healing.",
+ "Failing all that: <b>paralyse it</b>. Thunder Wave from a Mareep cuts its Speed by 75% and gives you free turns.",
+ "Kill the Clefairy quickly — Encore locking you into Growl or Leer while Rollout ramps is how runs die here."
+],
+reward:"TM45 Attract, the Plain Badge, and Strength."
+}],
+["h","Immediately after"],
+["do",[
+ "Beat Whitney.",
+ {t:"Take the <b>SquirtBottle</b> from the flower shop next to the gym.", sub:"This is what wakes the Sudowoodo blocking Route 36. The game will not let you progress north without it."},
+ "Check the Pokéathlon Dome — it opens after this badge.",
+ "Buy your Voltorb Flip TMs if you have the coins."
+]],
+["team","With Strength in hand, your mule can now push boulders — Union Cave B2F, Slowpoke Well’s lower level and several Ruins of Alph chambers all open up. If you are collecting everything, a short backtrack here is cheaper than a long one later."]
+]});
+
+STAGES.push({
+id:"j07", ch:"johto", tag:"Stage 07", place:"Routes 35–37 · National Park · Pokéathlon",
+title:"National Park, the Bug Contest, and a tree that fights back",
+lede:"The most content-dense stretch in Johto. Two of the things here are on a weekly timer, so check the day before you plan your route.",
+band:[{k:"Party level",v:"20 → 23"},{k:"Badges",v:"3"},{k:"Timed",v:"Tue / Thu / Sat"}],
+body:[
+["h","The Bug-Catching Contest — Tuesday, Thursday, Saturday"],
+["p","Twenty minutes, one Park Ball at a time, one Pokémon kept. Winning gives you a <b>Sun Stone</b>; placing gives Everstones and berries. More importantly it is the easiest source of <b>Scyther</b> and <b>Pinsir</b> in the game, and the only convenient one."],
+["do",[
+ {t:"Enter the Bug-Catching Contest and win at least once.", sub:"Weaken with a false-swipe-style move; the game scores you on species rarity and the Pokémon’s condition."},
+ {t:"Catch a Scyther and/or Pinsir here.", sub:"Scyther is one Metal Coat trade away from Scizor, which is a top-tier team member."},
+ {t:"Collect the Sun Stone prize.", sub:"Sunkern → Sunflora and Gloom → Bellossom both need it, and it is scarce."}
+]],
+["h","National Park & Route 35"],
+["loot",[
+ {k:"TM28", n:"Dig", where:"National Park"},
+ {k:"TM66", n:"Payback", where:"Route 35"},
+ {k:"Item", n:"Quick Claw / berries", where:"National Park, scattered"}
+]],
+["catch",[
+ {n:"Scyther / Pinsir", t:["Bug"], where:"National Park — Bug Contest days only", why:"Both are excellent, both are painful to find anywhere else."},
+ {n:"Yanma", t:["Bug","Flying"], where:"Route 35", why:"Yanmega is a genuinely strong evolution, though it needs the AncientPower level-up trick."},
+ {n:"Growlithe", t:["Fire"], where:"Routes 36–37 (HeartGold exclusive)", why:"A second Fire type, and version-exclusive — catch two if you plan to trade for a Vulpix."},
+ {n:"Nidoran ♂/♀", t:["Poison"], where:"Route 35", why:"Two full evolution lines for the dex out of one route."}
+]],
+["h","Sudowoodo"],
+["p","The “tree” on Route 36 is a level 20 <b>Sudowoodo</b> and it blocks the road to Ecruteak. Use the SquirtBottle from the Goldenrod flower shop and it attacks you."],
+["warn","This is the <b>only Sudowoodo in the game</b>. If you knock it out, it is gone. Save first, weaken carefully, and throw balls — a Level Ball works well here since you are probably around its level."],
+["h","Routes 36–37"],
+["loot",[
+ {k:"HM06", n:"Rock Smash", where:"Route 36 — from the man just east of where Sudowoodo stood"},
+ {k:"Item", n:"Apricorns", where:"Routes 36–37 — blue, red and green trees"}
+]],
+["ul",[
+ "<b>Thursday:</b> Arthur is on Route 36 and gives a <b>Hard Stone</b>.",
+ "<b>Sunday:</b> Sunny is on Route 37 with a <b>Magnet</b>.",
+ "The northern <b>Ruins of Alph</b> entrance is here — another chamber for the Unown collection."
+]],
+["h","The Pokéathlon"],
+["p","West of the National Park, open from the Plain Badge onwards. Ten touch-driven minigames across five courses. Two reasons to care:"],
+["ul",[
+ "The <b>Athlete Shop</b> stocks evolution stones, Apricorns, Heart Scales, held items and the occasional Rare Candy — rotating daily, twelve items a day once you have the National Dex.",
+ "It is the only source of several evolution items without a lot of grinding, and it is genuinely fun with the trackpad configured as a stylus."
+]],
+["do",[
+ "Wake and catch Sudowoodo.",
+ "Take HM06 Rock Smash from the Route 36 man.",
+ "Run at least one Pokéathlon course and check the Athlete Shop’s stock.",
+ "Grab TM28 Dig and TM66 Payback.",
+ "Headbutt the trees on Routes 35–37 while you pass through."
+]]
+]});
+
+STAGES.push({
+id:"j08", ch:"johto", tag:"Stage 08", place:"Ecruteak City · Burned Tower",
+title:"Fog Badge — Morty, Surf, and three legendary beasts",
+lede:"Ecruteak is the hinge of the whole game: you leave with Surf, with the roaming beasts released, and with the Ghost gym behind you.",
+band:[{k:"Party level",v:"23 → 27"},{k:"Badge",v:"Fog"},{k:"Unlocks",v:"Surf"}],
+body:[
+["h","Burned Tower"],
+["p","Your rival fights you on the ground floor. Drop through to the basement and the three statues wake: <b>Raikou</b>, <b>Entei</b> and <b>Suicune</b> burst out and scatter. Raikou and Entei begin <b>roaming Johto</b> at level 40 from this moment; Suicune runs a scripted route you will meet several more times."],
+["warn","Roamers flee on turn one. Before you seriously chase Raikou and Entei, you want: a Pokémon with <b>Mean Look</b> or <b>Block</b> (Crobat learns Mean Look; Wobbuffet works), a way to inflict <b>sleep or paralysis</b>, and a stack of Ultra Balls. Trying to catch them with the tools you have at badge four is a recipe for burning them out of the encounter table for the rest of the run. Note their location on the Pokégear map and come back."],
+["h","The Dance Theatre → Surf"],
+["p","A Team Rocket grunt is harassing the Kimono Girls in the Dance Theatre. Deal with him and the old man there gives you <b>HM03 Surf</b> — the single largest map unlock in the game."],
+["tip","Put Surf on Gyarados or Lapras rather than the mule. It is a 95-power STAB move for either of them and you will use it in real fights for the next forty hours."],
+["boss",{
+name:"Morty", role:"Ecruteak City Gym · Ghost", badge:"Fog Badge",
+team:[
+ {m:"Gastly", l:21, t:["Ghost","Poison"], note:"Lick, Spite, Mean Look, Curse."},
+ {m:"Haunter", l:21, t:["Ghost","Poison"], note:"Hypnosis, Mean Look, Shadow Ball."},
+ {m:"Haunter", l:23, t:["Ghost","Poison"], note:"Same kit, more damage."},
+ {m:"Gengar", l:25, t:["Ghost","Poison"], note:"<b>Levitate</b> — Ground moves miss entirely. Hypnosis + Dream Eater + Nightmare is a genuine lock if it lands."}
+],
+plan:[
+ "The whole gym is Ghost/<b>Poison</b>, so <b>Psychic</b> moves are 2× on everything — a Kadabra or the Togepi you hatched (Extrasensory) walks through this fight.",
+ "Dark and Ghost also work, but remember Gen 4 Steel resists them — irrelevant here, relevant next gym.",
+ "<b>Hypnosis is the loss condition.</b> Carry two Awakenings or a Chesto Berry, or lead with something holding a Persim/Lum. Sleep in Gen 4 does not tick down while you switch.",
+ "Curse costs them half their HP to lay a residual on you — if a Gastly curses, switch the victim out; the damage continues but you can heal between fights.",
+ "Gengar’s Levitate makes Earthquake and Dig dead weight. Do not build the fight around them."
+],
+reward:"TM30 Shadow Ball, the Fog Badge, and Surf."
+}],
+["h","Do not leave Ecruteak without"],
+["do",[
+ "Beating your rival in the Burned Tower.",
+ "Releasing the beasts (unavoidable — but read the roamer warning first).",
+ "HM03 Surf from the Dance Theatre.",
+ "Beating Morty.",
+ {t:"Meeting <b>Bill</b> in Ecruteak.", sub:"He then goes home to Goldenrod, where he hands you an Eevee. Detour back for it — Espeon and Umbreon are both excellent and this is the only Eevee in the game outside the Pokéwalker."},
+ {t:"Noting the <b>Bell Tower</b>.", sub:"Locked until the very end of the Johto story, when the Kimono Girls open it for Ho-Oh."},
+ {t:"Surfing back to everything you skipped.", sub:"Ruins of Alph chambers, Union Cave B2F, Slowpoke Well lower level, Route 32’s plateau."}
+]]
+]});
+</script>
+<script>
+/* ===================== JOHTO 9–14 ===================== */
+STAGES.push({
+id:"j09", ch:"johto", tag:"Stage 09", place:"Routes 38–39 · Olivine City",
+title:"Moomoo Farm and a lighthouse with a sick Pokémon in it",
+lede:"A short, gentle stretch. Olivine’s gym is closed until you fetch medicine from across the sea, so this stage is really about setting up the Cianwood trip.",
+band:[{k:"Party level",v:"26 → 29"},{k:"Badges",v:"4"},{k:"Gym",v:"Locked — go to Cianwood"}],
+body:[
+["h","Routes 38 and 39"],
+["p","<b>Moomoo Farm</b> on Route 39 has a sick Miltank. Feed it Berries until it recovers (it takes several) and the farmer’s wife gives you <b>TM83 Natural Gift</b>; the farm then sells <b>Moomoo Milk</b>, which is the cheapest bulk healing in Johto."],
+["loot",[
+ {k:"TM60", n:"Drain Punch", where:"Route 39"},
+ {k:"TM83", n:"Natural Gift", where:"Moomoo Farm — after healing the Miltank"},
+ {k:"Item", n:"White Apricorn trees", where:"Route 38", why:"Fast Balls — the answer to every fleeing Pokémon later."},
+ {k:"Item", n:"Good Rod", where:"Olivine City — the fisherman in the house by the water", why:"Chinchou, Krabby, Shellder and better Water encounters."}
+]],
+["catch",[
+ {n:"Magnemite", t:["Electric","Steel"], where:"Route 38", why:"Steel typing is genuinely rare in Johto, and Magneton is a dex line you want done."},
+ {n:"Miltank / Tauros", t:["Normal"], where:"Routes 38–39", why:"Both are dex entries and Miltank is a good bulky Normal if you liked what Whitney did to you."},
+ {n:"Krabby", t:["Water"], where:"Olivine — Good Rod", why:"There is an Olivine trade that wants one (you get a Voltorb for it)."}
+]],
+["h","Olivine City"],
+["p","<b>Jasmine is not in her gym.</b> She is at the top of the <b>Olivine Lighthouse</b> nursing Amphy, the Ampharos that powers the light. The lighthouse is a climb full of trainers with <b>TM87 Swagger</b> on the fourth floor. When you reach her she asks for the <b>SecretPotion</b> from the Cianwood pharmacy — which means a long Surf south."],
+["tip","The <b>Battle Frontier</b> sits off the coast here and opens by boat once you have entered the Hall of Fame. Nothing to do yet, but it is why you will be back in Olivine constantly in the post-game."],
+["do",[
+ "Heal the Moomoo Farm Miltank and take TM83.",
+ "Pick up the Good Rod in Olivine.",
+ "Climb the Olivine Lighthouse, grab TM87 Swagger, and talk to Jasmine.",
+ "Trade a Krabby for the Voltorb “Billy” in the north-east house.",
+ "Shake the white Apricorn trees on Route 38."
+]]
+]});
+
+STAGES.push({
+id:"j10", ch:"johto", tag:"Stage 10", place:"Routes 40–41 · Cianwood City",
+title:"Storm Badge — Chuck, and Fly at last",
+lede:"Surf south, pick up the medicine, and beat a Fighting gym whose second Pokémon can hit you with a guaranteed Dynamic Punch.",
+band:[{k:"Party level",v:"28 → 32"},{k:"Badge",v:"Storm"},{k:"Unlocks",v:"Fly"}],
+body:[
+["h","The crossing"],
+["p","Surf from Olivine down Route 40 into Route 41. The whirlpools dotted around are the <b>Whirl Islands</b> — you cannot enter properly until you have Whirlpool (badge seven), and Lugia is not there until the post-game, so do not waste time circling them now. Route 41 is also the best <b>Chinchou</b> and <b>Mantine</b> water in the game."],
+["catch",[
+ {n:"Chinchou", t:["Water","Electric"], where:"Route 41 — Good Rod / surfing", why:"Lanturn is a great defensive Water/Electric and covers two team weaknesses in one slot."},
+ {n:"Tentacool", t:["Water","Poison"], where:"Routes 40–41", why:"Dex line, and a fine cheap Surf carrier if you have nothing better."},
+ {n:"Mantine", t:["Water","Flying"], where:"Route 41 (HeartGold exclusive)", why:"Version exclusive — trade bait for the SoulSilver side later."},
+ {n:"Shuckle", t:["Bug","Rock"], where:"Cianwood — gift from the man in the south-west house after the gym", why:"Useless in a fight, but it is a free dex entry and a Berry-juice machine."}
+]],
+["h","Cianwood City"],
+["do",[
+ {t:"Take the <b>SecretPotion</b> from the pharmacy.", sub:"This is the item Jasmine needs. Do not leave without it."},
+ {t:"Rock Smash the boulders on the beach.", sub:"Cianwood is one of the reliable Heart Scale spots."},
+ {t:"Accept the <b>Shuckle</b> from the man in the south-west house.", sub:"He refuses to take it back afterwards."},
+ {t:"Talk to <b>Eusine</b>.", sub:"He is chasing Suicune and shows up repeatedly from here on. The Suicune chain resolves in Kanto."}
+]],
+["boss",{
+name:"Chuck", role:"Cianwood City Gym · Fighting", badge:"Storm Badge",
+team:[
+ {m:"Primeape", l:29, t:["Fighting"], note:"Karate Chop, Rock Slide, Focus Energy, Fury Swipes. Focus Energy plus Karate Chop means frequent crits."},
+ {m:"Poliwrath", l:31, t:["Water","Fighting"], note:"Surf, Hypnosis, <b>Mind Reader + Dynamic Punch</b> — Mind Reader makes the next move hit for certain, and Dynamic Punch confuses. This combo can single-handedly lose the fight."}
+],
+plan:[
+ "<b>Flying</b> and <b>Psychic</b> are both 2× on Primeape and Psychic is 2× on Poliwrath. A Crobat or a Kadabra ends this quickly.",
+ "The Poliwrath answer is <b>Electric</b> or <b>Grass</b> — Ampharos is 2× on it and outruns nothing, so bring it in on a switch rather than trading hits.",
+ "When Poliwrath uses <b>Mind Reader</b>, the follow-up Dynamic Punch is guaranteed. Either KO it that turn or switch to something you can afford to lose to confusion.",
+ "Do not lead with your Normal-type mule. Fighting is 2× and Primeape hits hard for its level."
+],
+reward:"TM01 Focus Punch and the Storm Badge. Chuck’s wife, outside the gym, gives you <b>HM02 Fly</b>."
+}],
+["team","Fly changes the shape of the run. Put it on Crobat (or a Noctowl/Pidgeot mule) immediately and start using it — every backtrack in this guide from here on assumes you can teleport to any town you have visited."]
+]});
+
+STAGES.push({
+id:"j11", ch:"johto", tag:"Stage 11", place:"Routes 47–48 · Safari Zone · Olivine Gym",
+title:"Mineral Badge — the Safari Zone detour and Jasmine",
+lede:"The Safari Zone is optional for the story and mandatory for the Pokédex. Do the opening work now so its slow, day-counted unlocks are ticking in the background for the rest of the run.",
+band:[{k:"Party level",v:"30 → 34"},{k:"Badge",v:"Mineral"},{k:"Long game",v:"Safari Zone"}],
+body:[
+["h","Routes 47 and 48"],
+["p","West and north out of Cianwood through the Cliff Edge Gate. <b>Cliff Cave</b> and the cliffs here need Rock Climb for their upper reaches, so expect a return trip. Route 47 also holds the <b>Embedded Tower</b> — sealed now, and the site of the Kyogre/Groudon/Rayquaza encounters in the deep post-game."],
+["h","The Safari Zone, and why to start it now"],
+["p","Baoba’s Safari Zone runs on a system unique to these games: you place <b>terrain blocks</b> in each area, and the encounter table changes based on which blocks are down <i>and how many in-game days have passed</i> since you placed them. Some Pokémon need ~10 days of a particular block arrangement before they appear at all."],
+["warn","This is the single slowest completion task in the game, and it runs on the real-world calendar. Place your first block set now and it costs you nothing; leave it until after the Elite Four and you will be sitting on your hands for weeks. Add a recurring reminder to rotate the blocks."],
+["do",[
+ "Complete Baoba’s introductory challenge to open the Safari Zone properly.",
+ {t:"Place your first terrain blocks in each area.", sub:"Peak, Forest, Swamp, Wasteland, Savannah, Marshland — start with whatever pushes toward Pokémon you do not have."},
+ "Set a reminder to come back and rotate blocks every week or so.",
+ "Note Cliff Cave and the Route 47 cliffs for a Rock Climb return."
+]],
+["h","Back to Olivine"],
+["p","Fly to Olivine, take the SecretPotion up the lighthouse, and Amphy recovers. Jasmine returns to her gym."],
+["boss",{
+name:"Jasmine", role:"Olivine City Gym · Steel", badge:"Mineral Badge",
+team:[
+ {m:"Magnemite", l:30, t:["Electric","Steel"], note:"Thunderbolt, Supersonic. <b>4× weak to Ground.</b>"},
+ {m:"Magnemite", l:30, t:["Electric","Steel"], note:"Same."},
+ {m:"Steelix", l:35, t:["Steel","Ground"], note:"Iron Tail, Rock Throw, Screech, Sunny Day. Sturdy means it survives a would-be one-shot. Screech halves your Defence — switch out rather than eat a boosted Iron Tail."}
+],
+plan:[
+ "<b>Ground</b> is 4× on both Magnemite and neutral into Steelix. A Quagsire or a Dig user clears the first half of the gym by itself.",
+ "Steelix is 2× to <b>Fire</b>, <b>Water</b> and <b>Fighting</b>. Typhlosion’s Flamethrower, Gyarados’ Surf or Heracross all handle it. Do not bring Shadow Ball or Crunch — Gen 4 Steel resists both.",
+ "Watch the Magnemite’s Thunderbolt if you lead with Gyarados; it is 4× on a Water/Flying body.",
+ "Screech stacks. Two of them and Iron Tail one-shots most of your team — treat it as a signal to rotate."
+],
+reward:"TM23 Iron Tail and the Mineral Badge."
+}],
+["tip","Once you have beaten her, you can come back post-game and trade <b>any Pokémon</b> for Jasmine’s <b>Steelix “Rusty”</b> after rematching her at the Saffron Fighting Dojo. It is the least demanding good trade in the game."]
+]});
+
+STAGES.push({
+id:"j12", ch:"johto", tag:"Stage 12", place:"Route 42 · Mt. Mortar · Mahogany · Lake of Rage",
+title:"Strength, a Tyrogue, and a red Gyarados",
+lede:"Two permanent team upgrades sit in this stage: HM04 Strength opens a third of Johto’s side content, and the shiny Gyarados at Lake of Rage is a free, fully evolved powerhouse.",
+band:[{k:"Party level",v:"32 → 36"},{k:"Badges",v:"6"},{k:"Unlocks",v:"Strength"}],
+body:[
+["h","Route 42 and Mt. Mortar"],
+["loot",[
+ {k:"HM04", n:"Strength", where:"Route 42 — the Hiker leaving the western Mt. Mortar entrance"},
+ {k:"TM65", n:"Shadow Claw", where:"Route 42"},
+ {k:"TM40", n:"Aerial Ace", where:"Mt. Mortar 2F"},
+ {k:"Key", n:"Tyrogue", where:"Mt. Mortar B1F — beat the Karate King, Kiyo", why:"Evolves into Hitmonlee, Hitmonchan or Hitmontop depending on whether its Attack is higher, lower or equal to Defence at level 20. Three dex entries from one Pokémon if you breed it."}
+]],
+["catch",[
+ {n:"Heracross", t:["Bug","Fighting"], where:"Headbutt trees — Route 42, Route 44, Azalea", why:"If you have not got one yet, do it here. It is the answer to Karen, to Kanto’s Normal types and to half the Battle Frontier."},
+ {n:"Marill", t:["Water"], where:"Route 42 / Mt. Mortar", why:"Azumarill is bulky and gets Huge Power. A perfectly good alternative to Quagsire."},
+ {n:"Machop", t:["Fighting"], where:"Mt. Mortar", why:"The Machamp line, if you are doing trade evolutions."}
+]],
+["h","Mahogany Town and Route 43"],
+["p","The gym is blocked by a man selling RageCandyBars — a not-very-subtle sign that Team Rocket is underneath the souvenir shop. Head north up Route 43 to the Lake of Rage first; the story requires it."],
+["h","Lake of Rage"],
+["p","Every Magikarp in the lake is enraged because of a Rocket radio signal, and in the middle is a <b>shiny red Gyarados at level 30</b>."],
+["warn","<b>Catch it, do not knock it out.</b> It holds the <b>Red Scale</b>, which you trade to Mr. Pokémon on Route 30 for the <b>Exp. Share</b> — the game’s only one, and the tool that lets you bring a sixth member up to Elite Four level. The Gyarados itself is also a top-three team member: level 30, fully evolved, Intimidate, and it carries Surf, Waterfall, Whirlpool and Strength for you."],
+["do",[
+ "Take HM04 Strength from the Route 42 Hiker.",
+ "Beat Kiyo in Mt. Mortar and take the Tyrogue.",
+ "Grab TM40 Aerial Ace and TM65 Shadow Claw.",
+ "Catch the red Gyarados at Lake of Rage.",
+ {t:"Fly to Route 30 and trade the Red Scale to Mr. Pokémon for the <b>Exp. Share</b>.", sub:"Do this immediately — every hour you play without it is wasted experience."},
+ {t:"Visit the house on the lake’s north-west shore (needs Surf) for <b>TM10 Hidden Power</b> and <b>TM43 Secret Power</b>.", sub:"The man is not there on Wednesdays."},
+ {t:"Wednesday: Wesley is at the lake with a <b>Black Belt</b>.", sub:"One of the seven Week Siblings — collecting all seven earns a Ribbon."}
+]]
+]});
+
+STAGES.push({
+id:"j13", ch:"johto", tag:"Stage 13", place:"Team Rocket HQ · Mahogany Gym",
+title:"Glacier Badge — the Rocket base and Pryce",
+lede:"The longest dungeon in Johto, a Whirlpool reward at the end of it, and an ice gym with a sliding puzzle in front of it.",
+band:[{k:"Party level",v:"34 → 38"},{k:"Badge",v:"Glacier"},{k:"Unlocks",v:"Whirlpool"}],
+body:[
+["h","The base"],
+["p","Under the Mahogany souvenir shop. Three floors of grunts, statue-mounted cameras that trigger fights, and password doors — the passwords come from beating specific grunts, so clear rooms thoroughly rather than sprinting. Lance and his Dragonite turn up to help and do a lot of the heavy lifting."],
+["loot",[
+ {k:"TM46", n:"Thief", where:"Rocket HQ B2F", why:"Genuinely useful — this is how you steal Lucky Eggs off wild Chansey later."},
+ {k:"TM49", n:"Snatch", where:"Rocket HQ B3F"},
+ {k:"HM05", n:"Whirlpool", where:"From Lance, after the generator room"},
+ {k:"TM36", n:"Sludge Bomb", where:"Route 43 — the gate guard, once the base is cleared"}
+]],
+["ul",[
+ "The <b>generator room</b> has three sleeping <b>Electrode</b> — they wake one at a time as you flip switches. Nothing dangerous, but Selfdestruct will chunk your lead.",
+ "You fight executives <b>Ariana</b> and <b>Petrel</b> on the way down.",
+ "Shutting the signal down is what calms the Lake of Rage — and Lance hands you <b>Whirlpool</b> for it."
+]],
+["h","Mahogany Gym"],
+["p","The floor is ice: you slide until you hit something, and you must cross every tile without cracking through. Take it slowly and map the route on the touch screen if you need to."],
+["boss",{
+name:"Pryce", role:"Mahogany Town Gym · Ice", badge:"Glacier Badge",
+team:[
+ {m:"Seel", l:30, t:["Water"], note:"Aurora Beam, Rest. It will heal itself to full if you let it."},
+ {m:"Dewgong", l:32, t:["Water","Ice"], note:"Aurora Beam, Icy Wind, Rest, Sleep Talk. Icy Wind drops your Speed."},
+ {m:"Piloswine", l:34, t:["Ice","Ground"], note:"Blizzard, Icy Wind, Earthquake, Fury Attack. Hits hard; the Blizzard accuracy is your only friend."}
+],
+plan:[
+ "<b>Piloswine is 4× weak to Grass.</b> If you have anything with a Grass move — even a Bellsprout with Bullet Seed — it deletes the gym’s only real threat.",
+ "Dewgong and Seel are Water-first: <b>Electric</b> is 2× on both, and Ampharos does the job. Grass also works.",
+ "<b>Fighting</b> is 2× on all three (Dewgong via Ice, Piloswine via Ice, Seel neutral) — Heracross is a clean sweep option.",
+ "Beware <b>Rest</b>. Pryce’s Pokémon will fully heal and wake up via Sleep Talk. Burst them down rather than grinding.",
+ "Piloswine’s Earthquake is a real threat to Typhlosion and Ampharos. Bring Gyarados or a Flying type in on it."
+],
+reward:"TM07 Hail and the Glacier Badge — which finally lets you use Whirlpool in the field."
+}],
+["team","With Whirlpool you can now enter the <b>Whirl Islands</b> and the last Ruins of Alph chamber, and reach a pile of water-locked items across Johto. Lugia is still not in the Whirl Islands until the post-game, so the trip is for items and dex entries only."]
+]});
+
+STAGES.push({
+id:"j14", ch:"johto", tag:"Stage 14", place:"Goldenrod Radio Tower · Underground",
+title:"Retaking the Radio Tower",
+lede:"Team Rocket’s last stand, a disguised executive, and the bell that eventually opens the Bell Tower.",
+band:[{k:"Party level",v:"36 → 40"},{k:"Badges",v:"7"},{k:"Reward",v:"Clear Bell"}],
+body:[
+["p","Rockets have seized the Goldenrod Radio Tower to broadcast their signal region-wide. The tower itself is a straight climb, but the route runs through the <b>Goldenrod Underground</b>: you need a Rocket uniform to get past the door guard, then the <b>Basement Key</b> and <b>Card Key</b> from the underground warehouse."],
+["h","Order of operations"],
+["ul",[
+ "Enter the Radio Tower, fight up, and lose to nobody — <b>Petrel</b> is disguised as the Director on the top floor.",
+ "Head into the <b>Underground</b> via the Goldenrod tunnel. Your rival fights you here.",
+ "Find the Rocket uniform and the keys in the warehouse; flip the switches in the right order to open the shutters.",
+ "Return to the tower and clear <b>Proton</b>, <b>Ariana</b> and finally <b>Archer</b>.",
+ "Free the real Director — he gives you the <b>Clear Bell</b>."
+]],
+["loot",[
+ {k:"TM11", n:"Sunny Day", where:"Radio Tower 3F, after the Rockets are gone"},
+ {k:"TM82", n:"Sleep Talk", where:"Goldenrod Underground warehouse"},
+ {k:"Key", n:"Clear Bell", where:"The Radio Tower Director", why:"In HeartGold this is the Bell Tower key item. It is what sends you to the Kimono Girls at the end of the Johto story."}
+]],
+["tip","With Team Rocket gone the whole region calms down: the Lake of Rage Magikarp behave, the radio stations work properly, and Goldenrod’s shops all open. This is a good moment to do a full backtrack sweep with Surf, Strength, Whirlpool and Rock Smash before you commit to the last two badges."],
+["do",[
+ "Clear the Radio Tower and the Underground.",
+ "Beat your rival in the Underground.",
+ "Free the Director and take the Clear Bell.",
+ "Pick up TM11 Sunny Day and TM82 Sleep Talk.",
+ {t:"Do a backtrack lap.", sub:"Ruins of Alph chambers, Union Cave B2F (Lapras on a Friday), Slowpoke Well lower level, Route 32 plateau (TM05), Dark Cave’s far side, and the Whirl Islands."}
+]]
+]});
+</script>
+<script>
+/* ===================== JOHTO 15–17 + LEAGUE ===================== */
+STAGES.push({
+id:"j15", ch:"johto", tag:"Stage 15", place:"Route 44 · Ice Path · Blackthorn City",
+title:"Rising Badge — Clair, and the Dragon’s Den test",
+lede:"The last Johto badge, and the one leader who refuses to hand it over when you beat her.",
+band:[{k:"Party level",v:"38 → 42"},{k:"Badge",v:"Rising"},{k:"Unlocks",v:"Waterfall"}],
+body:[
+["h","Ice Path"],
+["p","Boulder-sliding puzzles across four floors. Push each rock into a hole to make a path; if you strand yourself, leave and re-enter to reset the floor."],
+["loot",[
+ {k:"HM07", n:"Waterfall", where:"Ice Path 1F"},
+ {k:"TM72", n:"Avalanche", where:"Ice Path B2F"},
+ {k:"Item", n:"NeverMeltIce", where:"Ice Path"}
+]],
+["catch",[
+ {n:"Sneasel", t:["Dark","Ice"], where:"Ice Path", why:"Weavile is one of the best Pokémon in Gen 4 — it needs a Razor Claw and a level-up at night, both post-game, so catch the Sneasel now."},
+ {n:"Swinub", t:["Ice","Ground"], where:"Ice Path", why:"Mamoswine is a monster, though it needs the AncientPower trick."},
+ {n:"Jynx", t:["Ice","Psychic"], where:"Ice Path", why:"Dex entry, and a serviceable special attacker for the Elite Four."},
+ {n:"Golbat", t:["Poison","Flying"], where:"Ice Path", why:"If your Zubat plan fell through, high-friendship Golbat is still a fast Crobat."}
+]],
+["h","Blackthorn City"],
+["p","Two of the most useful NPCs in the game live here, next to the Pokémon Center:"],
+["ul",[
+ "<b>Move Deleter</b> — the only way to remove an HM move. Free up your team before the Elite Four.",
+ "<b>Move Relearner</b> — takes <b>Heart Scales</b> and teaches any move a Pokémon could have learned by level-up. This is how you fix a Gyarados that missed Dragon Dance, or put ExtremeSpeed back on a Dratini."
+]],
+["boss",{
+name:"Clair", role:"Blackthorn City Gym · Dragon", badge:"Rising Badge",
+team:[
+ {m:"Dragonair", l:38, t:["Dragon"], note:"Thunder Wave, Dragon Rage, Surf, Slam. The paralysis is the real damage."},
+ {m:"Dragonair", l:38, t:["Dragon"], note:"Same set."},
+ {m:"Gyarados", l:38, t:["Water","Flying"], note:"<b>4× weak to Electric.</b> Dragon Rage, Twister, Bite."},
+ {m:"Kingdra", l:41, t:["Water","Dragon"], note:"Smokescreen, Surf, DragonBreath, Hyper Beam. Water/Dragon has <i>no</i> 2× weakness except Dragon — this is the wall."}
+],
+plan:[
+ "<b>Ice Beam is the answer to this gym.</b> Dragon is 2× weak to Ice, so both Dragonairs fold. If you bought it from the Goldenrod Game Corner earlier, this fight is routine; if not, you are in for a slog.",
+ "<b>Thunderbolt one-shots the Gyarados</b> (Water/Flying, 4×). Lead Ampharos into it.",
+ "<b>Kingdra</b> resists Ice (Water halves it) and has no other weakness in Gen 4 outside Dragon. You beat it with raw neutral damage — a boosted Gyarados Waterfall, Typhlosion’s Flamethrower is resisted, so bring your hardest-hitting neutral move.",
+ "Smokescreen stacks accuracy drops. If you eat two, switch out; do not gamble a sweep on 50% accuracy.",
+ "Dragon Rage always deals exactly 40 damage. Anything under 40 HP is not safe, no matter its level."
+],
+reward:"TM59 Dragon Pulse — but <b>not the badge</b>. Clair sends you to the Dragon’s Den first."
+}],
+["h","Dragon’s Den — the elder’s test"],
+["p","Surf into the den behind the gym, retrieve the Dragon Fang Clair wants, and the elder quizzes you. Answer all five correctly on the first try and the Dratini he gives you knows <b>ExtremeSpeed</b> — a move Dratini cannot otherwise learn. Get one wrong and you still get a Dratini, just with Leer."],
+["table",{cols:["Question","Answer"],rows:[
+ ["What are Pokémon to you?","<b>Ally</b>"],
+ ["What helps you to win battles?","<b>Training</b>"],
+ ["What kind of Trainer do you wish to battle?","<b>Anyone</b> (Strong also accepted)"],
+ ["What is most important for raising Pokémon?","<b>Love</b>"],
+ ["Strong Pokémon. Weak Pokémon. Which is more important?","<b>Both</b>"]
+]}],
+["do",[
+ "Take HM07 Waterfall and TM72 Avalanche from the Ice Path.",
+ "Catch a Sneasel (and a Swinub, if you want a Mamoswine project).",
+ "Beat Clair.",
+ "Pass the Dragon’s Den quiz and collect the ExtremeSpeed Dratini and the Rising Badge.",
+ "Visit the Move Deleter and Move Relearner before you leave town.",
+ {t:"Fish in the Dragon’s Den.", sub:"Dratini and Dragonair spawn here — a second Dragonite project, or a Kingdra if you have a Dragon Scale."}
+]]
+]});
+
+STAGES.push({
+id:"j16", ch:"johto", tag:"Stage 16", place:"Ecruteak · Bell Tower",
+title:"The Kimono Girls and Ho-Oh",
+lede:"Five battles in a row, then a climb, then the mascot of your cartridge at level 45. This is the last thing you do before the League.",
+band:[{k:"Party level",v:"40 → 44"},{k:"Target",v:"Ho-Oh Lv 45"},{k:"Bring",v:"Ultra Balls"}],
+body:[
+["p","Take the <b>Clear Bell</b> to the Ecruteak Dance Theatre. The five Kimono Girls each field one Eeveelution — <b>Umbreon, Espeon, Vaporeon, Jolteon and Flareon</b> — and you fight them consecutively without a break. Win all five and they open the <b>Bell Tower</b>."],
+["tip","No healing between the five fights. Bring a full bag and a Pokémon that covers all five Eeveelutions — something Fighting-typed handles Umbreon, and a Ground or Rock type handles Jolteon and Flareon. Or just be ten levels above them, which honestly works."],
+["h","Ho-Oh — level 45"],
+["warn","<b>Save in-game before you enter the encounter, and make a save state.</b> Ho-Oh is one of a kind on your cartridge. If you knock it out, it does not come back until you have beaten the Elite Four (and even then, only via the roaming/rechallenge rules)."],
+["ul",[
+ "Bring a Pokémon with <b>False Swipe</b> (TM54, Dark Cave) to grind it to 1 HP safely.",
+ "Then <b>sleep or paralyse</b> it — sleep is the strongest catch modifier in Gen 4, and it does not chip away like burn or poison.",
+ "<b>Do not use poison or burn.</b> Residual damage can kill it on its own turn.",
+ "Throw <b>Ultra Balls</b>, or a <b>Timer Ball</b> if the fight has run 10+ turns — Timer Balls beat Ultra Balls after about turn 11.",
+ "Ho-Oh’s Sacred Fire burns and hits hard. A Water or Rock type with high bulk (Gyarados is 4× weak to Rock but resists Fire; Quagsire is safer) makes a good body to sit in front of it."
+]],
+["h","Suicune, meanwhile"],
+["p","Suicune has been appearing throughout your run — Cianwood, Route 42, the Burned Tower. It does not settle until Kanto: <b>Suicune waits on Kanto Route 25</b>, where Eusine challenges you first and then you fight Suicune at level 40. Raikou and Entei, by contrast, roam Johto permanently from the moment you released them."],
+["do",[
+ "Beat all five Kimono Girls.",
+ "Climb the Bell Tower.",
+ "Catch Ho-Oh (Lv 45).",
+ "Stock Ultra Balls and a False Swipe user before you go."
+]]
+]});
+
+STAGES.push({
+id:"j17", ch:"johto", tag:"Stage 17", place:"Routes 45–46 · 27–26 · Victory Road",
+title:"The road to Indigo Plateau",
+lede:"A long final stretch with three good TMs on it and your last rival fight before the League.",
+band:[{k:"Party level",v:"42 → 46"},{k:"Badges",v:"8"},{k:"Next",v:"Elite Four"}],
+body:[
+["h","Routes 45 and 46, and Dark Cave"],
+["p","South out of Blackthorn. Dark Cave’s far side connects here and needs Flash, Surf and Rock Smash — inside is <b>TM54 False Swipe</b>, which you want before every legendary encounter for the rest of the game."],
+["catch",[
+ {n:"Phanpy", t:["Ground"], where:"Routes 45–46 (HeartGold exclusive)", why:"Donphan is a strong physical Ground with Rock Climb and Strength on its back."},
+ {n:"Gligar", t:["Ground","Flying"], where:"Route 45 (HeartGold exclusive)", why:"Gliscor needs a Razor Fang and a night level-up, both post-game — catch the Gligar now."},
+ {n:"Larvitar", t:["Rock","Ground"], where:"Not here — Mt. Silver, post-game", why:"Noted so you stop looking for it in Johto."},
+ {n:"Teddiursa / Delibird / Skarmory", t:["Normal"], where:"SoulSilver only", why:"Trade targets. Flag them for your second instance."}
+]],
+["h","Routes 27 and 26"],
+["loot",[
+ {k:"TM02", n:"Dragon Claw", where:"Route 27 — needs Surf and Whirlpool"},
+ {k:"TM37", n:"Sandstorm", where:"Route 27 — from the woman east of Tohjo Falls (high friendship)"},
+ {k:"Item", n:"Tohjo Falls", where:"Between Routes 27 and 26 — needs Surf and Waterfall"}
+]],
+["h","Victory Road"],
+["loot",[
+ {k:"TM26", n:"Earthquake", where:"Victory Road 2F", why:"One of the best moves in the game and free here — do not walk past it."},
+ {k:"TM79", n:"Dark Pulse", where:"Victory Road 3F (needs Rock Smash)"}
+]],
+["p","Your rival ambushes you near the exit with a team in the low 40s. After that, the Indigo Plateau Pokémon Center is your last stop — the shop there is the only place to stock up before the Elite Four, and once you enter you cannot leave."],
+["do",[
+ "Sweep Dark Cave’s far side for TM54 False Swipe.",
+ "Catch Phanpy and Gligar (HeartGold exclusives).",
+ "Take TM02 Dragon Claw and TM37 Sandstorm on Route 27.",
+ "Take TM26 Earthquake and TM79 Dark Pulse in Victory Road.",
+ "Beat your rival.",
+ {t:"Stock up at Indigo Plateau.", sub:"Full Restores, Revives, and at least one Full Heal per Elite Four member."}
+]]
+]});
+
+STAGES.push({
+id:"lg-e4", ch:"league", tag:"Champion run", place:"Indigo Plateau",
+title:"The Elite Four and Lance",
+lede:"Five fights, no healing between them, no leaving. Levels 40–50 — you want a team around 45 and a bag that can cover a bad turn.",
+band:[{k:"Recommended",v:"Lv 45+"},{k:"Fights",v:"5, back to back"},{k:"Heal items",v:"Bring 15+"}],
+body:[
+["warn","You cannot leave the Elite Four building once you start, and there is no Pokémon Center between members. Your only healing is items. Budget roughly <b>10 Full Restores, 5 Revives and 4 Full Heals</b>, and make an in-game save at the entrance."],
+["boss",{
+name:"Will", role:"Elite Four 1 · Psychic",
+team:[
+ {m:"Xatu", l:40, t:["Psychic","Flying"], note:"Confuse Ray, Psychic, Quick Attack, Night Shade."},
+ {m:"Jynx", l:41, t:["Ice","Psychic"], note:"Lovely Kiss, Psychic, Ice Punch. Lovely Kiss is a sleep move — this is the dangerous one."},
+ {m:"Exeggutor", l:41, t:["Grass","Psychic"], note:"Psychic, Reflect, Egg Bomb, Sleep Powder."},
+ {m:"Slowbro", l:41, t:["Water","Psychic"], note:"Curse, Psychic, Surf, Amnesia. It will out-bulk you if you let it set up."},
+ {m:"Xatu", l:42, t:["Psychic","Flying"], note:"Same kit, higher level."}
+],
+plan:[
+ "<b>Dark</b> is the clean answer — Psychic has no effect on Dark in Gen 4 in one direction and Dark is 2× back. An Umbreon or a Sneasel walks in here.",
+ "<b>Bug</b> also works: Heracross’ Megahorn is 2× on four of the five.",
+ "Jynx is 4× weak to nothing but is frail — a Rock or Fire move removes it before Lovely Kiss lands.",
+ "Both Xatus are Flying: <b>Electric</b> and <b>Rock</b> are 2×.",
+ "Carry a Full Heal for the sleep and confusion. Will’s entire gameplan is disabling one of your Pokémon and grinding you down."
+]
+}],
+["boss",{
+name:"Koga", role:"Elite Four 2 · Poison",
+team:[
+ {m:"Ariados", l:40, t:["Bug","Poison"], note:"Spider Web (you cannot switch out), Double Team, Sludge Bomb, Baton Pass."},
+ {m:"Venomoth", l:41, t:["Bug","Poison"], note:"Double Team, Sludge Bomb, Supersonic, Psychic."},
+ {m:"Muk", l:42, t:["Poison"], note:"Minimize, Sludge Bomb, Toxic, Screech."},
+ {m:"Forretress", l:43, t:["Bug","Steel"], note:"Explosion, Spikes, Protect. Explosion will take something with it."},
+ {m:"Crobat", l:44, t:["Poison","Flying"], note:"Double Team, Wing Attack, Confuse Ray, Toxic. Extremely fast."}
+],
+plan:[
+ "Koga’s whole strategy is <b>evasion</b> — Double Team and Minimize stacking until you cannot hit him. Counter it with moves that never miss (Aerial Ace, Swift, Shock Wave, Magical Leaf) or with a Sand Attack-proof damage source.",
+ "<b>Psychic</b> is 2× on everything except Forretress; <b>Ground</b> is 2× on Muk and Forretress.",
+ "Forretress is <b>Bug/Steel</b> — remember Gen 4 Steel resists Dark and Ghost. Bring Fire.",
+ "<b>Spider Web</b> traps you in. Do not send in a Pokémon you plan to rotate out.",
+ "Toxic ramps. If something gets badly poisoned early, it is on a clock for the whole gauntlet — switch it out and let the timer stop."
+]
+}],
+["boss",{
+name:"Bruno", role:"Elite Four 3 · Fighting",
+team:[
+ {m:"Hitmontop", l:42, t:["Fighting"], note:"Triple Kick, Dig, Counter, Detect."},
+ {m:"Hitmonlee", l:42, t:["Fighting"], note:"Hi Jump Kick, Swagger, Foresight, Mind Reader."},
+ {m:"Hitmonchan", l:42, t:["Fighting"], note:"Elemental punches — Fire, Ice and Thunder Punch cover a lot."},
+ {m:"Onix", l:43, t:["Rock","Ground"], note:"Rock Slide, Earthquake, Sandstorm, Screech."},
+ {m:"Machamp", l:46, t:["Fighting"], note:"Cross Chop, Rock Slide, Scary Face, Foresight. No Guard means Cross Chop always hits."}
+],
+plan:[
+ "<b>Psychic</b> and <b>Flying</b> are both 2× on four of the five. Crobat with Aerial Ace, or any Psychic user, cleans this up.",
+ "Onix is the odd one out — <b>Water</b> and <b>Grass</b> are 4× on Rock/Ground.",
+ "<b>Burn</b> is a legitimate strategy: Will-O-Wisp halves physical Attack and Bruno’s entire team is physical.",
+ "Hitmonlee’s Hi Jump Kick has recoil on a miss — a Ghost type makes it hurt itself for free.",
+ "Machamp’s Cross Chop crits often. Do not leave a low-HP Pokémon in front of it."
+]
+}],
+["boss",{
+name:"Karen", role:"Elite Four 4 · Dark",
+team:[
+ {m:"Umbreon", l:42, t:["Dark"], note:"Confuse Ray, Faint Attack, Mean Look, Sand-Attack. Very bulky, very annoying."},
+ {m:"Vileplume", l:42, t:["Grass","Poison"], note:"Petal Dance, Acid, Moonlight, Sleep Powder."},
+ {m:"Murkrow", l:44, t:["Dark","Flying"], note:"Faint Attack, Pursuit, Drill Peck, Whirlwind."},
+ {m:"Gengar", l:45, t:["Ghost","Poison"], note:"Levitate. Hypnosis, Shadow Ball, Dream Eater, Destiny Bond."},
+ {m:"Houndoom", l:47, t:["Dark","Fire"], note:"Flamethrower, Crunch, Roar, Sunny Day. The hardest hitter of the four."}
+],
+plan:[
+ "<b>Fighting</b> is the answer — 2× on Umbreon, Murkrow and Houndoom. Heracross is the single best Pokémon you can bring to this fight.",
+ "Houndoom is <b>Dark/Fire</b>: <b>4× weak to Fighting</b> and 2× to Water, Rock and Ground.",
+ "Gengar has Levitate — Earthquake does nothing. It also has <b>Destiny Bond</b>, which takes your attacker with it. Kill it with something expendable.",
+ "Umbreon has <b>Mean Look</b> and will trap you. Bring in the Pokémon you want to spend on it.",
+ "Vileplume’s Sleep Powder is a run-ender at this stage of the gauntlet. Keep a Full Heal in reach."
+]
+}],
+["boss",{
+name:"Lance", role:"Champion · Dragon", badge:"Hall of Fame",
+team:[
+ {m:"Gyarados", l:44, t:["Water","Flying"], note:"<b>4× weak to Electric.</b> Flail, Twister, Dragon Rage, Hyper Beam."},
+ {m:"Dragonite", l:49, t:["Dragon","Flying"], note:"Thunder Wave, Twister, Hyper Beam, Safeguard."},
+ {m:"Dragonite", l:49, t:["Dragon","Flying"], note:"Same shell, different coverage."},
+ {m:"Aerodactyl", l:48, t:["Rock","Flying"], note:"<b>4× weak to Electric, Water, Rock and Ice.</b> Rock Slide, Hyper Beam, AncientPower, Scary Face."},
+ {m:"Charizard", l:48, t:["Fire","Flying"], note:"<b>4× weak to Rock.</b> Flamethrower, Wing Attack, Slash, Fire Spin."},
+ {m:"Dragonite", l:50, t:["Dragon","Flying"], note:"Outrage, Hyper Beam, Blizzard, Fire Blast. The ace."}
+],
+plan:[
+ "<b>Ice is 4× on every Dragonite</b> (Dragon/Flying). One Ice Beam user beats half his team. This is the single strongest argument for buying TM13 in Goldenrod.",
+ "<b>Electric is 4× on Gyarados and Aerodactyl.</b> An Ampharos with Thunderbolt takes two Pokémon off the board.",
+ "<b>Rock is 4× on Charizard.</b> Rock Slide from anything works.",
+ "Every Dragonite has <b>Hyper Beam</b>. Survive it and you get a free turn while it recharges — a Focus Sash-style survival is not available here, so plan on switching a body in to eat it.",
+ "Thunder Wave from the first Dragonite ruins your speed control. If your Ice user gets paralysed, consider switching it out and healing later rather than fighting through 25% full-paralysis rolls."
+],
+reward:"The Hall of Fame, the credits, and the National Pokédex."
+}]
+]});
+
+STAGES.push({
+id:"lg-after", ch:"league", tag:"Post-credits", place:"New Bark Town",
+title:"What changes the moment the credits roll",
+lede:"HeartGold’s post-game is roughly half the game. Here is everything that switches on at once, so you can plan the order.",
+body:[
+["h","Immediately"],
+["ul",[
+ "<b>Prof. Elm upgrades your Pokédex to the National Dex</b> — wild encounter tables across both regions change, and Pokémon from Hoenn and Sinnoh start appearing.",
+ "<b>Elm gives you the S.S. Ticket.</b> Board the S.S. Aqua in Olivine to sail to Vermilion City and start the Kanto half.",
+ "<b>Daily swarms</b> begin rotating on Oak’s Pokémon Talk.",
+ "<b>The Battle Frontier</b> opens (by boat from Olivine) — five facilities and the Battle Points economy.",
+ "<b>Gym Leader phone numbers</b> become collectable. You cannot rematch any leader until you have all 16 badges, but you can start gathering numbers now.",
+ "<b>Lugia</b> becomes available in the Whirl Islands — but only once you have the <b>Silver Wing</b>, which an old man in <b>Pewter City</b> gives you in Kanto.",
+ "The <b>Pokéathlon</b> shop expands to twelve items a day.",
+ "<b>Hoenn Sound</b> (Wednesdays) and <b>Sinnoh Sound</b> (Thursdays) appear on the radio — these change which Pokémon appear in several areas and matter for the dex."
+]],
+["h","A sensible order from here"],
+["ul",[
+ "Sail to Kanto and take the eight Kanto badges — they are the gate to Rock Climb, Mt. Silver and Red.",
+ "Restore the Kanto Power Plant early; it unlocks the Magnet Train (fast travel between Goldenrod and Saffron) and the Pokéflute for Snorlax.",
+ "Catch Suicune on Route 25 when you pass through Cerulean.",
+ "Collect gym leader phone numbers as you meet them — several are only obtainable at specific days and times.",
+ "Save the legendary sweep, the Frontier and the dex grind for after Red."
+]],
+["do",[
+ "Take the National Dex from Prof. Elm.",
+ "Take the S.S. Ticket and sail from Olivine.",
+ "Start collecting gym leader phone numbers.",
+ "Note that Lugia needs the Silver Wing from Pewter City."
+]]
+]});
+</script>
+<script>
+/* ===================== KANTO + RED ===================== */
+STAGES.push({
+id:"k01", ch:"kanto", tag:"Kanto 01", place:"S.S. Aqua · Vermilion City",
+title:"Thunder Badge — Lt. Surge",
+lede:"Kanto opens at level 47–53 while you arrive at about 46. Expect the first two gyms to be a real step up, and plan a grinding stop.",
+band:[{k:"Party level",v:"46 → 52"},{k:"Badge",v:"Thunder"},{k:"Warning",v:"Level spike"}],
+body:[
+["p","The <b>S.S. Aqua</b> sails from Olivine on Mondays and Fridays to Vermilion, and back on Sundays and Wednesdays. On board, a sailor’s granddaughter goes missing — find her and the crew let you off. There is a set of trainers in the cabins worth clearing for the experience."],
+["warn","Kanto’s level curve is brutal on arrival. Its gym leaders sit at <b>44–60</b>. Before you start, do a lap of Pokégear rematches, or grind on Route 26/27 and Victory Road — arriving at level 50 makes the whole region pleasant instead of grinding."],
+["h","Vermilion City"],
+["do",[
+ {t:"Visit the <b>Pokémon Fan Club</b> and take the lost <b>Poké Doll</b>.", sub:"It belongs to the Copycat in Saffron. Returning it is what makes Steven Stone appear — and Steven is the gate to a Hoenn starter and a Beldum much later. Do not skip this."},
+ {t:"Note <b>Diglett’s Cave</b> to the north-west.", sub:"It is the shortcut to Pewter, and Brock trades a Rhyhorn for a Bonsly at its entrance."},
+ {t:"Note the <b>Fighting Dojo</b> in Saffron.", sub:"This is where every gym leader you rematch will actually show up."},
+ "Beat Lt. Surge."
+]],
+["boss",{
+name:"Lt. Surge", role:"Vermilion City Gym · Electric", badge:"Thunder Badge",
+team:[
+ {m:"Electrode", l:47, t:["Electric"], note:"Fast. Selfdestruct, Screech, Rollout."},
+ {m:"Electrode", l:47, t:["Electric"], note:"Same — and both will explode on you."},
+ {m:"Magneton", l:47, t:["Electric","Steel"], note:"<b>4× weak to Ground.</b> Thunderbolt, Supersonic, Tri Attack."},
+ {m:"Raichu", l:51, t:["Electric"], note:"Thunderbolt, Quick Attack, Focus Punch, Thunder Wave."},
+ {m:"Electabuzz", l:53, t:["Electric"], note:"Thunderbolt, Ice Punch, Light Screen, Thunder Wave. Ice Punch is the surprise."}
+],
+plan:[
+ "<b>Ground immunises and dominates.</b> A Donphan, Quagsire or Golem takes zero damage from every Electric move here and hits back for 2× (4× on Magneton).",
+ "The two Electrode will <b>Selfdestruct</b>. Bring a Ground type in on them and it barely matters; bring your Gyarados and you lose it.",
+ "Do not lead with anything Water or Flying — Gyarados takes 4× from every attack in this gym.",
+ "Electabuzz’s Ice Punch is the only non-Electric threat. If you are relying on a Ground type, that punch is what kills it."
+],
+reward:"TM34 Shock Wave and the Thunder Badge."
+}]
+]});
+
+STAGES.push({
+id:"k02", ch:"kanto", tag:"Kanto 02", place:"Routes 5–11 · Rock Tunnel · Power Plant",
+title:"Turning the lights back on",
+lede:"Kanto’s power is out, which is why the Magnet Train does not run and the radio is dead. Fixing it is the highest-value side quest in the region and it gates Snorlax.",
+band:[{k:"Party level",v:"50 → 55"},{k:"Unlocks",v:"Magnet Train · Pokéflute"},{k:"Priority",v:"Do this early"}],
+body:[
+["h","The Machine Part chain"],
+["ul",[
+ "Go to the <b>Power Plant</b> (east of Cerulean, past Route 9 and the Rock Tunnel area). The manager tells you a <b>Machine Part</b> has been stolen.",
+ "The thief is a <b>Team Rocket grunt hiding in the Cerulean Gym</b>. Beat him and recover the part.",
+ "Return it to the manager: he gives you <b>TM57 Charge Beam</b> and the power comes back on.",
+ "With power restored, the <b>Magnet Train</b> runs between Saffron and Goldenrod — fast travel between the regions, which you will use constantly.",
+ "Go to the <b>Lavender Radio Tower</b> and get the <b>EXPN Card</b>, which adds the <b>Pokéflute</b> channel to your radio. That is how you wake the Snorlax."
+]],
+["h","Snorlax"],
+["warn","The <b>Snorlax on Route 11</b> is level 50, one of a kind, and <b>holds Leftovers</b> — the best passive item in the game. Catch it, do not knock it out. It blocks the road to Diglett’s Cave and western Kanto, so you cannot skip the encounter."],
+["h","Worth collecting on the way"],
+["loot",[
+ {k:"TM64", n:"Explosion", where:"Route 5–6 Underground Path — the man wants a RageCandyBar (buy one in Mahogany)"},
+ {k:"TM56", n:"Fling", where:"Rock Tunnel 1F"},
+ {k:"TM91", n:"Flash Cannon", where:"Route 9"},
+ {k:"TM69", n:"Rock Polish", where:"Route 10 — needs Strength"},
+ {k:"TM86", n:"Grass Knot", where:"Route 11"},
+ {k:"TM41", n:"Torment", where:"Route 8"},
+ {k:"Key", n:"Copycat’s Poké Doll", where:"Return it in Saffron — this is what summons Steven Stone", why:"Prerequisite for the Hoenn starter and the Beldum trade."},
+ {k:"Item", n:"Metal Coat", where:"Held by the traded Magneton in the Power Plant (trade a Dugtrio)", why:"Steelix and Scizor."}
+]],
+["catch",[
+ {n:"Zapdos", t:["Electric","Flying"], where:"Route 10, outside the Power Plant — Lv 50", why:"Needs all 16 badges. Note it now and come back; do not waste balls before then."},
+ {n:"Chansey", t:["Normal"], where:"Routes 13/14/15 and the Safari Zone Meadow", why:"~5% hold a <b>Lucky Egg</b>. Bring TM46 Thief. This is worth a dedicated hunt before you grind for Red."},
+ {n:"Ditto / Kangaskhan / Tauros", t:["Normal"], where:"Routes 13–15 and the Kanto grass", why:"Dex entries that are much easier now than during a completion sweep later."}
+]],
+["do",[
+ "Recover the Machine Part from the Cerulean Gym Rocket and return it to the Power Plant.",
+ "Take the EXPN Card from the Lavender Radio Tower.",
+ "Catch the Snorlax on Route 11 and take its Leftovers.",
+ "Return the Copycat’s Poké Doll and meet Steven Stone.",
+ "Ride the Magnet Train at least once so it is on your map."
+]]
+]});
+
+STAGES.push({
+id:"k03", ch:"kanto", tag:"Kanto 03", place:"Cerulean City · Routes 24–25 · Saffron City",
+title:"Cascade and Marsh — Misty, Sabrina, and Suicune",
+lede:"Two gyms, one legendary, and the end of the Suicune chase that has been following you since the Burned Tower.",
+band:[{k:"Party level",v:"52 → 56"},{k:"Badges",v:"Cascade · Marsh"},{k:"Catch",v:"Suicune Lv 40"}],
+body:[
+["h","Suicune, finally"],
+["p","Head north out of Cerulean over Nugget Bridge to <b>Route 25</b>. <b>Eusine</b> is waiting; beat him and <b>Suicune</b> stops running. It is level 40 and it does <i>not</i> flee — this is a normal legendary encounter, so take your time."],
+["ul",[
+ "Bring <b>False Swipe</b> and a sleep move, and save first.",
+ "Suicune has Surf, Gust, Aurora Beam and Rain Dance. Nothing here can one-shot you at level 55.",
+ "Timer Balls beat Ultra Balls once the fight passes about turn 11 — and this fight will."
+]],
+["boss",{
+name:"Misty", role:"Cerulean City Gym · Water", badge:"Cascade Badge",
+team:[
+ {m:"Golduck", l:49, t:["Water"], note:"Surf, Psych Up, Disable, Screech."},
+ {m:"Quagsire", l:49, t:["Water","Ground"], note:"<b>4× weak to Grass</b>, immune to Electric. This is why you cannot just spam Thunderbolt."},
+ {m:"Lapras", l:52, t:["Water","Ice"], note:"Surf, Ice Beam, Confuse Ray, Body Slam. Bulky."},
+ {m:"Starmie", l:54, t:["Water","Psychic"], note:"Surf, Ice Beam, Recover, Confuse Ray. Recover makes it a damage race you must win."}
+],
+plan:[
+ "<b>Grass</b> is the universal answer here — 2× on three of them and 4× on Quagsire, which is the one Electric cannot touch.",
+ "<b>Electric</b> handles Golduck, Lapras and Starmie at 2×, but is completely dead against Quagsire. Bring both, or bring Grass.",
+ "Starmie’s <b>Recover</b> means chip damage does nothing. Burst it or paralyse it first.",
+ "Lapras’ Ice Beam is 4× on a Gyarados. Do not park your Water/Flying in front of it.",
+ "If Misty is not in the gym, she is on a date at the <b>Cerulean Cape</b> — go talk to her."
+],
+reward:"TM03 Water Pulse and the Cascade Badge."
+}],
+["boss",{
+name:"Sabrina", role:"Saffron City Gym · Psychic", badge:"Marsh Badge",
+team:[
+ {m:"Espeon", l:53, t:["Psychic"], note:"Psychic, Reflect, Psych Up, Morning Sun."},
+ {m:"Mr. Mime", l:53, t:["Psychic"], note:"Pure <b>Psychic</b> in Gen 4 — no Fairy typing. Barrier, Reflect, Light Screen, Psychic."},
+ {m:"Alakazam", l:55, t:["Psychic"], note:"Psychic, Future Sight, Reflect, Recover. Enormous Special Attack, paper defence."}
+],
+plan:[
+ "Only three Pokémon, all pure Psychic. <b>Dark</b> and <b>Bug</b> are the answers — Crunch, Bite, Megahorn, X-Scissor.",
+ "A <b>Dark type is immune to Psychic</b> in Gen 4, so an Umbreon, Houndoom or Weavile can sit in front of this entire gym.",
+ "They stack <b>Reflect</b> and <b>Light Screen</b>. Bring physical damage if they put up Light Screen and special if they put up Reflect — or just use a move that breaks through (Brick Break removes screens).",
+ "Alakazam has <b>Recover</b> and huge Special Attack. Kill it in one turn with a physical Dark move."
+],
+reward:"TM48 Skill Swap and the Marsh Badge."
+}],
+["do",[
+ "Beat Eusine and catch Suicune on Route 25.",
+ "Visit Bill at the Cerulean Cape.",
+ "Beat Misty (check the Cape if she is not in the gym).",
+ "Beat Sabrina.",
+ "Trade a Haunter for the Xatu “Paul” at the Pewter Pokémon Center when you get there."
+]]
+]});
+
+STAGES.push({
+id:"k04", ch:"kanto", tag:"Kanto 04", place:"Celadon City · Fuchsia City",
+title:"Rainbow and Soul — Erika, Janine, and Pal Park",
+lede:"Two of the easier Kanto gyms, plus the building that lets you migrate a whole Gen 3 collection into this save.",
+band:[{k:"Party level",v:"54 → 58"},{k:"Badges",v:"Rainbow · Soul"},{k:"Unlocks",v:"Pal Park"}],
+body:[
+["h","Celadon City"],
+["ul",[
+ "The <b>Celadon Department Store</b> is the game’s best TM shop — TM12, TM20, TM21, TM22, TM27, TM28, TM41, TM55, TM72, TM76, TM78, TM79, TM87 are all here for cash.",
+ "The <b>Celadon Game Corner</b> runs Voltorb Flip too: TM29 Psychic, TM32 Double Team, TM58 Endure, TM68 Giga Impact, TM74 Gyro Ball.",
+ "<b>TM67 Recycle</b> is in the city itself, and the <b>Spell Tag</b> appears at night."
+]],
+["boss",{
+name:"Erika", role:"Celadon City Gym · Grass", badge:"Rainbow Badge",
+team:[
+ {m:"Jumpluff", l:51, t:["Grass","Flying"], note:"<b>4× weak to Ice.</b> Sleep Powder, Leech Seed, Mega Drain, Sunny Day. The Sleep Powder is the annoyance."},
+ {m:"Tangela", l:52, t:["Grass"], note:"Vine Whip, Bind, Sleep Powder, Giga Drain."},
+ {m:"Victreebel", l:56, t:["Grass","Poison"], note:"Razor Leaf, Sleep Powder, Acid, Sunny Day."},
+ {m:"Bellossom", l:56, t:["Grass"], note:"Petal Dance, Sunny Day, SolarBeam, Magical Leaf. With Sunny Day up, SolarBeam is instant."}
+],
+plan:[
+ "<b>Fire</b> and <b>Ice</b> both clear the gym. Typhlosion with Flamethrower is an outright sweep — unless they set Sunny Day, which boosts your Fire moves too.",
+ "Jumpluff is Grass/Flying: <b>4× to Ice</b>, 2× to Fire, Rock and Electric.",
+ "Every one of them carries a <b>sleep move</b>. Bring three Awakenings or a Full Heal; do not fight this gym with a single sweeper and no backup.",
+ "Watch for Sunny Day into SolarBeam — that turns a two-turn move into a one-turn nuke."
+],
+reward:"TM19 Giga Drain and the Rainbow Badge."
+}],
+["h","Fuchsia City"],
+["p","The old Kanto Safari Zone is now the <b>Pal Park</b>: if you have Gen 3 games and saves, you can migrate six Pokémon a day from each into this cartridge. On melonDS that means loading a GBA ROM into the slot-2 cart. It is the single fastest way to fill big blocks of the National Dex."],
+["boss",{
+name:"Janine", role:"Fuchsia City Gym · Poison", badge:"Soul Badge",
+team:[
+ {m:"Weezing", l:44, t:["Poison"], note:"Sludge Bomb, Toxic, Explosion, Smokescreen."},
+ {m:"Crobat", l:47, t:["Poison","Flying"], note:"Very fast. Air Cutter, Bite, Confuse Ray, Toxic."},
+ {m:"Ariados", l:47, t:["Bug","Poison"], note:"Sludge Bomb, Night Shade, Spider Web, Baton Pass."},
+ {m:"Ariados", l:47, t:["Bug","Poison"], note:"Same."},
+ {m:"Venomoth", l:50, t:["Bug","Poison"], note:"Psychic, Sludge Bomb, Toxic, Supersonic."}
+],
+plan:[
+ "<b>Psychic</b> is 2× on the entire gym. This is the fight Sabrina’s TM48 and a Celadon-bought TM29 were made for.",
+ "<b>Ground</b> is 2× on Weezing and the only clean answer if you have no Psychic — but it does nothing to Crobat or the Ariados.",
+ "<b>Toxic</b> is on four of the five. A Steel or Poison type of your own is immune and makes this trivial.",
+ "Weezing’s Explosion will take something with it. Do not fight it with your ace at 40% health."
+],
+reward:"TM84 Poison Jab and the Soul Badge."
+}],
+["do",[
+ "Beat Erika and Janine.",
+ "Buy the Celadon Department Store TMs you are missing.",
+ "Play Voltorb Flip at the Celadon corner for TM29 Psychic and TM68 Giga Impact.",
+ {t:"Set up Pal Park if you have Gen 3 saves.", sub:"Six migrations per day, per game — start early and it runs in the background."},
+ "Hunt Chansey on Routes 13–15 with Thief for a Lucky Egg."
+]]
+]});
+
+STAGES.push({
+id:"k05", ch:"kanto", tag:"Kanto 05", place:"Diglett’s Cave · Pewter City · Mt. Moon",
+title:"Boulder Badge — Brock, and the Silver Wing",
+lede:"Western Kanto opens once Snorlax is off Route 11. The most valuable thing here is not the badge — it is the wing that unlocks Lugia.",
+band:[{k:"Party level",v:"56 → 60"},{k:"Badge",v:"Boulder"},{k:"Key item",v:"Silver Wing"}],
+body:[
+["warn","<b>Pewter City: the old man in the house gives you the Silver Wing.</b> This is the key item that puts <b>Lugia</b> in the Whirl Islands at level 70. It is easy to walk past. Talk to everyone in Pewter."],
+["h","Also in Pewter"],
+["do",[
+ {t:"Take the <b>Silver Wing</b> from the old man.", sub:"Lugia does not exist in the Whirl Islands until you hold this."},
+ {t:"Visit the <b>Pewter Museum</b>.", sub:"A prerequisite for Steven Stone's Beldum trade later — the trade has more conditions than any other in the game."},
+ {t:"Trade a Haunter for <b>Xatu “Paul”</b> at the Pokémon Center.", sub:"Modest nature, holds a Wacan Berry."},
+ {t:"Trade a Bonsly for Brock's <b>Rhyhorn</b> at the Diglett's Cave entrance.", sub:"It knows Thunder Fang. Bonsly comes from breeding your Sudowoodo."},
+ "Beat Brock."
+]],
+["boss",{
+name:"Brock", role:"Pewter City Gym · Rock", badge:"Boulder Badge",
+team:[
+ {m:"Graveler", l:51, t:["Rock","Ground"], note:"<b>4× weak to Water and Grass.</b> Rock Slide, Earthquake, Defense Curl, Rollout."},
+ {m:"Rhyhorn", l:51, t:["Ground","Rock"], note:"Same 4× weaknesses. Horn Attack, Earthquake, Scary Face."},
+ {m:"Kabutops", l:52, t:["Rock","Water"], note:"<b>4× weak to Grass.</b> Aqua Jet, Slash, Endure, Mega Drain."},
+ {m:"Omastar", l:53, t:["Rock","Water"], note:"<b>4× weak to Grass.</b> Surf, Ancientpower, Protect, Spike Cannon."},
+ {m:"Onix", l:54, t:["Rock","Ground"], note:"<b>4× weak to Water and Grass.</b> Rock Slide, Earthquake, Sandstorm, Screech."}
+],
+plan:[
+ "<b>Grass is 4× on all five.</b> There is no gym in the game more one-sided — a single Grass attacker sweeps this.",
+ "<b>Water</b> is 4× on Graveler, Rhyhorn and Onix, and resisted by Kabutops and Omastar. Grass is strictly better here.",
+ "Everything has <b>Earthquake</b> or Rock Slide. Your Fire and Electric types are in real danger — keep them out.",
+ "Watch the Graveler’s Rollout after a Defense Curl; it doubles each turn like Whitney’s Miltank."
+],
+reward:"TM80 Rock Slide and the Boulder Badge."
+}],
+["h","Mt. Moon and Viridian Forest"],
+["ul",[
+ "Your rival fights you in <b>Mt. Moon</b>.",
+ "<b>Monday nights, 8pm to midnight</b>, Clefairy dance at <b>Mt. Moon Square</b> — watch them and you get a <b>Moon Stone</b>. Tuesday between midnight and 4am works too if you miss it.",
+ "<b>Viridian Forest</b> is back as a proper area — <b>TM77 Psych Up</b> is inside, and it is the only source of the Pikachu that Lt. Surge wants for his trade in the Saffron train station."
+]]
+]});
+
+STAGES.push({
+id:"k06", ch:"kanto", tag:"Kanto 06", place:"Cycling Road · Seafoam Islands",
+title:"Volcano Badge — Blaine on the ice",
+lede:"Cinnabar Island’s volcano erupted, so the Fire gym leader has set up shop in a freezing cave. Getting to him is most of the work.",
+band:[{k:"Party level",v:"58 → 62"},{k:"Badge",v:"Volcano"},{k:"Needs",v:"Surf · Waterfall · Strength"}],
+body:[
+["h","Getting there"],
+["p","South from Celadon down the <b>Cycling Road</b> (Routes 16–18), then west along <b>Routes 19–20</b>. <b>Cinnabar Island</b> is a ruin with a Pokémon Center and not much else; Blaine has moved into the <b>Seafoam Islands</b>."],
+["p","Seafoam is a multi-level cave with water currents and boulder puzzles. You need <b>Surf</b>, <b>Strength</b> and <b>Waterfall</b> to cross it, and <b>Rock Climb</b> for its deepest parts — which is where <b>Articuno</b> sits at level 50, available once you have all 16 badges."],
+["loot",[
+ {k:"TM13", n:"Ice Beam", where:"Seafoam Islands B4F", why:"A free second copy if you never bought one at the Game Corner."},
+ {k:"TM55", n:"Brine", where:"Route 19"},
+ {k:"TM88", n:"Pluck", where:"Route 40 (Johto) — noted here because it needs Surf"}
+]],
+["boss",{
+name:"Blaine", role:"Seafoam Islands Gym · Fire", badge:"Volcano Badge",
+team:[
+ {m:"Magcargo", l:54, t:["Fire","Rock"], note:"<b>4× weak to Water and Ground.</b> Flamethrower, Rock Slide, Curse, Amnesia."},
+ {m:"Magmar", l:54, t:["Fire"], note:"Fire Blast, ThunderPunch, Confuse Ray, Sunny Day."},
+ {m:"Rapidash", l:59, t:["Fire"], note:"Fire Blast, Bounce, Sunny Day, Quick Attack. Very fast."}
+],
+plan:[
+ "<b>Water</b> and <b>Ground</b> handle everything. Magcargo takes 4× from both.",
+ "<b>Rock</b> is 2× on Magmar and Rapidash and resisted by nothing here.",
+ "Watch for <b>Sunny Day</b>: it boosts their Fire moves by 50% and halves yours if you brought Water. Kill the setter first.",
+ "Magmar’s ThunderPunch is aimed squarely at whatever Water type you are about to send in."
+],
+reward:"TM50 Overheat and the Volcano Badge."
+}]
+]});
+
+STAGES.push({
+id:"k07", ch:"kanto", tag:"Kanto 07", place:"Viridian City",
+title:"Earth Badge — Blue, the sixteenth badge",
+lede:"The old champion runs the Viridian Gym and fields a full six with no type theme. This is the hardest gym fight in the game.",
+band:[{k:"Party level",v:"60 → 64"},{k:"Badge",v:"Earth — 16th"},{k:"Unlocks",v:"Rock Climb · Mt. Silver"}],
+body:[
+["boss",{
+name:"Blue", role:"Viridian City Gym · Mixed", badge:"Earth Badge",
+team:[
+ {m:"Gyarados", l:52, t:["Water","Flying"], note:"<b>4× weak to Electric.</b> Intimidate drops your Attack on entry. Waterfall, Dragon Dance, Ice Fang."},
+ {m:"Exeggutor", l:55, t:["Grass","Psychic"], note:"<b>4× weak to Bug.</b> Also 2× to Fire, Ice, Flying, Poison, Ghost and Dark. Sleep Powder, Psychic, Egg Bomb."},
+ {m:"Machamp", l:56, t:["Fighting"], note:"No Guard — every move hits. Cross Chop, Rock Slide, Fire Blast, Scary Face."},
+ {m:"Arcanine", l:58, t:["Fire"], note:"Flamethrower, ExtremeSpeed, Crunch, Roar. Roar drags your Pokémon out."},
+ {m:"Rhydon", l:58, t:["Ground","Rock"], note:"<b>4× weak to Water and Grass.</b> Earthquake, Megahorn, Rock Slide."},
+ {m:"Pidgeot", l:60, t:["Normal","Flying"], note:"Fly, Whirlwind, Air Slash, Quick Attack. Whirlwind forces switches — it will drag your counters off the field."}
+],
+plan:[
+ "There is no single answer — this is a coverage check. Make sure you have <b>Electric</b> (Gyarados, Pidgeot), <b>Water or Grass</b> (Rhydon), <b>Bug or Fire</b> (Exeggutor), <b>Psychic or Flying</b> (Machamp) and <b>Water or Rock</b> (Arcanine) somewhere on the team.",
+ "Kill the <b>Gyarados on turn one</b> with Thunderbolt before Dragon Dance turns it into a sweeper.",
+ "<b>Roar and Whirlwind</b> are the real difficulty — Blue will shuffle your team out of position repeatedly. Do not rely on setup moves.",
+ "Machamp’s <b>No Guard</b> means Cross Chop and Fire Blast never miss. Nothing survives it twice.",
+ "Rhydon’s Megahorn is 2× on any Psychic answer you brought for Machamp. Rotate rather than tank."
+],
+reward:"TM92 Trick Room and the Earth Badge — your sixteenth."
+}],
+["do",[
+ "Beat Blue.",
+ {t:"Go to Pallet Town and show Prof. Oak all 16 badges.", sub:"He gives you <b>HM08 Rock Climb</b> and opens the Route 22 gate to Mt. Silver."},
+ {t:"Start collecting gym leader phone numbers in earnest.", sub:"With 16 badges you can now arrange rematches at the Saffron Fighting Dojo — each leader has a specific day and time window."},
+ {t:"Cerulean Cave is now open.", sub:"Mewtwo, level 70. Needs Surf, Strength, Rock Smash, Rock Climb and Flash."}
+]]
+]});
+
+STAGES.push({
+id:"r01", ch:"red", tag:"Endgame", place:"Route 28 · Mt. Silver",
+title:"Mt. Silver and Red",
+lede:"The hardest fight in any Pokémon game up to this point: six Pokémon between level 80 and 88, and no gimmick to exploit.",
+band:[{k:"Recommended",v:"Lv 70+"},{k:"Red’s range",v:"80 – 88"},{k:"Needs",v:"All 16 badges · Rock Climb"}],
+body:[
+["h","Getting in"],
+["ul",[
+ "Show Prof. Oak your 16 badges in <b>Pallet Town</b> for <b>HM08 Rock Climb</b>.",
+ "Take Route 22 west out of Viridian, then <b>Route 28</b>, which connects Kanto to Mt. Silver.",
+ "<b>Route 28</b> holds <b>TM35 Flamethrower</b> and <b>TM47 Steel Wing</b> (from the celebrity in the house — needs Cut).",
+ "<b>Mt. Silver</b> itself needs Surf, Waterfall, Strength, Flash and Rock Climb. <b>Moltres</b> waits inside at level 50, and <b>Larvitar</b> — your only Tyranitar — spawns on the mountainside.",
+ "<b>TM76 Stealth Rock</b> is on the lower mountainside."
+]],
+["h","Grinding for Red"],
+["p","You will arrive around level 62–65 and Red is at 80–88. That gap is real. The fastest ways to close it:"],
+["ul",[
+ "<b>Mt. Silver’s interior</b> — wild Pokémon in the high 40s and a Lucky Egg makes it fast.",
+ "<b>Gym leader rematches</b> at the Saffron Fighting Dojo — high level, high payout, repeatable weekly.",
+ "<b>Viridian Trainer House</b> — once a day, quick.",
+ "<b>The Elite Four rematch</b> (levels 58–75) is better XP than anything else in the game once you can survive it."
+]],
+["boss",{
+name:"Red", role:"Mt. Silver summit · no dialogue, no theme", badge:"The end",
+team:[
+ {m:"Pikachu", l:88, t:["Electric"], note:"Volt Tackle, Iron Tail, Quick Attack, Thunderbolt. Holds a Light Ball, which doubles its offensive stats — this thing hits far harder than level 88 suggests."},
+ {m:"Lapras", l:80, t:["Water","Ice"], note:"Blizzard, Surf, Thunder, Perish Song. Perish Song is a three-turn clock on both sides."},
+ {m:"Snorlax", l:82, t:["Normal"], note:"Blizzard, Fire Blast, Rest, Body Slam. Enormous HP and it heals."},
+ {m:"Venusaur", l:84, t:["Grass","Poison"], note:"Frenzy Plant, Sleep Powder, SolarBeam, Sunny Day."},
+ {m:"Charizard", l:84, t:["Fire","Flying"], note:"<b>4× weak to Rock.</b> Blast Burn, Air Slash, Flamethrower, Fire Spin."},
+ {m:"Blastoise", l:84, t:["Water"], note:"Hydro Cannon, Blizzard, Focus Punch, Rain Dance."}
+],
+plan:[
+ "<b>Ground beats Pikachu</b> and is your safest lead — but Pikachu’s Iron Tail is aimed at exactly that. A Ground type with high Special Defence survives; a Donphan or Rhyperior does the job.",
+ "<b>Rock is 4× on Charizard.</b> Stealth Rock (TM76, on the mountainside) also chips it 50% on entry.",
+ "<b>Fighting is 2× on Snorlax</b>, which otherwise has more HP than you have patience. Heracross or Machamp.",
+ "<b>Psychic, Fire, Ice or Flying</b> for Venusaur — it is 2× to four things and you probably carry one.",
+ "<b>Electric or Grass</b> for Blastoise and Lapras.",
+ "Watch for <b>Perish Song</b> from Lapras: three turns after it lands, both active Pokémon faint. Switch out and it clears.",
+ "The starters all carry their signature nuke (Frenzy Plant, Blast Burn, Hydro Cannon). Each one leaves them recharging for a turn — that is your free window."
+],
+reward:"Nothing but the ending. And the two things below."
+}],
+["h","After Red"],
+["do",[
+ {t:"Go to Prof. Oak’s lab in Pallet Town and choose a <b>Kanto starter</b>.", sub:"Bulbasaur, Charmander or Squirtle at level 5. You need an empty party slot."},
+ {t:"Go to the Silph Co. lobby in Saffron and take a <b>Hoenn starter</b> from Steven Stone.", sub:"Treecko, Torchic or Mudkip. Requires that you did the Copycat Poké Doll errand back in Vermilion/Saffron."},
+ {t:"Trade Steven a <b>Forretress</b> for a <b>Beldum</b>.", sub:"It holds a Dawn Stone. Requires the Hoenn starter and a visit to the Pewter Museum — the most gated trade in the game."},
+ {t:"Talk to Mr. Pokémon on Route 30 for the <b>Blue Orb</b> (HeartGold).", sub:"Take it to the Embedded Tower on Route 47 to summon <b>Kyogre</b>."},
+ "Catch Moltres in Mt. Silver and Larvitar on the mountainside."
+]]
+]});
+</script>
+<script>
+/* ===================== COMPLETION ===================== */
+STAGES.push({
+id:"dex-what", ch:"dex", tag:"Completion", place:"Definitions",
+title:"What “100%” actually means in this game",
+lede:"There are four honest finish lines and they are very far apart. Pick one before you start grinding, because the last one is not reachable on a single cartridge by design.",
+body:[
+["h","The four tiers"],
+["table",{cols:["Tier","What it takes","Roughly"],rows:[
+ ["<b>1 · Story complete</b>","16 badges, the Elite Four, and Red on Mt. Silver","40–55 hours"],
+ ["<b>2 · Region complete</b>","Everything above, plus all 92 TMs, all 8 HMs, every in-game trade and gift, every legendary obtainable in HeartGold, and the Johto + Kanto Pokédex","70–100 hours"],
+ ["<b>3 · Systems complete</b>","All of the above, plus the Battle Frontier’s five gold prints, all 16 gym leader rematches, the Elite Four rematch, all seven Week Sibling ribbons, every Kurt ball type, all 28 Unown, and a fully-unlocked Safari Zone","150+ hours"],
+ ["<b>4 · National Dex 493</b>","All of the above plus trading — Groudon and Rayquaza need a SoulSilver, the Sinnoh legendaries need Diamond/Pearl/Platinum, and Celebi, Arceus, Mew, Jirachi, Deoxys, Shaymin and Darkrai need event distributions","Requires other games"]
+]}],
+["warn","<b>Tier 4 cannot be done on one HeartGold cartridge, full stop.</b> Roughly 100 National Dex entries are not obtainable in HGSS by any means: the entire Sinnoh legendary set (Uxie, Mesprit, Azelf, Heatran, Regigigas, Cresselia, Rotom), the Hoenn Regis, and every mythical. They come from Diamond/Pearl/Platinum trades, Pal Park migration from Gen 3, or events. This is not an emulation limitation — it was true on real hardware."],
+["h","The master checklist"],
+["do",[
+ "16 badges and the Hall of Fame.",
+ "Red defeated on Mt. Silver.",
+ "All 92 TMs collected (see the TM index).",
+ "All 8 HMs collected.",
+ "Every legendary available in HeartGold caught.",
+ "All ten in-game trades completed.",
+ "Every gift Pokémon collected.",
+ "All 28 Unown forms logged in the Unown Report.",
+ "All seven Week Siblings met — the ribbon set.",
+ "All seven Kurt ball types made at least once.",
+ "Bug-Catching Contest won.",
+ "Every Pokéathlon event played, and the Athlete Shop’s stock seen.",
+ "Battle Frontier: all five facilities cleared.",
+ "All 16 gym leaders rematched at the Saffron Fighting Dojo.",
+ "Elite Four rematch cleared.",
+ "Safari Zone fully unlocked with block sets rotated.",
+ "Johto and Kanto Pokédex complete.",
+ "National Pokédex complete (needs trading and events — see the last section)."
+]]
+]});
+
+STAGES.push({
+id:"dex-legend", ch:"dex", tag:"Completion", place:"Legendary sweep",
+title:"Every legendary, and exactly what it needs",
+lede:"Twelve are reachable on a HeartGold cartridge. Two more need a SoulSilver, and the rest need events or other games.",
+body:[
+["warn","Before <b>every single one</b> of these: make an in-game save, make a save state, and bring a False Swipe user, a sleep or paralysis move, 30+ Ultra Balls and a stack of Timer Balls. Roamers additionally need <b>Mean Look</b> or <b>Block</b> to stop them fleeing on turn one."],
+["table",{cols:["Pokémon","Where","Lv","What it needs"],rows:[
+ ["<b>Ho-Oh</b>","Bell Tower, Ecruteak","45","Clear Bell from the Radio Tower Director, then beat all five Kimono Girls. Story-critical in HeartGold."],
+ ["<b>Lugia</b>","Whirl Islands (deepest level)","70","<b>Silver Wing</b> from the old man in Pewter City, plus Surf, Whirlpool and Flash. Post-game."],
+ ["<b>Raikou</b>","Roaming Johto","40","Released automatically at the Burned Tower. Roams — needs Mean Look."],
+ ["<b>Entei</b>","Roaming Johto","40","Same as Raikou."],
+ ["<b>Suicune</b>","Kanto Route 25","40","Appears at several scripted points, then settles here. Beat Eusine first. Does <i>not</i> flee."],
+ ["<b>Zapdos</b>","Route 10, outside the Power Plant","50","All 16 badges, plus Surf."],
+ ["<b>Articuno</b>","Seafoam Islands, deepest level","50","All 16 badges, plus Surf, Waterfall, Strength and Rock Climb."],
+ ["<b>Moltres</b>","Mt. Silver","50","All 16 badges, plus Surf and Waterfall."],
+ ["<b>Mewtwo</b>","Cerulean Cave","70","All 16 badges, plus Surf, Strength, Rock Smash, Rock Climb and Flash. The hardest catch in the game."],
+ ["<b>Kyogre</b>","Embedded Tower, Route 47","50","Beat Red, then take the <b>Blue Orb</b> from Mr. Pokémon on Route 30 to the tower. <b>HeartGold only.</b>"],
+ ["<b>Groudon</b>","Embedded Tower, Route 47","50","<b>SoulSilver only</b> — needs the Red Orb. Trade required."],
+ ["<b>Rayquaza</b>","Embedded Tower, Route 47","50","Requires <b>both</b> Kyogre and Groudon, which means trading with a SoulSilver save."],
+ ["<b>Latias</b>","Roaming Kanto","35","<b>HeartGold</b> version exclusive, post-National Dex. Roams — needs Mean Look."],
+ ["<b>Latios</b>","Roaming Kanto","35","SoulSilver exclusive, or via the <b>Enigma Stone</b> event distribution."],
+ ["<b>Dialga / Palkia / Giratina</b>","Sinjoh Ruins","1","Requires an <b>event Arceus</b>. Take it to the Ruins of Alph and you choose one — at level 1, with a matching orb."],
+ ["<b>Celebi</b>","Ilex Forest shrine","—","Event distribution only. Triggers the Giovanni time-travel episode."]
+]}],
+["h","How to catch a roamer without losing your mind"],
+["ul",[
+ "<b>Track it on the Pokégear map</b> — the Johto map shows which route the roamer is on, and it moves every time you change area.",
+ "Enter the route, then walk into grass. If you get a different encounter, run and re-enter.",
+ "Turn one: <b>Mean Look</b> (Crobat learns it) or Block. Now it cannot flee.",
+ "Turn two: <b>sleep</b> it — Hypnosis, Spore, Sing. Sleep is the biggest catch multiplier in Gen 4.",
+ "Turn three onward: False Swipe to 1 HP, then Ultra Balls, switching to Timer Balls past turn 11.",
+ "<b>Never</b> use a move with recoil, poison or burn. Killing a roamer removes it from your save permanently."
+]],
+["do",[
+ "Ho-Oh (Bell Tower, Lv 45).",
+ "Lugia (Whirl Islands, Lv 70) — after the Silver Wing.",
+ "Raikou (roaming).",
+ "Entei (roaming).",
+ "Suicune (Kanto Route 25).",
+ "Zapdos (Route 10).",
+ "Articuno (Seafoam Islands).",
+ "Moltres (Mt. Silver).",
+ "Mewtwo (Cerulean Cave).",
+ "Kyogre (Embedded Tower, after Red).",
+ "Latias (roaming Kanto).",
+ "Rayquaza — needs a Groudon traded in from SoulSilver."
+]]
+]});
+
+STAGES.push({
+id:"dex-trades", ch:"dex", tag:"Completion", place:"Gifts · trades · one-offs",
+title:"Every gift, trade, and one-of-a-kind Pokémon",
+lede:"These are the entries people miss. Several are permanently loseable and a few have prerequisites three steps deep.",
+body:[
+["h","Gift Pokémon"],
+["table",{cols:["Pokémon","Where","Condition"],rows:[
+ ["<b>Starter</b> (Chikorita / Cyndaquil / Totodile)","Elm’s Lab, New Bark","Start of game"],
+ ["<b>Togepi</b> (Mystery Egg)","Elm’s aide, Violet City Poké Mart","After Falkner. Hatches knowing Extrasensory."],
+ ["<b>Spearow “Kenya”</b>","Gate guard north of Route 34","Deliver it to Webster on Route 31"],
+ ["<b>Eevee</b>","Bill’s house, Goldenrod","After meeting Bill in Ecruteak"],
+ ["<b>Shuckle</b>","South-west house, Cianwood","After beating Chuck"],
+ ["<b>Tyrogue</b>","Mt. Mortar B1F","Beat Kiyo the Karate King"],
+ ["<b>Dratini</b>","Dragon’s Den shrine","After Clair — ExtremeSpeed if you answer all five questions correctly"],
+ ["<b>Kanto starter</b>","Prof. Oak’s lab, Pallet Town","After beating Red"],
+ ["<b>Hoenn starter</b>","Silph Co. lobby, Saffron","After beating Red <i>and</i> doing the Copycat Poké Doll errand"]
+]}],
+["h","In-game trades"],
+["table",{cols:["You give","You get","Where","Note"],rows:[
+ ["Bellsprout","<b>Onix</b> “Rocky”","Violet City","Holds a Persim Berry"],
+ ["Drowzee","<b>Machop</b> “Muscle”","Goldenrod Dept. Store 4F","Holds a Macho Brace"],
+ ["Krabby","<b>Voltorb</b> “Billy”","Olivine City","Holds a Cheri Berry"],
+ ["Female Dragonair","<b>Dodrio</b> “Doris”","Blackthorn City","Holds a Smoke Ball; gender matters"],
+ ["Haunter","<b>Xatu</b> “Paul”","Pewter City Pokémon Center","Holds a Wacan Berry"],
+ ["Dugtrio","<b>Magneton</b> “Maggie”","Kanto Power Plant","<b>Holds a Metal Coat</b> — your Steelix/Scizor item"],
+ ["Pikachu (Viridian Forest)","<b>Pikachu</b> “Volty”","Saffron train station","From Lt. Surge, after rematching him. Holds a Yellow Shard"],
+ ["Bonsly","<b>Rhyhorn</b> “Hornlette”","Diglett’s Cave, Pewter side","From Brock, after rematching him. Knows Thunder Fang"],
+ ["Any Pokémon","<b>Steelix</b> “Rusty”","Olivine Gym","From Jasmine, after rematching her. Holds a Soothe Bell"],
+ ["Forretress","<b>Beldum</b> “Iron”","Silph Co., Saffron","From Steven. Needs the Hoenn starter <i>and</i> a Pewter Museum visit. Holds a Dawn Stone"]
+]}],
+["h","One-of-a-kind encounters — do not knock these out"],
+["ul",[
+ "<b>Sudowoodo</b> (Route 36, Lv 20) — the only one in the game.",
+ "<b>Red Gyarados</b> (Lake of Rage, Lv 30) — shiny, and it holds the Red Scale.",
+ "<b>Snorlax</b> (Route 11, Lv 50) — holds Leftovers.",
+ "<b>Lapras</b> (Union Cave B2F, Lv 20) — Fridays only, but it does respawn weekly.",
+ "<b>Every legendary</b> in the previous section."
+]],
+["do",[
+ "All nine gift Pokémon collected.",
+ "All ten in-game trades completed.",
+ "Sudowoodo caught (not defeated).",
+ "Red Gyarados caught and Red Scale traded for the Exp. Share.",
+ "Snorlax caught and Leftovers taken.",
+ "Lapras caught on a Friday."
+]]
+]});
+
+STAGES.push({
+id:"dex-slow", ch:"dex", tag:"Completion", place:"The long-running systems",
+title:"The slow systems: run these in the background",
+lede:"Five things in this game tick on a real-world clock. Start them early and they finish themselves; start them late and you will be waiting weeks.",
+body:[
+["h","1 · Apricorns and Kurt"],
+["p","Apricorn trees refill daily and Kurt takes a batch a day. Seven ball types, seven colours. Shake every tree you pass — it costs nothing and you need all seven balls for a complete file."],
+["table",{cols:["Colour","Ball","Found on"],rows:[
+ ["Red","Level Ball","Routes 37, 44; Fuchsia City"],
+ ["Blue","Lure Ball","Routes 26, 36, 37; Pewter City"],
+ ["Yellow","Moon Ball","Routes 8, 42, 46; Violet City"],
+ ["Green","Friend Ball","Routes 11, 29, 30, 35, 39, 42, 45, 46"],
+ ["Pink","Love Ball","Routes 2, 30, 33, 42"],
+ ["White","Fast Ball","Route 38; Azalea Town; Pewter City"],
+ ["Black","Heavy Ball","Pokéathlon Dome shop and scattered trees"]
+]}],
+["h","2 · Headbutt trees"],
+["p","In HGSS <i>every</i> tree is a candidate. Headbutt one: if a Pokémon appears, that tree will always produce encounters; if nothing happens, that tree is dead forever. Trees are the only source of several dex entries."],
+["ul",[
+ "<b>Heracross</b> — Routes 7, 16, 28, 33, 42, 44, 45, 46, 47; Azalea Town, Vermilion, Celadon.",
+ "<b>Pineco</b> — Ilex Forest is the reliable spot.",
+ "Aipom, Exeggcute, Hoothoot, Ledyba/Spinarak, Cascoon/Silcoon and Burmy all come out of trees too."
+]],
+["h","3 · Swarms and the radio"],
+["p","Listen to <b>Oak’s Pokémon Talk</b> daily once you have the National Dex — it announces a swarm somewhere in Johto or Kanto, which is the only practical way to catch several species. <b>Hoenn Sound</b> (Wednesdays) and <b>Sinnoh Sound</b> (Thursdays) change encounter tables in multiple areas."],
+["h","4 · The Safari Zone"],
+["p","Place terrain blocks, then wait. Some encounter tables need roughly ten in-game days with a given block arrangement before the target Pokémon shows up. There is no shortcut. Rotate your blocks every time you pass through and it resolves itself over the course of a normal playthrough."],
+["h","5 · The Week Siblings"],
+["p","Seven siblings, one per day of the week, each in a fixed place. Meet all seven and you get their ribbon set. Missing one costs you a week."],
+["table",{cols:["Day","Sibling","Where","Gives"],rows:[
+ ["Sunday","Sunny","Route 37","Magnet"],
+ ["Monday","Monica","Route 40","Sharp Beak"],
+ ["Tuesday","Tuscany","Route 29","TwistedSpoon"],
+ ["Wednesday","Wesley","Lake of Rage","Black Belt"],
+ ["Thursday","Arthur","Route 36","Hard Stone"],
+ ["Friday","Frieda","Route 32","Poison Barb"],
+ ["Saturday","Santos","Blackthorn City","Soft Sand"]
+]}],
+["do",[
+ "All seven Kurt ball types made.",
+ "All seven Week Siblings met.",
+ "Heracross and Pineco caught from trees.",
+ "Safari Zone blocks placed and rotated at least three times.",
+ "Bug-Catching Contest won (Tuesday, Thursday or Saturday).",
+ "All 28 Unown forms logged."
+]]
+]});
+
+STAGES.push({
+id:"dex-frontier", ch:"dex", tag:"Completion", place:"Battle Frontier · rematches",
+title:"The Battle Frontier and the rematch circuit",
+lede:"The post-game’s actual endgame. This is also where the best TMs, the best held items and the move tutors live.",
+body:[
+["h","Battle Frontier"],
+["p","Reached by boat from Olivine once you have entered the Hall of Fame. It is the same Frontier as Platinum’s: five facilities, each with a Frontier Brain you fight at a streak milestone, and each with a silver and gold print to earn."],
+["ul",[
+ "<b>Battle Tower</b> — straight 3-on-3 singles and doubles streaks.",
+ "<b>Battle Factory</b> — you are given rental Pokémon and swap for your opponents’ after each win.",
+ "<b>Battle Arcade</b> — a roulette applies random effects before each battle.",
+ "<b>Battle Castle</b> — you spend points on healing and items between fights.",
+ "<b>Battle Hall</b> — one Pokémon against a gauntlet of single types."
+]],
+["p","Everything here is paid for in <b>Battle Points</b>. The Frontier shop is the only source of several TMs — TM04 Calm Mind, TM06 Toxic, TM08 Bulk Up, TM26 Earthquake, TM31 Brick Break, TM53 Energy Ball, TM61 Will-O-Wisp, TM71 Stone Edge, TM73 Thunder Wave, TM81 X-Scissor — and of the competitive held items."],
+["tip","Frontier runs are long. This is where the Deck’s fast-forward pays for itself, and where a save state before a streak run is not cheating so much as respecting your own time."],
+["h","Move tutors"],
+["ul",[
+ "<b>Headbutt</b> — the man in Ilex Forest, free, unlimited. Get this early.",
+ "<b>Shard tutors</b> — pay in Red, Blue, Green and Yellow Shards for a large list of moves including the elemental punches. Shards come from the Underground-style dig spots, Rock Smash and the Pokéathlon.",
+ "<b>Frontier Access tutors</b> — in the house south of the Pokémon Center just outside the Battle Frontier, unlocked after the Hall of Fame. They take BP and teach the strongest tutor moves in the game.",
+ "<b>Blast Burn / Hydro Cannon / Frenzy Plant</b> — the starter signature moves, taught to a fully-evolved starter."
+]],
+["h","Gym leader rematches"],
+["p","Once you have all 16 badges, every gym leader will rematch you at the <b>Fighting Dojo in Saffron City</b> — but only after you have registered their phone number and called them during a specific weekly window. Their rematch teams are in the 50s and 60s and are the best repeatable experience and money in the game."],
+["h","Elite Four rematch"],
+["p","After the 16th badge, the Elite Four upgrade substantially — levels 58 to 75, with Sinnoh-era additions to every roster."],
+["table",{cols:["Member","Rematch team (approximate levels)"],rows:[
+ ["<b>Will</b>","Bronzong 58, Grumpig 59, Jynx 60, Slowbro 60, Gardevoir 61, Xatu 62"],
+ ["<b>Koga</b>","Toxicroak 60, Skuntank 61, Muk 62, Swalot 62, Venomoth 63, Crobat 64"],
+ ["<b>Bruno</b>","Hitmonchan 61, Hariyama 62, Machamp 64, Lucario 64, plus the rest of the Hitmon trio"],
+ ["<b>Karen</b>","Weavile 62, Spiritomb 62, Houndoom 63, Absol 63, Honchkrow 64, Umbreon 64"],
+ ["<b>Lance</b>","Charizard 68, Gyarados 68, Salamence 72, Garchomp 72, Altaria 73, Dragonite 75"]
+]}],
+["do",[
+ "All five Battle Frontier facilities entered.",
+ "At least one Frontier Brain beaten.",
+ "All 16 gym leader phone numbers registered.",
+ "All 16 gym leaders rematched at the Saffron Fighting Dojo.",
+ "Elite Four rematch cleared.",
+ "All Frontier-exclusive TMs bought."
+]]
+]});
+
+STAGES.push({
+id:"dex-events", ch:"dex", tag:"Completion", place:"The gap",
+title:"The unobtainables, and what to do about them",
+lede:"An honest accounting of what a single HeartGold save cannot reach, and the three routes around it.",
+body:[
+["h","What is genuinely out of reach"],
+["table",{cols:["Group","Why","Route around it"],rows:[
+ ["<b>SoulSilver exclusives</b> — Vulpix, Meowth, Ledyba, Teddiursa, Delibird, Skarmory, Mawile, Gulpin, Latios, Groudon and their evolutions","Version exclusivity","Trade with a SoulSilver save — a second melonDS instance works"],
+ ["<b>Rayquaza</b>","Needs both Kyogre and Groudon in the save","Trade a Groudon in from SoulSilver"],
+ ["<b>Sinnoh legendaries</b> — Uxie, Mesprit, Azelf, Heatran, Regigigas, Cresselia, Rotom","Not present in HGSS at all","Trade from Diamond, Pearl or Platinum"],
+ ["<b>Hoenn Regis, Deoxys, Jirachi</b>","Not present in HGSS","Pal Park migration from Gen 3, or events"],
+ ["<b>Celebi, Arceus, Mew, Shaymin, Darkrai, Manaphy</b>","Event distributions only","A community Mystery Gift server, or a legal PKHeX gift"],
+ ["<b>Pokéwalker-exclusive moves and routes</b>","The Pokéwalker talked to the cartridge over infrared, which melonDS does not emulate","PKHeX with correct walker origin data, or accept the gap"]
+]}],
+["h","The three routes around it"],
+["ul",[
+ "<b>A second instance.</b> melonDS emulates local wireless, so two copies on one Deck can trade. This solves version exclusives and every trade evolution. It is the cleanest option and requires nothing beyond a second save file.",
+ "<b>A community Wi-Fi server.</b> Point the DS Wi-Fi settings at a replacement DNS (the widely used address is <code class=\"mono\">164.132.44.106</code>) with melonDS in direct networking mode. This restores Mystery Gift and the GTS. Fiddly on SteamOS, and worth attempting only if you want the event episodes played legitimately.",
+ "<b>PKHeX.</b> Runs on the Deck in Desktop Mode. Used carefully — generating the event <i>gift</i> rather than the Pokémon — you still play the Sinjoh Ruins and Ilex Forest episodes, you just skip a server that no longer exists."
+]],
+["tip","If completion matters to you, decide the PKHeX question <i>before</i> you build a 493-entry plan. Injecting a Celebi and injecting a full living dex are very different decisions and only one of them leaves you with a game left to play."],
+["do",[
+ "Decide your stance on events and the Pokéwalker.",
+ "Set up a SoulSilver save on a second instance for version exclusives.",
+ "Migrate Gen 3 Pokémon via Pal Park if you have the ROMs.",
+ "Trade in the Sinnoh legendaries if you have Diamond, Pearl or Platinum."
+]]
+]});
+</script>
+<style>.doneRow.hidden{display:none}</style>
+<script>
+/* ===================== REFERENCE ===================== */
+STAGES.push(
+{id:"ref-tms", ch:"ref", tag:"Reference", place:"92 TMs · 8 HMs", wide:true,
+ title:"TM and HM index",
+ lede:"Every machine in the game with where it comes from. Tick them off as you collect — the count feeds your overall completion.",
+ body:[["mount","tmindex"]]},
+
+{id:"ref-days", ch:"ref", tag:"Reference", place:"Weekly calendar", wide:true,
+ title:"The day planner",
+ lede:"HeartGold runs on your Deck’s real clock. This is what each day is worth — today is highlighted.",
+ body:[
+  ["p","Use the day selector in the toolbar to look ahead. Three things here are genuinely time-locked and worth planning around: the <b>Bug-Catching Contest</b> (Tuesday, Thursday, Saturday), <b>Lapras</b> in Union Cave (Friday), and the <b>Week Siblings</b>, who each appear on exactly one day."],
+  ["mount","days"],
+  ["h","Daily, every day"],
+  ["ul",[
+   "Apricorn trees refill — shake every one you pass.",
+   "Kurt finishes yesterday’s Apricorn batch.",
+   "The Goldenrod <b>Lottery Corner</b> draws once; match your ID number for prizes up to a Master Ball.",
+   "The Goldenrod Department Store <b>rooftop lottery</b> gives a day-specific TM and ball.",
+   "The <b>Viridian Trainer House</b> can be battled once (post-game).",
+   "The <b>Pokéathlon Athlete Shop</b> rotates its stock.",
+   "<b>Oak’s Pokémon Talk</b> announces the day’s swarm (post-National Dex).",
+   "A girl in Olivine gives three random <b>Seals</b>.",
+   "<b>Daisy</b> in Pallet Town massages a Pokémon between 3:00 and 4:00 pm — a large friendship boost."
+  ]]
+ ]},
+
+{id:"ref-types", ch:"ref", tag:"Reference", place:"Generation IV chart",
+ title:"Type matchup calculator",
+ lede:"Gen 4 rules: no Fairy, and Steel still resists Ghost and Dark. Check a matchup before you commit a switch.",
+ body:[["mount","types"]]},
+
+{id:"ref-backup", ch:"ref", tag:"Reference", place:"Your progress",
+ title:"Back up your progress",
+ lede:"Your ticks live in this browser’s local storage. Clearing site data wipes them, so copy the backup string somewhere safe now and then.",
+ body:[
+  ["mount","backup"],
+  ["h","Sources"],
+  ["p","<span class=\"srcs\">Gym, Elite Four and rematch rosters cross-checked against <a href=\"https://www.serebii.net/heartgoldsoulsilver/gym.shtml\">Serebii</a> and <a href=\"https://pokemondb.net/heartgold-soulsilver/gymleaders-elitefour\">Pokémon Database</a> (whose type labels are modern — Clefairy and Mr. Mime are <i>not</i> Fairy in Gen 4, and this guide corrects that). TM and HM locations from <a href=\"https://www.serebii.net/heartgoldsoulsilver/tmhm.shtml\">Serebii</a> and <a href=\"https://altissimo1.github.io/Main-Series/HGSS/moves.html\">Altissimo’s move location list</a>. Weekly events from <a href=\"https://altissimo1.github.io/Main-Series/HGSS/time-events.html\">Altissimo’s time events</a>. Gifts and trades from <a href=\"https://pldh.net/guides/heartgoldsoulsilver/giftplottrade\">PLDH</a>. Legendaries from <a href=\"https://mirage-island.neocities.org/hgss-legendaries\">Mirage Island</a>. Dragon’s Den quiz answers from <a href=\"https://bulbapedia.bulbagarden.net/wiki/Dragon%27s_Den\">Bulbapedia</a>. Emulator setup from the <a href=\"https://emudeck.github.io/emulators/steamos/melonds/\">EmuDeck melonDS documentation</a>.</span>"]
+ ]}
+);
+
+/* ===================== DATA: TMs & HMs ===================== */
+const MACHINES = [
+["TM01","Focus Punch","Fighting","Cianwood Gym — Chuck"],
+["TM02","Dragon Claw","Dragon","Route 27 (Surf + Whirlpool); Goldenrod rooftop lottery, Sunday"],
+["TM03","Water Pulse","Water","Cerulean Gym — Misty"],
+["TM04","Calm Mind","Psychic","Battle Frontier shop — 48 BP"],
+["TM05","Roar","Normal","Route 32 — north-west plateau, needs Cut"],
+["TM06","Toxic","Poison","Battle Frontier shop — 32 BP"],
+["TM07","Hail","Ice","Mahogany Gym — Pryce"],
+["TM08","Bulk Up","Fighting","Battle Frontier shop — 48 BP"],
+["TM09","Bullet Seed","Grass","Route 32"],
+["TM10","Hidden Power","Normal","Lake of Rage house (Surf; not Wednesdays); Celadon Game Corner"],
+["TM11","Sunny Day","Fire","Goldenrod Radio Tower 3F, after the Rockets"],
+["TM12","Taunt","Dark","Ilex Forest / Burned Tower B1F (Strength); Celadon Dept. Store"],
+["TM13","Ice Beam","Ice","Goldenrod Game Corner — 10,000 coins; Seafoam Islands B4F"],
+["TM14","Blizzard","Ice","Goldenrod Dept. Store 5F — 5,500"],
+["TM15","Hyper Beam","Normal","Goldenrod Dept. Store 5F — 7,500"],
+["TM16","Light Screen","Psychic","Goldenrod Dept. Store 5F — 2,000"],
+["TM17","Protect","Normal","Goldenrod Dept. Store 5F — 2,000"],
+["TM18","Rain Dance","Water","Slowpoke Well B2F (Surf + Strength)"],
+["TM19","Giga Drain","Grass","Celadon Gym — Erika"],
+["TM20","Safeguard","Normal","Celadon Dept. Store 3F — 2,000"],
+["TM21","Frustration","Normal","Goldenrod Dept. Store 5F, Sundays; Celadon Dept. Store"],
+["TM22","SolarBeam","Grass","Celadon Dept. Store — 3,000"],
+["TM23","Iron Tail","Steel","Olivine Gym — Jasmine"],
+["TM24","Thunderbolt","Electric","Goldenrod Game Corner — 10,000 coins; Cerulean Cave 2F"],
+["TM25","Thunder","Electric","Goldenrod Dept. Store 5F — 5,500"],
+["TM26","Earthquake","Ground","Victory Road 2F; Battle Frontier — 80 BP"],
+["TM27","Return","Normal","Goldenrod Dept. Store 5F, Sundays; Celadon Dept. Store"],
+["TM28","Dig","Ground","National Park; Celadon Dept. Store — 2,000"],
+["TM29","Psychic","Psychic","Saffron City — Mr. Psychic; Celadon Game Corner"],
+["TM30","Shadow Ball","Ghost","Ecruteak Gym — Morty; Battle Frontier — 64 BP"],
+["TM31","Brick Break","Fighting","Battle Frontier shop — 48 BP"],
+["TM32","Double Team","Normal","Celadon Game Corner — 4,000 coins"],
+["TM33","Reflect","Psychic","Goldenrod Dept. Store 5F — 2,000"],
+["TM34","Shock Wave","Electric","Vermilion Gym — Lt. Surge"],
+["TM35","Flamethrower","Fire","Goldenrod Game Corner — 10,000 coins; Route 28"],
+["TM36","Sludge Bomb","Poison","Route 43 gate guard, after the Rocket HQ; Battle Frontier"],
+["TM37","Sandstorm","Rock","Route 27 — the woman east of Tohjo Falls, high friendship"],
+["TM38","Fire Blast","Fire","Goldenrod Dept. Store 5F — 5,500"],
+["TM39","Rock Tomb","Rock","Union Cave B1F"],
+["TM40","Aerial Ace","Flying","Mt. Mortar 2F; Battle Frontier — 40 BP"],
+["TM41","Torment","Dark","Route 8; Celadon Dept. Store — 1,500"],
+["TM42","Facade","Normal","Goldenrod rooftop lottery, Friday"],
+["TM43","Secret Power","Normal","Lake of Rage (needs Surf)"],
+["TM44","Rest","Psychic","Route 31 — Webster, for the Kenya errand; Goldenrod Game Corner"],
+["TM45","Attract","Normal","Goldenrod Gym — Whitney; Battle Frontier — 32 BP"],
+["TM46","Thief","Dark","Team Rocket HQ B2F"],
+["TM47","Steel Wing","Steel","Route 28 — the celebrity's house, needs Cut"],
+["TM48","Skill Swap","Psychic","Saffron Gym — Sabrina"],
+["TM49","Snatch","Dark","Team Rocket HQ B3F"],
+["TM50","Overheat","Fire","Seafoam Islands Gym — Blaine"],
+["TM51","Roost","Flying","Violet Gym — Falkner"],
+["TM52","Focus Blast","Fighting","Goldenrod Dept. Store 5F — 5,500"],
+["TM53","Energy Ball","Grass","Battle Frontier shop — 64 BP"],
+["TM54","False Swipe","Normal","Dark Cave, Route 45 side (Surf); Goldenrod Dept. Store 5F"],
+["TM55","Brine","Water","Route 19; Celadon Dept. Store — 3,000"],
+["TM56","Fling","Dark","Rock Tunnel 1F"],
+["TM57","Charge Beam","Electric","Power Plant — for returning the Machine Part; Olivine (Surf); lottery Wednesday"],
+["TM58","Endure","Normal","Celadon Game Corner — 2,000 coins"],
+["TM59","Dragon Pulse","Dragon","Dragon's Den — Clair, after the elder's quiz; Battle Frontier"],
+["TM60","Drain Punch","Fighting","Route 39; Goldenrod rooftop lottery, Thursday"],
+["TM61","Will-O-Wisp","Fire","Battle Frontier shop — 32 BP"],
+["TM62","Silver Wind","Bug","Route 6; Goldenrod rooftop lottery, Saturday"],
+["TM63","Embargo","Dark","Route 34"],
+["TM64","Explosion","Normal","Route 5–6 Underground Path — give the man a RageCandyBar"],
+["TM65","Shadow Claw","Ghost","Route 42; Goldenrod rooftop lottery, Monday"],
+["TM66","Payback","Dark","Route 35"],
+["TM67","Recycle","Normal","Celadon City"],
+["TM68","Giga Impact","Normal","Celadon Game Corner — 15,000 coins"],
+["TM69","Rock Polish","Rock","Route 10 (needs Strength)"],
+["TM70","Flash","Normal","Sprout Tower — Elder Li; Goldenrod Dept. Store"],
+["TM71","Stone Edge","Rock","Battle Frontier shop — 80 BP"],
+["TM72","Avalanche","Ice","Ice Path B2F; Celadon Dept. Store — 3,000"],
+["TM73","Thunder Wave","Electric","Battle Frontier shop — 32 BP"],
+["TM74","Gyro Ball","Steel","Celadon Game Corner — 10,000 coins"],
+["TM75","Swords Dance","Normal","Goldenrod Game Corner — 4,000 coins"],
+["TM76","Stealth Rock","Rock","Mt. Silver lower mountainside; Celadon Dept. Store — 2,000"],
+["TM77","Psych Up","Normal","Viridian Forest"],
+["TM78","Captivate","Normal","Celadon Dept. Store — 1,500"],
+["TM79","Dark Pulse","Dark","Victory Road 3F (needs Rock Smash); Celadon Dept. Store"],
+["TM80","Rock Slide","Rock","Pewter Gym — Brock"],
+["TM81","X-Scissor","Bug","Battle Frontier shop — 64 BP"],
+["TM82","Sleep Talk","Normal","Goldenrod Underground warehouse"],
+["TM83","Natural Gift","Normal","Moomoo Farm, Route 39 — after healing the Miltank"],
+["TM84","Poison Jab","Poison","Fuchsia Gym — Janine"],
+["TM85","Dream Eater","Psychic","Viridian City — the man west of the pond (needs Cut or Surf)"],
+["TM86","Grass Knot","Grass","Route 11"],
+["TM87","Swagger","Normal","Olivine Lighthouse 4F; Celadon Dept. Store — 1,500"],
+["TM88","Pluck","Flying","Route 40 (needs Surf)"],
+["TM89","U-turn","Bug","Azalea Gym — Bugsy; Battle Frontier — 40 BP"],
+["TM90","Substitute","Normal","Goldenrod Game Corner — 2,000 coins"],
+["TM91","Flash Cannon","Steel","Route 9; Goldenrod rooftop lottery, Tuesday"],
+["TM92","Trick Room","Psychic","Viridian Gym — Blue"],
+["HM01","Cut","Normal","Ilex Forest — the charcoal maker, after you return his Farfetch'd"],
+["HM02","Fly","Flying","Cianwood City — Chuck's wife, after the gym"],
+["HM03","Surf","Water","Ecruteak Dance Theatre — after the Kimono Girls' Rocket"],
+["HM04","Strength","Normal","Route 42 — the Hiker outside Mt. Mortar's west entrance"],
+["HM05","Whirlpool","Water","Team Rocket HQ — Lance, after the generator room"],
+["HM06","Rock Smash","Fighting","Route 36 — the man east of the Sudowoodo tree"],
+["HM07","Waterfall","Water","Ice Path 1F"],
+["HM08","Rock Climb","Normal","Pallet Town — Prof. Oak, after all 16 badges"]
+];
+
+/* ===================== DATA: weekly calendar ===================== */
+const DAYS = [
+["Sunday",[
+ "<b>Sunny</b> on Route 37 — Magnet (Week Sibling)",
+ "Herb Shop open in the Goldenrod Underground",
+ "Younger haircut brother (friendship)",
+ "S.S. Aqua sails Vermilion → Olivine",
+ "Goldenrod Dept. Store 5F sells TM27 Return and TM21 Frustration",
+ "Rooftop lottery: TM02 Dragon Claw, Luxury Ball"
+]],
+["Monday",[
+ "<b>Monica</b> on Route 40 — Sharp Beak (Week Sibling)",
+ "<b>Clefairy dance at Mt. Moon Square</b>, 8pm–midnight → Moon Stone",
+ "S.S. Aqua sails Olivine → Vermilion",
+ "Older haircut brother",
+ "Rooftop lottery: TM65 Shadow Claw, Nest Ball"
+]],
+["Tuesday",[
+ "<b>Bug-Catching Contest</b> in the National Park",
+ "<b>Tuscany</b> on Route 29 — TwistedSpoon (Week Sibling)",
+ "Clefairy dance continues, midnight–4am, if you missed Monday",
+ "Older haircut brother",
+ "Rooftop lottery: TM91 Flash Cannon, Repeat Ball"
+]],
+["Wednesday",[
+ "<b>Wesley</b> at the Lake of Rage — Black Belt (Week Sibling)",
+ "<b>Hoenn Sound</b> on the radio (after the National Dex) — changes several encounter tables",
+ "The Lake of Rage TM man is <i>away</i> today",
+ "S.S. Aqua sails Vermilion → Olivine",
+ "Rooftop lottery: TM57 Charge Beam, Net Ball"
+]],
+["Thursday",[
+ "<b>Bug-Catching Contest</b> in the National Park",
+ "<b>Arthur</b> on Route 36 — Hard Stone (Week Sibling)",
+ "<b>Sinnoh Sound</b> on the radio (after the National Dex)",
+ "Older haircut brother",
+ "Rooftop lottery: TM60 Drain Punch, Quick Ball"
+]],
+["Friday",[
+ "<b>Lapras</b> in Union Cave B2F — the only day, respawns weekly",
+ "<b>Frieda</b> on Route 32 — Poison Barb (Week Sibling)",
+ "S.S. Aqua sails Olivine → Vermilion",
+ "Lucky Channel draws its number",
+ "Rooftop lottery: TM42 Facade, Dusk Ball"
+]],
+["Saturday",[
+ "<b>Bug-Catching Contest</b> in the National Park",
+ "<b>Santos</b> in Blackthorn City — Soft Sand (Week Sibling)",
+ "Herb Shop open in the Goldenrod Underground",
+ "Older haircut brother",
+ "Rooftop lottery: TM62 Silver Wind, Timer Ball"
+]]
+];
+
+/* ===================== DATA: team planner pool ===================== */
+const POOL = [
+["Typhlosion",["Fire"]],["Meganium",["Grass"]],["Feraligatr",["Water"]],
+["Gyarados",["Water","Flying"]],["Ampharos",["Electric"]],["Crobat",["Poison","Flying"]],
+["Heracross",["Bug","Fighting"]],["Quagsire",["Water","Ground"]],["Lapras",["Water","Ice"]],
+["Espeon",["Psychic"]],["Umbreon",["Dark"]],["Vaporeon",["Water"]],["Jolteon",["Electric"]],
+["Flareon",["Fire"]],["Noctowl",["Normal","Flying"]],["Furret",["Normal"]],
+["Dragonite",["Dragon","Flying"]],["Kingdra",["Water","Dragon"]],["Steelix",["Steel","Ground"]],
+["Scizor",["Bug","Steel"]],["Gengar",["Ghost","Poison"]],["Machamp",["Fighting"]],
+["Alakazam",["Psychic"]],["Golem",["Rock","Ground"]],["Donphan",["Ground"]],
+["Miltank",["Normal"]],["Girafarig",["Normal","Psychic"]],["Lanturn",["Water","Electric"]],
+["Azumarill",["Water"]],["Weavile",["Dark","Ice"]],["Mamoswine",["Ice","Ground"]],
+["Tyranitar",["Rock","Dark"]],["Arcanine",["Fire"]],["Xatu",["Psychic","Flying"]],
+["Politoed",["Water"]],["Slowking",["Water","Psychic"]],["Forretress",["Bug","Steel"]],
+["Houndoom",["Dark","Fire"]],["Magneton",["Electric","Steel"]],["Pidgeot",["Normal","Flying"]],
+["Hitmonlee",["Fighting"]],["Nidoking",["Poison","Ground"]],["Ursaring",["Normal"]],
+["Togetic",["Normal","Flying"]],["Sunflora",["Grass"]],["Victreebel",["Grass","Poison"]],
+["Piloswine",["Ice","Ground"]],["Ariados",["Bug","Poison"]],["Bellossom",["Grass"]],
+["Skarmory",["Steel","Flying"]]
+];
+</script>
+<script>
+/* ===================== WIDGETS ===================== */
+
+/* — TM / HM index — */
+WIDGETS.tmindex = function(el){
+  const rows = MACHINES.map(m => {
+    const id = 'mach-' + m[0];
+    const on = !!DONE[id];
+    return '<tr class="doneRow' + (on ? ' isdone' : '') + '" data-search="' + esc((m[0] + ' ' + m[1] + ' ' + m[2] + ' ' + m[3]).toLowerCase()) + '">' +
+      '<td><input class="have" type="checkbox" data-k="' + id + '"' + (on ? ' checked' : '') + ' aria-label="Have ' + esc(m[0]) + '"></td>' +
+      '<td class="num">' + esc(m[0]) + '</td>' +
+      '<td class="mon">' + esc(m[1]) + '</td>' +
+      '<td>' + tpill(m[2]) + '</td>' +
+      '<td class="mv">' + esc(m[3]) + '</td></tr>';
+  }).join('');
+  el.innerHTML =
+    '<div class="reftable"><div class="rh">' +
+      '<input id="tmfilter" type="search" placeholder="Filter by number, move, type or place…" autocomplete="off">' +
+      '<span class="pct mono" id="tmcount"></span>' +
+    '</div><div class="tblwrap"><table><thead><tr><th>Have</th><th>#</th><th>Move</th><th>Type</th><th>Where it comes from</th></tr></thead>' +
+    '<tbody id="tmbody">' + rows + '</tbody></table></div></div>';
+
+  const body = el.querySelector('#tmbody');
+  const count = el.querySelector('#tmcount');
+  function tally(){
+    const have = MACHINES.filter(m => DONE['mach-' + m[0]]).length;
+    count.textContent = have + ' / ' + MACHINES.length;
+  }
+  tally();
+  body.addEventListener('change', tally);
+  el.querySelector('#tmfilter').addEventListener('input', e => {
+    const q = e.target.value.trim().toLowerCase();
+    body.querySelectorAll('tr').forEach(tr => {
+      tr.classList.toggle('rowhide', !!q && !tr.dataset.search.includes(q));
+    });
+  });
+};
+
+/* — Weekly day board — */
+WIDGETS.days = function(el){
+  el.innerHTML = '<div class="dayboard" id="dayboard"></div>';
+  drawDays();
+};
+function drawDays(){
+  const board = document.getElementById('dayboard');
+  if (!board) return;
+  const sel = document.getElementById('daypick');
+  const chosen = sel && sel.value !== 'today' ? parseInt(sel.value, 10) : new Date().getDay();
+  board.innerHTML = DAYS.map((d, i) =>
+    '<div class="daycard' + (i === chosen ? ' today' : '') + '"><h4>' + esc(d[0]) +
+    (i === chosen ? '<span class="mk">selected</span>' : '') + '</h4><ul>' +
+    d[1].map(x => '<li>' + x + '</li>').join('') + '</ul></div>').join('');
+}
+
+/* — Gen IV type calculator — */
+WIDGETS.types = function(el){
+  const opts = TYPES.map(t => '<option value="' + t + '">' + t + '</option>').join('');
+  el.innerHTML =
+    '<div class="planner"><div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end">' +
+      '<label style="font-family:\'DM Mono\',monospace;font-size:11px;color:var(--ink3)">Attacking move<br><select class="daypick" id="atkT">' + opts + '</select></label>' +
+      '<label style="font-family:\'DM Mono\',monospace;font-size:11px;color:var(--ink3)">Defender type 1<br><select class="daypick" id="defA">' + opts + '</select></label>' +
+      '<label style="font-family:\'DM Mono\',monospace;font-size:11px;color:var(--ink3)">Defender type 2<br><select class="daypick" id="defB"><option value="">— none —</option>' + opts + '</select></label>' +
+    '</div><div id="typeout" style="margin-top:14px"></div></div>';
+  const out = el.querySelector('#typeout');
+  function calc(){
+    const a = el.querySelector('#atkT').value;
+    const d1 = el.querySelector('#defA').value;
+    const d2 = el.querySelector('#defB').value;
+    const defs = d2 ? [d1, d2] : [d1];
+    const m = eff(a, defs);
+    const label = m === 0 ? 'No effect' : m >= 4 ? 'Devastating' : m >= 2 ? 'Super effective' : m <= 0.25 ? 'Almost nothing' : m < 1 ? 'Resisted' : 'Neutral';
+    const cls = m >= 2 ? 'ok' : (m < 1 ? 'bad' : '');
+    out.innerHTML = '<div class="cvcell ' + cls + '" style="max-width:320px"><div class="cvt">' +
+      esc(a) + ' → ' + esc(defs.join(' / ')) + '</div><div class="cvv" style="font-size:20px">×' + m + ' — ' + label + '</div></div>';
+  }
+  el.querySelectorAll('select').forEach(s => s.addEventListener('change', calc));
+  calc();
+};
+
+/* — Team planner — */
+let TEAM = [];
+try { TEAM = JSON.parse(localStorage.getItem(KEY + ':team') || '[]') || []; } catch (e) { TEAM = []; }
+WIDGETS.planner = function(el){
+  el.innerHTML =
+    '<div class="planner"><h3 style="margin-top:0">Team planner</h3>' +
+    '<p style="font-size:15px;color:var(--ink2);margin:0 0 4px;max-width:66ch">Pick up to six. The panel below counts how many of your team each attacking type hurts, and flags the types nothing on your team hits hard.</p>' +
+    '<div class="slots" id="slots"></div>' +
+    '<div class="pool" id="pool"></div>' +
+    '<div id="coverage"></div></div>';
+  drawPlanner(el);
+  el.addEventListener('click', e => {
+    const add = e.target.closest('[data-add]');
+    const rm = e.target.closest('[data-rm]');
+    if (add && TEAM.length < 6 && !TEAM.includes(add.dataset.add)) TEAM.push(add.dataset.add);
+    else if (rm) TEAM = TEAM.filter(n => n !== rm.dataset.rm);
+    else return;
+    try { localStorage.setItem(KEY + ':team', JSON.stringify(TEAM)); } catch (err) {}
+    drawPlanner(el);
+  });
+};
+function typesOf(name){ const p = POOL.find(x => x[0] === name); return p ? p[1] : []; }
+function drawPlanner(el){
+  const slots = el.querySelector('#slots');
+  slots.innerHTML = Array.from({length:6}, (_, i) => {
+    const n = TEAM[i];
+    if (!n) return '<div class="slot"><span class="empty">slot ' + (i + 1) + '</span></div>';
+    return '<div class="slot filled"><button class="x" data-rm="' + esc(n) + '" aria-label="Remove ' + esc(n) + '">×</button>' +
+      '<div class="sn">' + esc(n) + '</div><div class="st">' + tpills(typesOf(n)) + '</div></div>';
+  }).join('');
+
+  el.querySelector('#pool').innerHTML = POOL.map(p =>
+    '<button data-add="' + esc(p[0]) + '"' + (TEAM.includes(p[0]) || TEAM.length >= 6 ? ' disabled' : '') + '>' + esc(p[0]) + '</button>').join('');
+
+  const cov = el.querySelector('#coverage');
+  if (!TEAM.length){ cov.innerHTML = ''; return; }
+  const members = TEAM.map(n => typesOf(n));
+  const weak = TYPES.map(t => [t, members.filter(m => eff(t, m) >= 2).length]);
+  const gaps = TYPES.filter(d => !TEAM.some(n => typesOf(n).some(s => eff(s, [d]) >= 2)));
+
+  cov.innerHTML =
+    '<h3 style="margin-bottom:6px">Defensive exposure — how many of your six each type hits hard</h3>' +
+    '<div class="cover">' + weak.map(w =>
+      '<div class="cvcell ' + (w[1] >= 3 ? 'bad' : w[1] === 0 ? 'ok' : '') + '"><div class="cvt">' + w[0] +
+      '</div><div class="cvv">' + w[1] + ' of ' + TEAM.length + '</div></div>').join('') + '</div>' +
+    '<h3 style="margin-bottom:6px">Types nothing on your team hits for 2× with its own typing</h3>' +
+    '<p style="font-size:15.5px;margin:0">' + (gaps.length
+      ? gaps.map(tpill).join(' ') + '<br><span style="color:var(--ink3);font-size:14px">This is a same-type check only — a TM can plug any of these. Ice Beam, Thunderbolt and Flamethrower between them cover most gaps a Johto team has.</span>'
+      : '<span style="color:var(--good)">Nothing — your six cover every type with same-type moves alone.</span>') + '</p>';
+}
+
+/* — Progress backup — */
+WIDGETS.backup = function(el){
+  el.innerHTML =
+    '<details class="backup"><summary>Backup / restore your ticks</summary>' +
+    '<textarea id="bkText" spellcheck="false" aria-label="Progress backup data"></textarea>' +
+    '<div class="rowbtns"><button class="tbtn" id="bkCopy">Copy backup</button>' +
+    '<button class="tbtn" id="bkLoad">Restore from box</button>' +
+    '<button class="tbtn" id="bkClear">Clear all progress</button></div>' +
+    '<p style="font-size:14px;color:var(--ink3);margin:10px 0 0">Ticks are stored in this browser only. Paste the string into a note if you plan to open the guide on another device.</p></details>';
+  const ta = el.querySelector('#bkText');
+  ta.value = JSON.stringify({done:DONE, team:TEAM});
+  el.querySelector('#bkCopy').addEventListener('click', () => {
+    ta.select();
+    try { navigator.clipboard.writeText(ta.value); } catch (e) { document.execCommand('copy'); }
+    el.querySelector('#bkCopy').textContent = 'Copied';
+    setTimeout(() => { el.querySelector('#bkCopy').textContent = 'Copy backup'; }, 1400);
+  });
+  el.querySelector('#bkLoad').addEventListener('click', () => {
+    try {
+      const parsed = JSON.parse(ta.value);
+      DONE = parsed.done || {};
+      TEAM = parsed.team || [];
+      persist();
+      localStorage.setItem(KEY + ':team', JSON.stringify(TEAM));
+      location.reload();
+    } catch (e) {
+      alert('That is not a valid backup string.');
+    }
+  });
+  el.querySelector('#bkClear').addEventListener('click', () => {
+    if (!confirm('Clear every tick and your saved team? This cannot be undone.')) return;
+    DONE = {}; TEAM = [];
+    persist();
+    try { localStorage.removeItem(KEY + ':team'); } catch (e) {}
+    location.reload();
+  });
+};
+
+/* ===================== DAY SELECT + BOOT ===================== */
+(function(){
+  const sel = document.getElementById('daypick');
+  const names = DAYS.map(d => d[0]);
+  const today = new Date().getDay();
+  sel.innerHTML = '<option value="today">Today · ' + names[today] + '</option>' +
+    names.map((n, i) => '<option value="' + i + '">' + n + '</option>').join('');
+  sel.addEventListener('change', () => {
+    drawDays();
+    const s = document.getElementById('ref-days');
+    if (s && !s.classList.contains('hide')) s.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+  boot();
+})();
+</script>
+
