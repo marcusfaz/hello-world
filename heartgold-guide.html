@@ -270,6 +270,28 @@ tr.rowhide{display:none}
 .cvcell.bad{background:var(--ember-wash)}
 .cvcell.ok{background:var(--good-wash)}
 
+/* party roster board */
+.party{border:1px solid var(--line);border-radius:8px;background:var(--surface);margin:4px 0 26px;overflow:hidden}
+.party .ph{padding:12px 16px;border-bottom:1px solid var(--line);background:var(--surface2);display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.party .ph h4{font-size:16px}
+.party .ph .lv{font-family:"DM Mono",ui-monospace,monospace;font-size:11px;color:var(--ink3);font-variant-numeric:tabular-nums}
+.party .ph .who{margin-left:auto;font-family:"DM Mono",ui-monospace,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-ink);background:var(--gold-wash);padding:3px 8px;border-radius:3px}
+.party .psum{padding:13px 16px 0;margin:0;font-size:15.5px;color:var(--ink2);max-width:70ch}
+.party .pnote{margin:13px 16px 0;padding:10px 13px;border-radius:6px;background:var(--indigo-wash)}
+.party .pnote .lbl{font-family:"DM Mono",ui-monospace,monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--indigo);display:block;margin-bottom:4px}
+.party .pnote p{margin:0;font-size:15.5px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:10px;padding:14px 16px 16px}
+.pslot{border:1px solid var(--line);border-radius:6px;padding:10px 12px;background:var(--bg)}
+.pslot .pst{font-family:"DM Mono",ui-monospace,monospace;font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;padding:2px 6px;border-radius:3px;display:inline-block;margin-bottom:7px;background:var(--surface2);color:var(--ink3)}
+.pslot.add{border-color:var(--gold)}
+.pslot.add .pst{background:var(--gold-wash);color:var(--gold-ink)}
+.pslot.swap{border-color:var(--ember)}
+.pslot.swap .pst{background:var(--ember-wash);color:var(--ember)}
+.pslot.bench .pst{background:var(--indigo-wash);color:var(--indigo)}
+.pslot .pn{font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;font-weight:700;font-size:15px;display:flex;gap:6px;align-items:baseline;flex-wrap:wrap}
+.pslot .prole{font-family:"DM Mono",ui-monospace,monospace;font-size:10.5px;color:var(--ink3);margin-top:4px}
+.pslot .pw{font-size:14.5px;color:var(--ink2);margin-top:7px;line-height:1.45}
+
 /* misc */
 .footnote{font-size:14px;color:var(--ink3);max-width:70ch;margin-top:26px}
 .srcs{font-size:13.5px;color:var(--ink3)}
@@ -313,6 +335,7 @@ details.backup textarea{width:100%;height:110px;margin-top:10px;font-family:"DM 
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>
         <input id="search" type="search" placeholder="Search the guide — “Whitney”, “TM45”, “Heracross”…" autocomplete="off">
       </div>
+      <select class="daypick" id="starterpick" aria-label="Your starter Pokemon"></select>
       <select class="daypick" id="daypick" aria-label="In-game day"></select>
       <button class="tbtn" id="hidedone" aria-pressed="false">Hide done</button>
       <button class="tbtn" id="themebtn" aria-label="Toggle colour theme">◐</button>
@@ -358,6 +381,7 @@ function renderBlock(b, stageId){
     case 'team': return '<div class="note team"><span class="lbl">Team call</span><p>' + v + '</p></div>';
     case 'html': return v;
     case 'mount':return '<div data-widget="' + esc(v) + '"></div>';
+    case 'roster':return '<div data-roster="' + esc(v) + '"></div>';
 
     case 'do': return '<ul class="checks">' + v.map(item => {
         const t = typeof item === 'string' ? item : item.t;
@@ -423,6 +447,7 @@ function renderAll(){
     const fn = WIDGETS[el.dataset.widget];
     if (fn) fn(el);
   });
+  renderRosters();
 
   content.addEventListener('change', e => {
     const cb = e.target.closest('input[type=checkbox][data-k]');
@@ -803,9 +828,9 @@ body:[
  ["HM05 Whirlpool","Rocket HQ — Lance gives it after the generator","Gyarados or Lapras"],
  ["HM06 Rock Smash","Route 36 — man east of the Sudowoodo tree","The mule (and it breaks rocks hiding Heart Scales)"],
  ["HM07 Waterfall","Ice Path 1F","Gyarados or Lapras — also a strong physical STAB"],
- ["HM08 Rock Climb","Pallet Town — Prof. Oak, after all 16 badges","The mule, or Donphan"]
+ ["HM08 Rock Climb","Pallet Town — Prof. Oak, after all 16 badges","Ampharos or Donphan — <b>not</b> Furret, which cannot learn it"]
 ]}],
-["tip","Build the mule early. A <b>Furret</b> caught on Route 29 covers Cut, Strength, Rock Smash, Rock Climb and Surf between them, which means your real team only ever needs Fly plus the two water HMs."],
+["tip","Build the mule early. A <b>Furret</b> caught on Route 29 covers Cut, Strength, Rock Smash, Surf and Whirlpool — five of the eight. It <i>cannot</i> learn Fly, Waterfall or Rock Climb, so plan those three onto real team members: Fly on Crobat, Waterfall on Gyarados, and Rock Climb on Ampharos or a Donphan."],
 ["mount","planner"]
 ]});
 
@@ -876,7 +901,7 @@ body:[
 ]],
 ["h","Worth catching now"],
 ["catch",[
- {n:"Sentret", t:["Normal"], where:"Routes 29–31, day", why:"This is your HM mule. Furret learns Cut, Strength, Rock Smash, Rock Climb and Surf — five of the eight field moves on one body."},
+ {n:"Sentret", t:["Normal"], where:"Routes 29–31, day", why:"This is your HM mule. Furret learns Cut, Strength, Rock Smash, Surf and Whirlpool — five of the eight field moves on one body. It cannot learn Fly, Waterfall or Rock Climb."},
  {n:"Hoothoot", t:["Normal","Flying"], where:"Routes 29–31, night", why:"Early Flying coverage and a serviceable Fly carrier if you would rather not put Fly on Crobat."},
  {n:"Bellsprout", t:["Grass","Poison"], where:"Routes 30–31, Sprout Tower", why:"Catch a spare: a trainer beside the Violet City Pokémon Center trades an Onix for one."},
  {n:"Spinarak", t:["Bug","Poison"], where:"Routes 30–31, night (HeartGold only)", why:"Version exclusive — grab one for the dex while you are here rather than trekking back."},
@@ -2479,6 +2504,360 @@ const POOL = [
 ];
 </script>
 <script>
+/* ===================== STARTER-AWARE ROSTERS ===================== */
+const STARTERS = {
+  cyndaquil:{base:"Cyndaquil", mid:"Quilava", final:"Typhlosion", t:["Fire"], evo:"Quilava at 14, Typhlosion at 36"},
+  totodile: {base:"Totodile",  mid:"Croconaw", final:"Feraligatr", t:["Water"], evo:"Croconaw at 18, Feraligatr at 30"},
+  chikorita:{base:"Chikorita", mid:"Bayleef",  final:"Meganium",   t:["Grass"], evo:"Bayleef at 16, Meganium at 32"}
+};
+let STARTER = "cyndaquil";
+try { STARTER = localStorage.getItem(KEY + ":starter") || "cyndaquil"; } catch (e) {}
+if (!STARTERS[STARTER]) STARTER = "cyndaquil";
+
+const ROSTERS = {};
+function R(id, o){ ROSTERS[id] = o; }
+/* slot: n name (%S% = starter), t types, role, st add|keep|swap|bench, w why, only [starters] */
+
+R("j01",{lv:"5 → 9", form:"base", sum:"Three bodies is plenty. Everything here dies to a strong hit, so the job is catching your long-term pieces early rather than winning fights elegantly.",
+slots:[
+ {n:"%S%", role:"Lead · your only real attacker", st:"keep", w:"Every fight goes through it until Violet City."},
+ {n:"Sentret", t:["Normal"], role:"HM mule", st:"add", w:"Route 29. Never needs to fight — it exists to carry Cut, Rock Smash, Strength and Surf."},
+ {n:"Hoothoot", t:["Normal","Flying"], role:"Flying coverage", st:"add", w:"Night catch on 29–31. Temporary — Crobat replaces it around badge five."},
+ {n:"Geodude", t:["Rock","Ground"], role:"Emergency Rock", st:"add", only:["chikorita"], w:"Dark Cave, off Route 31. Chikorita is 2× weak to Falkner and Bugsy both; this is the body that carries you through them."}
+],
+notes:{chikorita:"You are the one starter that loses to gyms one <i>and</i> two. Detour into Dark Cave now and take a Geodude — it turns both fights from a grind into a formality.",
+       totodile:"Totodile is neutral against Falkner and resisted by Bugsy. Do not expect your starter to carry the first two badges; the Onix you trade for in Violet will do more work.",
+       cyndaquil:"You have the smoothest opening in the game. Ember alone beats Bugsy outright, so spend your catching effort on the long-term pieces instead."}});
+
+R("j02",{lv:"10 → 13", form:"base", sum:"Falkner is a level check for most teams. The important move is picking up the free Onix, which stays useful right through Whitney.",
+slots:[
+ {n:"%S%", role:"Lead", st:"keep", w:"Cyndaquil evolves at 14 — you may hit Quilava just after this gym."},
+ {n:"Onix", t:["Rock","Ground"], role:"Rock answer · wall", st:"add", w:"Trade a spare Bellsprout beside the Violet Pokémon Center. Rock Throw is 2× on Falkner and 4× on Bugsy's Scyther."},
+ {n:"Sentret", t:["Normal"], role:"HM mule", st:"keep", w:"Teach it nothing yet. Cut arrives after badge two."},
+ {n:"Hoothoot", t:["Normal","Flying"], role:"Filler", st:"keep", w:"Still fine. Start thinking of it as a Fly carrier rather than an attacker."},
+ {n:"Togepi", t:["Normal"], role:"Long project", st:"bench", w:"Hatches after Falkner with Extrasensory. It is slow to come good — park it and level it via the Exp. Share much later."},
+ {n:"Gastly", t:["Ghost","Poison"], role:"Dex / trade stock", st:"bench", w:"Sprout Tower at night. Catch it now — Gastly is far rarer after Johto, and Gengar is one trade away."}
+]});
+
+R("j03",{lv:"12 → 16", form:"base", sum:"The single most important catch in early Johto is on this route. Mareep is your only convenient Electric line and it stays on the team to the credits.",
+slots:[
+ {n:"%S%", role:"Lead", st:"keep", w:""},
+ {n:"Mareep", t:["Electric"], role:"Special attacker", st:"add", w:"Route 32. Priority catch. Flaaffy at 15, Ampharos at 30 — it carries Thunderbolt and Thunder Wave all game."},
+ {n:"Zubat", t:["Poison","Flying"], role:"Future Crobat", st:"add", w:"Dark Cave or Union Cave. Crobat needs a long friendship runway, so the clock starts the moment you catch it. A Friend Ball from Kurt skips most of the grind."},
+ {n:"Wooper", t:["Water","Ground"], role:"Ground / Electric immunity", st:"add", w:"Route 32 at night, or Union Cave any time. Quagsire plugs the exact holes a Fire or Electric team has."},
+ {n:"Onix", t:["Rock","Ground"], role:"Wall", st:"keep", w:"Keep it for Bugsy and Whitney specifically."},
+ {n:"Hoothoot", t:["Normal","Flying"], role:"Retiring", st:"swap", w:"Zubat does this job better from here. Box it unless you want Fly on it later."}
+],
+notes:{chikorita:"Mareep matters even more for you — Bayleef and Ampharos between them cover almost nothing the same way, which is exactly what you want on a starter this resisted."}});
+
+R("j04",{lv:"15 → 18", form:"mid", sum:"No new members needed. Bugsy is a type check, and every starter has an answer already sitting in the party.",
+slots:[
+ {n:"%S%", role:"Lead", st:"keep", w:"Cyndaquil players: Ember ends this gym on turn one."},
+ {n:"Onix", t:["Rock","Ground"], role:"Scyther counter", st:"keep", w:"Rock Throw is <b>4×</b> on Scyther. This is the fight Onix was caught for."},
+ {n:"Flaaffy", t:["Electric"], role:"Special attacker", st:"keep", w:""},
+ {n:"Zubat", t:["Poison","Flying"], role:"Friendship project", st:"keep", w:"Bring it to fights it can survive — friendship builds with levels, not with box time."},
+ {n:"Wooper", t:["Water","Ground"], role:"Utility", st:"keep", w:""},
+ {n:"Sentret", t:["Normal"], role:"HM mule", st:"keep", w:"Teach it Cut as soon as the Hive Badge lands."}
+],
+notes:{totodile:"Croconaw is resisted by every Pokémon Bugsy owns. Lead Onix, not your starter.",
+       chikorita:"Grass is resisted by all three of Bugsy's Bug types and Scyther hits you for 2×. Onix or your Geodude does this entire gym."}});
+
+R("j05",{lv:"17 → 20", form:"mid", sum:"Heracross joins here and immediately becomes one of your two best Pokémon. Ilex Forest teaches Headbutt for free, so there is no reason to delay it.",
+slots:[
+ {n:"%S%", role:"Lead", st:"keep", w:""},
+ {n:"Heracross", t:["Bug","Fighting"], role:"Physical breaker", st:"add", w:"Headbutt the Azalea trees. It answers Whitney, Karen, Sabrina and most of Kanto's Normal walls — a permanent slot."},
+ {n:"Flaaffy", t:["Electric"], role:"Special attacker", st:"keep", w:""},
+ {n:"Zubat", t:["Poison","Flying"], role:"Friendship project", st:"keep", w:"Use the Goldenrod Underground haircut brothers daily — it is the fastest Crobat accelerator in the game."},
+ {n:"Wooper", t:["Water","Ground"], role:"Utility", st:"keep", w:""},
+ {n:"Onix", t:["Rock","Ground"], role:"Whitney insurance", st:"keep", w:"Hold it one more gym. It resists Rollout, which is the whole Miltank problem."}
+],
+notes:{cyndaquil:"Quilava has no answer to a Rock or Water type yet. Heracross and Wooper are covering that gap until Gyarados arrives at Lake of Rage."}});
+
+R("j06",{lv:"18 → 21", form:"mid", sum:"A single-fight roster. Whitney is beaten by three specific things, and if you bring all three she is not difficult.",
+slots:[
+ {n:"Heracross", t:["Bug","Fighting"], role:"The killer", st:"keep", w:"Fighting is 2× on Miltank and out-paces Milk Drink. This is your win condition."},
+ {n:"Onix", t:["Rock","Ground"], role:"Rollout wall", st:"keep", w:"Rollout is a Rock move — Onix shrugs it off while you set up."},
+ {n:"Flaaffy", t:["Electric"], role:"Speed control", st:"keep", w:"Thunder Wave cuts Miltank's Speed by 75% and buys you the whole fight."},
+ {n:"%S%", role:"Lead", st:"keep", w:"Fine against Clefairy, unreliable against Miltank."},
+ {n:"Wooper", t:["Water","Ground"], role:"Attract-proof body", st:"keep", w:"If your team is all male, a Wooper of the same gender as Miltank — or any genderless body — ignores Attract entirely."},
+ {n:"Sentret", t:["Normal"], role:"HM mule", st:"keep", w:"Strength unlocks after this badge."}
+],
+notes:{chikorita:"This is your best gym. Bayleef resists nothing relevant but out-bulks Miltank and Body Slam does honest damage — still, let Heracross finish it."}});
+
+R("j07",{lv:"20 → 23", form:"mid", sum:"The one stage where two of the three starters should actively recruit. Fire is nearly absent from Johto and Routes 36–37 are where you fix that.",
+slots:[
+ {n:"%S%", role:"Lead", st:"keep", w:""},
+ {n:"Growlithe", t:["Fire"], role:"Fire coverage", st:"add", only:["totodile","chikorita"], w:"Routes 36–37, HeartGold exclusive. This is your Fire answer for Jasmine and Erika — Cyndaquil players already have one and can skip it."},
+ {n:"Abra", t:["Psychic"], role:"Morty answer", st:"add", w:"Routes 33–35, rare and it Teleports on turn one. Kadabra's Psychic is 2× on every Pokémon in the next gym."},
+ {n:"Heracross", t:["Bug","Fighting"], role:"Physical breaker", st:"keep", w:""},
+ {n:"Flaaffy", t:["Electric"], role:"Special attacker", st:"keep", w:""},
+ {n:"Golbat", t:["Poison","Flying"], role:"Friendship project", st:"keep", w:"Should have evolved from Zubat by now. Keep battling it — Crobat needs high friendship, and it comes online right in time for Chuck."},
+ {n:"Onix", t:["Rock","Ground"], role:"Retiring", st:"swap", w:"Its two jobs are done. Box it for Kadabra or Growlithe — Golem is a long way off and you need the slot."}
+],
+notes:{cyndaquil:"Skip Growlithe; you would be running two Fire types. Spend the slot on Abra instead.",
+       totodile:"Take the Growlithe. Croconaw does nothing to Jasmine's Steelix, and Arcanine covers Bugsy-type matchups you will meet again in Kanto.",
+       chikorita:"Take the Growlithe — it is close to mandatory. Meganium is walled by Steel, Bug, Fire, Flying and Poison, which is most of what the back half of Johto throws at you."}});
+
+R("j08",{lv:"23 → 27", form:"mid", sum:"Morty is a Psychic check. Bring one Psychic attacker and the gym is straightforward; bring none and Gengar's Hypnosis will end runs.",
+slots:[
+ {n:"Kadabra", t:["Psychic"], role:"Gym killer", st:"keep", w:"Psychic is 2× on all four of Morty's Pokémon — they are Ghost/<b>Poison</b>. Confusion or Psybeam clears the room."},
+ {n:"%S%", role:"Lead", st:"keep", w:""},
+ {n:"Golbat", t:["Poison","Flying"], role:"Nearly Crobat", st:"keep", w:"Should be close to evolving. Keep it in fights and keep visiting the haircut brothers."},
+ {n:"Heracross", t:["Bug","Fighting"], role:"Physical breaker", st:"keep", w:"Careful — Fighting does nothing to Ghost in Gen 4."},
+ {n:"Flaaffy", t:["Electric"], role:"Special attacker", st:"keep", w:"Evolves at 30. Ampharos is a genuine power spike."},
+ {n:"Wooper", t:["Water","Ground"], role:"Utility", st:"keep", w:"Do not build the Gengar fight around Ground — it has Levitate and takes nothing."}
+],
+notes:{chikorita:"Bayleef is 2× weak to Morty's Poison typing. Lead Kadabra and keep your starter out of this one entirely."}});
+
+R("j09",{lv:"26 → 29", form:"mid", sum:"A quiet stage. No new members are required — use it to close the level gap before the Cianwood trip and to get Zubat over the friendship line.",
+slots:[
+ {n:"%S%", role:"Lead", st:"keep", w:""},
+ {n:"Crobat", t:["Poison","Flying"], role:"Fast sweeper", st:"keep", w:"If it has not evolved yet, this is the stage to force it — the Route 38/39 trainer loop is the most convenient levelling in Johto."},
+ {n:"Ampharos", t:["Electric"], role:"Special attacker", st:"keep", w:"Should be evolved by now."},
+ {n:"Heracross", t:["Bug","Fighting"], role:"Physical breaker", st:"keep", w:""},
+ {n:"Kadabra", t:["Psychic"], role:"Special coverage", st:"keep", w:"Still pulling weight against Chuck next stage."},
+ {n:"Quagsire", t:["Water","Ground"], role:"Utility", st:"keep", w:"Evolves at 20. Teach it Surf when you can spare the slot — it is a fine second water carrier."}
+]});
+
+R("j10",{lv:"28 → 32", form:"mid", sum:"Chuck is a Flying and Psychic check, and you are carrying both. The real prize is Fly, which changes how you move for the rest of the run.",
+slots:[
+ {n:"Crobat", t:["Poison","Flying"], role:"Gym killer · Fly carrier", st:"keep", w:"Flying is 2× on Primeape and Wing Attack outruns everything Chuck owns. Give it HM02 the moment his wife hands it over."},
+ {n:"Kadabra", t:["Psychic"], role:"Gym killer", st:"keep", w:"Psychic is 2× on both of Chuck's Pokémon, Poliwrath included."},
+ {n:"Ampharos", t:["Electric"], role:"Poliwrath answer", st:"keep", w:"2× into Poliwrath. Bring it in on a switch — it will not outrun anything."},
+ {n:"%S%", role:"Lead", st:"keep", w:""},
+ {n:"Heracross", t:["Bug","Fighting"], role:"Bench this gym", st:"bench", w:"Fighting versus Fighting is a coin flip you do not need to take."},
+ {n:"Quagsire", t:["Water","Ground"], role:"Utility", st:"keep", w:""}
+],
+notes:{cyndaquil:"Quilava is 2× weak to Poliwrath's Surf and does nothing back. Sit this gym out with your starter — it is the worst matchup of your run.",
+       totodile:"Croconaw is resisted by Poliwrath and takes 2× from its Fighting moves. Lead Crobat."}});
+
+R("j11",{lv:"30 → 34", form:"mid", sum:"Jasmine is a Ground-then-Fire fight. Nothing new joins — this is about bringing the right two bodies and remembering that Gen 4 Steel resists Dark and Ghost.",
+slots:[
+ {n:"Quagsire", t:["Water","Ground"], role:"Magnemite deleter", st:"keep", w:"Ground is <b>4×</b> on both Magnemite. Mud Bomb or Dig clears half the gym unassisted."},
+ {n:"%S%", role:"Steelix answer", st:"keep", w:"Fire, Water and Fighting are all 2× on Steelix — whichever starter you took has one of them."},
+ {n:"Heracross", t:["Bug","Fighting"], role:"Steelix answer", st:"keep", w:"Fighting is 2× on Steelix and it survives Iron Tail comfortably."},
+ {n:"Crobat", t:["Poison","Flying"], role:"Fly carrier", st:"keep", w:"Poison does nothing to Steel — keep it out of the gym itself."},
+ {n:"Ampharos", t:["Electric"], role:"Bench this gym", st:"bench", w:"Electric is resisted by Steelix and does nothing useful to Magnemite either."},
+ {n:"Kadabra", t:["Psychic"], role:"Retiring soon", st:"swap", w:"Its best fights are behind it. Once Gyarados joins next stage, Kadabra is the slot you give up."}
+],
+notes:{chikorita:"Meganium is walled hard here — Grass does nothing to Steel. Lean entirely on Quagsire and Growlithe for this badge."}});
+
+R("j12",{lv:"32 → 36", form:"mid", sum:"The biggest single roster upgrade in the game. The red Gyarados is level 30, fully evolved, free, and it takes over four HMs at once — which frees your mule off the team permanently.",
+slots:[
+ {n:"Gyarados", t:["Water","Flying"], role:"Physical ace · water HMs", st:"add", w:"Lake of Rage. Intimidate blunts every physical gym leader left, and it carries Surf, Waterfall, Whirlpool and Strength. Give it <b>Ice Beam</b> when you can — Gyarados learns it, Ampharos does not."},
+ {n:"%S%", role:"Lead", st:"keep", w:""},
+ {n:"Ampharos", t:["Electric"], role:"Special attacker · Rock Climb", st:"keep", w:"Also your Rock Climb carrier much later — it is one of the few team members that learns HM08."},
+ {n:"Crobat", t:["Poison","Flying"], role:"Fast sweeper · Fly", st:"keep", w:""},
+ {n:"Heracross", t:["Bug","Fighting"], role:"Physical breaker", st:"keep", w:""},
+ {n:"Quagsire", t:["Water","Ground"], role:"Utility · Ground", st:"keep", w:"Ice Beam goes nicely here too if Gyarados is busy."},
+ {n:"Kadabra", t:["Psychic"], role:"Make room", st:"swap", w:"Box it for Gyarados. If you would rather keep Kadabra, drop Quagsire instead — but you lose your Electric immunity, which Lt. Surge punishes hard in Kanto."},
+ {n:"Furret", t:["Normal"], role:"Off the team", st:"swap", w:"Gyarados now carries the water HMs, so the mule only needs to exist in the PC. Swap it in for Cut and Rock Smash, then swap it back out."}
+],
+notes:{cyndaquil:"This is the fight your run has been waiting for. Typhlosion plus Gyarados covers almost everything Johto has left.",
+       totodile:"You now have two Water types. That is fine — Feraligatr is your physical attacker and Gyarados is the HM carrier — but consider boxing Quagsire rather than Kadabra to keep your coverage wide."}});
+
+R("j13",{lv:"34 → 38", form:"final", sum:"Your final six is now set. Pryce is an Ice gym, which means Electric, Fighting and — if you have it — Grass do the work.",
+slots:[
+ {n:"Ampharos", t:["Electric"], role:"Gym killer", st:"keep", w:"2× on Seel and Dewgong both."},
+ {n:"Heracross", t:["Bug","Fighting"], role:"Gym killer", st:"keep", w:"Fighting is 2× on all three of Pryce's Pokémon."},
+ {n:"%S%", role:"Lead", st:"keep", w:"Your starter should be fully evolved around here."},
+ {n:"Gyarados", t:["Water","Flying"], role:"Physical ace", st:"keep", w:"Careful — Piloswine's Blizzard and Dewgong's Ice Beam are 2× into a Water/Flying body."},
+ {n:"Crobat", t:["Poison","Flying"], role:"Fast sweeper", st:"keep", w:"Also 2× weak to Ice. Use it to finish, not to tank."},
+ {n:"Quagsire", t:["Water","Ground"], role:"Earthquake soak", st:"keep", w:"The safest switch-in to Piloswine's Earthquake."}
+],
+notes:{chikorita:"Your one great gym. Grass is <b>4×</b> on Piloswine and 2× on the other two — Meganium sweeps Pryce single-handedly."}});
+
+R("j14",{lv:"36 → 40", form:"final", sum:"No roster change. The Radio Tower is a long grind of Rocket grunts with no type theme — bring your six and a full bag.",
+slots:[
+ {n:"%S%", role:"Lead", st:"keep", w:""},
+ {n:"Gyarados", t:["Water","Flying"], role:"Physical ace", st:"keep", w:""},
+ {n:"Ampharos", t:["Electric"], role:"Special attacker", st:"keep", w:""},
+ {n:"Crobat", t:["Poison","Flying"], role:"Fast sweeper", st:"keep", w:"Rocket teams are full of Zubat, Koffing and Rattata — Crobat outspeeds and removes all of it."},
+ {n:"Heracross", t:["Bug","Fighting"], role:"Physical breaker", st:"keep", w:"The Rocket executives lean on Poison and Dark; Heracross eats both."},
+ {n:"Quagsire", t:["Water","Ground"], role:"Utility", st:"keep", w:""}
+]});
+
+R("j15",{lv:"38 → 42", form:"final", sum:"Clair is the fight you buy a TM for. Ice Beam on Gyarados and Thunderbolt on Ampharos removes three of her four Pokémon.",
+slots:[
+ {n:"Gyarados", t:["Water","Flying"], role:"Ice Beam carrier", st:"keep", w:"<b>Teach it TM13 Ice Beam.</b> Ice is 2× on both Dragonairs. Note that Ampharos <i>cannot</i> learn Ice Beam in Gen 4, so this is the body for it."},
+ {n:"Ampharos", t:["Electric"], role:"Gyarados counter", st:"keep", w:"Thunderbolt is <b>4×</b> on Clair's Gyarados. Lead it into that slot."},
+ {n:"%S%", role:"Kingdra breaker", st:"keep", w:"Kingdra has no 2× weakness outside Dragon in Gen 4 — you beat it with raw neutral damage from your strongest attacker."},
+ {n:"Heracross", t:["Bug","Fighting"], role:"Neutral damage", st:"keep", w:"Megahorn hits Kingdra hard even at neutral."},
+ {n:"Crobat", t:["Poison","Flying"], role:"Speed control", st:"keep", w:""},
+ {n:"Quagsire", t:["Water","Ground"], role:"Backup Ice Beam", st:"keep", w:"A second legal Ice Beam body if you would rather keep Gyarados physical."}
+],
+notes:{totodile:"Feraligatr learns Ice Fang by level-up — you may not need the TM at all.",
+       chikorita:"Meganium contributes almost nothing here. Lean on Gyarados and Ampharos and treat your starter as a body to absorb a Dragon Rage."}});
+
+R("j16",{lv:"40 → 44", form:"final", sum:"Five Eeveelutions back to back with no healing, then a legendary. Roster for the gauntlet, then swap one slot for catching tools.",
+slots:[
+ {n:"Heracross", t:["Bug","Fighting"], role:"Umbreon breaker", st:"keep", w:"Fighting is 2× on Umbreon, which is otherwise a wall you cannot chew through."},
+ {n:"Quagsire", t:["Water","Ground"], role:"Jolteon / Flareon answer", st:"keep", w:"Immune to Jolteon's Electric and resists Flareon's Fire. The single best body for this gauntlet."},
+ {n:"Ampharos", t:["Electric"], role:"Vaporeon answer", st:"keep", w:"2× on Vaporeon."},
+ {n:"%S%", role:"Lead", st:"keep", w:""},
+ {n:"Gyarados", t:["Water","Flying"], role:"Physical ace", st:"keep", w:"Bring it to the Ho-Oh catch too — it resists Sacred Fire."},
+ {n:"False Swipe carrier", t:["Normal"], role:"Catching tool", st:"add", w:"Swap Crobat out and bring whatever you taught <b>TM54 False Swipe</b> (Dark Cave). Grind Ho-Oh to 1 HP, then sleep it, then throw Ultra Balls. Never poison or burn a one-of-a-kind legendary."}
+]});
+
+R("j17",{lv:"42 → 46", form:"final", sum:"Last stretch before the League. Nothing new joins — spend this stage closing the level gap, because the Elite Four sit at 40–50 and Lance's ace is 50.",
+slots:[
+ {n:"%S%", role:"Lead", st:"keep", w:"Aim for level 45 before you walk in."},
+ {n:"Gyarados", t:["Water","Flying"], role:"Physical ace", st:"keep", w:"Make sure Ice Beam is on it before Victory Road — Lance is four Ice-weak Pokémon in a trench coat."},
+ {n:"Ampharos", t:["Electric"], role:"Special attacker", st:"keep", w:"Thunderbolt is 4× on Lance's Gyarados and Aerodactyl."},
+ {n:"Crobat", t:["Poison","Flying"], role:"Fast sweeper", st:"keep", w:"Consider Mean Look if you plan to chase Raikou and Entei — it is the only way to stop a roamer fleeing."},
+ {n:"Heracross", t:["Bug","Fighting"], role:"Karen answer", st:"keep", w:"Your single most important Pokémon for the Elite Four."},
+ {n:"Quagsire", t:["Water","Ground"], role:"Utility", st:"keep", w:"Pick up TM26 Earthquake in Victory Road and put it here."}
+]});
+
+R("lg-e4",{lv:"45+", form:"final", sum:"Five fights, no healing between them. Every member below has one specific member of the Elite Four it exists to beat — know which before you walk in.",
+slots:[
+ {n:"Heracross", t:["Bug","Fighting"], role:"vs Karen and Will", st:"keep", w:"Fighting is 2× on Umbreon, Murkrow and Houndoom (4× on Houndoom). Bug is 2× on four of Will's five."},
+ {n:"Gyarados", t:["Water","Flying"], role:"vs Lance and Bruno", st:"keep", w:"Ice Beam is <b>4×</b> on all three Dragonites. Water is 4× on Bruno's Onix."},
+ {n:"Ampharos", t:["Electric"], role:"vs Lance", st:"keep", w:"4× on Lance's Gyarados and Aerodactyl — two Pokémon removed in two turns."},
+ {n:"%S%", role:"vs Koga", st:"keep", w:"Koga's Forretress is Bug/Steel and resists Dark and Ghost in Gen 4. Fire beats it; Water and Grass do not."},
+ {n:"Crobat", t:["Poison","Flying"], role:"vs Bruno", st:"keep", w:"Flying is 2× on four of Bruno's five, and Crobat outruns all of them."},
+ {n:"Quagsire", t:["Water","Ground"], role:"vs Koga and Will", st:"keep", w:"Ground is 2× on Muk and Forretress. Earthquake earns its slot here."}
+],
+notes:{chikorita:"Meganium is the weakest Elite Four starter by a distance — it has no favourable matchup across all five fights. Consider benching it for a Kadabra or a Dragonite you levelled from the Dragon's Den gift."}});
+
+R("k01",{lv:"46 → 52", form:"final", sum:"Kanto opens at levels 47–53 while you arrive around 46. Grind before you fight, and lead with the one Pokémon Lt. Surge cannot touch.",
+slots:[
+ {n:"Quagsire", t:["Water","Ground"], role:"Gym killer", st:"keep", w:"<b>Immune</b> to every Electric move in the gym and 2× back — 4× on Magneton. It can solo Lt. Surge."},
+ {n:"%S%", role:"Lead", st:"keep", w:""},
+ {n:"Heracross", t:["Bug","Fighting"], role:"Physical breaker", st:"keep", w:""},
+ {n:"Ampharos", t:["Electric"], role:"Bench this gym", st:"bench", w:"Electric versus Electric does nothing."},
+ {n:"Gyarados", t:["Water","Flying"], role:"Bench this gym", st:"bench", w:"<b>4× weak</b> to every attack Surge owns. Do not send it in, and keep it away from the two Electrode that Selfdestruct."},
+ {n:"Crobat", t:["Poison","Flying"], role:"Bench this gym", st:"bench", w:"2× weak to Electric. Useful everywhere in Kanto except this one building."}
+]});
+
+R("k02",{lv:"50 → 55", form:"final", sum:"A side-quest stage rather than a fighting one. The roster barely matters — what matters is catching the Snorlax rather than knocking it out.",
+slots:[
+ {n:"%S%", role:"Lead", st:"keep", w:""},
+ {n:"Gyarados", t:["Water","Flying"], role:"Physical ace", st:"keep", w:""},
+ {n:"Ampharos", t:["Electric"], role:"Special attacker", st:"keep", w:""},
+ {n:"Heracross", t:["Bug","Fighting"], role:"Snorlax softener", st:"keep", w:"Fighting is 2× on Snorlax — but do <b>not</b> knock it out. Chip it and throw balls; it holds Leftovers."},
+ {n:"False Swipe carrier", t:["Normal"], role:"Catching tool", st:"add", w:"Swap one slot for it before you wake the Snorlax. It is level 50, one of a kind, and carries the best held item in the game."},
+ {n:"Quagsire", t:["Water","Ground"], role:"Utility", st:"keep", w:""}
+]});
+
+R("k03",{lv:"52 → 56", form:"final", sum:"Two gyms with opposite answers. Misty wants Grass or Electric; Sabrina wants Dark or Bug — and Heracross is the Bug you already own.",
+slots:[
+ {n:"Heracross", t:["Bug","Fighting"], role:"vs Sabrina", st:"keep", w:"Bug is 2× on all three of Sabrina's pure Psychics. Megahorn ends that gym."},
+ {n:"Ampharos", t:["Electric"], role:"vs Misty", st:"keep", w:"2× on Golduck, Lapras and Starmie — but completely dead against her Quagsire, which is Water/Ground."},
+ {n:"%S%", role:"vs Misty's Quagsire", st:"keep", w:"Her Quagsire is <b>4× weak to Grass</b> and immune to Electric. If you have no Grass move, burst it down with your strongest neutral attacker."},
+ {n:"Crobat", t:["Poison","Flying"], role:"Speed control", st:"keep", w:"Bite is a Dark move and Dark is immune to Psychic in Gen 4 — a decent Sabrina body."},
+ {n:"Gyarados", t:["Water","Flying"], role:"Suicune catcher", st:"keep", w:"Bring it to Route 25. Suicune is level 40 and does not flee, so this is a normal catch."},
+ {n:"False Swipe carrier", t:["Normal"], role:"Catching tool", st:"add", w:"Suicune is waiting on Route 25 once you beat Eusine. Bring balls."}
+],
+notes:{chikorita:"Finally your stage. Meganium is 4× effective on Misty's Quagsire and 2× on the rest of her gym — this is the best Meganium fight in Kanto."}});
+
+R("k04",{lv:"54 → 58", form:"final", sum:"Erika is a Fire check and Janine is a Psychic check. You own the first; the second you may need to buy.",
+slots:[
+ {n:"%S%", role:"vs Erika", st:"keep", w:"Fire clears the entire Grass gym. Cyndaquil players sweep it; the other two should bring the Growlithe they caught on Route 36."},
+ {n:"TM29 Psychic user", t:["Psychic"], role:"vs Janine", st:"add", w:"Psychic is 2× on all five of Janine's Pokémon and your six has no Psychic move. Buy <b>TM29</b> at the Celadon Game Corner and put it on Ampharos or your starter if either is compatible — otherwise bring a boxed Kadabra."},
+ {n:"Crobat", t:["Poison","Flying"], role:"vs Erika", st:"keep", w:"Flying is 2× on four of Erika's Pokémon and Poison is 2× on Grass."},
+ {n:"Quagsire", t:["Water","Ground"], role:"vs Janine", st:"keep", w:"Ground is 2× on Weezing, and Quagsire is immune to nothing here but tanks Toxic poorly — watch it."},
+ {n:"Heracross", t:["Bug","Fighting"], role:"Physical breaker", st:"keep", w:"Careful: 2× weak to Erika's Flying and to Janine's Psychic-move Venomoth."},
+ {n:"Gyarados", t:["Water","Flying"], role:"Physical ace", st:"keep", w:"Also your Chansey hunter — Thief on a fast body steals Lucky Eggs on Routes 13–15."}
+]});
+
+R("k05",{lv:"56 → 60", form:"final", sum:"Brock is the most one-sided gym in the game: Grass is 4× on all five of his Pokémon. Water is nearly as good and you definitely have that.",
+slots:[
+ {n:"Gyarados", t:["Water","Flying"], role:"Gym killer", st:"keep", w:"Surf is <b>4×</b> on Graveler, Rhyhorn and Onix. Careful with Omastar and Kabutops, which resist Water."},
+ {n:"%S%", role:"Gym killer", st:"keep", w:"Grass starters: this is a clean 4× sweep on all five. Fire starters: sit this one out, Rock resists you."},
+ {n:"Quagsire", t:["Water","Ground"], role:"Backup", st:"keep", w:"Ground is 2× on most of the gym and it soaks Earthquake."},
+ {n:"Heracross", t:["Bug","Fighting"], role:"Fossil answer", st:"keep", w:"Fighting is 2× on Omastar and Kabutops, the two that resist your Water moves."},
+ {n:"Ampharos", t:["Electric"], role:"Bench this gym", st:"bench", w:"Electric does nothing to Ground types. Three of Brock's five are immune."},
+ {n:"Crobat", t:["Poison","Flying"], role:"Bench this gym", st:"bench", w:"2× weak to Rock. Keep it out."}
+],
+notes:{cyndaquil:"Typhlosion is resisted by every Pokémon in this gym and takes 2× from Rock Slide. This is the one Kanto badge where your starter should stay in the box."}});
+
+R("k06",{lv:"58 → 62", form:"final", sum:"Blaine is a Water and Ground check, and Seafoam Islands is a long HM dungeon — bring the carriers as well as the attackers.",
+slots:[
+ {n:"Gyarados", t:["Water","Flying"], role:"Gym killer · Surf, Waterfall", st:"keep", w:"Water is 4× on Magcargo and 2× on the rest. It also carries you through the whole cave."},
+ {n:"Quagsire", t:["Water","Ground"], role:"Gym killer", st:"keep", w:"Ground is 4× on Magcargo. Also a Strength and Waterfall body."},
+ {n:"Ampharos", t:["Electric"], role:"Rock Climb carrier", st:"keep", w:"Seafoam's deepest level needs HM08 for Articuno, and Ampharos is one of the few team members that learns it."},
+ {n:"Heracross", t:["Bug","Fighting"], role:"Physical breaker", st:"keep", w:"2× on Magcargo via its Rock typing."},
+ {n:"%S%", role:"Bench if Fire", st:"bench", w:"Fire versus Fire is a wash. Grass and Water starters are fine to bring."},
+ {n:"False Swipe carrier", t:["Normal"], role:"Catching tool", st:"add", w:"Articuno is level 50 and sits at the bottom of this cave once you have all 16 badges."}
+]});
+
+R("k07",{lv:"60 → 64", form:"final", sum:"Blue fields six Pokémon with no type theme, so this is a pure coverage check. Your standard six happens to cover it — verify each answer before you go in.",
+slots:[
+ {n:"Ampharos", t:["Electric"], role:"vs Gyarados and Pidgeot", st:"keep", w:"4× on his Gyarados. Kill it turn one, before Dragon Dance turns it into a sweeper."},
+ {n:"Gyarados", t:["Water","Flying"], role:"vs Rhydon and Arcanine", st:"keep", w:"Water is 4× on Rhydon and 2× on Arcanine."},
+ {n:"Heracross", t:["Bug","Fighting"], role:"vs Exeggutor", st:"keep", w:"Bug is <b>4×</b> on Exeggutor. Megahorn removes it instantly."},
+ {n:"Crobat", t:["Poison","Flying"], role:"vs Machamp", st:"keep", w:"Flying is 2× on Machamp and Crobat outruns it — important, because No Guard means its Cross Chop never misses."},
+ {n:"%S%", role:"vs Exeggutor", st:"keep", w:"Fire starters: 2× on Exeggutor and 2× on nothing else here. Water: 2× on Rhydon and Arcanine."},
+ {n:"Quagsire", t:["Water","Ground"], role:"Earthquake soak", st:"keep", w:"Also 2× into Arcanine and Rhydon."}
+]});
+
+R("r01",{lv:"70 → 80", form:"final", sum:"Red is 30 levels above where Kanto leaves you. This is the one point in the game where the honest advice is to change your roster rather than push the one you have.",
+slots:[
+ {n:"Quagsire", t:["Water","Ground"], role:"Replaced here", st:"swap", w:"Ground is immune to Electric, but Pikachu holds a Light Ball and carries Iron Tail — Quagsire is too frail for it at this level. Swap it for the Donphan below."},
+ {n:"Donphan or Rhyperior", t:["Ground"], role:"vs Pikachu", st:"add", w:"A sturdier Ground body than Quagsire for the Light Ball Pikachu. Phanpy comes from Routes 45–46; you have had one available since Johto."},
+ {n:"Heracross", t:["Bug","Fighting"], role:"vs Snorlax", st:"keep", w:"Fighting is 2× on Snorlax, which otherwise has more HP than you have patience for."},
+ {n:"Tyranitar", t:["Rock","Dark"], role:"vs Charizard", st:"add", w:"Rock is <b>4×</b> on Charizard. Larvitar spawns on the Mt. Silver mountainside — catch it on the way up and level it here."},
+ {n:"Ampharos", t:["Electric"], role:"vs Lapras and Blastoise", st:"keep", w:"2× on both of Red's Water types."},
+ {n:"%S%", role:"vs Venusaur", st:"keep", w:"Fire is 2× on Venusaur. Water and Grass starters contribute much less to this fight — consider benching for a Psychic or Flying attacker."},
+ {n:"Gyarados", t:["Water","Flying"], role:"Ice Beam body", st:"keep", w:"Still your Ice Beam carrier, and Intimidate softens Snorlax's Body Slam."}
+],
+notes:{cyndaquil:"Typhlosion handles Venusaur cleanly and threatens nothing else — but Blast Burn from the Frontier tutor makes it a genuine nuke for one turn.",
+       totodile:"Feraligatr is resisted by Blastoise and Lapras both. Its best target is Charizard, and Tyranitar does that better.",
+       chikorita:"Meganium is 2× effective on Lapras and Blastoise, which is more than either other starter manages here. Keep it in."}});
+
+/* ---- attach a roster board to the top of every stage that has one ---- */
+STAGES.forEach(s => { if (ROSTERS[s.id]) s.body.unshift(["roster", s.id]); });
+
+/* ---- render ---- */
+const PSTAT = {add:"Add here", keep:"Keep", swap:"Swap out", bench:"Bench this stage"};
+function starterTok(str, nm){ return String(str).split("%S%").join(nm); }
+
+function rosterHTML(id){
+  const r = ROSTERS[id];
+  if (!r) return "";
+  const S = STARTERS[STARTER];
+  const nm = (r.form && S[r.form]) ? S[r.form] : S.final;
+  const slots = r.slots.filter(sl => !sl.only || sl.only.indexOf(STARTER) !== -1);
+  const note = r.notes && r.notes[STARTER];
+
+  return '<div class="party">' +
+    '<div class="ph"><h4>Your party at this point</h4>' +
+      '<span class="lv">target Lv ' + esc(r.lv) + '</span>' +
+      '<span class="who">' + esc(nm) + ' run</span></div>' +
+    (r.sum ? '<p class="psum">' + starterTok(r.sum, nm) + '</p>' : "") +
+    (note ? '<div class="pnote"><span class="lbl">If you took ' + esc(S.base) + '</span><p>' + starterTok(note, nm) + '</p></div>' : "") +
+    '<div class="pgrid">' + slots.map(sl => {
+      const isStarter = sl.n === "%S%";
+      const name = isStarter ? nm : sl.n;
+      const types = isStarter ? S.t : (sl.t || []);
+      return '<div class="pslot ' + sl.st + '">' +
+        '<span class="pst">' + PSTAT[sl.st] + '</span>' +
+        '<div class="pn">' + esc(name) + ' ' + tpills(types) + '</div>' +
+        '<div class="prole">' + esc(sl.role) + '</div>' +
+        (sl.w ? '<div class="pw">' + starterTok(sl.w, nm) + '</div>' : "") +
+      '</div>';
+    }).join("") + '</div></div>';
+}
+
+function renderRosters(){
+  document.querySelectorAll("[data-roster]").forEach(el => {
+    el.innerHTML = rosterHTML(el.dataset.roster);
+  });
+  document.querySelectorAll("[data-starter-name]").forEach(el => {
+    el.textContent = STARTERS[STARTER].base;
+  });
+}
+
+function setStarter(k){
+  if (!STARTERS[k]) return;
+  STARTER = k;
+  try { localStorage.setItem(KEY + ":starter", k); } catch (e) {}
+  renderRosters();
+}
+
+</script>
+<script>
 /* ===================== WIDGETS ===================== */
 
 /* — TM / HM index — */
@@ -2653,6 +3032,11 @@ WIDGETS.backup = function(el){
   const today = new Date().getDay();
   sel.innerHTML = '<option value="today">Today · ' + names[today] + '</option>' +
     names.map((n, i) => '<option value="' + i + '">' + n + '</option>').join('');
+  const sp = document.getElementById('starterpick');
+  sp.innerHTML = Object.keys(STARTERS).map(k =>
+    '<option value="' + k + '"' + (k === STARTER ? ' selected' : '') + '>Starter · ' + STARTERS[k].base + '</option>').join('');
+  sp.addEventListener('change', e => setStarter(e.target.value));
+
   sel.addEventListener('change', () => {
     drawDays();
     const s = document.getElementById('ref-days');
