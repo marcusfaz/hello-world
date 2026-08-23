@@ -212,16 +212,21 @@ td.mv{color:var(--ink2);font-size:14px}
 .boss .plan .lbl{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3)}
 
 /* type pills */
-.t{display:inline-block;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.05em;text-transform:uppercase;padding:1.5px 5px;border-radius:3px;background:var(--surface2);color:var(--ink2);white-space:nowrap}
-.t.normal{background:#D8D2C2;color:#3B372C}.t.fire{background:#F3C9A4;color:#6B3208}.t.water{background:#BBD4EE;color:#153A63}
-.t.electric{background:#F2DFA4;color:#5F4703}.t.grass{background:#C2DFB4;color:#2A4A1C}.t.ice{background:#BEE1E4;color:#164348}
-.t.fighting{background:#E6BDAE;color:#5E2717}.t.poison{background:#D8BEDE;color:#4A2352}.t.ground{background:#E2D3AE;color:#54401A}
-.t.flying{background:#CFD3EC;color:#2E3466}.t.psychic{background:#F2C3CE;color:#6B2038}.t.bug{background:#D3DFA8;color:#3F4A12}
-.t.rock{background:#DCD0AF;color:#4E4118}.t.ghost{background:#C6BEDD;color:#372C55}.t.dragon{background:#C3C3EE;color:#2C2C66}
-.t.dark{background:#C6BBB0;color:#332821}.t.steel{background:#CFD5DC;color:#2E3841}
-:root[data-theme="dark"] .t, :root:not([data-theme="light"]) .t{filter:none}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .t{filter:brightness(.42) saturate(1.5);color:#F7F3E8!important}}
-:root[data-theme="dark"] .t{filter:brightness(.42) saturate(1.5);color:#F7F3E8!important}
+.t{display:inline-block;font-family:"DM Mono",ui-monospace,monospace;font-size:10px;letter-spacing:.05em;
+  text-transform:uppercase;padding:1.5px 5px;border-radius:3px;white-space:nowrap;--tc:#8A8478;
+  background:color-mix(in srgb,var(--tc) 30%,#FFFFFF);
+  color:color-mix(in srgb,var(--tc) 46%,#14120E)}
+.t.normal{--tc:#A8A878}.t.fire{--tc:#F08030}.t.water{--tc:#6890F0}.t.electric{--tc:#E8B800}
+.t.grass{--tc:#5FB43C}.t.ice{--tc:#5FBFBF}.t.fighting{--tc:#C03028}.t.poison{--tc:#A040A0}
+.t.ground{--tc:#C9A23C}.t.flying{--tc:#8E7BE8}.t.psychic{--tc:#F04A76}.t.bug{--tc:#8FA018}
+.t.rock{--tc:#B8A038}.t.ghost{--tc:#705898}.t.dragon{--tc:#7038F8}.t.dark{--tc:#6B5344}
+.t.steel{--tc:#8A8AA8}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .t{
+  background:color-mix(in srgb,var(--tc) 24%,#000000);
+  color:color-mix(in srgb,var(--tc) 55%,#FFFFFF)}}
+:root[data-theme="dark"] .t{
+  background:color-mix(in srgb,var(--tc) 24%,#000000);
+  color:color-mix(in srgb,var(--tc) 55%,#FFFFFF)}
 
 /* reference tables */
 .reftable{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface);margin:18px 0}
