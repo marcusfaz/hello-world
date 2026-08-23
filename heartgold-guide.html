@@ -728,7 +728,6 @@ function boot(){
 <script>
 /* ===================== CHAPTERS ===================== */
 CHAPTERS.push(
-  {id:"setup", name:"Before you press start"},
   {id:"core",  name:"How Gen 4 actually works"},
   {id:"johto", name:"Johto — eight badges"},
   {id:"league",name:"The Pokémon League"},
@@ -739,113 +738,6 @@ CHAPTERS.push(
 );
 
 /* ===================== SETUP ===================== */
-STAGES.push({
-id:"set-emu", ch:"setup", tag:"Setup 01", place:"Steam Deck · Desktop Mode",
-title:"Getting HeartGold running on the Deck",
-lede:"melonDS is the right emulator for this game, and about twenty minutes of setup now saves you a lot of grief around the touch-screen minigames and the real-time clock later.",
-band:[{k:"Emulator",v:"melonDS"},{k:"Install path",v:"EmuDeck"},{k:"Deck load",v:"Trivial"},{k:"Time",v:"~20 min"}],
-body:[
-["p","<b>Why melonDS.</b> HeartGold leans on hardware the lazier emulators fudge: the real-time clock (day/night encounters, daily and weekly events), the touch screen, and local wireless for trade evolutions. melonDS emulates all three properly and runs a DS game at full speed on the Deck without breaking a sweat. DraStic is faster and lighter, but you will hit its edges when you get to the Pokéathlon and to trading."],
-["h","Install"],
-["do",[
- {t:"Switch to Desktop Mode and install <b>EmuDeck</b>, then select melonDS in the emulator list.", sub:"EmuDeck sets up the folder structure, Steam Input profiles and hotkeys for you."},
- {t:"Drop your HeartGold ROM into <code>Emulation/roms/nds</code>.", sub:"melonDS reads .nds (and .app). Keep the file name clean — Steam ROM Manager uses it for the artwork match."},
- {t:"Run <b>Steam ROM Manager</b> and parse the NDS folder so the game gets a Gaming Mode entry with artwork.", sub:"This is what lets you launch it from the Deck's normal library with the right controller layout applied."},
- {t:"Optional: drop real DS BIOS + firmware in <code>Emulation/bios</code> (<code>bios7.bin</code>, <code>bios9.bin</code>, <code>firmware.bin</code>).", sub:"melonDS ships an open-source BIOS and it works fine. Real firmware gives you the DS boot menu, a persistent console clock, and a console nickname — worth it if you plan to use local wireless trading."},
- {t:"Launch once, confirm the intro plays at full speed, then quit and set your screen layout."}
-]],
-["h","Screen layout"],
-["p","Press <kbd>Select + R3</kbd> to drop out of fullscreen, then <b>Config → Screen layout</b>. The Deck's 16:10 panel gives you two good options:"],
-["ul",[
- "<b>Hybrid</b> (EmuDeck's default) — big top screen with the touch screen inset. Best for overworld play, which is 90% of this game.",
- "<b>Vertical</b> — both screens stacked, equal size. Switch to this for the Pokéathlon, Voltorb Flip, and Safari Zone block placement, where you need to hit small targets accurately."
-]],
-["tip","You can rebind a hotkey to <b>swap screens</b> (<kbd>L4</kbd>/<kbd>R4</kbd> in EmuDeck's default profile). Handy when you want the Pokégear map big."],
-["h","Sanity check before you commit to a save"],
-["do",[
- "Confirm the in-game clock in the Pokégear matches the Deck's clock, and that the time-of-day tint (morning / day / night) looks right.",
- "Confirm the touch screen responds to your trackpad — open the bag, tap an item.",
- "Confirm fast-forward works and does not desync audio badly."
-]]
-]});
-
-STAGES.push({
-id:"set-controls", ch:"setup", tag:"Setup 02", place:"Steam Input",
-title:"Controls, the stylus problem, and the clock",
-lede:"Two things will bite you on a handheld: this game has touch-only minigames, and it silently punishes you for messing with the system date.",
-body:[
-["h","Give yourself a stylus"],
-["p","Several things in HeartGold cannot be done with buttons. The Pokéathlon events are entirely touch-driven, Voltorb Flip is a grid you tap, the Safari Zone block placement is drag-and-drop, and the Sinjoh Ruins ritual asks you to draw. Set this up now:"],
-["do",[
- {t:"Map the <b>right trackpad</b> to <i>Mouse</i> in the Steam Input layout.", sub:"Trackpad as mouse gives you absolute-ish pointer control, which beats the stick for the Pokéathlon."},
- {t:"Map <b>right trackpad click</b> (or <kbd>R2</kbd>) to <i>Left Mouse Click</i> — that is your stylus tap.", sub:"melonDS treats a left click inside the bottom screen as a touch."},
- {t:"Turn trackpad haptics up a little so taps feel deliberate.", sub:"You will be tapping fast in the Pokéathlon; feedback matters."}
-]],
-["h","Hotkeys worth memorising"],
-["table",{cols:["Action","Default (EmuDeck)","When you use it"],rows:[
- ["Save state","<kbd>Select + R1</kbd>","Before a legendary, before the Elite Four, before a Bug Contest run"],
- ["Load state","<kbd>Select + L1</kbd>","Re-rolling a catch or a crit that killed a run"],
- ["Fast-forward","<kbd>Select + R2</kbd>","Egg hatching, Battle Frontier streaks, Apricorn round trips, EV grinding"],
- ["Pause","<kbd>Select + A</kbd>","Reading a long fight"],
- ["Swap screens","<kbd>L4</kbd> / <kbd>R4</kbd>","Making the Pokégear map or a puzzle readable"],
- ["Exit fullscreen","<kbd>Select + R3</kbd>","Getting to melonDS' own menus mid-session"]
-]}],
-["h","The clock rule"],
-["p","HeartGold reads the console clock constantly. Day/night changes which Pokémon spawn, gates Espeon and Umbreon evolutions, and drives the whole weekly calendar — the Bug-Catching Contest, the Week Siblings, the Lake of Rage Wednesday man, Friday Lapras, the Goldenrod lottery, and the Pokéathlon shop rotation."],
-["warn","Do <b>not</b> roll the Deck's clock forward or backward to farm daily events. Gen 4 notices, and daily/weekly events stall until real time catches up — you can lock yourself out of a day of progress for no gain. If you need a specific day's content, play the rest of the guide until that day comes round — this guide's <a href=\"#ref-days\">day planner</a> tells you what each day is worth."],
-["tip","One clock change is usually harmless and sometimes necessary: setting the console to your actual local time <i>before</i> you start a new save. Do it once, at the beginning, then leave it alone."]
-]});
-
-STAGES.push({
-id:"set-limits", ch:"setup", tag:"Setup 03", place:"Emulation caveats",
-title:"Saves, trading, and the three things emulation can’t give you",
-lede:"Read this before you get 40 hours in. Two of the four “100%” blockers have clean workarounds on a Deck; one does not.",
-body:[
-["h","Saving properly"],
-["do",[
- {t:"Always use the <b>in-game save</b> as your source of truth.", sub:"That writes the .sav in Emulation/saves/melonds/saves — the file that survives emulator updates."},
- {t:"Treat save states as a convenience, not a backup.", sub:"They embed emulator internals and can break across melonDS versions. Never rely on one to hold a legendary you did not also in-game save after catching."},
- {t:"Copy your .sav somewhere synced before each legendary, the Elite Four, and anything involving the Battle Frontier.", sub:"A one-line cron or a Syncthing folder is enough. Losing 60 hours to a corrupted flash write is a real thing that happens."}
-]],
-["h","Trade evolutions"],
-["p","Nine species in this game evolve only by trading, and you need them for the Pokédex. The good news: melonDS emulates <b>local wireless</b>, so you can run two instances on the Deck (or one on the Deck and one on a PC on the same network) with two separate save files and trade with yourself."],
-["table",{cols:["Pokémon","Becomes","Condition"],rows:[
- ["Kadabra","Alakazam","Trade"],
- ["Machoke","Machamp","Trade"],
- ["Graveler","Golem","Trade"],
- ["Haunter","Gengar","Trade"],
- ["Onix","Steelix","Trade holding Metal Coat"],
- ["Scyther","Scizor","Trade holding Metal Coat"],
- ["Poliwhirl","Politoed","Trade holding King’s Rock"],
- ["Slowpoke","Slowking","Trade holding King’s Rock"],
- ["Seadra","Kingdra","Trade holding Dragon Scale"],
- ["Porygon → Porygon2","Porygon-Z","Trade with Up-Grade, then Dubious Disc"],
- ["Clamperl","Huntail / Gorebyss","Trade with DeepSeaTooth / DeepSeaScale"],
- ["Rhydon / Electabuzz / Magmar / Feebas / Dusclops","Rhyperior / Electivire / Magmortar / Milotic / Dusknoir","Trade with the matching Gen 4 item"]
-]}],
-["tip","The Metal Coat is easy: the traded Magneton in the Kanto Power Plant is holding one, wild Magnemite/Magneton and Steelix can hold them, and the Pokéathlon shop sells them. King’s Rock is in Slowpoke Well. Dragon Scale comes off wild Dratini/Horsea."],
-["h","The dead Wi-Fi"],
-["p","Nintendo’s Wi-Fi Connection is gone, which kills the GTS, Wi-Fi trades and official Mystery Gift. Community replacement servers still stand and Gen 4 games can be pointed at them by changing the DNS in the DS Wi-Fi settings (the widely used address is <code class=\"mono\">164.132.44.106</code>). On melonDS this needs the emulator’s networking set to direct mode with libpcap, and it is genuinely fiddly on SteamOS."],
-["p","What you would use it for: the event distributions that unlock content — the <b>Enigma Stone</b> (Latias in HeartGold), event <b>Celebi</b> (which triggers the Giovanni / Ilex Forest time-travel episode), and event <b>Arceus</b> (which unlocks the Sinjoh Ruins and a level 1 Dialga, Palkia or Giratina)."],
-["warn","Those three are the difference between “finished the game” and a literal complete National Dex. If the DNS route defeats you, the pragmatic alternative is <b>PKHeX</b> (runs on the Deck in Desktop Mode) to inject the event <i>gift</i> with correct, legal event data, then claim it in-game. That preserves the actual gameplay — you still play the Sinjoh Ruins episode — while skipping a dead server."],
-["h","The Pokéwalker"],
-["p","The Pokéwalker talked to the cartridge over infrared. melonDS does not emulate that link and no Deck-side accessory replaces it. You lose the walker’s exclusive routes, its item drops, and a set of special moves only obtainable there."],
-["p","There is no clean in-game workaround, so here is the call to make once and stop thinking about:"],
-["ul",[
- "<b>Install PKHeX and use it for exactly two things:</b> the three event gifts above, and the Pokéwalker-route entries. Both are content that was distributed by hardware or servers that no longer exist — you are restoring access, not skipping gameplay. You still play the Sinjoh Ruins and Ilex Forest episodes yourself.",
- "<b>Do not use it for anything else.</b> No generated team, no injected legendaries you could catch, no edited stats. Everything else in this guide is reachable by playing, and injecting it is how a 100-hour file stops being worth finishing."
-]],
-["h","Migrating from Gen 3"],
-["p","Pal Park needs a GBA cartridge in the DS slot-2. melonDS can insert a GBA ROM into that slot, so migration from Ruby / Sapphire / Emerald / FireRed / LeafGreen works if you have those ROMs and their saves. It is the cheapest way to fill big blocks of the National Dex — six Pokémon per day, per game."],
-["do",[
- "Install PKHeX in Desktop Mode and set your rule: event gifts and Pokéwalker entries only.",
- "Set up a second melonDS instance + a throwaway save now, so trade evolutions are never a blocker later.",
- "Back up your .sav for the first time."
-]]
-]});
-</script>
-<script>
-/* ===================== CORE ===================== */
 STAGES.push({
 id:"core-rules", ch:"core", tag:"Fundamentals", place:"Generation IV",
 title:"The Gen 4 rules that decide your fights",
@@ -916,7 +808,7 @@ body:[
  "<b>Take it — Umbreon</b> (Eevee gift from Bill in Goldenrod). Level it up at <i>night</i> with high friendship. Umbreon over Espeon: it is immune to Psychic, which walls Will and Sabrina outright, and it survives things Espeon does not. Use the Goldenrod haircut brothers daily to get there.",
  "<b>Skip it for Johto — Dragonite</b> (Dratini gift in Dragon’s Den after Clair). It evolves at 55, which is after the Elite Four. Take the gift, box it, and level it during Kanto for the Elite Four rematch.",
  "<b>Take it, but later — Tyranitar</b> (Larvitar, Mt. Silver). Post-game only. Catch it on your first climb and level it before Red: Rock is 4× on his Charizard.",
- "<b>Skip them for the main run — Steelix, Scizor, Gengar, Machamp, Alakazam.</b> All excellent, all need a trade. Set up the two-instance trick for the Pokédex, not for your playthrough team — the six below already beat every gym.",
+ "<b>Skip them for the main run — Steelix, Scizor, Gengar, Machamp, Alakazam.</b> All excellent, all need a trade. Trading is for the Pokédex, not for your playthrough team — the six below already beat every gym.",
  "<b>Togekiss</b> is <i>not</i> available: the Shiny Stone is post-game, and in Gen 4 Togekiss is Normal/Flying, not Fairy."
 ]],
 ["h","The HM problem, solved once"],
@@ -1263,7 +1155,7 @@ body:[
 ["p","West of the National Park, open from the Plain Badge onwards. Ten touch-driven minigames across five courses. Two reasons to care:"],
 ["ul",[
  "The <b>Athlete Shop</b> stocks evolution stones, Apricorns, Heart Scales, held items and the occasional Rare Candy — rotating daily, twelve items a day once you have the National Dex.",
- "It is the only source of several evolution items without a lot of grinding, and it is genuinely fun with the trackpad configured as a stylus."
+ "It is the only source of several evolution items that does not involve a lot of grinding — see the evolution items section for what it rotates through."
 ]],
 ["do",[
  "Wake and catch Sudowoodo.",
@@ -1941,7 +1833,7 @@ plan:[
 reward:"TM19 Giga Drain and the Rainbow Badge."
 }],
 ["h","Fuchsia City"],
-["p","The old Kanto Safari Zone is now the <b>Pal Park</b>: if you have Gen 3 games and saves, you can migrate six Pokémon a day from each into this cartridge. On melonDS that means loading a GBA ROM into the slot-2 cart. It is the single fastest way to fill big blocks of the National Dex."],
+["p","The old Kanto Safari Zone is now the <b>Pal Park</b>: if you have Gen 3 games and saves, you can migrate six Pokémon a day from each into this cartridge. It is the single fastest way to fill big blocks of the National Dex."],
 ["boss",{
 name:"Janine", role:"Fuchsia City Gym · Poison", badge:"Soul Badge",
 team:[
@@ -2150,6 +2042,8 @@ body:[
  "All ten in-game trades completed.",
  "Every gift Pokémon collected.",
  "All 28 Unown forms logged in the Unown Report.",
+ "All ten evolution stones and every Gen 4 evolution item collected.",
+ "All five obtainable fossils revived at the Pewter Museum.",
  "All seven Week Siblings met — the ribbon set.",
  "All seven Kurt ball types made at least once.",
  "Bug-Catching Contest won.",
@@ -2242,6 +2136,35 @@ body:[
  ["Any Pokémon","<b>Steelix</b> “Rusty”","Olivine Gym","From Jasmine, after rematching her. Holds a Soothe Bell"],
  ["Forretress","<b>Beldum</b> “Iron”","Silph Co., Saffron","From Steven. Needs the Hoenn starter <i>and</i> a Pewter Museum visit. Holds a Dawn Stone"]
 ]}],
+["h","Trade evolutions"],
+["p","Twelve species evolve only by trading, and you need every one of them for the Pokédex. None of them are needed to beat the game — treat this as a dex chore for after the credits, not something to organise a playthrough around."],
+["table",{cols:["Pokémon","Becomes","Condition"],rows:[
+ ["Kadabra","Alakazam","Trade"],
+ ["Machoke","Machamp","Trade"],
+ ["Graveler","Golem","Trade"],
+ ["Haunter","Gengar","Trade"],
+ ["Onix","Steelix","Trade holding Metal Coat"],
+ ["Scyther","Scizor","Trade holding Metal Coat"],
+ ["Poliwhirl","Politoed","Trade holding King’s Rock"],
+ ["Slowpoke","Slowking","Trade holding King’s Rock"],
+ ["Seadra","Kingdra","Trade holding Dragon Scale"],
+ ["Porygon → Porygon2","Porygon-Z","Trade with Up-Grade, then Dubious Disc"],
+ ["Clamperl","Huntail / Gorebyss","Trade holding DeepSeaTooth / DeepSeaScale"],
+ ["Rhydon · Electabuzz · Magmar · Feebas · Dusclops","Rhyperior · Electivire · Magmortar · Milotic · Dusknoir","Trade holding the matching Gen 4 item"]
+]}],
+["tip","The Metal Coat is the easy one: the Magneton you trade for in the Kanto Power Plant is already holding it, wild Magnemite, Magneton and Steelix carry them, and the Pokéathlon shop sells them. King’s Rock is in Slowpoke Well. Dragon Scale comes off wild Dratini and Horsea."],
+
+["h","Fossils"],
+["p","Five fossils exist in this game and every one comes out of a <b>Rock Smash</b> boulder — they are random drops, so this is a patience job rather than a treasure hunt. Take them to the <b>Pewter Museum of Science</b> and the scientist revives each one at level 20."],
+["table",{cols:["Fossil","Becomes","Where","When"],rows:[
+ ["<b>Helix Fossil</b>","Omanyte","Ruins of Alph — smash rocks","<b>HeartGold</b> exclusive"],
+ ["<b>Dome Fossil</b>","Kabuto","Ruins of Alph — smash rocks","SoulSilver exclusive — trade for it"],
+ ["<b>Old Amber</b>","Aerodactyl","Ruins of Alph — smash rocks","Both versions"],
+ ["<b>Claw Fossil</b>","Anorith","Cliff Cave, west of Cianwood — smash rocks","<b>HeartGold</b> exclusive, after the Hall of Fame"],
+ ["<b>Root Fossil</b>","Lileep","Cliff Cave — smash rocks","SoulSilver exclusive — trade for it"]
+]}],
+["warn","The <b>Skull Fossil and Armor Fossil are not in this game at all</b>, so Cranidos, Rampardos, Shieldon and Bastiodon cannot be obtained here. They have to come from Diamond, Pearl or Platinum. Do not spend hours smashing rocks looking for them."],
+
 ["h","One-of-a-kind encounters — do not knock these out"],
 ["ul",[
  "<b>Sudowoodo</b> (Route 36, Lv 20) — the only one in the game.",
@@ -2256,7 +2179,65 @@ body:[
  "Sudowoodo caught (not defeated).",
  "Red Gyarados caught and Red Scale traded for the Exp. Share.",
  "Snorlax caught and Leftovers taken.",
- "Lapras caught on a Friday."
+ "Lapras caught on a Friday.",
+ "All twelve trade evolutions completed.",
+ "Helix Fossil and Old Amber found in the Ruins of Alph, and revived at the Pewter Museum.",
+ "Claw Fossil found in Cliff Cave after the Hall of Fame.",
+ "Dome Fossil and Root Fossil traded in from a SoulSilver save."
+]]
+]});
+
+STAGES.push({
+id:"dex-evo", ch:"dex", tag:"Completion", place:"Evolution",
+title:"Every evolution item, and where it hides",
+lede:"This is the section that unblocks half your box. It also contains the single most useful scheduling fact in the post-game: almost every evolution item in this game is behind Rock Climb.",
+body:[
+["warn","<b>Do one Rock Climb sweep and collect nearly all of them at once.</b> Rock Climb comes from Prof. Oak after your sixteenth badge, and the Protector, Electirizer, Magmarizer, Dubious Disc, Oval Stone, Shiny Stone, Dusk Stone, Dawn Stone and half the incenses are all sitting behind Rock Climb ledges you have already walked past. Plan one lap rather than fifteen trips."],
+["h","The stones"],
+["table",{cols:["Stone","Evolves","Where to get it"],rows:[
+ ["<b>Fire Stone</b>","Growlithe, Vulpix, Eevee","Viridian Forest (south-west); Pokéathlon shop; Bill\u2019s grandfather on Route 25 — show him a Growlithe or Vulpix"],
+ ["<b>Water Stone</b>","Poliwhirl, Shellder, Staryu, Eevee","Seafoam Islands B2F; Pokéathlon shop; Bill\u2019s grandfather — show him a Marill or Staryu"],
+ ["<b>Thunderstone</b>","Pikachu, Eevee","Pokéathlon shop; Bill\u2019s grandfather — show him a Pichu"],
+ ["<b>Leaf Stone</b>","Gloom, Weepinbell, Exeggcute","Pokéathlon shop; Bill\u2019s grandfather — show him an Oddish"],
+ ["<b>Moon Stone</b>","Nidorina/Nidorino, Clefairy, Jigglypuff, Skitty","<b>Mt. Moon Square</b> after the Monday-night Clefairy dance; Ruins of Alph puzzle room; Tohjo Falls ledge; your mother, once she has banked 15,000; wild Clefairy hold them"],
+ ["<b>Sun Stone</b>","Gloom → Bellossom, Sunkern","<b>Bug-Catching Contest 1st place</b> before the National Dex; Pokéathlon shop after it"],
+ ["<b>Shiny Stone</b>","Togetic → Togekiss, Roselia","National Park cliff (<b>Rock Climb</b>); Bug-Catching Contest 1st place after the National Dex"],
+ ["<b>Dusk Stone</b>","Murkrow → Honchkrow, Misdreavus → Mismagius","Cerulean Cave B1F (<b>Rock Climb</b>); Bug-Catching Contest 1st place after the National Dex"],
+ ["<b>Dawn Stone</b>","Kirlia → Gallade, Snorunt → Froslass","Mt. Silver upper mountainside; held by the <b>Beldum</b> Steven trades you; Bug-Catching Contest"],
+ ["<b>Oval Stone</b>","Happiny → Chansey","Rock Tunnel B1F (<b>Rock Climb</b>); <b>50% of wild Chansey</b> are holding one"]
+]}],
+["tip","<b>Bill\u2019s grandfather on Route 25</b> is the cheapest stone source in the game and almost nobody uses him. Show him the Pokémon he asks about and he hands over the matching stone — once each, but it costs you nothing but a walk to Cerulean."],
+["h","The Gen 4 items"],
+["table",{cols:["Item","Evolves","Where"],rows:[
+ ["<b>Razor Claw</b>","Sneasel → Weavile (level up at night)","Battle Frontier — 48 BP"],
+ ["<b>Razor Fang</b>","Gligar → Gliscor (level up at night)","Battle Frontier — 48 BP"],
+ ["<b>Protector</b>","Rhydon → Rhyperior (trade)","Mt. Mortar 1F, back area (<b>Rock Climb</b>)"],
+ ["<b>Magmarizer</b>","Magmar → Magmortar (trade)","Cinnabar Island volcano (<b>Rock Climb</b>)"],
+ ["<b>Electirizer</b>","Electabuzz → Electivire (trade)","Cerulean Cave B1F (<b>Rock Climb</b>)"],
+ ["<b>Up-Grade</b>","Porygon → Porygon2 (trade)","Silph Co. — from the guard"],
+ ["<b>Dubious Disc</b>","Porygon2 → Porygon-Z (trade)","Route 42, north of the eastern pond (<b>Rock Climb</b>)"],
+ ["<b>Reaper Cloth</b>","Dusclops → Dusknoir (trade)","Mt. Silver outside, south-west (needs Surf)"],
+ ["<b>Metal Coat</b>","Onix → Steelix, Scyther → Scizor (trade)","Held by the traded Magneton in the Power Plant; S.S. Aqua upper deck; Pokéathlon shop"],
+ ["<b>King\u2019s Rock</b>","Poliwhirl → Politoed, Slowpoke → Slowking (trade)","Slowpoke Well B2F; Pokéathlon shop"],
+ ["<b>Dragon Scale</b>","Seadra → Kingdra (trade)","Mt. Mortar 2F; 5% of wild Horsea, Seadra, Dratini and Dragonair hold one"],
+ ["<b>DeepSeaTooth / DeepSeaScale</b>","Clamperl → Huntail / Gorebyss (trade)","Both hidden on Kanto Route 20; wild Chinchou and Lanturn hold Scales"]
+]}],
+["h","Evolutions that are not items at all"],
+["p","Several Pokémon this guide sends you after evolve on rules you will not stumble into by accident:"],
+["ul",[
+ "<b>Friendship</b> — Golbat → Crobat, Chansey → Blissey, Eevee → Espeon (level up in the <b>day</b>) or Umbreon (level up at <b>night</b>). Speed it up with the Goldenrod Underground haircut brothers, Daisy\u2019s massage in Pallet Town between 3 and 4 pm, and a Soothe Bell.",
+ "<b>Time of day</b> — Sneasel → Weavile and Gligar → Gliscor both need the item <i>and</i> a night-time level-up. Check the Pokégear clock before you waste the Rare Candy.",
+ "<b>AncientPower</b> — Yanma → Yanmega, Piloswine → Mamoswine and Tangela → Tangrowth all evolve by levelling up while they know AncientPower. Piloswine learns it by relearning at Blackthorn with a Heart Scale, which is the usual way people get a Mamoswine.",
+ "<b>Tyrogue</b> — becomes Hitmonlee if Attack beats Defence at level 20, Hitmonchan if Defence beats Attack, and Hitmontop if they are equal. Check the summary screen before it hits 20, and use Protein or Iron to force the split you want.",
+ "<b>Feebas</b> — needs high Beauty from blue Pokéblocks/Poffins, which do not exist in this game. Feebas and Milotic are effectively trade-only here."
+]],
+["do",[
+ "Plan a single Rock Climb sweep after the sixteenth badge.",
+ "Visit Bill\u2019s grandfather on Route 25 with the Pokémon he asks for.",
+ "Collect all ten evolution stones.",
+ "Collect the Gen 4 evolution items — Protector, Magmarizer, Electirizer, Dubious Disc, Up-Grade, Reaper Cloth.",
+ "Buy a Razor Claw and a Razor Fang at the Battle Frontier (48 BP each).",
+ "Watch the Clefairy dance at Mt. Moon Square on a Monday night for a Moon Stone."
 ]]
 ]});
 
@@ -2372,7 +2353,7 @@ body:[
  "<b>Skip the community Wi-Fi server.</b> You can point the DS Wi-Fi settings at a replacement DNS (commonly <code class=\"mono\">164.132.44.106</code>) with melonDS in direct networking mode, which restores Mystery Gift and the GTS. On SteamOS it is genuinely fiddly, and PKHeX reaches the same three gifts in ten minutes. Only attempt this if you actively want to tinker.",
  "<b>PKHeX.</b> Runs on the Deck in Desktop Mode. Used carefully — generating the event <i>gift</i> rather than the Pokémon — you still play the Sinjoh Ruins and Ilex Forest episodes, you just skip a server that no longer exists."
 ]],
-["tip","Settle this before you build a 493-entry plan, and settle it the way the setup chapter says: <b>PKHeX for the three event gifts and the Pokéwalker routes, nothing else.</b> Injecting a Celebi and injecting a living dex are not the same decision, and only one of them leaves you with a game left to play."],
+["tip","Settle this before you build a 493-entry plan: <b>PKHeX for the three event gifts and the Pokéwalker routes, nothing else.</b> Injecting a Celebi and injecting a living dex are not the same decision, and only one of them leaves you with a game left to play."],
 ["do",[
  "Restore the three event gifts and the Pokéwalker entries with PKHeX — and nothing else.",
  "Set up a SoulSilver save on a second instance for version exclusives.",
@@ -2421,7 +2402,7 @@ STAGES.push(
  body:[
   ["mount","backup"],
   ["h","Sources"],
-  ["p","<span class=\"srcs\">Gym, Elite Four and rematch rosters cross-checked against <a href=\"https://www.serebii.net/heartgoldsoulsilver/gym.shtml\">Serebii</a> and <a href=\"https://pokemondb.net/heartgold-soulsilver/gymleaders-elitefour\">Pokémon Database</a> (whose type labels are modern — Clefairy and Mr. Mime are <i>not</i> Fairy in Gen 4, and this guide corrects that). TM and HM locations from <a href=\"https://www.serebii.net/heartgoldsoulsilver/tmhm.shtml\">Serebii</a> and <a href=\"https://altissimo1.github.io/Main-Series/HGSS/moves.html\">Altissimo’s move location list</a>. Weekly events from <a href=\"https://altissimo1.github.io/Main-Series/HGSS/time-events.html\">Altissimo’s time events</a>. Gifts and trades from <a href=\"https://pldh.net/guides/heartgoldsoulsilver/giftplottrade\">PLDH</a>. Legendaries from <a href=\"https://mirage-island.neocities.org/hgss-legendaries\">Mirage Island</a>. Dragon’s Den quiz answers from <a href=\"https://bulbapedia.bulbagarden.net/wiki/Dragon%27s_Den\">Bulbapedia</a>. Emulator setup from the <a href=\"https://emudeck.github.io/emulators/steamos/melonds/\">EmuDeck melonDS documentation</a>.<br><br><b>Artwork.</b> Pokémon and item sprites are the HeartGold/SoulSilver in-game sprites, via the <a href=\"https://github.com/PokeAPI/sprites\">PokéAPI sprite collection</a>. Trainer portraits and route maps are from <a href=\"https://bulbapedia.bulbagarden.net/wiki/Walkthrough:Pok%C3%A9mon_HeartGold_and_SoulSilver\">Bulbapedia</a>. All of it is Nintendo / Game Freak / Creatures artwork, embedded here for personal reference — this page is private, and it is not artwork to redistribute.</span>"]
+  ["p","<span class=\"srcs\">Gym, Elite Four and rematch rosters cross-checked against <a href=\"https://www.serebii.net/heartgoldsoulsilver/gym.shtml\">Serebii</a> and <a href=\"https://pokemondb.net/heartgold-soulsilver/gymleaders-elitefour\">Pokémon Database</a> (whose type labels are modern — Clefairy and Mr. Mime are <i>not</i> Fairy in Gen 4, and this guide corrects that). TM and HM locations from <a href=\"https://www.serebii.net/heartgoldsoulsilver/tmhm.shtml\">Serebii</a> and <a href=\"https://altissimo1.github.io/Main-Series/HGSS/moves.html\">Altissimo’s move location list</a>. Weekly events from <a href=\"https://altissimo1.github.io/Main-Series/HGSS/time-events.html\">Altissimo’s time events</a>. Gifts and trades from <a href=\"https://pldh.net/guides/heartgoldsoulsilver/giftplottrade\">PLDH</a>. Legendaries from <a href=\"https://mirage-island.neocities.org/hgss-legendaries\">Mirage Island</a>. Dragon’s Den quiz answers from <a href=\"https://bulbapedia.bulbagarden.net/wiki/Dragon%27s_Den\">Bulbapedia</a>. Evolution item locations from <a href=\"https://altissimo1.github.io/Main-Series/HGSS/evo-items.html\">Altissimo's evolutionary item list</a>.<br><br><b>Artwork.</b> Pokémon and item sprites are the HeartGold/SoulSilver in-game sprites, via the <a href=\"https://github.com/PokeAPI/sprites\">PokéAPI sprite collection</a>. Trainer portraits and route maps are from <a href=\"https://bulbapedia.bulbagarden.net/wiki/Walkthrough:Pok%C3%A9mon_HeartGold_and_SoulSilver\">Bulbapedia</a>. All of it is Nintendo / Game Freak / Creatures artwork, embedded here for personal reference — this page is private, and it is not artwork to redistribute.</span>"]
  ]}
 );
 
