@@ -2766,11 +2766,12 @@ function rosterHTML(id){
         benched.map(n => '<span class="hmon box">' + monArt(n, 'hspr') + esc(n) + '</span>').join('') + '</span></div>' : '') +
     '</div>';
 
-  const mv = r.mv && r.mv.length
+  const mvRows = (r.mv || []).filter(m => !m.only || m.only.indexOf(STARTER) !== -1);
+  const mv = mvRows.length
     ? '<div class="mvwrap"><div class="mvhead">Move changes due here</div>' +
       '<div class="tblwrap"><table class="mvtable"><thead><tr>' +
       '<th>Pokémon</th><th>Learns</th><th>At</th><th>Replace</th><th>Why</th></tr></thead><tbody>' +
-      r.mv.map(m => {
+      mvRows.map(m => {
         const who = starterTok(m.p, nm);
         return '<tr><td class="mon">' + monArt(who, 'ms') + esc(who) + '</td>' +
           '<td class="mvnew">' + m.learn + '</td>' +
@@ -2850,19 +2851,19 @@ Object.keys(PAIRS).forEach(k => {
 const MOVEPLAN = {
 k03:[
  {p:"Nidoran♀", lv:12, learn:"<b>Double Kick</b>", drop:"Growl", why:"Fighting, and it hits twice. Growl is a wasted slot on something you are going to evolve into a wall."},
- {p:"%S%", lv:15, learn:"<b>Sleep Powder</b> <i>and</i> PoisonPowder", drop:"Growl", why:"<b>Bulbasaur only.</b> Both arrive at 15 — take Sleep Powder and <i>decline</i> PoisonPowder. Sleep ends fights and catches legendaries; poison chips."},
- {p:"%S%", lv:13, learn:"<b>Metal Claw</b>", drop:"Growl", why:"<b>Charmander only.</b> Steel is 2× on Brock's Rock/Ground pair — this is the move that wins that gym."},
- {p:"%S%", lv:13, learn:"<b>Water Gun</b>", drop:"Tail Whip", why:"<b>Squirtle only.</b> Keep Bubble as well for now; both are 40 power and you have nothing better."}
+ {p:"%S%", only:["bulbasaur"], lv:15, learn:"<b>Sleep Powder</b> <i>and</i> PoisonPowder", drop:"Growl", why:"Both arrive at 15 — take Sleep Powder and <i>decline</i> PoisonPowder. Sleep ends fights and catches legendaries; poison chips."},
+ {p:"%S%", only:["charmander"], lv:13, learn:"<b>Metal Claw</b>", drop:"Growl", why:"Steel is 2× on Brock's Rock/Ground pair — this is the move that wins that gym."},
+ {p:"%S%", only:["squirtle"], lv:13, learn:"<b>Water Gun</b>", drop:"Tail Whip", why:"Keep Bubble as well for now; both are 40 power and you have nothing better."}
 ],
 k04:[
- {p:"%S%", lv:20, learn:"<b>Razor Leaf</b>", drop:"Vine Whip", why:"<b>Bulbasaur only.</b> 55 power against 45, same type, no downside. Straight upgrade."},
- {p:"%S%", lv:18, learn:"<b>Bite</b>", drop:"Tackle", why:"<b>Squirtle only.</b> Bite is 60 power and, being Dark, runs off Special Attack in Gen 3 — which is Wartortle's better stat."},
+ {p:"%S%", only:["bulbasaur"], lv:20, learn:"<b>Razor Leaf</b>", drop:"Vine Whip", why:"55 power against 45, same type, no downside. Straight upgrade."},
+ {p:"%S%", only:["squirtle"], lv:18, learn:"<b>Bite</b>", drop:"Tackle", why:"Bite is 60 power and, being Dark, runs off Special Attack in Gen 3 — which is Wartortle's better stat."},
  {p:"Nidoran♀", lv:17, learn:"PoisonSting", drop:"<i>decline it</i>", why:"15 power. Refuse the move and keep what you have — Double Kick already covers the physical slot."},
  {p:"Pidgey", lv:13, learn:"<b>Quick Attack</b>", drop:"Tackle", why:"Same power, but it always moves first. Tackle has no reason to stay."}
 ],
 k05:[
  {p:"Nidoran♀", lv:20, learn:"<b>Bite</b>", drop:"Scratch", why:"60 power against 40. Note it is Dark, so it runs off Special Attack — still better than Scratch at this level."},
- {p:"%S%", lv:22, learn:"<b>Razor Leaf</b>", drop:"Leech Seed", why:"<b>Bulbasaur only</b>, if you delayed the swap. Keep Sleep Powder above everything."}
+ {p:"%S%", only:["bulbasaur"], lv:22, learn:"<b>Razor Leaf</b>", drop:"Leech Seed", why:"Only if you delayed the swap at stage 4. Keep Sleep Powder above everything else."}
 ],
 k06:[
  {p:"Pidgeotto", lv:27, learn:"<b>Wing Attack</b>", drop:"Gust", why:"60 power against 40, same type. Gust has done its job."},
@@ -2872,7 +2873,7 @@ k06:[
 k07:[
  {p:"Vulpix", lv:21, learn:"<b>Confuse Ray</b>", drop:"Tail Whip", why:"Confusion is a 50% miss chance on the opponent. It is the best thing Vulpix does besides burn."},
  {p:"Vulpix", lv:29, learn:"<b>Flamethrower</b>", drop:"Ember", why:"90 power against 40. <b>Wait for this before using the Fire Stone</b> — Ninetales learns nothing at all after it evolves."},
- {p:"%S%", lv:34, learn:"<b>Flamethrower</b>", drop:"Ember", why:"<b>Charmander only.</b> Charmeleon's real STAB finally arrives."},
+ {p:"%S%", only:["charmander"], lv:34, learn:"<b>Flamethrower</b>", drop:"Ember", why:"Charmeleon's real STAB finally arrives."},
  {p:"Nidoqueen", at:"TM26 later", learn:"Earthquake", drop:"<i>hold the slot</i>", why:"You will not have TM26 until Giovanni, at the very end. Keep a weak physical move in that slot until then."}
 ],
 k08:[
@@ -2883,7 +2884,7 @@ k08:[
 k09:[
  {p:"Kadabra", lv:36, learn:"<b>Psychic</b>", drop:"Confusion", why:"90 power against 50. <b>You do not need TM29 for this</b> — Kadabra learns Psychic by itself. Save the TM for Starmie."},
  {p:"Kadabra", lv:30, learn:"Future Sight", drop:"<i>decline it</i>", why:"120 power but it lands two turns later and cannot crit. In a gym gauntlet that is a wasted turn — keep Psybeam until 36."},
- {p:"%S%", at:"TM19", learn:"<b>Giga Drain</b>", drop:"Razor Leaf", why:"<b>Bulbasaur only.</b> Erika's TM. Same class, and it heals for half the damage dealt."}
+ {p:"%S%", only:["bulbasaur"], at:"TM19", learn:"<b>Giga Drain</b>", drop:"Razor Leaf", why:"Erika's TM. Same class, and it heals for half the damage dealt."}
 ],
 k10:[
  {p:"Hitmonlee", lv:26, learn:"<b>High Jump Kick</b>", drop:"Rolling Kick", why:"130 power against 60. It hurts you if it misses — that is the price, and it is worth it."},
@@ -2893,7 +2894,7 @@ k10:[
 k11:[
  {p:"Staryu", lv:15, learn:"<b>Recover</b>", drop:"Harden", why:"Keep Recover through the evolution — it is the only good move Starmie brings with it."},
  {p:"Starmie", at:"TM03/13/24/29", learn:"<b>Surf, Ice Beam, Thunderbolt, Psychic</b>", drop:"Tackle, Water Gun, Rapid Spin, Swift", why:"<b>Starmie is a TM platform.</b> It learns nothing useful by level-up after evolving, so overwrite the whole level-up set the moment you have the stones and machines."},
- {p:"%S%", lv:32, learn:"evolution", drop:"—", why:"<b>Bulbasaur only.</b> Venusaur at 32. Nothing is lost — Ivysaur and Venusaur share a learnset, just at later levels."}
+ {p:"%S%", only:["bulbasaur"], lv:32, learn:"evolution", drop:"—", why:"Venusaur at 32. Nothing is lost — Ivysaur and Venusaur share a learnset, just at later levels."}
 ],
 k12:[
  {p:"Aerodactyl", at:"TM02 later", learn:"<b>Wing Attack</b> now, Dragon Claw later", drop:"Bite", why:"Aerodactyl revives at level 5 and needs the Exp. Share to catch up. Rock and Flying are both physical, which suits its 105 Attack."},
