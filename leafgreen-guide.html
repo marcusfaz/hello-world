@@ -386,6 +386,9 @@ td.mvold{color:var(--ember);white-space:nowrap}
 .pslot.swap{border:2px solid var(--ember)}
 .pslot.swap .pst{background:var(--ember-wash);color:var(--ember)}
 .pslot.bench .pst{background:var(--indigo-wash);color:var(--indigo)}
+.pslot.box{opacity:.86}
+.pslot.box .pst{background:var(--surface2);color:var(--ink3);box-shadow:inset 0 0 0 1.5px var(--line)}
+.hlbl.rest{background:var(--indigo-wash);color:var(--indigo);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--indigo) 34%,transparent)}
 .pslot .pn{font-family:"Baloo 2",sans-serif;font-weight:800;font-size:16.5px;line-height:1.2;display:flex;gap:7px;align-items:baseline;flex-wrap:wrap}
 .pslot .prole{font-size:11px;font-weight:700;color:var(--ink3);margin-top:5px;text-transform:uppercase;letter-spacing:.05em}
 .pslot .pw{font-size:14.5px;color:var(--ink2);margin-top:8px;line-height:1.45}
@@ -2488,13 +2491,19 @@ function buildFlow(){
       seen.push(n);
       const i = party.findIndex(m => sameMon(m.name, n));
       const entry = {name:n, role:sl.role, w:sl.w, types: sl.n === "%S%" ? S.t : (sl.t || []),
-                     st:sl.st, forName:sl.forName, replaces:sl.replaces, isStarter: sl.n === "%S%"};
+                     st:sl.st, forName:sl.forName, replaces:sl.replaces, isStarter: sl.n === "%S%",
+                     carried:false};
       if (i >= 0) party[i] = entry; else party.push(entry);
     });
 
     /* 2. carry forward everything else, marked keep, keeping its last description */
     const carried = party.filter(m => !seen.some(n => sameMon(n, m.name)));
-    carried.forEach(m => { m.st = (m.st === "bench") ? "bench" : "keep"; m.forName = null; m.replaces = null; });
+    carried.forEach(m => {
+      const resting = (m.st === "bench" || m.st === "box");
+      m.st = resting ? m.st : "keep";
+      m.carried = resting;          /* already out of the party: do not re-announce it */
+      m.forName = null; m.replaces = null;
+    });
 
     /* 3. remove declared departures */
     const outs = (OUT[st.id] || []).map(x => x.split(">"));
@@ -2529,12 +2538,14 @@ const ROSTERS = {};
 function R(id, o){ ROSTERS[id] = o; }
 /* slot: n name (%S% = starter), t types, role, st add|keep|swap|bench, w why, only [starters] */
 
-R("k01",{lv:"5 → 9", form:"base", sum:"Three bodies is plenty for Route 1. The job here is not winning fights elegantly — it is picking up the Route 22 Mankey and a Pidgey, both of which stay useful for a long time.",
+R("k01",{lv:"5 → 9", form:"base", sum:"Fill all six slots before you go north. Routes 1, 2 and 22 between them hold everything below, and an empty slot is a wasted slot — even filler earns you Pokédex credit towards Oak's aides.",
 slots:[
  {n:"%S%", role:"Lead · your only real attacker", st:"keep", w:"Everything goes through it until Pewter."},
  {n:"Pidgey", t:["Normal","Flying"], role:"Future Fly carrier", st:"add", w:"Route 1. It is slow to come good, so start it now — Pidgeotto at 18, Pidgeot at 36."},
  {n:"Rattata", t:["Normal"], role:"Early filler", st:"add", w:"Route 1 or 22. Hyper Fang at 13 is 80 power, which is more than anything else you own until Vermilion. Box it once Nidorina comes online."},
- {n:"Mankey", t:["Fighting"], role:"Early Fighting", st:"add", only:["charmander"], w:"Route 22. Low Kick is 2× on Brock's Onix and scales with its weight — on a Charmander run this is the body that gets you past the first gym."}
+ {n:"Mankey", t:["Fighting"], role:"Early Fighting · Brock", st:"add", w:"Route 22, 45%. Low Kick is 2× on Brock's Onix and scales with its weight, so it beats the first gym on any run — and on a Charmander run it is the body that <i>gets</i> you through it."},
+ {n:"Spearow", t:["Normal","Flying"], role:"Filler · trade stock", st:"add", w:"Route 22, 10%. It fills the sixth slot now and it is the Pokémon the Vermilion trade wants for a <b>Farfetch'd</b> later, so catch two if you see them."},
+ {n:"Caterpie", t:["Bug"], role:"Sleep Powder project", st:"add", w:"Route 2 south at 5% — or the first thing you see in Viridian Forest next stage, where it is 40%. Butterfree at 10 learns <b>Sleep Powder at 15</b>, which is how you catch four legendaries later."}
 ],
 notes:{charmander:"You have the hardest opening in the game: Brock resists Ember and Misty walls you. Take the Mankey on Route 22 now, and plan to learn Metal Claw at level 13.",
        squirtle:"Bubble already beats Brock 4× over, so spend your Route 22 time catching rather than levelling. Erika and Lt. Surge are your problems, not the first two gyms.",
@@ -2547,7 +2558,7 @@ slots:[
  {n:"Rattata", t:["Normal"], role:"Filler", st:"keep", w:"Hyper Fang at 13 is 80 power and carries the early trainers. <b>There is no Nidoran yet</b> — LeafGreen's Nidoran♀ starts on Route 3, one stage from now."},
  {n:"Pidgey", t:["Normal","Flying"], role:"Filler", st:"keep", w:"Not useful against Brock. Keep it levelling for the Fly slot later."},
  {n:"Mankey", t:["Fighting"], role:"Brock counter", st:"keep", only:["charmander"], w:"Low Kick on Onix. This is the fight it was caught for."},
- {n:"Caterpie", t:["Bug"], role:"Sleep Powder tool · box it", st:"bench", only:["charmander","squirtle"], w:"Butterfree learns Sleep Powder at 15. Bulbasaur players already have it; you do not, and you will want it for four legendary catches. Raise it to 15, then <b>keep it in the box</b> and swap it in only for those catches — it is not a battler."}
+ {n:"Caterpie", t:["Bug"], role:"Raise it to 15", st:"keep", w:"Metapod at 7, Butterfree at 10, <b>Sleep Powder at 15</b>. Get it there and it has done its job — you will box it at Cerulean and bring it out only for legendary catches."}
 ],
 notes:{bulbasaur:"Vine Whip is 4× on both of Brock's Pokémon. Lead Bulbasaur, do not switch, and the gym is over in three turns.",
        charmander:"Fire is resisted by Rock. Learn <b>Metal Claw at 13</b> — Steel is 2× — and lead Mankey into Onix. Do not try to burn through this.",
@@ -2561,7 +2572,7 @@ slots:[
  {n:"Pikachu", t:["Electric"], role:"Misty answer", st:"keep", w:"Level it to 20 before Cerulean. Thunder Shock is 2× on both of Misty's Pokémon."},
  {n:"Pidgey", t:["Normal","Flying"], role:"Fly project", st:"keep", w:""},
  {n:"Rattata", t:["Normal"], role:"Retiring", st:"swap", forName:"Nidoran♀", w:"It has carried the first three stages. Nidorina outclasses it from here and never stops."},
- {n:"Clefairy", t:["Normal"], role:"Dex", st:"bench", w:"Uncommon in Mt. Moon and annoying to find later. <b>Pure Normal in Gen 3</b>, not Fairy. Catch it, log it, box it."}
+ {n:"Clefairy", t:["Normal"], role:"Dex", st:"box", w:"Uncommon in Mt. Moon and annoying to find later. <b>Pure Normal in Gen 3</b>, not Fairy. Catch it, log it, box it."}
 ],
 notes:{bulbasaur:"Ivysaur handles the whole cave. Spend your attention on the Route 3 Nidoran♀ and the two Moon Stones — one in the 1F north-west corner, one by the fossil chamber.",
        charmander:"Mt. Moon is full of Rock and Ground types that resist you. Lead Mankey or the Sandshrew and let Charmeleon sit this one out.",
@@ -2574,7 +2585,7 @@ slots:[
  {n:"Abra", t:["Psychic"], role:"Future Kadabra", st:"add", w:"Routes 24 and 25. Throw the ball on turn one before it Teleports. Kadabra's 120 Sp. Atk sweeps Koga later."},
  {n:"Nidorina", t:["Poison"], role:"Physical attacker", st:"keep", w:""},
  {n:"Sandshrew", t:["Ground"], role:"HM mule", st:"keep", w:"Teach it Cut once the Cascade Badge lands."},
- {n:"Bellsprout", t:["Grass","Poison"], role:"Misty backup · box it", st:"bench", only:["charmander","squirtle"], w:"Route 24, <b>LeafGreen-exclusive</b>. Vine Whip at 13 is 2× on both of Misty's Pokémon, so it is a spare answer if your Pikachu hunt failed. Otherwise catch it for the dex and box it — Pikachu does this job and stays useful afterwards."}
+ {n:"Bellsprout", t:["Grass","Poison"], role:"Misty backup · box it", st:"box", only:["charmander","squirtle"], w:"Route 24, <b>LeafGreen-exclusive</b>. Vine Whip at 13 is 2× on both of Misty's Pokémon, so it is a spare answer if your Pikachu hunt failed. Otherwise catch it for the dex and box it — Pikachu does this job and stays useful afterwards."}
 ],
 notes:{bulbasaur:"Razor Leaf at 20 outdamages Recover. Lead Ivysaur and do not switch — this is the fight your starter was chosen for.",
        charmander:"Do not fight Misty with Charmeleon. Pikachu at 20, or the Bellsprout from Route 24. Water Gun off a Starmie will two-shot you.",
@@ -2584,7 +2595,7 @@ R("k05",{lv:"22 → 26", form:"mid", sum:"Collect the Vs. Seeker first. Then swe
 slots:[
  {n:"%S%", role:"Lead", st:"keep", w:""},
  {n:"Nidorina", t:["Poison"], role:"Lt. Surge counter", st:"keep", w:"<b>Ground is immune to Electric.</b> Nidorina takes literally zero from Shock Wave, Thunder Wave and Thunderbolt. This is the whole gym."},
- {n:"Diglett", t:["Ground"], role:"Backup Ground", st:"bench", w:"Diglett's Cave, off Route 11. Dugtrio at 26 has 120 Speed and Arena Trap. Free, fast, and immune to the entire Vermilion Gym."},
+ {n:"Diglett", t:["Ground"], role:"Backup Ground", st:"box", w:"Diglett's Cave, off Route 11. Dugtrio at 26 has 120 Speed and Arena Trap. Free, fast, and immune to the entire Vermilion Gym."},
  {n:"Kadabra", t:["Psychic"], role:"Special attacker", st:"keep", w:"Evolves from Abra at 16. Do not trade it — Alakazam obeys only to your badge cap and Kadabra is already strong enough."},
  {n:"Pidgeotto", t:["Normal","Flying"], role:"Fly carrier", st:"keep", w:"Teach it Fly the moment the Thunder Badge lands, and TM40 Aerial Ace from Route 9 after that."},
  {n:"Sandshrew", t:["Ground"], role:"HM mule", st:"keep", w:"Cut is on it now. Flash goes on next, from the Route 2 gate."}
@@ -2636,7 +2647,7 @@ slots:[
  {n:"Snorlax", t:["Normal"], role:"Physical wall", st:"keep", w:"Teach it Strength once the Rainbow Badge is in. It wants a physical Normal move anyway."},
  {n:"Ninetales", t:["Fire"], role:"Special attacker", st:"keep", w:""},
  {n:"Nidoqueen", t:["Poison","Ground"], role:"Physical attacker", st:"keep", w:"Poison resists Poison, so it switches into Koga's Sludge safely — it just cannot hurt him back with Ground."},
- {n:"Staryu", t:["Water"], role:"Boxed until stage 11", st:"bench", w:"Take the <b>Super Rod from the Route 18 gate</b>, then fly to Vermilion or Pallet and fish there — Staryu is not in the Routes 19–21 water. <b>LeafGreen-exclusive.</b> A Water Stone makes Starmie: 115 Speed and four attacking types on one body."}
+ {n:"Staryu", t:["Water"], role:"Boxed until stage 11", st:"box", w:"Take the <b>Super Rod from the Route 18 gate</b>, then fly to Vermilion or Pallet and fish there — Staryu is not in the Routes 19–21 water. <b>LeafGreen-exclusive.</b> A Water Stone makes Starmie: 115 Speed and four attacking types on one body."}
 ],
 notes:{squirtle:"Blastoise carries Surf, so you can skip the Staryu and keep the slot for a Jolteon. Starmie is still faster if you want a second special attacker."}});
 
@@ -2647,8 +2658,7 @@ slots:[
  {n:"Machoke", t:["Fighting"], role:"Retiring", st:"swap", forName:"Hitmonlee", w:"Hitmonlee does the same job with 20 more Attack and no trade evolution hanging over it. Box Machoke — do not release it, it is still a dex line."},
  {n:"Snorlax", t:["Normal"], role:"Sabrina answer", st:"keep", w:"<b>Bug and Ghost are the only types super-effective on Psychic, and both are physical in Gen 3.</b> Snorlax's 160 HP eats Alakazam's Psychic and Body Slam paralysis ends it."},
  {n:"Nidoqueen", t:["Poison","Ground"], role:"Physical attacker", st:"keep", w:"Also a Sabrina answer for the same reason — physical bodies, not special ones."},
- {n:"Lapras", t:["Water","Ice"], role:"Free bulk · box it for now", st:"bench", w:"Free from the rescued employee on Silph Co. 7F. Surf, Ice Beam, Strength and Waterfall all fit on it, and it has the bulk to survive being wrong."},
- {n:"Kadabra", t:["Psychic"], role:"Benched for this gym", st:"bench", w:"Psychic versus Psychic is resisted, and Alakazam outspeeds and out-damages it. Keep it for Agatha."}
+ {n:"Lapras", t:["Water","Ice"], role:"Free bulk · box it for now", st:"box", w:"Free from the rescued employee on Silph Co. 7F. Surf, Ice Beam, Strength and Waterfall all fit on it, and it has the bulk to survive being wrong."}
 ],
 notes:{bulbasaur:"Venusaur takes 2× from every Psybeam in Sabrina's gym. Bench it and let Snorlax, Nidoqueen and Hitmonlee do the work.",
        charmander:"Charizard clears Venomoth outright but loses to Alakazam. Same answer — physical bodies.",
@@ -2658,7 +2668,6 @@ R("k11",{lv:"45 → 48", form:"final", sum:"Open water, the best fishing in Kant
 slots:[
  {n:"%S%", role:"Lead", st:"keep", w:""},
  {n:"Starmie", t:["Water","Psychic"], role:"Special sweeper", st:"add", replaces:"Kadabra", w:"Water Stone on the Staryu. <b>Surf, Ice Beam, Thunderbolt and Psychic all fit</b> — four types, 115 Speed, 100 Sp. Atk. The best Pokémon in LeafGreen."},
- {n:"Lapras", t:["Water","Ice"], role:"Boxed alternate", st:"bench", w:"Starmie is the Water slot now. Keep Lapras in the box as the swap-in if you would rather have bulk than speed — it is the better HM carrier of the two."},
  {n:"Snorlax", t:["Normal"], role:"Physical wall", st:"keep", w:""},
  {n:"Hitmonlee", t:["Fighting"], role:"Physical Fighting", st:"keep", w:""},
  {n:"Venusaur", t:["Grass","Poison"], role:"Sleep Powder · catcher", st:"keep", only:["bulbasaur"], w:"<b>This is why you took Bulbasaur.</b> Sleep Powder on Articuno, then chip and throw. Keep it in the party for the rest of the legendary hunts."},
@@ -2670,10 +2679,8 @@ R("k12",{lv:"48 → 52", form:"final", sum:"Cash in both fossils, clear the mans
 slots:[
  {n:"%S%", role:"Lead", st:"keep", w:""},
  {n:"Starmie", t:["Water","Psychic"], role:"Blaine counter", st:"keep", w:"<b>All four of Blaine's Pokémon are pure Fire.</b> Surf sweeps the gym unassisted."},
- {n:"Aerodactyl", t:["Rock","Flying"], role:"Late project · boxed on the Exp. Share", st:"bench", w:"Revive the Old Amber at the Cinnabar Lab. It arrives at level 5, so put the Exp. Share on it now — 130 Speed and 105 Attack make it a real Elite Four member by the League."},
- {n:"Lapras", t:["Water","Ice"], role:"Boxed alternate", st:"bench", w:""},
- {n:"Snorlax", t:["Normal"], role:"Physical wall", st:"keep", w:""},
- {n:"Ninetales", t:["Fire"], role:"Benched this gym", st:"bench", w:"Fire against Fire is resisted and Flash Fire on two of them makes it worse. Bring it back for the Sevii Islands."}
+ {n:"Aerodactyl", t:["Rock","Flying"], role:"Late project · boxed on the Exp. Share", st:"box", w:"Revive the Old Amber at the Cinnabar Lab. It arrives at level 5, so put the Exp. Share on it now — 130 Speed and 105 Attack make it a real Elite Four member by the League."},
+ {n:"Snorlax", t:["Normal"], role:"Physical wall", st:"keep", w:""}
 ],
 notes:{bulbasaur:"Keep Venusaur off the field for the whole gym — Grass takes 2× and Fire Blast will one-shot it.",
        charmander:"Charizard is resistant to Fire but Blaine's Arcanine has Intimidate and 110 Attack. Let Starmie or Lapras do this.",
@@ -2684,10 +2691,8 @@ slots:[
  {n:"%S%", role:"Lead", st:"keep", w:""},
  {n:"Nidoqueen", t:["Poison","Ground"], role:"Rock Smash carrier", st:"keep", w:"HM06 comes from Ember Spa. Rock Smash is a weak physical Fighting move and Nidoqueen has the Attack to make the slot worth it."},
  {n:"Starmie", t:["Water","Psychic"], role:"Moltres catcher", st:"keep", w:"Surf is 2× on Moltres and controlled enough not to kill it. <b>Do not bring Rock moves</b> — 4× will end the encounter."},
- {n:"Lapras", t:["Water","Ice"], role:"Boxed alternate", st:"bench", w:"Mt. Ember's summit path needs Strength boulders moved — put Strength on Snorlax or Nidoqueen rather than bringing Lapras out."},
  {n:"Venusaur", t:["Grass","Poison"], role:"Sleep Powder", st:"keep", only:["bulbasaur"], w:"Sleep Moltres before you chip it."},
- {n:"Butterfree", t:["Bug","Flying"], role:"Swap in to catch, then box", st:"bench", only:["charmander","squirtle"], w:"Same routine as Articuno — out of the box for the throw, back in afterwards."},
- {n:"Aerodactyl", t:["Rock","Flying"], role:"Keep off the field", st:"bench", w:"<b>Rock is 4× on Moltres.</b> Leave it in the back — one AncientPower and the legendary is gone."}
+ {n:"Butterfree", t:["Bug","Flying"], role:"Swap in to catch, then box", st:"bench", only:["charmander","squirtle"], w:"Same routine as Articuno — out of the box for the throw, back in afterwards."}
 ]});
 
 R("s02",{lv:"55 → 57", form:"final", sum:"Deliver the meteorite, rescue Lostelle, and pick up the strongest move your starter will ever have.",
@@ -2695,16 +2700,13 @@ slots:[
  {n:"%S%", role:"Ultimate move here", st:"keep", w:"<b>Evolve it before you visit Cape Brink.</b> The Channeler teaches Frenzy Plant, Blast Burn or Hydro Cannon — 150 power, once per save file, fully-evolved original partner only."},
  {n:"Starmie", t:["Water","Psychic"], role:"Special sweeper", st:"keep", w:""},
  {n:"Snorlax", t:["Normal"], role:"Physical wall", st:"keep", w:""},
- {n:"Hitmonlee", t:["Fighting"], role:"Physical Fighting", st:"keep", w:""},
- {n:"Aerodactyl", t:["Rock","Flying"], role:"Still boxed, still levelling", st:"bench", w:"It should be catching up on the Exp. Share by now. It wants to be level 50 before the League, and it joins the party for the rematch."},
- {n:"Lapras", t:["Water","Ice"], role:"Boxed alternate", st:"bench", w:"Strip Berry Forest while you are here — four Aspear Berries for Lorelei. Lapras stays in the box; Starmie is the Water slot."}
+ {n:"Hitmonlee", t:["Fighting"], role:"Physical Fighting", st:"keep", w:""}
 ]});
 
 R("k13",{lv:"57 → 60", form:"final", sum:"The last badge and the last bird. Giovanni's whole team is part Ground, which makes this the easiest gym in the game if you bring the right two moves.",
 slots:[
  {n:"%S%", role:"Lead", st:"keep", w:""},
  {n:"Starmie", t:["Water","Psychic"], role:"Giovanni counter", st:"keep", w:"Surf and Ice Beam are both at least 2× on all five of his Pokémon. <b>Do not use Thunderbolt</b> — both Rhyhorn have Lightningrod."},
- {n:"Lapras", t:["Water","Ice"], role:"Boxed alternate", st:"bench", w:""},
  {n:"Nidoqueen", t:["Poison","Ground"], role:"Earthquake carrier", st:"keep", w:"TM26 comes from Giovanni himself. Put it here — Nidoqueen is the only one of your six with the Attack for it."},
  {n:"Snorlax", t:["Normal"], role:"Zapdos catcher", st:"keep", w:"Resists nothing Zapdos has, but 160 HP means it survives Drill Peck while you throw balls."},
  {n:"Venusaur", t:["Grass","Poison"], role:"Giovanni sweeper", st:"keep", only:["bulbasaur"], w:"<b>This is Venusaur's gym.</b> Giga Drain is 4× on both Rhyhorn and 2× on the rest, and Grass resists the Earthquake coming back."}
@@ -2818,7 +2820,7 @@ Object.keys(NOW).forEach(k => { if (ROSTERS[k]) ROSTERS[k].now = NOW[k]; });
 STAGES.forEach(s => { if (ROSTERS[s.id]) s.body.unshift(["roster", s.id]); });
 
 /* ---- render ---- */
-const PSTAT = {add:"Add here", keep:"Keep", swap:"Swap out", bench:"Bench this stage"};
+const PSTAT = {add:"Add here", keep:"Keep", swap:"Swap out", box:"Box it here", bench:"Swap in just for this"};
 function starterTok(str, nm){ return String(str).split("%S%").join(nm); }
 
 function rosterHTML(id){
@@ -2833,9 +2835,11 @@ function rosterHTML(id){
   const nameOf = sl => sl.name !== undefined ? sl.name : (sl.n === "%S%" ? nm : sl.n);
 
   /* the six you are actually carrying out of this stage: everything kept or added */
+  const shown    = slots.filter(sl => !sl.carried);   /* already-boxed members are not re-listed */
   const carrying = slots.filter(sl => sl.st === "keep" || sl.st === "add").map(nameOf);
-  const leaving  = slots.filter(sl => sl.st === "swap").map(nameOf);
-  const benched  = slots.filter(sl => sl.st === "bench").map(nameOf);
+  const leaving  = shown.filter(sl => sl.st === "swap").map(nameOf);
+  const boxedNow = shown.filter(sl => sl.st === "box").map(nameOf);
+  const benched  = shown.filter(sl => sl.st === "bench").map(nameOf);
 
   const haveStrip =
     '<div class="have">' +
@@ -2844,7 +2848,9 @@ function rosterHTML(id){
                          : '<span class="hnone">—</span>') + '</span></div>' +
       (leaving.length ? '<div class="haverow"><span class="hlbl out">Leaving the party</span><span class="hlist">' +
         leaving.map(n => '<span class="hmon out">' + monArt(n, 'hspr') + esc(n) + '</span>').join('') + '</span></div>' : '') +
-      (benched.length ? '<div class="haverow"><span class="hlbl box">In the box</span><span class="hlist">' +
+      (boxedNow.length ? '<div class="haverow"><span class="hlbl box">Box it here</span><span class="hlist">' +
+        boxedNow.map(n => '<span class="hmon box">' + monArt(n, 'hspr') + esc(n) + '</span>').join('') + '</span></div>' : '') +
+      (benched.length ? '<div class="haverow"><span class="hlbl rest">Swap in just for this</span><span class="hlist">' +
         benched.map(n => '<span class="hmon box">' + monArt(n, 'hspr') + esc(n) + '</span>').join('') + '</span></div>' : '') +
     '</div>';
 
@@ -2871,7 +2877,7 @@ function rosterHTML(id){
     haveStrip +
     (r.sum ? '<p class="psum">' + starterTok(r.sum, nm) + '</p>' : "") +
     (note ? '<div class="pnote"><span class="lbl">If you took ' + esc(S.base) + '</span><p>' + starterTok(note, nm) + '</p></div>' : "") +
-    '<div class="pgrid">' + slots.map(sl => {
+    '<div class="pgrid">' + shown.map(sl => {
       const name = nameOf(sl);
       const types = sl.types !== undefined ? sl.types : (sl.n === "%S%" ? S.t : (sl.t || []));
       let pair = '';
@@ -2997,9 +3003,10 @@ Object.keys(MOVEPLAN).forEach(k => { if (ROSTERS[k]) ROSTERS[k].mv = MOVEPLAN[k]
 
 /* ===================== DECLARED DEPARTURES =====================
    "A>B" means A leaves the party here and B takes the slot.        */
-OUTS("k03", ["Rattata>Nidoran♀"]);
-OUTS("k04", ["Mankey>Abra"]);
-OUTS("k06", ["Pikachu>Machop", "Diglett"]);
+OUTS("k02", ["Spearow>Pikachu"]);
+OUTS("k03", ["Rattata>Nidoran♀", "Mankey>Sandshrew"]);
+OUTS("k04", ["Butterfree>Abra"]);
+OUTS("k06", ["Pikachu>Machop"]);
 OUTS("k07", ["Sandslash>Vulpix"]);
 OUTS("k08", ["Machoke>Snorlax"]);
 OUTS("k10", ["Kadabra>Hitmonlee"]);
