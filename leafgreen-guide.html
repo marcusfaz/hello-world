@@ -194,6 +194,35 @@ button{font:inherit;color:inherit}
 .checks .sub{display:block;font-size:14.5px;color:var(--ink3);font-weight:600;margin-top:2px}
 li.doneRow.hidden{display:none}
 
+/* ── the route: an ordered walk you tick off, legs grouped by where you are ── */
+.checks.route{position:relative;max-width:74ch;margin-top:14px}
+.checks.route::before{
+  content:"";position:absolute;left:9px;top:14px;bottom:14px;width:2px;
+  background:var(--line-soft);border-radius:2px;z-index:0}
+.checks.route li{position:relative;z-index:1;padding-left:0}
+.checks.route .doneRow{padding:9px 0 9px 0}
+.checks.route input{background:var(--bg);box-shadow:0 0 0 4px var(--bg)}
+.checks.route input:checked{box-shadow:inset 0 0 0 2px var(--ball-band), 0 0 0 4px var(--bg)}
+.checks.route .stepn{
+  flex:0 0 auto;min-width:20px;margin-top:3px;font-size:13px;font-weight:800;
+  color:var(--ink3);font-variant-numeric:tabular-nums;text-align:right}
+.checks.route label{flex:1 1 auto}
+/* leg header — the place you are standing for the steps beneath it */
+.checks.route li.leg{
+  border-bottom:0;padding:16px 0 5px;align-items:center;gap:10px}
+.checks.route li.leg:first-child{padding-top:2px}
+.checks.route .legn{
+  flex:0 0 auto;width:20px;height:20px;border-radius:50%;background:var(--indigo);
+  color:var(--bg);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 0 4px var(--bg);font-variant-numeric:tabular-nums}
+.checks.route .legname{
+  font-size:12.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--ink)}
+.checks.route li.leg.hidden{display:none}
+@media (max-width:520px){
+  .checks.route .stepn{min-width:16px;font-size:12.5px}
+  .checks.route label{font-size:16px}
+}
+
 /* ── callouts ── */
 .note{border:2px solid var(--line);border-radius:var(--r-card);padding:14px 17px;margin:18px 0;background:var(--surface);max-width:70ch}
 .note .lbl{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
@@ -553,15 +582,31 @@ function renderBlock(b, stageId){
     case 'mount':return '<div data-widget="' + esc(v) + '"></div>';
     case 'roster':return '<div data-roster="' + esc(v) + '"></div>';
 
-    case 'do': return '<ul class="checks">' + v.map(item => {
+    /* The route and the checklist are the same list: an ordered walk, ticked as
+       you go.  Items carrying `at` open a new leg; the rest continue the last one. */
+    case 'do': {
+      const isRoute = v.some(x => typeof x === 'object' && x.at);
+      let leg = null, step = 0, legIdx = 0, out = '';
+      v.forEach(item => {
         const t = typeof item === 'string' ? item : item.t;
         const sub = (typeof item === 'object' && item.sub) ? '<span class="sub">' + item.sub + '</span>' : '';
+        const at = (typeof item === 'object' && item.at) || null;
+        if (at && at !== leg){
+          leg = at; legIdx++;
+          out += '<li class="leg" data-leg="' + legIdx + '"><span class="legn">' + legIdx +
+                 '</span><span class="legname">' + at + '</span></li>';
+        }
+        step++;
         const id = key(stageId, t);
         const on = !!DONE[id];
-        return '<li class="doneRow' + (on ? ' isdone' : '') + '" data-k="' + id + '">' +
+        out += '<li class="doneRow' + (on ? ' isdone' : '') + '" data-k="' + id + '"' +
+          (isRoute ? ' data-inleg="' + legIdx + '"' : '') + '>' +
           '<input type="checkbox" id="' + id + '" data-k="' + id + '"' + (on ? ' checked' : '') + '>' +
+          (isRoute ? '<span class="stepn">' + step + '</span>' : '') +
           '<label for="' + id + '">' + t + sub + '</label></li>';
-      }).join('') + '</ul>';
+      });
+      return '<ul class="checks' + (isRoute ? ' route' : '') + '">' + out + '</ul>';
+    }
 
     case 'catch': return '<div class="grid">' + v.map(c =>
         '<div class="card' + (monSrc(c.n) ? ' hasart' : '') + '">' +
@@ -715,6 +760,14 @@ let HIDE = false;
 function applyHideDone(){
   document.querySelectorAll('.doneRow').forEach(li => {
     li.classList.toggle('hidden', HIDE && li.classList.contains('isdone'));
+  });
+  /* a route leg with nothing left to do in it goes too, or the heading floats alone */
+  document.querySelectorAll('.checks.route .leg').forEach(leg => {
+    const n = leg.dataset.leg;
+    const rows = leg.closest('.checks').querySelectorAll('.doneRow[data-inleg="' + n + '"]');
+    let live = 0;
+    rows.forEach(r => { if (!r.classList.contains('hidden')) live++; });
+    leg.classList.toggle('hidden', rows.length > 0 && live === 0);
   });
 }
 
@@ -1023,14 +1076,6 @@ lede:"Scripted setup with one real decision in it. Everything else here is a fiv
 band:[{k:"Party level",v:"5 → 9"},{k:"Badges",v:"0"},{k:"New HMs",v:"none"}],
 body:[
 ["p","Oak stops you leaving Pallet, drags you to the lab, and lets you pick from three Poké Balls on the table. Your rival takes the starter that beats yours and immediately fights you with it — you cannot lose that battle in any meaningful way, so do not restart if it goes badly."],
-["h","Route order"],
-["ul",[
- "<b>Pallet Town</b> → take your starter, then the Potion from the PC in your bedroom.",
- "<b>Route 1</b> → <b>Viridian City</b>. Collect the free <b>Potion</b> from the Poké Mart clerk — it is a delivery for Oak and it unlocks the Mart's stock.",
- "Run the parcel back to Oak, and he hands you the <b>Pokédex</b> and five <b>Poké Balls</b>. Your rival gets a Pokédex too.",
- "<b>Route 22</b>, west of Viridian → your rival fights you again at the league gate. Two Pokémon, both level 9. Beat him, then <b>catch a Mankey here</b> before you leave — it is 45% of this grass and it is the only one you will see for a long time.",
- "<b>Route 2</b> → north into <b>Viridian Forest</b>."
-]],
 ["team","<b>Detour onto Route 22 before Viridian Forest.</b> Route 22 is the only place you will find a <b>Mankey</b> before Rock Tunnel, and it is 45% of the grass here. Fighting is the type LeafGreen gives you least of, and Mankey is the body that carries a Charmander run through Brock."],
 ["ver","Route 22's grass is <b>Rattata (45%), Mankey (45%) and Spearow (10%)</b> — and nothing else. There is no Nidoran here in either version; that is a Red and Blue encounter table. LeafGreen's Nidoran line starts on <b>Route 3</b>, which is the next stage."],
 ["h","Worth catching now"],
@@ -1041,12 +1086,16 @@ body:[
  {n:"Spearow", t:["Normal","Flying"], where:"Route 22 (10%), then Route 3 (35%)", why:"Dex entry, and the Vermilion in-game trade wants one for a Farfetch'd. Fearow is the better bird statistically but Pidgeot gets Fly earlier and is easier to raise."}
 ]],
 ["do",[
- "Choose your starter and set the toolbar selector to match.",
- "Deliver Oak's Parcel and take the Pokédex and five Poké Balls.",
- {t:"Detour west onto Route 22 and beat your rival there.", sub:"Two Pokémon at level 9 — Pidgey plus his starter."},
- "Catch a Mankey on Route 22.",
- "Catch a Pidgey for the Fly slot.",
- {t:"Buy Poké Balls in Viridian before heading north.", sub:"Ten is not too many — you are about to start counting species for Oak's aides."}
+ {at:"Pallet Town", t:"Choose your starter from Oak's table, then set the <b>starter selector</b> in the toolbar to match.", sub:"Every party board and move table in this guide re-plans itself around that choice."},
+ {t:"Take the Potion from the PC in your bedroom before you leave."},
+ {at:"Route 1", t:"Catch a <b>Pidgey</b> on the way north.", sub:"Your Fly carrier for the rest of the game, and a slow one — Pidgeotto at 18, Pidgeot at 36. Start it now."},
+ {t:"Catch a Rattata as well.", sub:"Hyper Fang at 13 is 80 power, more than anything else you will own until Vermilion."},
+ {at:"Viridian City", t:"Take the free Potion from the Poké Mart clerk, and the <b>Oak's Parcel</b> he hands you with it."},
+ {at:"Pallet Town", t:"Walk the Parcel back to Oak for the <b>Pokédex</b> and five Poké Balls.", sub:"The game forces this trip back down Route 1. There is no way to shorten it, so catch on the way."},
+ {at:"Viridian City", t:"Buy ten Poké Balls before you go anywhere else.", sub:"Oak's aides pay out in items for species caught, and the count starts now."},
+ {at:"Route 22", t:"Go <b>west</b> out of Viridian, not north — your rival is at the league gate.", sub:"Two Pokémon at level 9: a Pidgey, plus the starter that beats yours."},
+ {t:"Catch a <b>Mankey</b> here before you leave.", sub:"45% of this grass, and the last one you will see until Rock Tunnel. There is no Nidoran on Route 22 in either version."},
+ {at:"Route 2", t:"Now head north out of Viridian, into the forest."}
 ]]
 ]});
 
@@ -1086,11 +1135,12 @@ plan:[
 reward:"TM39 Rock Tomb, the Boulder Badge, a permanent <b>Attack</b> boost to every Pokémon you own, and the ability to use Flash in the field."
 }],
 ["do",[
- "Search Viridian Forest for a Pikachu.",
- "Pick up both Poké Balls and the Antidote in the forest grass.",
- {t:"Note the Old Amber in the Pewter Museum for a Cut return trip.", sub:"It becomes Aerodactyl at the Cinnabar Lab, much later."},
- "Beat Brock.",
- "Collect the Running Shoes from Oak's aide on the east side of Pewter."
+ {at:"Viridian Forest", t:"Work the grass for a <b>Pikachu</b> before you leave.", sub:"Roughly 5%, and by far the easiest place in the game to find one. It beats Misty outright and nothing else will until the Power Plant."},
+ {t:"Pick up both Poké Balls and the Antidote on the way through."},
+ {at:"Pewter City", t:"Look at the <b>Old Amber</b> in the Museum of Science, then leave it there.", sub:"It is in the employee area behind a Cut tree on the north-east hill. You come back for it in stage 5; it becomes Aerodactyl at the Cinnabar Lab."},
+ {at:"Pewter Gym", t:"Beat <b>Brock</b>.", sub:"TM39 Rock Tomb, the Boulder Badge, a permanent +10% Attack on everything you own, and Flash usable in the field."},
+ {at:"Pewter City", t:"Collect the <b>Running Shoes</b> from Oak's aide on the east side of town.", sub:"He only appears after Brock. Hold B to run."},
+ {at:"Route 3", t:"Head east towards Mt. Moon."}
 ]]
 ]});
 
@@ -1127,13 +1177,18 @@ body:[
 ]],
 ["tip","The salesman on Route 4 sells a <b>Magikarp for ₽500</b>. Skip it. Gyarados is a 125-Attack Pokémon whose Water STAB runs off its 60 Special Attack — in Gen 3 it is a Normal-move attacker, and ₽500 is most of your money right now. Fish one later with the Super Rod for the dex."],
 ["do",[
- "Catch a Sandshrew for the HM mule slot.",
- {t:"Take both Moon Stones.", sub:"One is in plain sight in the 1F north-west corner; the other is hidden on a rock on B2F, south-east of the stairway by the fossils."},
- {t:"Take the Dome Fossil.", sub:"Kabutops. The other one is gone for good."},
- "Pick up TM46 Thief and TM09 Bullet Seed.",
- {t:"Catch a Nidoran♀ on Route 3.", sub:"14% of the grass. This is LeafGreen's common Nidoran — the male is a 1% rarity here."},
- {t:"Hold the Moon Stone until Nidorina has learned Bite at 22.", sub:"Nidoqueen learns almost nothing by level-up, so evolve late."},
- "Decline the Magikarp salesman."
+ {at:"Route 3", t:"Catch a <b>Nidoran♀</b> — 14% of this grass.", sub:"The catch of the early game. In LeafGreen the female is the common one and the male is a 1% rarity, so this is the line you build. Do not evolve past Nidorina until it has Bite at 22."},
+ {t:"Catch a Jigglypuff and a Spearow while you pass.", sub:"Both are dex count, and a spare Spearow is what the Vermilion trade wants for Farfetch'd."},
+ {t:"Clear the trainer line on the way through.", sub:"You come back along it with the Vs. Seeker — it is a good early rematch loop."},
+ {at:"Mt. Moon Pokémon Center", t:"Heal, and <b>refuse the Magikarp salesman's ₽500</b>.", sub:"Gyarados runs Water moves off 60 Special Attack in Gen 3. Fish one for nothing later with the Super Rod."},
+ {at:"Mt. Moon 1F", t:"Take <b>TM09 Bullet Seed</b> from the chamber west of the entrance."},
+ {t:"Take the <b>Moon Stone</b> in the north-west corner.", sub:"In plain sight. This is the one that becomes your Nidoqueen."},
+ {at:"Mt. Moon B2F", t:"Take <b>TM46 Thief</b> in the north-east, down the second ladder on 1F.", sub:"This is how you take a Lucky Egg off a wild Chansey much later."},
+ {t:"Take the second <b>Moon Stone</b> — hidden, on a rock south-east of the stairway by the fossils.", sub:"No Itemfinder needed when you know the tile, and you do. This one is Clefable's or Wigglytuff's."},
+ {t:"Beat the Super Nerd and take the <b>Dome Fossil</b>.", sub:"Kabutops. Irreversible — the Helix Fossil is gone for this save file the moment you choose."},
+ {at:"Route 4", t:"Catch a <b>Sandshrew</b> in the grass outside the cave — 25%.", sub:"LeafGreen-exclusive, and it is <i>not</i> inside Mt. Moon. Sandslash carries Cut, Strength, Rock Smash and Flash on one body."},
+ {t:"Take <b>TM05 Roar</b> from the second level of the eastern hill."},
+ {at:"Cerulean City", t:"Carry on east into town."}
 ]]
 ]});
 
@@ -1181,14 +1236,15 @@ reward:"TM03 Water Pulse, the Cascade Badge, the ability to use Cut in the field
 ]],
 ["warn","Your rival ambushes you <b>north of Cerulean, on the way out of the Sea Cottage path</b>, with four Pokémon around level 15–18 including an Abra that only knows Teleport. He is not hard, but he is unavoidable — heal before you leave Bill's house."],
 ["do",[
- "Clear Nugget Bridge and take the Nugget.",
- "Collect TM45 Attract and TM43 Secret Power.",
- "Meet Bill and take the S.S. Ticket.",
- "Beat the Rocket in the Cerulean house for TM28 Dig.",
- "Beat your rival on Route 24.",
- "Catch an Abra — throw the ball on turn one before it Teleports.",
- "Beat Misty.",
- "Teach Cut to your mule and go back for the Old Amber in the Pewter Museum."
+ {at:"Cerulean City", t:"Beat your rival at the north exit before you go near the gym.", sub:"Rival battle 3: Pidgeotto 19, Raticate 16, Kadabra 18 and his starter at 20."},
+ {at:"Route 24", t:"Clear <b>Nugget Bridge</b> — five trainers back to back — and take the <b>Nugget</b> at the far end.", sub:"₽5,000, and the five fights put your party exactly where Misty needs it. Refuse the Rocket recruiter waiting after them."},
+ {t:"Take <b>TM45 Attract</b> from the north-west hill."},
+ {t:"Catch an <b>Abra</b> here or on Route 25 — 15%.", sub:"Throw on turn one; it Teleports away otherwise. Kadabra's 120 Sp. Atk walks through Koga later."},
+ {at:"Route 25", t:"Take <b>TM43 Secret Power</b> from the north-east of the maze.", sub:"Behind Camper Flint, or a Cut tree once you have Cut."},
+ {t:"Reach the <b>Sea Cottage</b> at the end and rescue Bill for the <b>S.S. Ticket</b>."},
+ {at:"Cerulean City", t:"The police officer has gone — go into the burgled house, out through the hole in the wall, and beat the Rocket for <b>TM28 Dig</b>.", sub:"<b>This is why Bill comes first.</b> The house is sealed until you get back from the Sea Cottage; there is no way to do it earlier."},
+ {at:"Cerulean Gym", t:"Beat <b>Misty</b>.", sub:"TM03 Water Pulse, the Cascade Badge, Cut usable in the field, and traded Pokémon obey up to level 30."},
+ {at:"Route 5", t:"Head south and take the <b>Underground Path</b> rather than arguing with the Saffron gate guards.", sub:"The girl in the north gate trades a <b>Nidoran♂</b> for your Nidoran♀ — a 1% species handed over for a common one, and it arrives holding a TinyMushroom."}
 ]]
 ]});
 
@@ -1237,14 +1293,20 @@ plan:[
 reward:"TM34 Shock Wave, the Thunder Badge, a permanent <b>Speed</b> boost, and the ability to use Fly in the field."
 }],
 ["do",[
- {t:"Collect the Vs. Seeker from the Vermilion Pokémon Center.", sub:"The single most time-saving item in the game."},
- "Sweep the S.S. Anne completely — TM31, TM44 and every cabin item.",
- "Take HM01 Cut from the Captain and teach it before leaving the ship.",
- "Beat your rival on the S.S. Anne.",
- "Beat Lt. Surge with a Ground type.",
- "Fly or walk back to Pewter and Cut open the Old Amber in the museum.",
- {t:"Collect the Itemfinder from the Route 11 gate at 30 species.", sub:"Then go back for the hidden Moon Stone on Mt. Moon B2F, by the fossil chamber."},
- "Evolve Nidorina with a Moon Stone once it has learned Bite at 22."
+ {at:"Vermilion City", t:"Collect the <b>Vs. Seeker</b> from the Ace Trainer at the Pokémon Center counter.", sub:"The most time-saving item in the game. It recharges over about a hundred steps and replaces grinding outright."},
+ {t:"Take the <b>Bike Voucher</b> from the Chairman at the Pokémon Fan Club.", sub:"Easy to walk straight past, and the Bicycle is the only way onto the Cycling Road in stage 9."},
+ {t:"Trade a spare <b>Spearow</b> for <b>Farfetch'd</b>.", sub:"Only source in the game, and it arrives holding a Stick."},
+ {at:"S.S. Anne", t:"Sweep the whole ship <i>before</i> you talk to the Captain.", sub:"It sails the moment you step off and everything on board goes with it. TM31 Brick Break and TM44 Rest are both in the second cabin from the left."},
+ {t:"Beat your rival on the second floor."},
+ {t:"Cure the Captain's seasickness for <b>HM01 Cut</b>, and teach it to Sandshrew before you disembark."},
+ {at:"Vermilion Gym", t:"Cut the tree outside, solve the two hidden bin switches and beat <b>Lt. Surge</b>.", sub:"The switches are randomised each attempt and the second is always next to the first — check the neighbouring bin before wandering off."},
+ {at:"Route 11", t:"Collect the <b>Itemfinder</b> from Oak's aide in the gate at 30 species.", sub:"You want it for the hidden Macho Brace in the Viridian Gym and the hidden items on Treasure Beach."},
+ {t:"Catch a Sandshrew here if you missed Route 4 — 40%, the densest patch in the game.", sub:"Drowzee is here too, and its Hypnosis is a spare legendary-catching tool."},
+ {at:"Diglett's Cave", t:"Cut west through the cave instead of walking back round.", sub:"It runs the whole width of the region and drops you beside the Route 2 east gate. Dugtrio at 26 is a free 120-Speed Ground type."},
+ {at:"Route 2 east gate", t:"Collect <b>HM05 Flash</b> from Oak's aide at 10 species and teach it to Sandshrew.", sub:"Rock Tunnel is unnavigable without it, and Cerulean Cave needs it again in the post-game."},
+ {at:"Pewter Museum", t:"Cut the small tree on the north-east hill and take the <b>Old Amber</b> from the Scientist inside.", sub:"You are one screen from the gate. <b>This is the whole reason the trip goes through Diglett's Cave</b> — you cannot Fly yet, and HM02 does not turn up until Route 16 in stage 9."},
+ {at:"Cerulean City", t:"Walk back east through Mt. Moon and swap the Bike Voucher for the <b>Bicycle</b> at the Bike Shop.", sub:"Same road you need for Route 9 anyway, so it costs you nothing extra."},
+ {t:"Evolve Nidorina with a Moon Stone once it has learned <b>Bite at 22</b>.", sub:"Nidoqueen learns almost nothing by level-up, so late is right."}
 ]]
 ]});
 
@@ -1271,13 +1333,16 @@ body:[
 ["p","The Pokémon Tower is full of Ghost-type Gastly and Haunter and one <b>Marowak you cannot damage</b> — every attack misses and every ball fails until you have the <b>Silph Scope</b>, which is in the Celadon Rocket Hideout. Walk in, take the items you can reach, and come back after Celadon. Your rival fights you on the entrance floor."],
 ["tip","<b>Ghost is a physical type in Gen 3</b>, and Gastly has 35 Attack. The wild Ghosts in this tower are almost entirely harmless in terms of damage — what they do is Hypnosis, Confuse Ray and Night Shade, which deals damage equal to their level regardless of type. Bring Awakenings, not resistances."],
 ["do",[
- {t:"Collect HM05 Flash from the Route 2 east gate.", sub:"Requires 10 species caught. Teach it to the Sandshrew mule."},
- "Take TM40 Aerial Ace on Route 9 and put it on Pidgeotto.",
- "Collect the Everstone from the Route 10 Pokémon Center at 20 species.",
- "Cross Rock Tunnel and catch a Machop.",
- "Beat your rival at the Pokémon Tower entrance.",
- {t:"Note the Marowak on Pokémon Tower 6F.", sub:"You cannot touch it without the Silph Scope from the Celadon Rocket Hideout."},
- "Continue west through Route 8 to Celadon."
+ {at:"Cerulean City", t:"Cut the small tree on the east side of town to open the road."},
+ {at:"Route 9", t:"Take <b>TM40 Aerial Ace</b> from the south-west corner and put it on Pidgeotto.", sub:"60 power and it cannot miss — it ignores every Sand-Attack and Double Team in the game, which is most of what Blue does."},
+ {at:"Route 10", t:"Collect the <b>Everstone</b> from Oak's aide in the Pokémon Center at 20 species."},
+ {t:"Note the Power Plant across the water and leave it.", sub:"It needs Surf. You come back for Zapdos in stage 19."},
+ {at:"Rock Tunnel", t:"Use Flash and cross both floors.", sub:"A long line of Hikers and Pokémaniacs and nothing worth a detour. Do not enter without Flash."},
+ {t:"Catch a <b>Machop</b> inside — 15%.", sub:"Machoke at 28 has 100 Attack, and Kanto hands you almost no other Fighting body before the Saffron Dojo."},
+ {at:"Lavender Town", t:"Beat your rival at the Pokémon Tower entrance."},
+ {t:"Climb the tower until the ghost Marowak stops you, then turn around.", sub:"You cannot touch it without the Silph Scope, which is at the bottom of the Rocket Hideout in Celadon. You come back in stage 8."},
+ {at:"Route 8", t:"Head west, then drop into the <b>Underground Path</b> beneath Saffron.", sub:"The Saffron gate guards want a drink you cannot buy yet. The tunnel goes under them and comes out on Route 7."},
+ {at:"Route 7", t:"Catch a <b>Vulpix</b> on the way into Celadon — 10% here, 20% back on Route 8.", sub:"LeafGreen-exclusive, and Fire is 2× on all three of Erika's Pokémon."}
 ]]
 ]});
 
@@ -1351,16 +1416,16 @@ reward:"TM19 Giga Drain, the Rainbow Badge, and the ability to use Strength in t
 ]],
 ["ver","<b>Erika's own team is a LeafGreen tell.</b> She fields <b>Victreebel</b> and <b>Vileplume</b> in both versions, but only one of those lines is catchable on your cartridge — Bellsprout, Weepinbell and Victreebel are LeafGreen's; Oddish, Gloom, Vileplume and Bellossom are FireRed's. If you want all seven for the National Dex, that is a trade."],
 ["do",[
- "Buy the Coin Case from the man in the Celadon restaurant.",
- {t:"Buy 12,000 Game Corner coins and take Ice Beam, Thunderbolt and Flamethrower.", sub:"Ice Beam first if money is tight."},
- "Buy a Fresh Water, Soda Pop and Lemonade and trade them to the girl on the department store roof for three TMs.",
- "Catch a Vulpix on Route 7 or 8.",
- {t:"Take the free Eevee from the mansion behind the Pokémon Center.", sub:"Enter by the back door and climb to the top floor. Leave a party slot free."},
- "Buy the Fire Stone on department store 4F.",
- "Clear the Rocket Hideout and beat Giovanni.",
- "Take the Silph Scope from B4F.",
- "Beat Erika.",
- "Teach Strength to Snorlax or the mule."
+ {at:"Celadon Mansion", t:"Deposit someone, then take the free <b>Eevee</b> from the top floor.", sub:"Behind the Pokémon Center, in through the back door. It is a gift, so the game checks for a free party slot first — carrying six means it simply will not hand it over."},
+ {t:"Take the <b>Tea</b> from the old woman on 1F.", sub:"This is what gets you past the Saffron gate guards in stage 10. Do not skip it."},
+ {at:"Celadon Dept. Store", t:"Buy a Fresh Water, a Soda Pop and a Lemonade on the roof and give one of each to the girl there.", sub:"TM16 Light Screen, TM20 Safeguard and TM33 Reflect, in that order — three TMs for about ₽900."},
+ {t:"Buy the <b>Fire Stone</b> on 4F for ₽2,100, and hold it.", sub:"Ninetales learns nothing at all after evolving, so wait for Vulpix's Flamethrower at 29 before you use it."},
+ {at:"Celadon City", t:"Buy the <b>Coin Case</b> from the man in the restaurant on the south side."},
+ {at:"Celadon Gym", t:"Cut the tree inside and beat <b>Erika</b>.", sub:"TM19 Giga Drain, the Rainbow Badge, and Strength usable in the field. Sleep Powder is the whole fight — carry Awakenings."},
+ {at:"Game Corner", t:"Buy 12,000 coins for ₽240,000 and take <b>TM13 Ice Beam</b>, <b>TM24 Thunderbolt</b> and <b>TM35 Flamethrower</b>.", sub:"Ice Beam first if money is short. Buying coins outright is far faster than playing the slots, and these three TMs are worth more than ten levels each."},
+ {t:"Buy the <b>Pinsir</b> at 2,500 coins and the <b>Porygon</b> at 6,500 while you are at the counter.", sub:"Both are dex-only sources and both are cheaper in LeafGreen than in FireRed. Abra at 120 and Clefairy at 750 are worth grabbing too."},
+ {at:"Rocket Hideout", t:"Hit the switch behind the poster at the back of the arcade and go down.", sub:"Four floors of spinner tiles. TM12 Taunt, TM21 Frustration and TM49 Snatch are all on the way down."},
+ {t:"Beat <b>Giovanni</b> on B4F and take the <b>Silph Scope</b>.", sub:"Kangaskhan's Fake Out flinches you on turn one; lead something that can eat it."}
 ]]
 ]});
 
@@ -1390,14 +1455,15 @@ body:[
 ]],
 ["team","<b>Check your species count at the Route 15 gate.</b> If you are short of 50, spend twenty minutes fishing Routes 12–14 and catching the Bird Keepers' encounters — Krabby, Goldeen, Horsea, Doduo, Venonat and Oddish-equivalents are all right there. The <b>Exp. Share</b> is worth more than the twenty minutes."],
 ["do",[
- "Clear the Pokémon Tower and beat the Marowak.",
- "Free Mr. Fuji and collect the Poké Flute.",
- {t:"Catch the Route 12 Snorlax.", sub:"Save first. Do not knock it out."},
- {t:"Catch the Route 16 Snorlax.", sub:"The second and last one in the game."},
- "Take TM27 Return and put it on Snorlax.",
- "Collect the Amulet Coin from the Route 16 south gate at 40 species.",
- "Collect the Exp. Share from the Route 15 gate at 50 species.",
- "Trade a Spearow for the Vermilion Farfetch'd."
+ {at:"Lavender Town", t:"Go back up the Pokémon Tower with the Silph Scope and beat the ghost <b>Marowak</b>."},
+ {t:"Free Mr. Fuji on 7F and take the <b>Poké Flute</b> from his house."},
+ {at:"Route 12", t:"Wake the <b>Snorlax</b> blocking the road south and catch it.", sub:"<b>Save first.</b> There are exactly two in the game and knocking this one out loses it permanently."},
+ {t:"Take <b>TM27 Return</b> from the girl upstairs in the Lavender gate and put it on Snorlax.", sub:"Up to 102 power at full friendship, and physical — which is what a 110 Attack body wants."},
+ {t:"Take the <b>Super Rod</b> from the Fishing Guru's younger brother, in the house just south of the Route 11 junction.", sub:"The only way to catch a Staryu, and you walk straight past the door on the way down."},
+ {at:"Routes 13 to 15", t:"Work south through all three.", sub:"Dense trainers and the best Vs. Seeker loop in Kanto — this is the stretch you come back to whenever you need levels."},
+ {t:"Cut the tree on the Route 15 northern hill for <b>TM18 Rain Dance</b>."},
+ {at:"Route 15 gate", t:"Collect the <b>Exp. Share</b> from Oak's aide at 50 species.", sub:"There is exactly one in the game. Put it on whichever member is furthest behind and leave it there for the rest of the run."},
+ {at:"Fuchsia City", t:"Carry on into town."}
 ]]
 ]});
 
@@ -1448,13 +1514,20 @@ reward:"TM06 Toxic, the Soul Badge, a permanent <b>Defense</b> boost, and the ab
 ["tip","<b>Fish a Staryu the moment you have the Super Rod</b>, even though it does not join the team until the Seafoam Islands two stages from now. Your party is full, so it goes to the PC by itself — you are just banking it early so the Water Stone is the only thing standing between you and a Starmie."],
 ["tip","The <b>Move Deleter is in Fuchsia City</b>, in the house west of the Poké Mart. He is the only way to remove an HM move in Gen 3 — remember he is here when Cut is clogging a slot on your Venusaur before the Elite Four."],
 ["do",[
- "Sweep the Safari Zone for HM03 Surf, the Gold Teeth, TM11, TM32 and TM47.",
- "Trade the Gold Teeth to Warden Baoba for HM04 Strength.",
- "Teach Surf to Starmie, Lapras or Slowbro.",
- "Hunt a Chansey and Thief its Lucky Egg.",
- "Catch Kangaskhan and Tauros in the Safari Zone.",
- "Beat Koga with a Psychic type.",
- {t:"Go back for every Surf-locked item you have passed.", sub:"Routes 12–13 fishing spots, the Power Plant approach, and the Cerulean Cave entrance for later."}
+ {at:"Fuchsia City", t:"Take the <b>Good Rod</b> from the Fishing Guru's brother in the south-easternmost house."},
+ {t:"Talk to Warden Baoba in the south-east house — he has lost his <b>Gold Teeth</b>.", sub:"Nothing happens until you find them, and they are in Safari Zone Area 3."},
+ {at:"Fuchsia Gym", t:"Beat <b>Koga</b> with a Psychic type.", sub:"TM06 Toxic, the Soul Badge, +10% Defense and Surf usable in the field. Psychic is 2× on all four; Earthquake is dead on three of them, which all have Levitate."},
+ {at:"Safari Zone", t:"Plan each entry — you get <b>500 steps</b> and cannot battle.", sub:"Two or three visits is normal. Decide what you are collecting before you walk in."},
+ {t:"Area 1 — <b>TM11 Sunny Day</b>, and a <b>Leaf Stone</b> on the southern rocky ridge.", sub:"That Leaf Stone is your free Victreebel."},
+ {t:"Area 2 — <b>TM47 Steel Wing</b>, a Quick Claw and a Protein."},
+ {t:"Area 3 — the <b>Gold Teeth</b>, <b>TM32 Double Team</b>, and <b>HM03 Surf</b> inside the Secret House."},
+ {t:"Catch Kangaskhan, Tauros, Chansey and Pinsir while you are in there.", sub:"All Safari-only. A wild Chansey holds a <b>Lucky Egg</b> 5% of the time — bring TM46 Thief."},
+ {at:"Fuchsia City", t:"Trade the Gold Teeth to Warden Baoba for <b>HM04 Strength</b>.", sub:"Teach Surf and Strength now. Between them they open about half the remaining map."},
+ {at:"Route 18", t:"Trade a <b>Slowbro</b> at the gate for <b>Lickitung</b>.", sub:"LeafGreen-specific — FireRed asks for a Golduck instead. Only source in the game either way, so surf up a spare Slowpoke first."},
+ {at:"Route 17", t:"Ride the <b>Cycling Road</b> north.", sub:"This is what the Bike Voucher was for. The gate will not let you through on foot."},
+ {at:"Route 16", t:"Wake and catch the <b>second Snorlax</b>, then sweep the tile it was on with the Itemfinder.", sub:"The hidden <b>Leftovers</b> only appear once the Snorlax has moved. Wild Snorlax hold a Chesto Berry, not this."},
+ {t:"Cut the tree in the east and take <b>HM02 Fly</b> from the girl in the north-west house.", sub:"<b>The biggest quality-of-life item in the game</b>, and it is entirely possible to reach Fuchsia without ever finding it. Teach it to Pidgeotto the moment you have it."},
+ {t:"Collect the <b>Amulet Coin</b> from Oak's aide in the south gate at 40 species.", sub:"Doubles prize money whenever the holder takes part. Put it on before Silph Co., which is the densest trainer stretch left."}
 ]]
 ]});
 
@@ -1514,13 +1587,15 @@ plan:[
 reward:"TM04 Calm Mind, the Marsh Badge, and the ability to use Rock Smash in the field."
 }],
 ["do",[
- "Give a guard a Fresh Water to open Saffron.",
- "Clear Silph Co. and beat your rival on 7F.",
- "Take the free Lapras from the rescued employee on 7F.",
- "Beat Giovanni on 11F and take the Master Ball.",
- {t:"Take Hitmonlee at the Fighting Dojo.", sub:"You only get one of the two."},
- "Beat Sabrina — kill Mr. Mime before it Baton Passes.",
- "Teach Rock Smash to Nidoqueen or the mule."
+ {at:"Saffron City", t:"Give a gate guard the <b>Tea</b> from the Celadon Mansion and walk in.", sub:"Any of the four gates. Without it there is no way into the city at all."},
+ {t:"Take <b>TM29 Psychic</b> from Mr. Psychic in the south-east house.", sub:"Free, and it saves you 10,000 Game Corner coins elsewhere in the series."},
+ {at:"Silph Co.", t:"Ride the warp panels up and take everything on the way.", sub:"TM01 Focus Punch, TM08 Bulk Up, TM39 Rock Tomb and TM41 Torment, plus the <b>Card Key</b> on 5F that opens the locked rooms."},
+ {t:"Take the free <b>Lapras</b> from the rescued employee on 7F.", sub:"A gift, so leave a party slot open. Level 25, and Surf, Ice Beam, Strength and Waterfall all fit on it for the rest of the game."},
+ {t:"Beat your rival on 7F."},
+ {t:"Beat <b>Giovanni</b> on 11F and take the <b>Master Ball</b> from the President.", sub:"<b>Do not spend it here.</b> It is for the roaming beast in the post-game, which two runs out of three can lose permanently."},
+ {at:"Fighting Dojo", t:"Beat the Karate King and take <b>Hitmonlee</b>, not Hitmonchan.", sub:"120 Attack against 105, and it arrives at level 25 already carrying Rolling Kick, Jump Kick, Brick Break and Focus Energy."},
+ {at:"Saffron Gym", t:"Beat <b>Sabrina</b>.", sub:"TM04 Calm Mind, the Marsh Badge, and Rock Smash usable in the field. Kill Mr. Mime before it Baton Passes its Calm Minds into Alakazam."},
+ {t:"Teach <b>Rock Smash</b> to Nidoqueen.", sub:"It is a weak physical Fighting move, but Nidoqueen has the Attack to make the slot worth carrying and the Sevii Islands need it."}
 ]]
 ]});
 
@@ -1557,12 +1632,15 @@ reward:"Articuno — Ice/Flying, 95 Sp. Atk behind 90/100/125 bulk, and a genuin
 }],
 ["tip","Articuno at level 50 with Ice Beam is <b>immediately better than most of your team</b> for the Lance fight — Ice is 4× on Dragonite, which is Dragon/Flying. If you catch it, use it. This is not a trophy."],
 ["do",[
- {t:"Fish a Staryu with the Super Rod at Vermilion, Pallet or Cinnabar.", sub:"Not Routes 19–21 — Staryu is not in that water."},
- {t:"Evolve it with a Water Stone.", sub:"Celadon Dept. Store 4F sells one for ₽2,100, and there are two free ones inside the Seafoam Islands."},
- "Push all four Seafoam boulders into the holes.",
- {t:"Save before entering Articuno's room.", sub:"One chance per save file."},
- "Put Articuno to sleep, chip it to red, and catch it with Ultra Balls.",
- "Continue west along Route 20 to Cinnabar Island."
+ {at:"Vermilion City", t:"Fly here and fish a <b>Staryu</b> with the Super Rod — 40%.", sub:"Pallet, Cinnabar and the S.S. Anne dock work too. It is <i>not</i> in the Routes 19–21 water, whatever the map suggests."},
+ {at:"Celadon City", t:"Buy a <b>Water Stone</b> on department store 4F for ₽2,100.", sub:"There are two free ones inside the Seafoam Islands if you would rather keep the money — but you want Starmie before Articuno, not after."},
+ {t:"Evolve Staryu and overwrite its whole moveset: <b>Surf, Ice Beam, Thunderbolt, Psychic</b>.", sub:"Starmie learns nothing useful by level-up after the stone. Four attacking types, 115 Speed and 100 Sp. Atk on one body."},
+ {at:"Route 19", t:"Surf south out of Fuchsia.", sub:"Swimmers the whole way down and Tentacool on every tile."},
+ {at:"Route 20", t:"Follow the water west to the Seafoam Islands."},
+ {at:"Seafoam Islands", t:"Push all four boulders into the holes to kill the current.", sub:"Two on B1F and two on B2F. Miss one and the B3F current sweeps you back to the start."},
+ {t:"<b>Save</b> before you step into Articuno's room on B4F.", sub:"One encounter per save file."},
+ {t:"Sleep <b>Articuno</b>, chip it into the red and throw Ultra Balls.", sub:"<b>No Rock moves</b> — 4× will kill it outright. Mind Reader into Ice Beam never misses, so do not send in anything frail."},
+ {at:"Route 20 (west)", t:"Carry on west to Cinnabar Island."}
 ]]
 ]});
 
@@ -1609,11 +1687,13 @@ reward:"TM38 Fire Blast, the Volcano Badge, a permanent <b>Sp. Attack and Sp. De
 }],
 ["tip","Blaine's gym is a quiz — answer correctly and you skip the trainer behind each door. Get one wrong and you fight a Burglar. There is no penalty for fighting them and the experience is good, so answering badly on purpose is a legitimate way to level."],
 ["do",[
- {t:"Revive the Dome Fossil and the Old Amber at the Cinnabar Lab.", sub:"Hand them over, leave the room, come back. Both arrive at level 5 — dex entries now, and raising one means a real party slot, not the Exp. Share in the box."},
- "Catch a Grimer or Ditto in the Pokémon Mansion.",
- "Clear the mansion and take the Secret Key, TM14 and TM22.",
- "Beat Blaine with a Water type.",
- {t:"Talk to Bill outside the gym when you leave.", sub:"He takes you to the Sevii Islands — this is main story, not a side trip."}
+ {at:"Cinnabar Lab", t:"Hand the <b>Dome Fossil</b> and the <b>Old Amber</b> to the scientist in the Testing Room, walk out, and come back.", sub:"Both revive at level 5, and both are handed to you in person — keep a party slot free for each. Kabutops and Aerodactyl."},
+ {t:"Trade a Venonat for <b>Tangela</b> in the Meeting Room.", sub:"The Raichu and Ponyta trades here are skippable; this one saves you a hunt."},
+ {at:"Pokémon Mansion", t:"Work the statue switches down to B1F and take the <b>Secret Key</b>.", sub:"The gym is locked until you have it, and the switch order is the whole puzzle."},
+ {t:"Take <b>TM14 Blizzard</b> and <b>TM22 SolarBeam</b> on B1F, and the hidden <b>Moon Stone</b> on 1F."},
+ {t:"Catch a <b>Ditto</b> here — 10% on B1F.", sub:"Grimer too, if you want the Muk entry. Vulpix is on every floor at 15%."},
+ {at:"Cinnabar Gym", t:"Answer the quiz doors and beat <b>Blaine</b> with a Water type.", sub:"TM38 Fire Blast, the Volcano Badge, +10% to both special stats, and Waterfall usable in the field. All four of his Pokémon are pure Fire — Surf sweeps the gym."},
+ {at:"Cinnabar Island", t:"Talk to <b>Bill</b> outside the gym on your way out.", sub:"He takes you to the Sevii Islands. This is main story, not a side trip — the Viridian Gym stays shut until you come back."}
 ]]
 ]});
 
@@ -1658,12 +1738,13 @@ reward:"Moltres — Fire/Flying, 125 Sp. Atk. A strong Elite Four body against B
  {n:"Magmar", t:["Fire"], lg:true, where:"Mt. Ember surface — 5%", why:"<b>LeafGreen-exclusive.</b> This is the only place Magmar lives — not the Pokémon Mansion. 100 Sp. Atk at around level 38, so it is a ready-made Elite Four body if your Fire slot is thin."}
 ]],
 ["do",[
- {t:"Prepare before boarding — the PC is offline for the whole first visit.", sub:"Bring your six, your HM carriers and 20+ Ultra Balls."},
- "Take the Tri-Pass and the Meteorite from Celio and Bill.",
- "Sweep Treasure Beach with the Itemfinder.",
- "Collect HM06 Rock Smash from the old man at Ember Spa.",
- "Beat the two Rockets on Mt. Ember and Strength the boulders aside.",
- {t:"Save, then catch Moltres.", sub:"No Rock moves — they are 4× and will kill it."}
+ {at:"Before you sail", t:"Stock up — <b>the PC is offline for the whole first visit</b>.", sub:"Bring the six you actually want, every HM carrier among them, 20+ Ultra Balls and a full bag of healing. You cannot swap a Pokémon until Celio fixes the network."},
+ {at:"One Island", t:"Take the <b>Tri-Pass</b> from Celio and the <b>Meteorite</b> from Bill at the Pokémon Network Center."},
+ {at:"Treasure Beach", t:"Sweep the sand south of town with the Itemfinder.", sub:"Hidden Stardust, Pearls and a Big Pearl, and they respawn — worth a pass whenever you are back."},
+ {at:"Kindle Road", t:"Work north, and take <b>HM06 Rock Smash</b> from the old man at <b>Ember Spa</b>.", sub:"The only Rock Smash in the game. The two waterfalls there also heal your party in full, which is the only free heal on the island."},
+ {at:"Mt. Ember", t:"Catch a <b>Magmar</b> on the exterior — 5%.", sub:"LeafGreen-exclusive, and the mountain is its <i>only</i> home in this game. Not the Pokémon Mansion."},
+ {t:"Beat the two Rockets near the summit and Strength the boulders out of the path."},
+ {t:"<b>Save</b>, then catch <b>Moltres</b> at the summit.", sub:"No Rock moves — 4×. Endure leaves it on 1 HP, which works in your favour rather than its own."}
 ]]
 ]});
 
@@ -1697,15 +1778,16 @@ body:[
  {n:"Marill", t:["Water"], lg:true, where:"Four Island and Ruin Valley — post-National Dex", why:"<b>LeafGreen-exclusive.</b> Pure <b>Water</b> in Gen 3, not Water/Fairy. Noted here so you know it is coming; Azurill is bred from it at the Four Island Day Care."}
 ]],
 ["do",[
- "Deliver the Meteorite to the Two Island Game Corner owner.",
- {t:"Evolve your starter, then take its ultimate move at Cape Brink.", sub:"Once per save file, original partner only, fully evolved only."},
- "Collect the hidden Rare Candy behind the Move Tutor's house.",
- "Beat the biker gang at Three Isle Port.",
- "Rescue Lostelle from Berry Forest.",
- {t:"Strip Berry Forest for berries.", sub:"Four Aspear for Lorelei, plus Sitrus and Lum."},
- "Collect the Moon Stone from Lostelle's father.",
- "Return to Celio and bring the Network Machine online.",
- "Sail back to Kanto."
+ {at:"Two Island", t:"Deliver the <b>Meteorite</b> to the Game Corner owner.", sub:"He is Lostelle's father, and this is what opens both the Joyful Game Corner and Cape Brink."},
+ {t:"Note the <b>Move Maniac</b> in the house south of the Market Stall.", sub:"He re-teaches any forgotten level-up move for two TinyMushrooms or one Big Mushroom, as often as you like — unlike the fifteen one-shot tutors."},
+ {at:"Cape Brink", t:"Evolve your starter <i>first</i>, then take its <b>ultimate move</b> from the woman here.", sub:"Frenzy Plant, Blast Burn or Hydro Cannon — 150 power, once per save file, fully evolved original partner at maximum friendship only. Turn up unevolved and you have wasted the trip."},
+ {t:"Take the hidden <b>Rare Candy</b> behind her house and the <b>PP Max</b> on the east side of the lake."},
+ {at:"Three Isle Port", t:"Beat the biker gang blocking the path north."},
+ {at:"Three Island", t:"Talk to Lostelle's neighbours, then cross <b>Bond Bridge</b>."},
+ {at:"Berry Forest", t:"Find Lostelle and beat the <b>Hypno</b> that has been frightening her.", sub:"A scripted level-30 encounter — you can catch this one if you want the entry, and Hypnosis is a useful legendary-catching tool."},
+ {t:"Strip the forest for berries before you leave.", sub:"Four <b>Aspear</b> for Lorelei's freezes, plus Sitrus and Lum. This is the best berry patch in the game."},
+ {at:"Two Island", t:"Collect the <b>Moon Stone</b> from Lostelle's father at the Game Corner."},
+ {at:"One Island", t:"Go back to Celio and bring the <b>Network Machine</b> online.", sub:"The PC works again across the islands, and Kanto's last two badges open up."}
 ]]
 ]});
 
@@ -1762,12 +1844,14 @@ plan:[
 reward:"TM26 Earthquake, the Earth Badge, and every traded Pokémon obeys you regardless of level. There is also a <b>hidden Macho Brace</b> on the tile where Giovanni stood — sweep it with the Itemfinder before you leave."
 }],
 ["do",[
- "Surf to the Power Plant and collect TM17, TM25 and the Thunder Stone.",
- "Catch a Magneton.",
- {t:"Save, then catch Zapdos.", sub:"No Rock moves. Sleep it first — asleep it cannot Detect."},
- "Beat Giovanni for the Earth Badge.",
- {t:"Sweep the tile where Giovanni stood with the Itemfinder.", sub:"Hidden Macho Brace."},
- "Take TM26 Earthquake and put it on Nidoqueen."
+ {at:"Route 21", t:"Surf north from Cinnabar to Pallet Town.", sub:"Swimmers and Tentacool the whole way. Nothing here you need, but it is the short way home."},
+ {at:"Route 10", t:"Fly to Cerulean, walk east past Rock Tunnel and Surf across to the <b>Power Plant</b>."},
+ {at:"Power Plant", t:"Take <b>TM17 Protect</b>, <b>TM25 Thunder</b> and the <b>Thunder Stone</b> in the north-east corner.", sub:"Half the item balls in here are Voltorb. Save before you start grabbing."},
+ {t:"Catch a <b>Magneton</b>.", sub:"Steel/Electric, and the Power Plant is its only home in this game. Remember Steel resists Ghost and Dark in Gen 3."},
+ {t:"<b>Save</b>, then catch <b>Zapdos</b>.", sub:"No Rock moves. Put it to sleep first — asleep it cannot Detect, and Detect is the entire problem with this fight."},
+ {at:"Viridian Gym", t:"Beat <b>Giovanni</b> for the <b>Earth Badge</b>.", sub:"Every traded Pokémon now obeys you at any level. Do not lead an Electric type — both Rhyhorn have Lightningrod and draw it."},
+ {t:"Sweep the tile Giovanni was standing on with the Itemfinder.", sub:"A hidden <b>Macho Brace</b>, and nothing tells you it is there."},
+ {t:"Put <b>TM26 Earthquake</b> on Nidoqueen.", sub:"100 power physical Ground on an 82 Attack body. This is what it has been waiting for since Mt. Moon."}
 ]]
 ]});
 
@@ -1815,13 +1899,15 @@ reward:"Nothing but experience — but this is the exact team you fight as Champ
 ]],
 ["team","<b>Get every team member to level 55 before you walk in, and buy 20 Full Restores.</b> The Elite Four is a five-battle gauntlet with no healing between rounds — the Pokémon Center is on the wrong side of the door and you cannot leave. Money is not the constraint by now; item slots are."],
 ["do",[
- "Beat your rival on Route 22.",
- "Clear Victory Road and take TM02, TM07, TM37 and TM50.",
- "Thief a Thick Club off a wild Marowak.",
- {t:"Level every team member to 55 or higher.", sub:"Vs. Seeker loops on Routes 13–15 are the fastest way."},
- {t:"Buy 20 Full Restores, 6 Revives and 4 Full Heals.", sub:"There is no shop and no Center once you start the gauntlet."},
- "Hold an Aspear Berry on your lead for Lorelei's freezes.",
- "Save in front of the Indigo Plateau doors."
+ {at:"Routes 13 to 15", t:"Vs. Seeker the loop until all six are level 55 or better.", sub:"The bird keepers on 14 and 15 pay best, and the loop is short enough that the Seeker recharges as you walk it."},
+ {at:"Fuchsia City", t:"Use the <b>Move Deleter</b> in the house west of the Poké Mart to strip Cut off your starter.", sub:"Go into the League with four attacking moves, not three and a field move. HM moves cannot be overwritten any other way in Gen 3."},
+ {at:"Celadon City", t:"Buy 20 Full Restores, 6 Revives and 4 Full Heals.", sub:"There is no shop and no Pokémon Center once the gauntlet starts. Wear the Amulet Coin on the way in."},
+ {t:"Put an <b>Aspear Berry</b> on your lead.", sub:"Freeze is permanent in Gen 3 and Lorelei is built around it. A held Aspear is the only in-battle answer there is."},
+ {at:"Route 22", t:"Beat your rival one last time, at level 53.", sub:"This is exactly the team you meet as Champion, twelve levels lower. Note what hurt."},
+ {at:"Route 23", t:"Show all eight badges at the checkpoints and Surf north."},
+ {at:"Victory Road", t:"Push the boulders onto the switch plates with Strength and clear all three floors.", sub:"Rock Smash as well. <b>TM02 Dragon Claw</b>, <b>TM07 Hail</b>, <b>TM37 Sandstorm</b> and <b>TM50 Overheat</b> are all in here — the best TM haul in the game."},
+ {t:"Thief a <b>Thick Club</b> off a wild Marowak.", sub:"It doubles Marowak's Attack, and Ground is physical in Gen 3, so the two multiply."},
+ {at:"Indigo Plateau", t:"<b>Save</b> in front of the doors.", sub:"Five battles with no break and no shop between them."}
 ]]
 ]});
 
@@ -1934,13 +2020,13 @@ plan:[
 reward:"The Hall of Fame, the credits, and — after you talk to Oak in Pallet Town — the <b>National Pokédex</b> and the Rainbow Pass to Islands Four through Seven."
 }],
 ["do",[
- "Beat Lorelei — Electric and Grass, and an Aspear Berry ready.",
- "Beat Bruno — Psychic, and do not burn Machamp.",
- "Beat Agatha — Psychic, and do not bother with Earthquake.",
- "Beat Lance — Ice Beam on the Dragons, Thunderbolt on Gyarados.",
- "Beat Champion Blue — kill Alakazam early.",
- "Enter the Hall of Fame.",
- {t:"Fly to Pallet Town and talk to Prof. Oak for the National Pokédex.", sub:"This opens the entire post-game."}
+ {at:"Lorelei", t:"Electric and Grass, and an <b>Aspear Berry</b> already held.", sub:"Thick Fat halves your Fire and Ice on Dewgong, and Water Absorb on Lapras means never using a Water move on it. Her freezes are permanent."},
+ {at:"Bruno", t:"Psychic sweeps four of the five — and <b>do not burn Machamp</b>.", sub:"Guts turns any status condition into +50% Attack. Water or Grass is 4× on both Onix, and Counter on Hitmonchan punishes physical moves."},
+ {at:"Agatha", t:"Psychic again, and leave Earthquake in the bag.", sub:"Levitate on both Gengar and the Haunter. Arbok is the only thing on her team that Ground touches at all."},
+ {at:"Lance", t:"Ice Beam on the Dragons, Thunderbolt on Gyarados.", sub:"Dragonite is 4× to Ice, Gyarados 4× to Electric. Thunder Wave first if you want to move before Dragonite does."},
+ {at:"Champion Blue", t:"Kill Alakazam early.", sub:"Recover plus 120 Speed makes a long fight a losing one. His ace holds a Sitrus Berry, so budget one hit more than the maths says."},
+ {at:"Hall of Fame", t:"Log the team."},
+ {at:"Pallet Town", t:"Fly home and talk to Prof. Oak for the <b>National Pokédex</b>.", sub:"This is what opens the whole post-game: Sevii Islands four to seven, Cerulean Cave, and the roaming beast."}
 ]]
 ]});
 
@@ -1954,14 +2040,6 @@ lede:"Oak upgrades your Pokédex the moment you can show him sixty species. That
 band:[{k:"Party level",v:"60 → 65"},{k:"Needs",v:"60 species caught"},{k:"Unlocks",v:"Rainbow Pass"}],
 body:[
 ["warn","<b>Oak requires 60 species recorded in the Pokédex before he will upgrade it.</b> If you have been catching as this guide asked, you passed 60 somewhere around Fuchsia. If you skipped it, you are now stuck: nothing in the post-game opens until the counter reads 60. Fish, surf and sweep Routes 12–15 and the Safari Zone until it does."],
-["h","The order of operations"],
-["ul",[
- "Enter the Hall of Fame, then <b>fly to Pallet Town</b>. Oak visits, inspects your Pokédex and upgrades it to <b>National Mode</b> at 60 species.",
- "National Mode changes the wild encounter tables — <b>Generation II Pokémon start appearing</b> across the Sevii Islands.",
- "Fly to <b>One Island</b> and talk to Celio. He needs a stone to finish the Network Machine, and it is at the bottom of the <b>Ruby Path</b> inside Mt. Ember.",
- "The Ruby Path is five floors of <b>Strength boulder puzzles</b>. The <b>Ruby</b> is on a pedestal on B5F.",
- "Bring it back to Celio and he hands over the <b>Rainbow Pass</b> — ferry access to all seven islands."
-]],
 ["catch",[
  {n:"Marill", t:["Water"], lg:true, where:"Four Island and Six Island water routes", why:"<b>LeafGreen-exclusive.</b> Pure <b>Water</b> in Gen 3 — not Water/Fairy. Azumarill likewise. Azurill needs breeding."},
  {n:"Sneasel", t:["Dark","Ice"], lg:true, where:"Icefall Cave, Four Island — 5%, so be patient", why:"<b>LeafGreen-exclusive</b> and the <i>only</i> Dark-type Pokémon you can catch in this version. Weavile does not exist in Gen 3 — Sneasel is the ceiling."},
@@ -1969,11 +2047,12 @@ body:[
  {n:"Magby", t:["Fire"], lg:true, where:"<b>Breed a Magmar</b> at the Four Island Day Care", why:"<b>LeafGreen-exclusive</b>, and there is no wild Magby anywhere — the only way to get one is to leave your Mt. Ember Magmar at the Day Care with a Ditto."}
 ]],
 ["do",[
- {t:"Reach 60 species recorded.", sub:"Everything in this chapter is gated behind it."},
- "Fly to Pallet Town and let Oak upgrade the Pokédex to National Mode.",
- "Talk to Celio on One Island.",
- "Clear the Ruby Path inside Mt. Ember and take the Ruby from the B5F pedestal.",
- "Return the Ruby to Celio and take the Rainbow Pass."
+ {at:"Anywhere in Kanto", t:"Get to <b>60 species recorded</b>.", sub:"Oak will not upgrade the Pokédex below that, and every stage in this chapter is behind it. Recorded, not caught — seen counts, so the Elite Four and Blue's team push you a long way on their own."},
+ {at:"Pallet Town", t:"Fly home and let Oak upgrade the Pokédex to <b>National Mode</b>.", sub:"This also rewrites the wild tables — Generation II Pokémon start appearing across the Sevii Islands."},
+ {at:"One Island", t:"Talk to <b>Celio</b> at the Network Center.", sub:"He needs two stones to reach Hoenn. The first is at the bottom of Mt. Ember."},
+ {at:"Mt. Ember", t:"Rock Smash into the <b>Ruby Path</b> on the eastern side and work down to B5F.", sub:"Five floors of breakable rock and Strength boulder puzzles, and two Rocket admins on the way."},
+ {t:"Take the <b>Ruby</b> from the pedestal."},
+ {at:"One Island", t:"Give Celio the Ruby and take the <b>Rainbow Pass</b>.", sub:"Ferry access to all seven islands — Four to Seven open from here."}
 ]]
 ]
 }, {
@@ -2005,11 +2084,14 @@ body:[
  {k:"Item", n:"Ultra Balls", where:"Four and Six Island Marts", why:"Stock 30 before the Mewtwo run."}
 ]],
 ["do",[
- "Clear Icefall Cave and take HM07 Waterfall.",
- "Beat your rival on Four Island.",
- "Leave a breeding pair at the Four Island Day Care for the baby Pokémon dex entries.",
- "Cut the Braille wall in Ruin Valley to open the Dotted Hole.",
- "Descend to Dotted Hole B5F and trigger the Sapphire theft."
+ {at:"Four Island", t:"Beat your rival outside the Pokémon Center."},
+ {t:"Leave a compatible pair at the <b>Day Care</b> — the only one in the game.", sub:"This is the only source of Pichu, Cleffa, Igglybuff, Tyrogue, Elekid, <b>Magby</b>, Smoochum and <b>Azurill</b>. Magby needs your Magmar and Azurill needs a Marill."},
+ {t:"Note the <b>Body Slam</b> tutor here before you spend it.", sub:"Once per save file, like all fifteen. Snorlax already learns Body Slam at 33, so give this one to something that does not."},
+ {at:"Icefall Cave", t:"Catch a <b>Sneasel</b> — 5%, so be patient.", sub:"LeafGreen-exclusive and <b>the only catchable Dark type in the game</b>. Dark is immune to Psychic in Gen 3, which is exactly what makes Mewtwo survivable."},
+ {t:"Take <b>HM07 Waterfall</b> from the southern ledge, reached round through B1F.", sub:"Teach it to Lapras or Starmie — Cerulean Cave is closed without it."},
+ {at:"Six Island", t:"Work the <b>Water Path</b> and the <b>Green Path</b> out of town.", sub:"Pattern Bush and Altering Cave are dex filler, but Marill and Remoraid live out here and nowhere else in the game."},
+ {at:"Ruin Valley", t:"Use <b>Cut</b> in front of the Braille wall to open the <b>Dotted Hole</b>."},
+ {t:"Descend to B5F and take the <b>Sapphire</b> — <b>Gideon</b> steals it as you do.", sub:"Scripted, and nothing is lost. You take it back off him on Five Island."}
 ]]
 ]
 }, {
@@ -2022,7 +2104,7 @@ body:[
 ["ul",[
  "<b>Five Isle Meadow</b>, then the <b>Rocket Warehouse</b> — a spinner-tile maze with a password puzzle. Beat <b>Gideon</b> in the north-east room and take the <b>Sapphire</b> back.",
  "<b>TM36 Sludge Bomb</b> is on a table in the north-central room.",
- "<b>Memorial Pillar</b> — talk to the grieving trainer about his Tectonix and he gives you <b>TM42 Facade</b>.",
+ "<b>Memorial Pillar</b> — leave a <b>Lemonade</b> at the memorial for his Tectonix, then talk to him for <b>TM42 Facade</b>. No Lemonade, no TM.",
  "<b>Water Labyrinth</b> — a woman here trades you a free Pokémon for one at maximum friendship. <b>Make room in your party before you go north</b>; like every gift in this game, she will not hand it over if you are carrying six.",
  "<b>Resort Gorgeous</b> and <b>Lost Cave</b> — a room-to-room maze where taking a wrong exit loops you back to the start. Selphy at the end rewards you for the rescue.",
  "Take the Sapphire to Celio: the Network Machine is fully upgraded and <b>trading with Ruby, Sapphire and Emerald opens</b>."
@@ -2041,13 +2123,16 @@ body:[
  {k:"Key", n:"Tanoby Key", where:"Sevault Canyon, Seven Island", why:"Unlocks all seven Tanoby Chambers."}
 ]],
 ["do",[
- "Clear the Rocket Warehouse and beat Gideon.",
- "Take TM36 Sludge Bomb and TM42 Facade.",
- "Clear Lost Cave and rescue Selphy.",
- "Return the Sapphire to Celio and open Hoenn trading.",
- "Solve the Tanoby Key boulder puzzle.",
- {t:"Open all seven Tanoby Chambers and catch at least one Unown.", sub:"28 forms exist; one fills the dex entry."},
- "Run the Trainer Tower to bring the team to level 70."
+ {at:"Five Isle Meadow", t:"Break into the <b>Rocket Warehouse</b> and cross the spinner-tile maze."},
+ {t:"Take <b>TM36 Sludge Bomb</b> from the table in the north-central room.", sub:"Physical Poison in Gen 3, 90 power. Good on Muk and Nidoqueen, wasted on Venusaur."},
+ {t:"Beat <b>Gideon</b> in the north-east room and take the <b>Sapphire</b> back."},
+ {at:"Memorial Pillar", t:"Leave a <b>Lemonade</b> at the memorial, <i>then</i> talk to Tectonix's trainer for <b>TM42 Facade</b>.", sub:"No Lemonade, no TM — and the only Lemonade machine is on the Celadon department store roof. Buy one before you sail."},
+ {at:"Water Labyrinth", t:"Collect the gift Pokémon from the woman here.", sub:"She swaps it for one at maximum friendship, and she hands it over in person — so make room in your party before you go north."},
+ {at:"Lost Cave", t:"Take the correct exit in each room to reach Selphy at the end.", sub:"One wrong turn loops you back to the start. <b>Misdreavus</b> is in here at 5–20% and nowhere else in the game."},
+ {at:"One Island", t:"Give Celio the Sapphire.", sub:"The Network Machine is fully upgraded: Ruby, Sapphire and Emerald trading opens, and so does Cerulean Cave."},
+ {at:"Sevault Canyon", t:"Take the <b>Tanoby Key</b> from the small cave in the north-west and solve the boulder puzzle inside."},
+ {at:"Tanoby Ruins", t:"Open all seven chambers and catch at least one <b>Unown</b>.", sub:"Twenty-eight forms exist; a single one fills the dex entry."},
+ {at:"Trainer Tower", t:"Run the tower to bring the team towards level 70.", sub:"The fastest experience in the game outside the Elite Four rematch."}
 ]]
 ]
 }, {
@@ -2113,11 +2198,12 @@ reward:"Mewtwo — 154 Sp. Atk, 130 Speed, and comfortably the strongest Pokémo
 ]}],
 ["warn","<b>Kingdra is the wall in the rematch.</b> Water/Dragon in Gen 3 has exactly one weakness — <b>Dragon</b> — and resists Fire, Water and Steel. Your Ice Beam is neutral, not super effective. Bring a Dragon Claw on Aerodactyl or Dragonite, or plan to out-damage it with raw special attack."],
 ["do",[
- "Get the team to level 70.",
- "Clear Cerulean Cave to B2F.",
- {t:"Catch Mewtwo.", sub:"Wait out Safeguard, sleep it, chip past Recover, then throw."},
- "Beat the upgraded Elite Four and Blue.",
- "Log every legendary in the Pokédex."
+ {at:"Anywhere", t:"Get the whole six to <b>level 70</b>.", sub:"Mewtwo is level 70 and the rematch Elite Four run from 63 to 75. The Trainer Tower and the first Elite Four are the two fastest loops."},
+ {at:"Route 24", t:"Surf south from the bridge to reach <b>Cerulean Cave</b>."},
+ {at:"Cerulean Cave", t:"Work down through 1F and 2F to <b>B1F</b>.", sub:"Surf, Waterfall, Flash and Rock Smash are all needed. Three floors only — 1F, 2F, B1F — and Mewtwo is on the lowest."},
+ {t:"Surf south-west to Mewtwo's island and catch it.", sub:"Wait out Safeguard, sleep it, chip past Recover, then throw. It cannot flee, so patience always wins — bring Ethers for the Pressure drain."},
+ {at:"Indigo Plateau", t:"Beat the upgraded Elite Four and Blue.", sub:"Steelix, Piloswine, Crobat, Misdreavus, Kingdra, Heracross and Tyranitar are all new. <b>Kingdra is the wall</b> — Water/Dragon has exactly one weakness in Gen 3 and your Ice Beam is neutral on it."},
+ {t:"Log every legendary in the Pokédex."}
 ]]
 ]
 });
