@@ -856,7 +856,7 @@ body:[
  "<b>Vitamins</b> (Protein, Carbos, HP Up and so on) each add 10 EVs, up to 100 per stat. The Celadon Department Store sells them, and they are the only deliberate EV tool worth using in a main-game run."
 ]],
 ["h","6 · Badges gate your HMs, your obedience — and your stats"],
-["p","LeafGreen is one of the few games where badges still <b>boost your stats directly</b>. Four of the eight give a permanent flat bonus to a stat on every Pokémon you own. This was removed from Gen 4 onward, so it is easy to forget it is here."],
+["p","LeafGreen is one of the few games where badges still <b>boost your stats directly</b>. Four of the eight give every Pokémon you own a permanent <b>+10%</b> to one stat, in every battle except link battles. This was removed from Gen 4 onward, so it is easy to forget it is here."],
 ["table",{cols:["Badge","Leader","Unlocks in the field","Stat boost","Traded Pokémon obey to"],rows:[
  ["Boulder","Brock","Flash","Attack","Lv 10"],
  ["Cascade","Misty","Cut","—","Lv 30"],
@@ -911,7 +911,7 @@ body:[
  ["<b>Starmie</b>","Sp. Attack (100)","Surf, Ice Beam, Thunderbolt, Psychic","—"],
  ["<b>Ninetales</b>","Sp. Attack (81)","Flamethrower, Confuse Ray","Quick Attack, Iron Tail"],
  ["<b>Nidoqueen</b>","Attack (82)","Earthquake, Rock Slide, Strength, Double Kick","Thunderbolt and Ice Beam are legal but run off its 75 Sp. Atk"],
- ["<b>Snorlax</b>","Attack (110)","Body Slam / Return, Strength, Rest, Rock Slide","Blizzard and Flamethrower — special off a 65 Sp. Atk"],
+ ["<b>Snorlax</b>","Attack (110)","Body Slam / Return, Strength, Rest, Headbutt","Blizzard and Flamethrower — special off a 65 Sp. Atk"],
  ["<b>Pidgeot</b>","Attack (80)","Wing Attack / Aerial Ace, Return, Fly","—"]
 ]}],
 ["h","The additions worth making — and the ones to skip"],
@@ -1067,7 +1067,7 @@ body:[
 ["h","Pewter City"],
 ["loot",[
  {k:"Item", n:"Old Amber", where:"Pewter Museum of Science — needs Cut, so come back", why:"Revives into Aerodactyl at the Cinnabar Lab. Note it now; it is the single easiest key item in the game to never collect."},
- {k:"TM39", n:"Rock Tomb", where:"From Brock", why:"Physical Rock. Lowers Speed. Fine on Nidoqueen until Rock Slide."},
+ {k:"TM39", n:"Rock Tomb", where:"From Brock", why:"Physical Rock, 50 power, and it drops the target's Speed a stage. Fine on Nidoqueen until the Rock Tunnel tutor hands over Rock Slide."},
  {k:"Item", n:"Running Shoes", where:"East side of town, from Oak's aide, after you beat Brock", why:"Hold B permanently from here on."}
 ]],
 ["boss",{
@@ -1116,7 +1116,7 @@ body:[
 ["p","At the bottom of Mt. Moon, past the Rocket grunts, a Super Nerd offers you the <b>Dome Fossil</b> or the <b>Helix Fossil</b>. Take one and the other is gone for this save file."],
 ["table",{cols:["Fossil","Becomes","Types","The case"],rows:[
  ["<b>Dome Fossil</b>","Kabuto → Kabutops","Rock / Water","<b>Take this one.</b> Kabutops has 115 Attack and Rock is physical in Gen 3, so it hits with the stat it actually has. It also learns Surf and Cut."],
- ["Helix Fossil","Omanyte → Omastar","Rock / Water","125 Special Attack, but its Rock STAB is physical off a 60 Attack — the classic Gen 3 mismatch. Slower and frailer in practice."]
+ ["Helix Fossil","Omanyte → Omastar","Rock / Water","115 Special Attack behind 125 Defense, but its Rock STAB is physical off a 60 Attack — the classic Gen 3 mismatch. Slower and frailer in practice."]
 ]}],
 ["team","<b>Take the Dome Fossil.</b> Kabutops' Attack matches the damage class of its own STAB; Omastar's does not. If you want both dex entries you will need to trade with a second cartridge — note it and carry on."],
 ["loot",[
@@ -1128,7 +1128,7 @@ body:[
 ["tip","The salesman on Route 4 sells a <b>Magikarp for ₽500</b>. Skip it. Gyarados is a 125-Attack Pokémon whose Water STAB runs off its 60 Special Attack — in Gen 3 it is a Normal-move attacker, and ₽500 is most of your money right now. Fish one later with the Super Rod for the dex."],
 ["do",[
  "Catch a Sandshrew for the HM mule slot.",
- "Sweep Mt. Moon B2F for both hidden Moon Stones.",
+ {t:"Take both Moon Stones.", sub:"One is in plain sight in the 1F north-west corner; the other is hidden on a rock on B2F, south-east of the stairway by the fossils."},
  {t:"Take the Dome Fossil.", sub:"Kabutops. The other one is gone for good."},
  "Pick up TM46 Thief and TM09 Bullet Seed.",
  {t:"Catch a Nidoran♀ on Route 3.", sub:"14% of the grass. This is LeafGreen's common Nidoran — the male is a 1% rarity here."},
@@ -1155,7 +1155,7 @@ body:[
  {n:"Abra", t:["Psychic"], where:"Route 24 and Route 25", why:"Teleports away immediately — throw a ball on turn one, or use a Pokémon with Mean Look. Alakazam needs a trade, but Kadabra alone has 120 Special Attack and cuts through Koga."},
  {n:"Bellsprout", t:["Grass","Poison"], lg:true, where:"Routes 24 and 25", why:"<b>LeafGreen-exclusive</b> — FireRed gets Oddish here instead. Victreebel needs a Leaf Stone. Catch one for the dex even if it never joins the team."},
  {n:"Oddish", t:["Grass","Poison"], where:"Not in LeafGreen — trade only", why:"Listed so you do not waste an evening looking. Oddish, Gloom, Vileplume and Bellossom are all FireRed-exclusive and need a trade."},
- {n:"Psyduck", t:["Water"], where:"Not in LeafGreen — trade only", why:"FireRed-exclusive. LeafGreen's equivalent is Slowpoke, which becomes the standard surfing encounter once you have Surf."}
+ {n:"Psyduck", t:["Water"], where:"Not in LeafGreen — trade only", why:"FireRed-exclusive. LeafGreen's equivalent is Slowpoke, which takes its place on every stretch of <i>fresh</i> water once you have Surf — the sea stays Tentacool in both versions."}
 ]],
 ["boss",{
 name:"Misty", role:"Cerulean City Gym · Water", badge:"Cascade Badge",
@@ -1225,7 +1225,7 @@ name:"Lt. Surge", role:"Vermilion City Gym · Electric", badge:"Thunder Badge",
 team:[
  {m:"Voltorb", l:21, t:["Electric"], note:"Shock Wave, SonicBoom, Screech, Tackle. Soundproof. SonicBoom always deals exactly 20 — it ignores your defences."},
  {m:"Pikachu", l:18, t:["Electric"], note:"Shock Wave, Thunder Wave, Quick Attack, Double Team. Double Team is the annoyance; Shock Wave never misses regardless."},
- {m:"Raichu", l:24, t:["Electric"], note:"Shock Wave, Thunder Wave, Quick Attack, Double Team. 100 Speed and 90 Sp. Atk — this one actually hurts."}
+ {m:"Raichu", l:24, t:["Electric"], note:"Shock Wave, Thunder Wave, Quick Attack, Double Team. 110 Speed and 90 Sp. Atk — this one actually hurts and it outruns your whole party."}
 ],
 plan:[
  "<b>Bring a Ground type and the gym is free.</b> Ground is immune to Electric, so Diglett or your Nidorina takes literally zero from Shock Wave, Thunder Wave and Thunderbolt alike. Dig or Magnitude ends all three.",
@@ -1243,7 +1243,7 @@ reward:"TM34 Shock Wave, the Thunder Badge, a permanent <b>Speed</b> boost, and 
  "Beat your rival on the S.S. Anne.",
  "Beat Lt. Surge with a Ground type.",
  "Fly or walk back to Pewter and Cut open the Old Amber in the museum.",
- {t:"Collect the Itemfinder from the Route 11 gate at 30 species.", sub:"Then go back to Mt. Moon B2F for the two hidden Moon Stones."},
+ {t:"Collect the Itemfinder from the Route 11 gate at 30 species.", sub:"Then go back for the hidden Moon Stone on Mt. Moon B2F, by the fossil chamber."},
  "Evolve Nidorina with a Moon Stone once it has learned Bite at 22."
 ]]
 ]});
@@ -1265,7 +1265,7 @@ body:[
  {n:"Machop", t:["Fighting"], where:"Rock Tunnel", why:"The best Fighting type you can catch in LeafGreen — Machoke has 100 Attack. Machamp needs a trade, but Machoke alone beats Normal walls and both of Bruno's Onix."},
  {n:"Onix", t:["Rock","Ground"], where:"Rock Tunnel", why:"Dex entry. Steelix requires a Metal Coat and a trade, neither of which exists conveniently here."},
  {n:"Cubone", t:["Ground"], where:"Pokémon Tower 3F–7F — about 9%", why:"<b>Not in Rock Tunnel</b> — the tower is the only Kanto source. Cubone and Marowak both hold a <b>Thick Club</b> 5% of the time, and it doubles Marowak's Attack; bring TM46 Thief."},
- {n:"Slowpoke", t:["Water","Psychic"], lg:true, where:"Surf anywhere, once you have it; or walk the Seafoam Islands", why:"<b>LeafGreen-exclusive, and it replaces Psyduck as the universal surfing encounter</b> — every stretch of water in the game turns one up. Slowbro is bulky and learns Surf. Catch a spare: the Route 18 trade wants a Slowbro for a Lickitung."}
+ {n:"Slowpoke", t:["Water","Psychic"], lg:true, where:"Surf on <b>fresh water</b> — 60%", why:"<b>LeafGreen-exclusive, and it replaces Psyduck on inland water.</b> Surf the ponds at Viridian, Celadon, Fuchsia, Routes 6, 22, 23 and 25, or the Safari Zone, and it is the 60% lead encounter. <b>Sea water is Tentacool, not Slowpoke</b> — Routes 12, 19, 20 and 21 give you nothing. It also walks the Seafoam Islands at 40–55%. Catch a spare: the Route 18 trade wants a Slowbro for a Lickitung."}
 ]],
 ["h","Lavender Town"],
 ["p","The Pokémon Tower is full of Ghost-type Gastly and Haunter and one <b>Marowak you cannot damage</b> — every attack misses and every ball fails until you have the <b>Silph Scope</b>, which is in the Celadon Rocket Hideout. Walk in, take the items you can reach, and come back after Celadon. Your rival fights you on the entrance floor."],
@@ -1377,7 +1377,7 @@ body:[
  {n:"Snorlax", t:["Normal"], where:"Route 12 and Route 16 — wake with the Poké Flute", why:"110 Attack, 160 HP, and Body Slam plus Strength plus Rest carries it to the credits. Catch both: one for the team, one for the dex safety net."},
  {n:"Gastly", t:["Ghost","Poison"], where:"Pokémon Tower", why:"Gengar needs a trade, but Haunter's 115 Special Attack is real. Remember Ghost moves are physical in Gen 3 — run it on Psychic and Sludge Bomb instead, or keep it for the dex."},
  {n:"Farfetch'd", t:["Normal","Flying"], where:"In-game trade in Vermilion — a Spearow for a Farfetch'd", why:"Dex entry only, and it is the sole way to get one. Catch a spare Spearow on Route 22 and make the trade."},
- {n:"Slowpoke", t:["Water","Psychic"], lg:true, where:"Route 12 — fishing and surfing", why:"<b>LeafGreen-exclusive.</b> Slowbro at 37 has 110 Defense and learns Surf, Psychic and Ice Beam. A perfectly good alternative to Starmie if you prefer bulk over speed."}
+ {n:"Slowpoke", t:["Water","Psychic"], lg:true, where:"<b>Not here</b> — surf fresh water instead", why:"<b>LeafGreen-exclusive, and Route 12 is the wrong place to look.</b> Route 12 is sea water: surfing gives Tentacool 100% of the time and the Super Rod turns up a Slowpoke 1% of the time. Surf the Fuchsia, Celadon or Viridian ponds, or the Safari Zone water, where it is the 60% encounter. Slowbro at 37 has 110 Defense and learns Surf, Psychic and Ice Beam. A perfectly good alternative to Starmie if you prefer bulk over speed."}
 ]],
 ["loot",[
  {k:"Key", n:"Poké Flute", where:"Lavender Town — Mr. Fuji's house", why:"Wakes both Snorlax and every sleeping Pokémon in battle."},
@@ -1386,7 +1386,7 @@ body:[
  {k:"TM18", n:"Rain Dance", where:"Route 15 — north-west"},
  {k:"Item", n:"Exp. Share", where:"Route 15 gate — Oak's aide, at 50 species", why:"The only one in the game. This is the payoff for catching everything."},
  {k:"Item", n:"Amulet Coin", where:"Route 16 south gate — Oak's aide, at 40 species"},
- {k:"Item", n:"Iron", where:"Route 12 — south of the Snorlax"}
+ {k:"Item", n:"Iron", where:"Route 12 — south-west of the Fishing Guru's house, behind a Cut tree"}
 ]],
 ["team","<b>Check your species count at the Route 15 gate.</b> If you are short of 50, spend twenty minutes fishing Routes 12–14 and catching the Bird Keepers' encounters — Krabby, Goldeen, Horsea, Doduo, Venonat and Oddish-equivalents are all right there. The <b>Exp. Share</b> is worth more than the twenty minutes."],
 ["do",[
@@ -1419,13 +1419,13 @@ body:[
  {k:"TM47", n:"Steel Wing", where:"Safari Zone — south-west of the rest house", why:"Physical Steel on a Flying body. Decent on Pidgeot for the Rock matchups it otherwise loses."},
  {k:"TM06", n:"Toxic", where:"From Koga"},
  {k:"Item", n:"Good Rod", where:"Fuchsia City — the south-easternmost house, from the Fishing Guru's brother"},
- {k:"Item", n:"Super Rod", where:"Route 18 — the Fishing Guru's younger brother", why:"<b>The only way to catch a Staryu.</b> Take it, then fly to Vermilion or Pallet and fish there."}
+ {k:"Item", n:"Super Rod", where:"<b>Route 12</b> — the house south of the Route 11 junction, from the Fishing Guru's younger brother", why:"<b>The only way to catch a Staryu.</b> You walk straight past the door on the way to Lavender. Take it, then fly to Vermilion or Pallet and fish there."}
 ]],
 ["catch",[
  {n:"Chansey", t:["Normal"], where:"Safari Zone — rare", why:"Worth hunting for two reasons: it is a dex entry that is genuinely hard to find later, and roughly one in twenty holds a <b>Lucky Egg</b>. Bring TM46 Thief on a fast Pokémon and steal it before it flees."},
  {n:"Scyther", t:["Bug","Flying"], where:"Not in LeafGreen — trade only", why:"FireRed-exclusive in the Safari Zone. LeafGreen's equivalent is Pinsir, from the Game Corner at 2,500 coins."},
  {n:"Kangaskhan", t:["Normal"], where:"Safari Zone", why:"Dex entry, available in both versions, and only here."},
- {n:"Tauros", t:["Normal"], where:"Safari Zone", why:"110 Attack and 110 Speed. A genuinely strong physical Normal type if Snorlax is too slow for your liking."},
+ {n:"Tauros", t:["Normal"], where:"Safari Zone", why:"100 Attack and 110 Speed. A genuinely strong physical Normal type if Snorlax is too slow for your liking."},
  {n:"Dratini", t:["Dragon"], where:"Safari Zone — Super Rod, or 4,600 Game Corner coins", why:"Dragonite evolves at 55, which is after your first Elite Four run. Catch it for the dex now and raise it for the rematch."}
 ]],
 ["boss",{
@@ -1553,7 +1553,7 @@ plan:[
  "Then Ultra Balls. Twenty to thirty is realistic. It has no escape move, so this is purely a patience exercise.",
  "<b>Do not spend the Master Ball here.</b> Mewtwo needs it more."
 ],
-reward:"Articuno — Ice/Flying, 125 Sp. Atk, and a genuinely usable Elite Four member against Lance."
+reward:"Articuno — Ice/Flying, 95 Sp. Atk behind 90/100/125 bulk, and a genuinely usable Elite Four member against Lance."
 }],
 ["tip","Articuno at level 50 with Ice Beam is <b>immediately better than most of your team</b> for the Lance fight — Ice is 4× on Dragonite, which is Dragon/Flying. If you catch it, use it. This is not a trophy."],
 ["do",[
@@ -1595,7 +1595,7 @@ team:[
  {m:"Growlithe", l:42, t:["Fire"], note:"Fire Blast, Take Down, Bite, Roar. <b>Intimidate</b> — drops your Attack on entry."},
  {m:"Ponyta", l:40, t:["Fire"], note:"Fire Blast, Fire Spin, Stomp, Bounce. Flash Fire. Fire Spin traps and chips."},
  {m:"Rapidash", l:42, t:["Fire"], note:"Fire Blast, Fire Spin, Stomp, Bounce. 105 Speed — it moves first."},
- {m:"Arcanine", l:47, t:["Fire"], note:"Fire Blast, Take Down, Bite, Roar. <b>Intimidate</b>, 110 Attack, 100 Speed. Fire Blast off 80 Sp. Atk will take three-quarters of most of your team."}
+ {m:"Arcanine", l:47, t:["Fire"], note:"Fire Blast, Take Down, Bite, Roar. <b>Intimidate</b>, 110 Attack, 95 Speed. Fire Blast off 100 Sp. Atk will take three-quarters of most of your team."}
 ],
 plan:[
  "<b>Water ends this gym.</b> Every one of the four is pure Fire. Starmie, Lapras, Blastoise or Slowbro sweeps it with Surf alone.",
@@ -1738,7 +1738,7 @@ plan:[
  "<b>Rock is 4×</b> and will kill it. Ice is 2× and also risky at this level. Use something neutral and weak to chip.",
  "<b>Ground does nothing</b> — Zapdos is Electric/<i>Flying</i>, so Earthquake misses it entirely. Nidoqueen is the wrong tool here.",
  "Sleep it. <b>Detect only blocks one turn and fails if used repeatedly</b>, so keep throwing — a sleeping Zapdos cannot Detect at all, which is the whole reason to lead with a sleep move.",
- "Thunder Wave will paralyse your catcher, which does not matter, and Drill Peck is physical Flying at 90 power, which does. Bring something that resists it — Magneton and Nidoqueen both do."
+ "Thunder Wave will paralyse your catcher, which does not matter, and Drill Peck is physical Flying at 80 power, which does. Bring something that resists it — Magneton and Nidoqueen both do."
 ],
 reward:"Zapdos — Electric/Flying, 125 Sp. Atk, 100 Speed. The best of the three birds for the Elite Four."
 }],
@@ -1784,7 +1784,7 @@ name:"Blue", role:"Route 22 · Rival",
 team:[
  {m:"Pidgeot", l:47, t:["Normal","Flying"], note:"Wing Attack, Gust, Quick Attack, FeatherDance. FeatherDance halves your Attack."},
  {m:"Rhyhorn", l:45, t:["Ground","Rock"], note:"Rock Blast, Take Down, Fury Attack, <b>Horn Drill</b> — a one-hit KO move. Lightningrod."},
- {m:"Exeggcute", l:45, t:["Grass","Psychic"], note:"SolarBeam, Sleep Powder, Stun Spore, PoisonPowder."},
+ {m:"Exeggcute", l:45, t:["Grass","Psychic"], note:"SolarBeam, Sleep Powder, Stun Spore, PoisonPowder. <i>Bulbasaur and Charmander runs only — a Squirtle run faces Growlithe in this slot instead.</i>"},
  {m:"Gyarados", l:45, t:["Water","Flying"], note:"Hydro Pump, Twister, Rain Dance, Leer. Intimidate. <i>Only if you chose Bulbasaur or Squirtle.</i>"},
  {m:"Growlithe", l:45, t:["Fire"], note:"Flame Wheel, Take Down, Agility, Leer. Intimidate. <i>Only if you chose Charmander or Squirtle.</i>"},
  {m:"Alakazam", l:47, t:["Psychic"], note:"Psychic, Calm Mind, Future Sight, Disable. Still 135 Sp. Atk."},
@@ -1905,7 +1905,7 @@ plan:[
  "<b>Safeguard on three of his five</b> means Thunder Wave, sleep and burn will all fail for five turns. Plan on out-damaging him rather than statusing him.",
  "<b>Hyper Beam is on all five.</b> It has a recharge turn — when one uses it and you survive, that is your free turn to heal or set up. Learn to bait it.",
  "Outrage locks Dragonair in for 2–3 turns and confuses it afterwards. If you have a Steel type — Magneton — it takes half from Dragon and walls the whole move.",
- "<b>Articuno, if you caught it, is the ideal lead here:</b> Ice STAB, 125 Sp. Atk, and it resists nothing Lance throws except the Dragon moves it takes neutrally."
+ "<b>Articuno, if you caught it, is the ideal lead here:</b> Ice STAB off 95 Sp. Atk, 125 Sp. Def to absorb Hyper Beam, and it resists nothing Lance throws except the Dragon moves it takes neutrally."
 ],
 reward:"Round 4 cleared. One battle left."
 }],
@@ -1915,13 +1915,13 @@ team:[
  {m:"Pidgeot", l:59, t:["Normal","Flying"], note:"Aerial Ace, Whirlwind, Sand-Attack, FeatherDance. <b>Whirlwind ends your setup</b> and Sand-Attack blinds you."},
  {m:"Alakazam", l:57, t:["Psychic"], note:"Psychic, Future Sight, Recover, Reflect. 135 Sp. Atk, 120 Speed, and it heals."},
  {m:"Rhydon", l:59, t:["Ground","Rock"], note:"Earthquake, Rock Tomb, Take Down, Scary Face. Lightningrod. 130 Attack."},
- {m:"Exeggutor", l:59, t:["Grass","Psychic"], note:"Giga Drain, Egg Bomb, Sleep Powder, Light Screen. Chlorophyll."},
- {m:"Gyarados", l:61, t:["Water","Flying"], note:"Hydro Pump, Dragon Rage, Bite, Thrash. Intimidate. <i>Bulbasaur and Squirtle runs only.</i>"},
- {m:"Arcanine", l:59, t:["Fire"], note:"Flamethrower, ExtremeSpeed, Bite, Roar. Intimidate. <i>Charmander and Squirtle runs only.</i>"},
+ {m:"Exeggutor", l:"59 / 61", t:["Grass","Psychic"], note:"Giga Drain, Egg Bomb, Sleep Powder, Light Screen. Chlorophyll. <i>Level 59 on a Bulbasaur run, 61 on a Charmander run — and <b>absent entirely on a Squirtle run</b>, where Arcanine takes the slot.</i>"},
+ {m:"Gyarados", l:"61 / 59", t:["Water","Flying"], note:"Hydro Pump, Dragon Rage, Bite, Thrash. Intimidate. <i>Level 61 on a Bulbasaur run, 59 on a Squirtle run. Absent on a Charmander run.</i>"},
+ {m:"Arcanine", l:"59 / 61", t:["Fire"], note:"Flamethrower, ExtremeSpeed, Bite, Roar. Intimidate. <i>Level 59 on a Charmander run, 61 on a Squirtle run. Absent on a Bulbasaur run.</i>"},
  {m:"Charizard", l:63, t:["Fire","Flying"], note:"Fire Blast, Aerial Ace, Slash, Fire Spin. Holds a <b>Sitrus Berry</b>. His ace is the starter that beats yours — Charizard, Blastoise or Venusaur at level 63."}
 ],
 plan:[
- "<b>His fifth slot depends on your starter.</b> Bulbasaur players get Gyarados and Charizard; Charmander players get Arcanine and Blastoise; Squirtle players get both Gyarados and Arcanine plus Venusaur.",
+ "<b>Three of his six change with your starter.</b> Bulbasaur: Pidgeot, Alakazam, Rhydon, Exeggutor 59, Gyarados 61, Charizard 63. Charmander: Pidgeot, Alakazam, Rhydon, Arcanine 59, Exeggutor 61, Blastoise 63. Squirtle: Pidgeot, Alakazam, Rhydon, Gyarados 59, Arcanine 61, Venusaur 63 — <b>no Exeggutor at all</b>.",
  "<b>Kill Alakazam early.</b> Recover plus 120 Speed means a long fight is a losing fight. Snorlax, Hitmonlee or a Bug/Ghost physical move — not a special attacker trying to trade.",
  "<b>Rhydon is 4× to Water and Grass.</b> Surf or Giga Drain removes the biggest physical threat on the board in one turn. Do not use Electric on it — Lightningrod.",
  "<b>Exeggutor is 4× weak to Bug</b> and 2× to Ice, Fire, Flying, Poison, Ghost and Dark. Ice Beam is the practical answer; Pinsir's physical Bug STAB is the flashy one.",
@@ -2086,9 +2086,9 @@ lede:"The last cave in the game and the hardest set of five battles in it. Both 
 band:[{k:"Party level",v:"70+"},{k:"Needs",v:"Surf · Waterfall · Flash"},{k:"Mewtwo",v:"Lv 70"}],
 body:[
 ["h","Cerulean Cave"],
-["p","The cave north-west of Cerulean opens once the Network Machine is fully upgraded. It needs <b>Surf</b>, <b>Waterfall</b> and <b>Flash</b>, and it holds the strongest wild encounters in the game — level 50-plus Golbat, Machoke, Rhydon, Ditto, Magneton and Chansey. <b>Mewtwo is on B2F.</b>"],
+["p","The cave north-west of Cerulean opens once the Network Machine is fully upgraded. It needs <b>Surf</b>, <b>Waterfall</b> and <b>Flash</b>, and it holds the strongest wild encounters in the game — Parasect, Magneton, Golbat, Primeape, Ditto, Machoke, Electrode and Wobbuffet between levels 46 and 67, Slowbro on the water and Geodude out of the breakable rocks. <b>There is no Rhydon or Chansey in here</b> — those were Red and Blue. <b>Mewtwo is on B1F</b>, the lowest floor — surf south-west across the water to its island."],
 ["boss",{
-name:"Mewtwo", role:"Cerulean Cave B2F · Psychic",
+name:"Mewtwo", role:"Cerulean Cave B1F · Psychic",
 team:[
  {m:"Mewtwo", l:70, t:["Psychic"], note:"Psychic, Swift, Recover, Safeguard. <b>Pressure</b> drains 2 PP per move. <b>Recover</b> heals half its HP, and <b>Safeguard</b> blocks status for five turns."}
 ],
@@ -2109,7 +2109,7 @@ reward:"Mewtwo — 154 Sp. Atk, 130 Speed, and comfortably the strongest Pokémo
  ["<b>Bruno</b>","Both Onix become <b>Steelix</b>","<b>Steel/Ground.</b> It now resists Ghost and Dark on top of everything else — Water, Grass, Fire and Fighting are your answers."],
  ["<b>Agatha</b>","Golbat becomes <b>Crobat</b>, Haunter becomes <b>Misdreavus</b>","Crobat at 66 with Sludge Bomb, and Gengar now carries Thunderbolt and Psychic."],
  ["<b>Lance</b>","A Dragonair becomes <b>Dragonite</b>, the other becomes <b>Kingdra</b>","Two Dragonite, and Kingdra — Water/Dragon, which is only weak to Dragon in Gen 3. Ice Beam is neutral on it."],
- ["<b>Blue</b>","Everything to level 72–75","His ace at 75 with a full moveset. Bring Mewtwo."]
+ ["<b>Blue</b>","Pidgeot and Rhydon are gone — <b>Heracross</b> and <b>Tyranitar</b> replace them; everything to level 72–75","<b>Tyranitar is Rock/Dark with Sand Stream</b>, 134 Attack and a Thunderbolt for your Water types. Heracross at 72 opens with Megahorn and carries Counter. His ace at 75 with a full moveset. Bring Mewtwo."]
 ]}],
 ["warn","<b>Kingdra is the wall in the rematch.</b> Water/Dragon in Gen 3 has exactly one weakness — <b>Dragon</b> — and resists Fire, Water and Steel. Your Ice Beam is neutral, not super effective. Bring a Dragon Claw on Aerodactyl or Dragonite, or plan to out-damage it with raw special attack."],
 ["do",[
@@ -2134,16 +2134,16 @@ body:[
 ["h","Yours — LeafGreen exclusives"],
 ["p","These are what you have to trade with. All types shown are <b>Generation III</b> types: note that <b>Marill, Azumarill and Azurill are pure Normal or Water here</b>, not Fairy, and <b>Sneasel is your only catchable Dark type</b>."],
 ["table",{cols:["#","Pokémon","Type","Where you get it"],rows:[
- ["027","<b>Sandshrew</b>","Ground","Route 4, Mt. Moon"],
+ ["027","<b>Sandshrew</b>","Ground","Routes 4 and 11 — <b>not</b> inside Mt. Moon"],
  ["028","<b>Sandslash</b>","Ground","Evolve at 22 — the best HM mule in the game"],
  ["037","<b>Vulpix</b>","Fire","Routes 7 and 8"],
  ["038","<b>Ninetales</b>","Fire","Fire Stone on Vulpix"],
  ["069","<b>Bellsprout</b>","Grass / Poison","Routes 24 and 25"],
  ["070","<b>Weepinbell</b>","Grass / Poison","Evolve at 21"],
  ["071","<b>Victreebel</b>","Grass / Poison","Leaf Stone on Weepinbell"],
- ["079","<b>Slowpoke</b>","Water / Psychic","Route 12, Seafoam Islands"],
+ ["079","<b>Slowpoke</b>","Water / Psychic","Surf fresh water — Fuchsia, Celadon, Viridian, Safari Zone; or walk the Seafoam Islands"],
  ["080","<b>Slowbro</b>","Water / Psychic","Evolve at 37"],
- ["120","<b>Staryu</b>","Water","Routes 19–21, Seafoam — Super Rod or surfing"],
+ ["120","<b>Staryu</b>","Water","<b>Super Rod only</b> — Vermilion, Pallet, Cinnabar, the S.S. Anne dock, One and Five Island"],
  ["121","<b>Starmie</b>","Water / Psychic","Water Stone on Staryu"],
  ["126","<b>Magmar</b>","Fire","Mt. Ember, One Island — 5%"],
  ["127","<b>Pinsir</b>","Bug","Celadon Game Corner — 2,500 coins"],
@@ -2152,7 +2152,7 @@ body:[
  ["199","<b>Slowking</b>","Water / Psychic","Slowpoke + King's Rock, <i>traded</i> — needs a second cartridge either way"],
  ["200","<b>Misdreavus</b>","Ghost","Lost Cave, Five Island — post-National Dex"],
  ["215","<b>Sneasel</b>","Dark / Ice","Icefall Cave, Four Island — <b>your only catchable Dark type</b>"],
- ["223","<b>Remoraid</b>","Water","Sevii Islands fishing — post-National Dex"],
+ ["223","<b>Remoraid</b>","Water","<b>Super Rod</b> on Islands 5–7 — Water Path, Green Path, Resort Gorgeous, Tanoby Ruins and the rest — post-National Dex"],
  ["224","<b>Octillery</b>","Water","Evolve Remoraid at 25"],
  ["226","<b>Mantine</b>","Water / Flying","Surf at Trainer Tower or Tanoby Ruins, Seven Island — 5%"],
  ["240","<b>Magby</b>","Fire","Breed a Magmar at the Four Island Day Care"],
@@ -2175,16 +2175,16 @@ body:[
  ["225","Delibird","Ice / Flying","Sevii Islands in FireRed"],
  ["227","Skarmory","Steel / Flying","Sevii Islands in FireRed"]
 ]}],
-["ver","<b>The Route 18 in-game trade is version-specific.</b> The man in the Route 18 gate wants a <b>Slowbro</b> in LeafGreen and gives you a <b>Lickitung</b>; in FireRed he asks for a Golduck instead. Since Slowpoke is LeafGreen-exclusive and Golduck is FireRed-exclusive, each version asks for something only it can catch. Catch a spare Slowpoke on Route 12 and evolve it — Lickitung has no other source in this game."],
+["ver","<b>The Route 18 in-game trade is version-specific.</b> The man in the Route 18 gate wants a <b>Slowbro</b> in LeafGreen and gives you a <b>Lickitung</b>; in FireRed he asks for a Golduck instead. Since Slowpoke is LeafGreen-exclusive and Golduck is FireRed-exclusive, each version asks for something only it can catch. Catch a spare Slowpoke by surfing the Fuchsia or Safari Zone water and evolve it — Lickitung has no other source in this game."],
 ["h","The in-game trades — free dex entries"],
-["p","Eleven NPCs will swap a Pokémon for one you can catch. Every one of these is a dex entry, and four of them are the <i>only</i> source of that species in the game. Traded Pokémon also gain boosted experience, though they obey only up to your badge cap."],
+["p","Nine NPCs will swap a Pokémon for one you can catch. Every one of these is a dex entry, and four of them are the <i>only</i> source of that species in the game. Traded Pokémon also gain boosted experience, though they obey only up to your badge cap."],
 ["table",{cols:["Location","They want","You get","Worth it?"],rows:[
  ["Route 2 house","Abra","<b>Mr. Mime</b>","<b>Yes — only source in the game.</b> Pure Psychic in Gen 3, not Fairy."],
  ["Vermilion City","Spearow","<b>Farfetch'd</b>","<b>Yes — only source in the game.</b>"],
  ["Cerulean City","Poliwhirl","<b>Jynx</b>","<b>Yes — only source in the game.</b> Ice/Psychic."],
  ["Route 18 gate","<b>Slowbro</b>","<b>Lickitung</b>","<b>Yes — only source in the game.</b> LeafGreen asks for Slowbro."],
- ["Underground Path 5–6","<b>Nidoran♀</b>","Nidoran♀","<b>Worth it.</b> Nidoran♀ is a 1% encounter in LeafGreen — this trade is the practical way to get one for the dex."],
- ["Route 11 gate","<b>Nidorina</b>","Nidorina","<b>Worth it</b>, same reason — and it is how you get a Nidoqueen without hunting the 1%. FireRed asks the other way round."],
+ ["Underground Path — Route 5 north gate","<b>Nidoran♀</b>","<b>Nidoran♂</b>","<b>Worth it.</b> In LeafGreen the <i>male</i> Nidoran is the 1% rarity, so this is the practical way to bank the Nidoran♂ line — and it arrives holding a <b>TinyMushroom</b>, which is Move Maniac currency. FireRed runs this trade the other way round."],
+ ["Route 11 gate","<b>Nidorina</b>","<b>Nidorino</b>","<b>Worth it</b>, same reason: it is how you get the Nidoran♂ line to Nidorino without hunting the 1%. Feed that Nidorino a spare Moon Stone for the Nidoking entry."],
  ["Cinnabar Lab","Raichu","Electrode","Skip unless you need the entry — catch a Voltorb instead."],
  ["Cinnabar Lab","Venonat","Tangela","Yes if you have not found a Tangela."],
  ["Cinnabar Lab","Ponyta","Seel","Skip — Seel is common in the Seafoam Islands."]
@@ -2202,13 +2202,13 @@ body:[
 }, {
 id:"dex-legends", ch:"dex", tag:"Pokédex", place:"Legendaries", wide:true,
 title:"Every legendary, and how to not lose one",
-lede:"Six legendaries are catchable in a single LeafGreen file. One of them can be destroyed by a bug, and one of them is not catchable at all without an event.",
+lede:"Five legendaries are catchable in a single LeafGreen file. One of them can be destroyed by a bug, and one of them is not catchable at all without an event.",
 body:[
 ["table",{cols:["Pokémon","Type","Lv","Where","When","The catch"],rows:[
  ["<b>Articuno</b>","Ice / Flying","50","Seafoam Islands B4F","After Surf and Strength","Sleep it, chip it, Ultra Balls. <b>No Rock moves</b> — 4× will kill it."],
  ["<b>Zapdos</b>","Electric / Flying","50","Power Plant","After Surf","Detect blocks a turn but fails when repeated, and a sleeping Zapdos cannot use it at all."],
  ["<b>Moltres</b>","Fire / Flying","50","Mt. Ember summit, One Island","Main story, after Blaine","Needs Strength. Endure keeps it alive on 1 HP, which helps you."],
- ["<b>Mewtwo</b>","Psychic","70","Cerulean Cave B2F","After the Sapphire quest","Recover and Safeguard. Bring PP and patience — it cannot flee."],
+ ["<b>Mewtwo</b>","Psychic","70","Cerulean Cave B1F","After the Sapphire quest","Recover and Safeguard. Bring PP and patience — it cannot flee."],
  ["<b>Entei / Raikou / Suicune</b>","Fire / Electric / Water","50","Roaming Kanto","After the National Pokédex","<b>Master Ball this.</b> Entei and Raikou are lost forever if they Roar away."],
  ["<b>Deoxys</b>","Psychic","30","Birth Island","Event ticket only","<b>Defense Forme</b> in LeafGreen; Attack Forme in FireRed."],
  ["<b>Ho-Oh / Lugia</b>","—","70","Navel Rock","Event ticket only","Not obtainable in the original release without the MysticTicket."],
@@ -2230,7 +2230,7 @@ body:[
  "Catch Zapdos in the Power Plant.",
  "Master Ball the roaming beast the moment it appears.",
  "Catch Mewtwo in Cerulean Cave.",
- {t:"Log all six in the Pokédex.", sub:"Deoxys, Ho-Oh, Lugia and Mew need event tickets and are not part of a normal file."}
+ {t:"Log all five in the Pokédex.", sub:"Deoxys, Ho-Oh, Lugia and Mew need event tickets and are not part of a normal file."}
 ]]
 ]
 }, {
@@ -2278,6 +2278,37 @@ STAGES.push(
  title:"TM and HM index",
  lede:"Every machine in LeafGreen with where it comes from. Kanto runs TM01–TM50 and HM01–HM07 — there is no TM51+ and no Whirlpool, Defog, Dive or Rock Climb. Tick them off as you collect; the count feeds your overall completion.",
  body:[["mount","tmindex"]]},
+
+{id:"ref-tutors", ch:"ref", tag:"Reference", place:"Move Tutors", wide:true,
+ title:"The Move Tutors — fifteen moves, one shot each",
+ lede:"FireRed and LeafGreen scattered fifteen NPCs across Kanto and the Sevii Islands, each teaching one move that has no TM in Generation III. Every one of them works exactly once per save file, so each of these moves goes on precisely one Pokémon for the whole run.",
+ body:[
+  ["warn","<b>Read that again: once per save file, not once per Pokémon.</b> There is no second Rock Slide, no second Body Slam and no second Double-Edge in a LeafGreen file. Decide the recipient before you talk to the tutor — these are the moves people most often waste on a Pokémon they later box."],
+  ["table",{cols:["Move","Type","Class","Power","Where the tutor stands"],rows:[
+   ["<b>Rock Slide</b>","Rock","<span class=\"dc phy\">Phys</span>","75","<b>Rock Tunnel.</b> The single most valuable one — give it to Nidoqueen, which has no other answer to Flying."],
+   ["<b>Body Slam</b>","Normal","<span class=\"dc phy\">Phys</span>","85","<b>Four Island.</b> Post-game. Snorlax already learns it at 33, so save this for something that does not."],
+   ["<b>Double-Edge</b>","Normal","<span class=\"dc phy\">Phys</span>","120","<b>Victory Road.</b> A third of the damage comes back at you. Good on Snorlax's 160 HP, bad on anything frail."],
+   ["<b>Mega Kick</b>","Normal","<span class=\"dc phy\">Phys</span>","120","Route 4. 75% accuracy — Return is more reliable on the same body."],
+   ["<b>Mega Punch</b>","Normal","<span class=\"dc phy\">Phys</span>","80","Route 4. Outclassed by Return the moment you have TM27. Skip it."],
+   ["<b>Explosion</b>","Normal","<span class=\"dc phy\">Phys</span>","250","<b>Mt. Ember.</b> The strongest move in the game and it faints the user. A legitimate answer to Blue's Alakazam if you have a Golem or Electrode you do not mind losing."],
+   ["<b>Seismic Toss</b>","Fighting","<span class=\"dc phy\">Phys</span>","—","Pewter Museum. Fixed damage equal to the user's level, so it ignores every Defense stat and every Intimidate."],
+   ["<b>Counter</b>","Fighting","<span class=\"dc phy\">Phys</span>","—","Celadon Department Store, 3F. Returns double the physical damage taken — Bruno's Hitmonchan uses it on you."],
+   ["<b>Dream Eater</b>","Psychic","<span class=\"dc spe\">Spec</span>","100","Viridian City. Only works on a sleeping target, which pairs it with Hypnosis on a Hypno."],
+   ["<b>Thunder Wave</b>","Electric","<span class=\"dc spe\">Spec</span>","—","Silph Co. Paralysis cuts Speed by 75% in Gen 3 — TM24 does not cover this, and it is worth a slot for Lance."],
+   ["<b>Swords Dance</b>","Normal","<span class=\"dc phy\">Phys</span>","—","Seven Island. Post-game. +2 Attack in one turn; the payoff is on Hitmonlee or Nidoqueen."],
+   ["<b>Softboiled</b>","Normal","<span class=\"dc phy\">Phys</span>","—","Celadon City. Chansey only, effectively. Dex curiosity rather than a team move."],
+   ["<b>Substitute</b>","Normal","<span class=\"dc phy\">Phys</span>","—","Fuchsia City. Costs a quarter of your HP to block status and damage. Useful against Agatha's Confuse Ray."],
+   ["<b>Metronome</b>","Normal","<span class=\"dc phy\">Phys</span>","—","Cinnabar Island — the Pokémon Lab. A novelty. Do not spend a slot on it."],
+   ["<b>Mimic</b>","Normal","<span class=\"dc phy\">Phys</span>","—","Saffron City. Copies the target's last move for the rest of the battle. A novelty too."]
+  ]}],
+  ["team","<b>Take Rock Slide on Nidoqueen and Thunder Wave on whatever is fastest, and treat the other thirteen as optional.</b> Those two fill genuine holes: Nidoqueen's Earthquake does nothing to Flying types, and nothing else in your bag paralyses on demand. Everything else here is either outclassed by a TM you already own or a one-Pokémon curiosity."],
+  ["h","The other three move NPCs, so they are all in one place"],
+  ["ul",[
+   "<b>Move Deleter — Fuchsia City</b>, the house west of the Poké Mart. The only way to remove an HM move in Generation III. Use him before the League so your starter carries four attacking moves rather than three and a Cut.",
+   "<b>Move Maniac — Two Island</b>, the house south of the Market Stall. Re-teaches any level-up move a Pokémon has forgotten, priced in <b>two TinyMushrooms or one Big Mushroom</b>. Unlimited, unlike the tutors above. There are no Heart Scales in this game.",
+   "<b>The ultimate-move tutor — Cape Brink, Two Island</b>, reached by Surf. Teaches <b>Frenzy Plant</b>, <b>Blast Burn</b> or <b>Hydro Cannon</b> — 150 power, once per save file, to a <i>fully evolved</i> original partner at maximum friendship. Evolve your starter before you visit."
+  ]]
+ ]},
 
 {id:"ref-repeat", ch:"ref", tag:"Reference", place:"Farmable systems", wide:true,
  title:"What you can farm, and how often",
@@ -2355,7 +2386,7 @@ const MACHINES = [
 ["TM39","Rock Tomb","Rock","Pewter Gym — from Brock; also Silph Co. 4F"],
 ["TM40","Aerial Ace","Flying","Route 9 — south-west corner"],
 ["TM41","Torment","Dark","Silph Co. 4F — south-east room"],
-["TM42","Facade","Normal","Memorial Pillar, Five Island — from Tectonix's trainer"],
+["TM42","Facade","Normal","Memorial Pillar, Five Island — leave a Lemonade at the memorial, then talk to Tectonix's trainer"],
 ["TM43","Secret Power","Normal","Route 25; also Celadon Dept. Store"],
 ["TM44","Rest","Psychic","S.S. Anne — second cabin from the left"],
 ["TM45","Attract","Normal","Route 24 — north-west hill; also Celadon Dept. Store"],
@@ -2592,7 +2623,7 @@ slots:[
  {n:"Sandshrew", t:["Ground"], role:"HM mule", st:"keep", w:"Teach it Cut once the Cascade Badge lands."},
  {n:"Bellsprout", t:["Grass","Poison"], role:"Misty backup · box it", st:"box", only:["charmander","squirtle"], w:"Route 24, <b>LeafGreen-exclusive</b>. Vine Whip at 13 is 2× on both of Misty's Pokémon, so it is a spare answer if your Pikachu hunt failed. Otherwise catch it for the dex and box it — Pikachu does this job and stays useful afterwards."}
 ],
-notes:{bulbasaur:"Razor Leaf at 20 outdamages Recover. Lead Ivysaur and do not switch — this is the fight your starter was chosen for.",
+notes:{bulbasaur:"Razor Leaf at 22 outdamages Recover. Lead Ivysaur and do not switch — this is the fight your starter was chosen for.",
        charmander:"Do not fight Misty with Charmeleon. Pikachu at 20, or the Bellsprout from Route 24. Water Gun off a Starmie will two-shot you.",
        squirtle:"Water is resisted both ways, so Wartortle grinds against Recover forever. Use Pikachu or Bellsprout instead."}});
 
@@ -2652,7 +2683,7 @@ slots:[
  {n:"Snorlax", t:["Normal"], role:"Physical wall", st:"keep", w:"Teach it Strength once the Rainbow Badge is in. It wants a physical Normal move anyway."},
  {n:"Ninetales", t:["Fire"], role:"Special attacker", st:"keep", w:""},
  {n:"Nidoqueen", t:["Poison","Ground"], role:"Physical attacker", st:"keep", w:"Poison resists Poison, so it switches into Koga's Sludge safely — it just cannot hurt him back with Ground."},
- {n:"Staryu", t:["Water"], role:"Boxed until stage 11", st:"box", w:"Take the <b>Super Rod from the Route 18 gate</b>, then fly to Vermilion or Pallet and fish there — Staryu is not in the Routes 19–21 water. <b>LeafGreen-exclusive.</b> A Water Stone makes Starmie: 115 Speed and four attacking types on one body."}
+ {n:"Staryu", t:["Water"], role:"Boxed until stage 11", st:"box", w:"Take the <b>Super Rod on Route 12</b> — the Fishing Guru's younger brother, in the house just south of the Route 11 junction — then fly to Vermilion or Pallet and fish there — Staryu is not in the Routes 19–21 water. <b>LeafGreen-exclusive.</b> A Water Stone makes Starmie: 115 Speed and four attacking types on one body."}
 ],
 notes:{squirtle:"Blastoise carries Surf, so you can skip the Staryu and keep the slot for a Jolteon. Starmie is still faster if you want a second special attacker."}});
 
@@ -2684,7 +2715,7 @@ R("k12",{lv:"48 → 52", form:"final", sum:"Cash in both fossils, clear the mans
 slots:[
  {n:"%S%", role:"Lead", st:"keep", w:""},
  {n:"Starmie", t:["Water","Psychic"], role:"Blaine counter", st:"keep", w:"<b>All four of Blaine's Pokémon are pure Fire.</b> Surf sweeps the gym unassisted."},
- {n:"Aerodactyl", t:["Rock","Flying"], role:"Late project · boxed on the Exp. Share", st:"box", w:"Revive the Old Amber at the Cinnabar Lab. It arrives at level 5, so put the Exp. Share on it now — 130 Speed and 105 Attack make it a real Elite Four member by the League."},
+ {n:"Aerodactyl", t:["Rock","Flying"], role:"Late project — only if you make room", st:"box", w:"Revive the Old Amber at the Cinnabar Lab. It arrives at level 5, and <b>the Exp. Share only works on a Pokémon in your party</b> — a boxed Aerodactyl earns nothing at all. Either carry it on the Share for a stretch or accept that 130 Speed and 105 Attack are a post-League project."},
  {n:"Snorlax", t:["Normal"], role:"Physical wall", st:"keep", w:""}
 ],
 notes:{bulbasaur:"Keep Venusaur off the field for the whole gym — Grass takes 2× and Fire Blast will one-shot it.",
@@ -2727,7 +2758,7 @@ slots:[
  {n:"Snorlax", t:["Normal"], role:"Physical wall", st:"keep", w:"Return, Strength, Rest, Body Slam."},
  {n:"Hitmonlee", t:["Fighting"], role:"Physical Fighting", st:"keep", w:"Answers Blue's Rhydon, both of Bruno's Onix and Lorelei's Cloyster."},
  {n:"Nidoqueen", t:["Poison","Ground"], role:"Earthquake", st:"keep", w:""},
- {n:"Articuno", t:["Ice","Flying"], role:"Lance counter", st:"add", replaces:"Pidgeot", w:"If you caught it, use it. <b>Ice is 4× on Dragonite</b> and Articuno has 125 Sp. Atk. It is immediately better than most of your team for round four."}
+ {n:"Articuno", t:["Ice","Flying"], role:"Lance counter", st:"add", replaces:"Pidgeot", w:"If you caught it, use it. <b>Ice is 4× on Dragonite</b>, and Articuno's 125 Sp. Def lets it sit in front of Lance while it fires 95 Sp. Atk Ice Beams. It is immediately better than most of your team for round four."}
 ],
 notes:{bulbasaur:"Use the Fuchsia Move Deleter to strip Cut off Venusaur before the League. You want four attacking slots, not three and a field move."}});
 
@@ -2946,17 +2977,15 @@ k03:[
  {p:"Nidoran♀", lv:12, learn:"<b>Double Kick</b>", drop:"Growl", why:"Fighting, and it hits twice. Growl is a wasted slot on something you are going to evolve into a wall."},
  {p:"%S%", only:["bulbasaur"], lv:15, learn:"<b>Sleep Powder</b> <i>and</i> PoisonPowder", drop:"Growl", why:"Both arrive at 15 — take Sleep Powder and <i>decline</i> PoisonPowder. Sleep ends fights and catches legendaries; poison chips."},
  {p:"%S%", only:["charmander"], lv:13, learn:"<b>Metal Claw</b>", drop:"Growl", why:"Steel is 2× on Brock's Rock/Ground pair — this is the move that wins that gym."},
- {p:"%S%", only:["squirtle"], lv:13, learn:"<b>Water Gun</b>", drop:"Tail Whip", why:"Keep Bubble as well for now; both are 40 power and you have nothing better."}
+ {p:"%S%", only:["squirtle"], lv:13, learn:"<b>Water Gun</b>", drop:"Tail Whip", why:"<b>Water Gun is 40 power; Bubble is only 20 in Gen 3.</b> Take Water Gun over the stat move now, and let Bubble be the next thing you overwrite."}
 ],
 k04:[
- {p:"%S%", only:["bulbasaur"], lv:20, learn:"<b>Razor Leaf</b>", drop:"Vine Whip", why:"55 power against 45, same type, no downside. Straight upgrade."},
- {p:"%S%", only:["squirtle"], lv:18, learn:"<b>Bite</b>", drop:"Tackle", why:"Bite is 60 power and, being Dark, runs off Special Attack in Gen 3 — which is Wartortle's better stat."},
- {p:"Nidoran♀", lv:17, learn:"PoisonSting", drop:"<i>decline it</i>", why:"15 power. Refuse the move and keep what you have — Double Kick already covers the physical slot."},
+ {p:"%S%", only:["squirtle"], lv:19, learn:"<b>Bite</b>", drop:"Tackle", why:"Wartortle's level, not Squirtle's — evolving at 16 pushes Bite from 18 to 19. 60 power, and being Dark it runs off Special Attack in Gen 3, which is Wartortle's better stat."},
+ {p:"Nidorina", lv:18, learn:"PoisonSting", drop:"<i>decline it</i>", why:"15 power. Nidorina's level, not Nidoran♀'s — it evolves at 16 and the move slides from 17 to 18. Refuse it either way; Double Kick already covers the physical slot."},
  {p:"Pidgey", lv:13, learn:"<b>Quick Attack</b>", drop:"Tackle", why:"Same power, but it always moves first. Tackle has no reason to stay."}
 ],
 k05:[
- {p:"Nidoran♀", lv:20, learn:"<b>Bite</b>", drop:"Scratch", why:"60 power against 40. Note it is Dark, so it runs off Special Attack — still better than Scratch at this level."},
- {p:"%S%", only:["bulbasaur"], lv:22, learn:"<b>Razor Leaf</b>", drop:"Leech Seed", why:"Only if you delayed the swap at stage 4. Keep Sleep Powder above everything else."}
+ {p:"%S%", only:["bulbasaur"], lv:22, learn:"<b>Razor Leaf</b>", drop:"Vine Whip", why:"<b>Ivysaur's level, not Bulbasaur's</b> — evolving at 16 moves Razor Leaf from 20 to 22. 55 power against Vine Whip's 35 in Gen 3, same type, no downside. Keep Sleep Powder above everything else."}
 ],
 k06:[
  {p:"Pidgeotto", lv:27, learn:"<b>Wing Attack</b>", drop:"Gust", why:"60 power against 40, same type. Gust has done its job."},
@@ -2970,22 +2999,23 @@ k07:[
  {p:"Nidoqueen", at:"TM26 later", learn:"Earthquake", drop:"<i>hold the slot</i>", why:"You will not have TM26 until Giovanni, at the very end. Keep a weak physical move in that slot until then."}
 ],
 k08:[
- {p:"Snorlax", lv:33, learn:"<b>Body Slam</b>", drop:"Headbutt", why:"85 power against 70, and a 30% paralysis chance that wins the Sabrina fight on its own."},
+ {p:"Snorlax", at:"on catch", learn:"<b>Headbutt, Yawn, Rest, Snore</b>", drop:"—", why:"That is the exact set a level-30 Snorlax arrives with, so plan the three replacements from there — you will not be offered Amnesia or Belly Drum, which it passed at 5 and 13."},
+ {p:"Snorlax", lv:33, learn:"<b>Body Slam</b>", drop:"Yawn", why:"85 power against Headbutt's 70, and a 30% paralysis chance that wins the Sabrina fight on its own. Yawn is the dead slot, so that is the one that goes."},
  {p:"Snorlax", at:"TM27", learn:"<b>Return</b>", drop:"Snore", why:"Return scales with friendship up to 102 power. TM27 is in the Route 12 gate, upstairs."},
- {p:"Snorlax", lv:25, learn:"<b>Rest</b>", drop:"Amnesia", why:"Full heal for two sleeping turns. On 160 base HP that is a genuine reset button."}
+ {p:"Snorlax", at:"HM04 later", learn:"<b>Strength</b>", drop:"Headbutt", why:"Finishes the set: Body Slam, Return, Strength, Rest. <b>Keep Rest</b> — it arrives with it, and a full heal for two sleeping turns on 160 base HP is a genuine reset button."}
 ],
 k09:[
  {p:"Kadabra", lv:36, learn:"<b>Psychic</b>", drop:"Confusion", why:"90 power against 50. <b>You do not need TM29 for this</b> — Kadabra learns Psychic by itself. Save the TM for Starmie."},
- {p:"Kadabra", lv:30, learn:"Future Sight", drop:"<i>decline it</i>", why:"120 power but it lands two turns later and cannot crit. In a gym gauntlet that is a wasted turn — keep Psybeam until 36."},
+ {p:"Kadabra", lv:30, learn:"Future Sight", drop:"<i>decline it</i>", why:"80 power in Gen 3, and it lands two turns later and cannot crit. In a gym gauntlet that is a wasted turn — keep Psybeam until 36."},
  {p:"%S%", only:["bulbasaur"], at:"TM19", learn:"<b>Giga Drain</b>", drop:"Razor Leaf", why:"Erika's TM. Same class, and it heals for half the damage dealt."}
 ],
 k10:[
- {p:"Hitmonlee", lv:26, learn:"<b>High Jump Kick</b>", drop:"Rolling Kick", why:"130 power against 60. It hurts you if it misses — that is the price, and it is worth it."},
- {p:"Hitmonlee", lv:20, learn:"<b>Brick Break</b>", drop:"Double Kick", why:"75 power, perfect accuracy, and it smashes Reflect and Light Screen — which Sabrina's whole gym leans on."},
- {p:"Lapras", at:"HM03 + TM13", learn:"<b>Surf</b> and <b>Ice Beam</b>", drop:"Water Gun, Mist", why:"Lapras arrives at Silph Co. already level 25ish. Give it the two moves it will use for the rest of the game immediately."}
+ {p:"Hitmonlee", at:"on receipt", learn:"<b>Rolling Kick, Jump Kick, Brick Break, Focus Energy</b>", drop:"—", why:"The Dojo hands it over at <b>level 25</b>, so Brick Break is already on it — 75 power, perfect accuracy, and it smashes the Reflect and Light Screen that Sabrina's gym leans on. Focus Energy is the dead slot."},
+ {p:"Hitmonlee", lv:26, learn:"<b>High Jump Kick</b>", drop:"Rolling Kick", why:"<b>85 power in Gen 3, not the 130 it became in Gen 5</b> — still comfortably ahead of Rolling Kick's 60, and it hurts you if it misses. Worth it."},
+ {p:"Lapras", at:"HM03 + TM13", learn:"<b>Surf</b> and <b>Ice Beam</b>", drop:"Mist, Perish Song", why:"Lapras arrives at Silph Co. at <b>level 25</b> carrying Mist, Body Slam, Confuse Ray and Perish Song — Water Gun has already been pushed out, so those two are what you overwrite. Give it the two moves it will use for the rest of the game immediately."}
 ],
 k11:[
- {p:"Staryu", lv:15, learn:"<b>Recover</b>", drop:"Harden", why:"Keep Recover through the evolution — it is the only good move Starmie brings with it."},
+ {p:"Staryu", at:"on catch", learn:"<b>Recover — it already has it</b>", drop:"—", why:"The Super Rod only turns up Staryu at level 15 and above, and Recover is its level-15 move, so every one you catch arrives with it and none of them still have Harden. <b>Do not overwrite Recover</b> — it is the only good move Starmie carries through the Water Stone."},
  {p:"Starmie", at:"TM03/13/24/29", learn:"<b>Surf, Ice Beam, Thunderbolt, Psychic</b>", drop:"Tackle, Water Gun, Rapid Spin, Swift", why:"<b>Starmie is a TM platform.</b> It learns nothing useful by level-up after evolving, so overwrite the whole level-up set the moment you have the stones and machines."},
  {p:"%S%", only:["bulbasaur"], lv:32, learn:"evolution", drop:"—", why:"Venusaur at 32. Nothing is lost — Ivysaur and Venusaur share a learnset, just at later levels."}
 ],
@@ -2995,7 +3025,7 @@ k12:[
 ],
 k13:[
  {p:"Nidoqueen", at:"TM26", learn:"<b>Earthquake</b>", drop:"Double Kick", why:"Giovanni hands you the TM after you beat him. 100 power physical Ground on an 82 Attack body — this is Nidoqueen's whole reason to exist."},
- {p:"Nidoqueen", at:"TM39/TM37", learn:"<b>Rock Slide</b>", drop:"PoisonSting", why:"Covers the Flying types that are immune to Earthquake, and it is physical too."}
+ {p:"Nidoqueen", at:"Move Tutor", learn:"<b>Rock Slide</b>", drop:"PoisonSting", why:"<b>Rock Slide is not a TM in Gen 3.</b> The Move Tutor in <b>Rock Tunnel</b> teaches it once per save file, so pick your one recipient — Nidoqueen is it. 75 power physical Rock covers the Flying types that Earthquake cannot touch."}
 ],
 k14:[
  {p:"%S%", at:"Move Deleter", learn:"<i>free the HM slot</i>", drop:"Cut", why:"The Move Deleter is in Fuchsia, in the house west of the Poké Mart. Go into the League with four attacking moves, not three and a field move."},
