@@ -190,7 +190,8 @@ button{font:inherit;color:inherit}
              linear-gradient(180deg, var(--ball-top) 0 44%, var(--ball-band) 44% 56%, var(--ball-bot) 56% 100%);
   box-shadow:inset 0 0 0 2px var(--ball-band)}
 .checks label{cursor:pointer;font-size:16.5px}
-.checks input:checked + label{color:var(--ink3);text-decoration:line-through;text-decoration-color:var(--line)}
+.checks input:checked ~ label{color:var(--ink3);text-decoration:line-through;text-decoration-color:var(--line)}
+.checks input:checked ~ .stepn{color:var(--line)}
 .checks .sub{display:block;font-size:14.5px;color:var(--ink3);font-weight:600;margin-top:2px}
 li.doneRow.hidden{display:none}
 
@@ -201,7 +202,7 @@ li.doneRow.hidden{display:none}
   background:var(--line-soft);border-radius:2px;z-index:0}
 .checks.route li{position:relative;z-index:1;padding-left:0}
 .checks.route .doneRow{padding:9px 0 9px 0}
-.checks.route input{background:var(--bg);box-shadow:0 0 0 4px var(--bg)}
+.checks.route input{box-shadow:0 0 0 4px var(--bg)}
 .checks.route input:checked{box-shadow:inset 0 0 0 2px var(--ball-band), 0 0 0 4px var(--bg)}
 .checks.route .stepn{
   flex:0 0 auto;min-width:20px;margin-top:3px;font-size:13px;font-weight:800;
@@ -649,7 +650,14 @@ function renderBlock(b, stageId){
 }
 
 /* ---- page render ---- */
+/* The data files load in whatever order the build concatenates them; the page
+   follows the chapter list, so moving a chapter moves its stages with it. */
+function orderStages(){
+  const rank = id => { const i = CHAPTERS.findIndex(c => c.id === id); return i < 0 ? 999 : i; };
+  STAGES.sort((a, b) => rank(a.ch) - rank(b.ch));
+}
 function renderAll(){
+  orderStages();
   const content = document.getElementById('content');
   content.innerHTML = STAGES.map(s => {
     const band = (s.band || []).length
@@ -723,7 +731,7 @@ function updateProgress(){
   CHAPTERS.forEach(c => {
     const el = document.querySelector('[data-chcount="' + c.id + '"]');
     const p = perCh[c.id];
-    if (el && p) el.textContent = p.full + '/' + p.stages;
+    if (el && p) el.textContent = p.t ? (p.full + '/' + p.stages) : '';
   });
   const pct = gT ? Math.round(gD / gT * 100) : 0;
   document.getElementById('globalbar').style.width = pct + '%';
@@ -857,12 +865,12 @@ function boot(){
 <script>
 /* ===================== CHAPTERS ===================== */
 CHAPTERS.push(
-  {id:"core",  name:"How Gen 3 actually works"},
   {id:"kanto", name:"Kanto — eight badges"},
   {id:"sevii", name:"Sevii Islands — main story"},
   {id:"league",name:"The Pokémon League"},
   {id:"post",  name:"Post-game — Islands 4 to 7"},
   {id:"dex",   name:"Filling the Pokédex"},
+  {id:"core",  name:"How Gen 3 actually works"},
   {id:"ref",   name:"Reference desk"}
 );
 
@@ -870,7 +878,7 @@ CHAPTERS.push(
 STAGES.push({
 id:"core-rules", ch:"core", tag:"Fundamentals", place:"Generation III",
 title:"The Gen 3 rules that decide your fights",
-lede:"One mechanic separates this game from every Pokémon title made after 2006, and it rewrites every team recommendation in the guide. Start here.",
+lede:"Reference, not a checklist. One mechanic separates this game from every Pokémon title made after 2006 and it rewrites every team recommendation in the guide — so when a route step tells you to bring a physical body rather than a special one, this is why.",
 body:[
 ["h","1 · There is no physical/special split — TYPE decides the damage stat"],
 ["p","This is the single most important rule on the page. In Generation III a move does not carry its own damage class. <b>The move's type decides it</b>, for every move in the game, with no exceptions. Nine types are always physical and eight are always special:"],
@@ -996,7 +1004,7 @@ body:[
 STAGES.push({
 id:"core-econ", ch:"core", tag:"Fundamentals", place:"Money, XP, items",
 title:"The economy: the Pokédex is your Exp. Share",
-lede:"LeafGreen ties its best quality-of-life items to how many species you have caught. That single design choice makes dex-filling the most efficient thing you can do, and it is why this guide asks you to catch things you will never use.",
+lede:"Reference, not a checklist — the routes already put these pickups in your path. LeafGreen ties its best quality-of-life items to how many species you have caught, and that single design choice is why the guide keeps asking you to catch things you will never use.",
 body:[
 ["h","Oak's aides pay you for the Pokédex"],
 ["p","Six of Professor Oak's assistants are posted around Kanto, each holding one item behind a species count. These are not optional extras — the Exp. Share and the Amulet Coin are the two items that most change how the rest of the run feels, and both are gated on catching things."],
@@ -1057,13 +1065,6 @@ body:[
  {k:"Item", n:"Big Mushroom", where:"Held by wild Paras and Parasect; hidden in several routes", why:"Currency for the Two Island Move Maniac — one Big Mushroom or two TinyMushrooms re-teaches any forgotten level-up move."},
  {k:"Item", n:"Old Amber", where:"Pewter Museum of Science — needs Cut", why:"Revives into Aerodactyl at the Cinnabar Lab. Easy to walk straight past."}
 ]],
-["do",[
- "Choose your starter and set the toolbar selector to match.",
- {t:"Commit to catching every new species you see until you pass 50.", sub:"The Exp. Share and Amulet Coin are both gated behind it."},
- "Collect the Vs. Seeker in the Vermilion Pokémon Center the moment you arrive.",
- {t:"Set a Game Corner target of 12,000 coins.", sub:"Ice Beam, Thunderbolt and Flamethrower. Buy the coins; do not play the slots."},
- "Decide now which Pokémon carries which HM, and keep a Sandshrew boxed as the mule."
-]]
 ]});
 
 </script>
@@ -1076,6 +1077,7 @@ lede:"Scripted setup with one real decision in it. Everything else here is a fiv
 band:[{k:"Party level",v:"5 → 9"},{k:"Badges",v:"0"},{k:"New HMs",v:"none"}],
 body:[
 ["p","Oak stops you leaving Pallet, drags you to the lab, and lets you pick from three Poké Balls on the table. Your rival takes the starter that beats yours and immediately fights you with it — you cannot lose that battle in any meaningful way, so do not restart if it goes badly."],
+["team","<b>Take Bulbasaur.</b> Vine Whip is 4× on Brock and 2× on Misty, so the first two gyms are free, and Sleep Powder at 15 is how you catch all four legendaries later. The reasoning, and the six-Pokémon team it builds towards, is in <a href=\"#core-team\">Take Bulbasaur, then build a six that clears Kanto</a> at the back of the guide — along with <a href=\"#core-rules\">the Gen 3 rules</a> that decide every recommendation in it."],
 ["team","<b>Detour onto Route 22 before Viridian Forest.</b> Route 22 is the only place you will find a <b>Mankey</b> before Rock Tunnel, and it is 45% of the grass here. Fighting is the type LeafGreen gives you least of, and Mankey is the body that carries a Charmander run through Brock."],
 ["ver","Route 22's grass is <b>Rattata (45%), Mankey (45%) and Spearow (10%)</b> — and nothing else. There is no Nidoran here in either version; that is a Red and Blue encounter table. LeafGreen's Nidoran line starts on <b>Route 3</b>, which is the next stage."],
 ["h","Worth catching now"],
