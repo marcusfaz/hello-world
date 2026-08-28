@@ -1,0 +1,86 @@
+{
+ "k01": {
+  "file": "Kanto Route 1 PE.png",
+  "loc": "Pallet Town, Route 1 and Viridian City"
+ },
+ "k02": {
+  "file": "Viridian Forest PE.png",
+  "loc": "Viridian Forest"
+ },
+ "k03": {
+  "file": "Mt. Moon PE.png",
+  "loc": "Mt. Moon and Routes 3\u20134"
+ },
+ "k04": {
+  "file": "Cerulean City PE.png",
+  "loc": "Cerulean City"
+ },
+ "k05": {
+  "file": "Kanto Route 25 PE.png",
+  "loc": "Route 25 and the Sea Cottage"
+ },
+ "k06": {
+  "file": "Vermilion City PE.png",
+  "loc": "Vermilion City and the S.S. Anne"
+ },
+ "k07": {
+  "file": "Diglett's Cave PE.png",
+  "loc": "Diglett\u2019s Cave"
+ },
+ "k08": {
+  "file": "Rock Tunnel PE.png",
+  "loc": "Rock Tunnel"
+ },
+ "k09": {
+  "file": "Celadon City PE.png",
+  "loc": "Celadon City"
+ },
+ "k10": {
+  "file": "Pok\u00e9mon Tower PE.png",
+  "loc": "Pok\u00e9mon Tower"
+ },
+ "k11": {
+  "file": "Saffron City PE.png",
+  "loc": "Saffron City"
+ },
+ "k12": {
+  "file": "Kanto Route 16 PE.png",
+  "loc": "Route 16 and Pok\u00e9mon Road"
+ },
+ "k13": {
+  "file": "Kanto Route 12 PE.png",
+  "loc": "Route 12 and Silence Bridge"
+ },
+ "k14": {
+  "file": "Seafoam Islands PE.png",
+  "loc": "the Seafoam Islands"
+ },
+ "k15": {
+  "file": "Cinnabar Island PE.png",
+  "loc": "Cinnabar Island"
+ },
+ "k16": {
+  "file": "Power Plant PE.png",
+  "loc": "the Power Plant"
+ },
+ "k17": {
+  "file": "Viridian City PE.png",
+  "loc": "Viridian City"
+ },
+ "k18": {
+  "file": "Victory Road PE.png",
+  "loc": "Victory Road"
+ },
+ "k19": {
+  "file": "Indigo Plateau PE.png",
+  "loc": "Indigo Plateau"
+ },
+ "p01": {
+  "file": "Pallet Town PE.png",
+  "loc": "Pallet Town"
+ },
+ "p02": {
+  "file": "Kanto Route 4 PE.png",
+  "loc": "Route 4 and the Cerulean Cave approach"
+ }
+}

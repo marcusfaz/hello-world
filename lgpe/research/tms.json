@@ -1,0 +1,242 @@
+[
+ {
+  "tm": "TM01",
+  "move": "headbutt"
+ },
+ {
+  "tm": "TM02",
+  "move": "taunt"
+ },
+ {
+  "tm": "TM03",
+  "move": "helping-hand"
+ },
+ {
+  "tm": "TM04",
+  "move": "teleport"
+ },
+ {
+  "tm": "TM05",
+  "move": "rest"
+ },
+ {
+  "tm": "TM06",
+  "move": "light-screen"
+ },
+ {
+  "tm": "TM07",
+  "move": "protect"
+ },
+ {
+  "tm": "TM08",
+  "move": "substitute"
+ },
+ {
+  "tm": "TM09",
+  "move": "reflect"
+ },
+ {
+  "tm": "TM10",
+  "move": "dig"
+ },
+ {
+  "tm": "TM11",
+  "move": "will-o-wisp"
+ },
+ {
+  "tm": "TM12",
+  "move": "facade"
+ },
+ {
+  "tm": "TM13",
+  "move": "brick-break"
+ },
+ {
+  "tm": "TM14",
+  "move": "fly"
+ },
+ {
+  "tm": "TM15",
+  "move": "seismic-toss"
+ },
+ {
+  "tm": "TM16",
+  "move": "thunder-wave"
+ },
+ {
+  "tm": "TM17",
+  "move": "dragon-tail"
+ },
+ {
+  "tm": "TM18",
+  "move": "u-turn"
+ },
+ {
+  "tm": "TM19",
+  "move": "iron-tail"
+ },
+ {
+  "tm": "TM20",
+  "move": "dark-pulse"
+ },
+ {
+  "tm": "TM21",
+  "move": "foul-play"
+ },
+ {
+  "tm": "TM22",
+  "move": "rock-slide"
+ },
+ {
+  "tm": "TM23",
+  "move": "thunder-punch"
+ },
+ {
+  "tm": "TM24",
+  "move": "x-scissor"
+ },
+ {
+  "tm": "TM25",
+  "move": "waterfall"
+ },
+ {
+  "tm": "TM26",
+  "move": "poison-jab"
+ },
+ {
+  "tm": "TM27",
+  "move": "toxic"
+ },
+ {
+  "tm": "TM28",
+  "move": "tri-attack"
+ },
+ {
+  "tm": "TM29",
+  "move": "scald"
+ },
+ {
+  "tm": "TM30",
+  "move": "bulk-up"
+ },
+ {
+  "tm": "TM31",
+  "move": "fire-punch"
+ },
+ {
+  "tm": "TM32",
+  "move": "dazzling-gleam"
+ },
+ {
+  "tm": "TM33",
+  "move": "calm-mind"
+ },
+ {
+  "tm": "TM34",
+  "move": "dragon-pulse"
+ },
+ {
+  "tm": "TM35",
+  "move": "ice-punch"
+ },
+ {
+  "tm": "TM36",
+  "move": "thunderbolt"
+ },
+ {
+  "tm": "TM37",
+  "move": "flamethrower"
+ },
+ {
+  "tm": "TM38",
+  "move": "thunder"
+ },
+ {
+  "tm": "TM39",
+  "move": "outrage"
+ },
+ {
+  "tm": "TM40",
+  "move": "psychic"
+ },
+ {
+  "tm": "TM41",
+  "move": "earthquake"
+ },
+ {
+  "tm": "TM42",
+  "move": "self-destruct"
+ },
+ {
+  "tm": "TM43",
+  "move": "shadow-ball"
+ },
+ {
+  "tm": "TM44",
+  "move": "play-rough"
+ },
+ {
+  "tm": "TM45",
+  "move": "solar-beam"
+ },
+ {
+  "tm": "TM46",
+  "move": "fire-blast"
+ },
+ {
+  "tm": "TM47",
+  "move": "surf"
+ },
+ {
+  "tm": "TM48",
+  "move": "hyper-beam"
+ },
+ {
+  "tm": "TM49",
+  "move": "superpower"
+ },
+ {
+  "tm": "TM50",
+  "move": "roost"
+ },
+ {
+  "tm": "TM51",
+  "move": "blizzard"
+ },
+ {
+  "tm": "TM52",
+  "move": "sludge-bomb"
+ },
+ {
+  "tm": "TM53",
+  "move": "mega-drain"
+ },
+ {
+  "tm": "TM54",
+  "move": "flash-cannon"
+ },
+ {
+  "tm": "TM55",
+  "move": "ice-beam"
+ },
+ {
+  "tm": "TM56",
+  "move": "stealth-rock"
+ },
+ {
+  "tm": "TM57",
+  "move": "pay-day"
+ },
+ {
+  "tm": "TM58",
+  "move": "drill-run"
+ },
+ {
+  "tm": "TM59",
+  "move": "dream-eater"
+ },
+ {
+  "tm": "TM60",
+  "move": "megahorn"
+ }
+]

@@ -1,0 +1,6015 @@
+{
+ "seafoam-islands-1f": {
+  "loc": "seafoam-islands",
+  "rows": [
+   {
+    "mon": "squirtle",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "zubat",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "golbat",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "slowpoke",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "slowbro",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "seel",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "dewgong",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "jynx",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   }
+  ]
+ },
+ "seafoam-islands-b1f": {
+  "loc": "seafoam-islands",
+  "rows": [
+   {
+    "mon": "squirtle",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "zubat",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "golbat",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "slowpoke",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "slowbro",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "seel",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "dewgong",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "jynx",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   }
+  ]
+ },
+ "seafoam-islands-b2f": {
+  "loc": "seafoam-islands",
+  "rows": [
+   {
+    "mon": "squirtle",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "zubat",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "golbat",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "slowpoke",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "slowbro",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "seel",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "dewgong",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "jynx",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   }
+  ]
+ },
+ "seafoam-islands-b3f": {
+  "loc": "seafoam-islands",
+  "rows": [
+   {
+    "mon": "squirtle",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "zubat",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "golbat",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "tentacool",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "tentacruel",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "slowpoke",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "slowbro",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "seel",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "dewgong",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "shellder",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "cloyster",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "jynx",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "magikarp",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   }
+  ]
+ },
+ "seafoam-islands-b4f": {
+  "loc": "seafoam-islands",
+  "rows": [
+   {
+    "mon": "squirtle",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "zubat",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "golbat",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "tentacool",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "tentacruel",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "slowpoke",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "slowbro",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "seel",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "dewgong",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "shellder",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "cloyster",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "jynx",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "magikarp",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 50,
+    "max": 50,
+    "chance": 100,
+    "method": "static",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-12-area": {
+  "loc": "kanto-route-12",
+  "rows": [
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 31,
+    "max": 36,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 31,
+    "max": 36,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeot",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "oddish",
+    "min": 31,
+    "max": 36,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "gloom",
+    "min": 31,
+    "max": 36,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "tentacool",
+    "min": 31,
+    "max": 36,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "tentacruel",
+    "min": 31,
+    "max": 36,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "farfetchd",
+    "min": 31,
+    "max": 36,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "krabby",
+    "min": 31,
+    "max": 36,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "kingler",
+    "min": 31,
+    "max": 36,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 31,
+    "max": 36,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "horsea",
+    "min": 31,
+    "max": 36,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "seadra",
+    "min": 31,
+    "max": 36,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "magikarp",
+    "min": 31,
+    "max": 36,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "snorlax",
+    "min": 34,
+    "max": 34,
+    "chance": 100,
+    "method": "pokeflute",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-sea-route-19-area": {
+  "loc": "kanto-sea-route-19",
+  "rows": [
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeot",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "tentacool",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "tentacruel",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "staryu",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "starmie",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "magikarp",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "lapras",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld-water-special",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-sea-route-20-area": {
+  "loc": "kanto-sea-route-20",
+  "rows": [
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeot",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "tentacool",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "tentacruel",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "magikarp",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "gyarados",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "lapras",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld-water-special",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "cinnabar-island-area": {
+  "loc": "cinnabar-island",
+  "rows": [
+   {
+    "mon": "grimer-alola",
+    "min": 44,
+    "max": 44,
+    "chance": 100,
+    "method": "npc-trade",
+    "cond": []
+   }
+  ]
+ },
+ "cerulean-city-area": {
+  "loc": "cerulean-city",
+  "rows": [
+   {
+    "mon": "bulbasaur",
+    "min": 12,
+    "max": 12,
+    "chance": 100,
+    "method": "gift",
+    "cond": []
+   },
+   {
+    "mon": "rattata-alola",
+    "min": 12,
+    "max": 12,
+    "chance": 100,
+    "method": "npc-trade",
+    "cond": []
+   }
+  ]
+ },
+ "vermilion-city-area": {
+  "loc": "vermilion-city",
+  "rows": [
+   {
+    "mon": "squirtle",
+    "min": 16,
+    "max": 16,
+    "chance": 100,
+    "method": "gift",
+    "cond": []
+   },
+   {
+    "mon": "persian",
+    "min": 32,
+    "max": 32,
+    "chance": 100,
+    "method": "gift",
+    "cond": []
+   },
+   {
+    "mon": "geodude-alola",
+    "min": 16,
+    "max": 16,
+    "chance": 100,
+    "method": "npc-trade",
+    "cond": []
+   }
+  ]
+ },
+ "celadon-city-area": {
+  "loc": "celadon-city",
+  "rows": [
+   {
+    "mon": "sandshrew-alola",
+    "min": 27,
+    "max": 27,
+    "chance": 100,
+    "method": "npc-trade",
+    "cond": []
+   }
+  ]
+ },
+ "fuchsia-city-area": {
+  "loc": "fuchsia-city",
+  "rows": [
+   {
+    "mon": "marowak-alola",
+    "min": 38,
+    "max": 38,
+    "chance": 100,
+    "method": "npc-trade",
+    "cond": []
+   }
+  ]
+ },
+ "pallet-town-area": {
+  "loc": "pallet-town",
+  "rows": [
+   {
+    "mon": "pikachu",
+    "min": 5,
+    "max": 5,
+    "chance": 100,
+    "method": "gift",
+    "cond": []
+   }
+  ]
+ },
+ "mt-moon-1f": {
+  "loc": "mt-moon",
+  "rows": [
+   {
+    "mon": "clefairy",
+    "min": 5,
+    "max": 10,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "zubat",
+    "min": 5,
+    "max": 10,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "paras",
+    "min": 5,
+    "max": 10,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "geodude",
+    "min": 5,
+    "max": 10,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "onix",
+    "min": 5,
+    "max": 10,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 5,
+    "max": 10,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   }
+  ]
+ },
+ "rock-tunnel-1f": {
+  "loc": "rock-tunnel",
+  "rows": [
+   {
+    "mon": "charmander",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "zubat",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "golbat",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "machop",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "geodude",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "graveler",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "onix",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "cubone",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "rhyhorn",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "kangaskhan",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   }
+  ]
+ },
+ "rock-tunnel-b1f": {
+  "loc": "rock-tunnel",
+  "rows": [
+   {
+    "mon": "charmander",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "zubat",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "golbat",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "machop",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "geodude",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "graveler",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "onix",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "cubone",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "rhyhorn",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "kangaskhan",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-victory-road-1-1f": {
+  "loc": "kanto-victory-road-1",
+  "rows": [
+   {
+    "mon": "zubat",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "golbat",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "machop",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "machoke",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "geodude",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "graveler",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "onix",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "rhyhorn",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "rhydon",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-1-area": {
+  "loc": "kanto-route-1",
+  "rows": [
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 4,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeot",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "rattata",
+    "min": 3,
+    "max": 4,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "oddish",
+    "min": 3,
+    "max": 4,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-2-south-towards-viridian-city": {
+  "loc": "kanto-route-2",
+  "rows": [
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "caterpie",
+    "min": 3,
+    "max": 4,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "weedle",
+    "min": 3,
+    "max": 4,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 4,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeot",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "rattata",
+    "min": 3,
+    "max": 4,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "oddish",
+    "min": 3,
+    "max": 4,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-3-area": {
+  "loc": "kanto-route-3",
+  "rows": [
+   {
+    "mon": "charmander",
+    "min": 3,
+    "max": 8,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "rattata",
+    "min": 3,
+    "max": 8,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "spearow",
+    "min": 3,
+    "max": 8,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "spearow",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "fearow",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "sandshrew",
+    "min": 3,
+    "max": 8,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "mankey",
+    "min": 3,
+    "max": 8,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-4-area": {
+  "loc": "kanto-route-4",
+  "rows": [
+   {
+    "mon": "charmander",
+    "min": 7,
+    "max": 12,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "rattata",
+    "min": 7,
+    "max": 12,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "spearow",
+    "min": 7,
+    "max": 12,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "spearow",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "fearow",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "sandshrew",
+    "min": 7,
+    "max": 12,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "psyduck",
+    "min": 7,
+    "max": 12,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "mankey",
+    "min": 7,
+    "max": 12,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "tentacool",
+    "min": 7,
+    "max": 12,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "tentacruel",
+    "min": 7,
+    "max": 12,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "magikarp",
+    "min": 7,
+    "max": 12,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "magikarp",
+    "min": 5,
+    "max": 5,
+    "chance": 100,
+    "method": "gift",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-5-area": {
+  "loc": "kanto-route-5",
+  "rows": [
+   {
+    "mon": "pidgey",
+    "min": 11,
+    "max": 16,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 11,
+    "max": 16,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeot",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "rattata",
+    "min": 11,
+    "max": 16,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "jigglypuff",
+    "min": 11,
+    "max": 16,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "growlithe",
+    "min": 11,
+    "max": 16,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "abra",
+    "min": 11,
+    "max": 16,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 11,
+    "max": 16,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-6-area": {
+  "loc": "kanto-route-6",
+  "rows": [
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 11,
+    "max": 16,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 11,
+    "max": 16,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeot",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "rattata",
+    "min": 11,
+    "max": 16,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "jigglypuff",
+    "min": 11,
+    "max": 16,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "psyduck",
+    "min": 11,
+    "max": 16,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "growlithe",
+    "min": 11,
+    "max": 16,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "abra",
+    "min": 11,
+    "max": 16,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 11,
+    "max": 16,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "goldeen",
+    "min": 11,
+    "max": 16,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "seaking",
+    "min": 11,
+    "max": 16,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "magikarp",
+    "min": 11,
+    "max": 16,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-7-area": {
+  "loc": "kanto-route-7",
+  "rows": [
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 22,
+    "max": 27,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 22,
+    "max": 27,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeot",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "rattata",
+    "min": 22,
+    "max": 27,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "raticate",
+    "min": 22,
+    "max": 27,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "jigglypuff",
+    "min": 22,
+    "max": 27,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "growlithe",
+    "min": 22,
+    "max": 27,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "arcanine",
+    "min": 22,
+    "max": 27,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "abra",
+    "min": 22,
+    "max": 27,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "kadabra",
+    "min": 22,
+    "max": 27,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "porygon",
+    "min": 22,
+    "max": 27,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-8-area": {
+  "loc": "kanto-route-8",
+  "rows": [
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 22,
+    "max": 27,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 22,
+    "max": 27,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeot",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "rattata",
+    "min": 22,
+    "max": 27,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "raticate",
+    "min": 22,
+    "max": 27,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "jigglypuff",
+    "min": 22,
+    "max": 27,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "growlithe",
+    "min": 22,
+    "max": 27,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "arcanine",
+    "min": 22,
+    "max": 27,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "abra",
+    "min": 22,
+    "max": 27,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "kadabra",
+    "min": 22,
+    "max": 27,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 22,
+    "max": 27,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-9-area": {
+  "loc": "kanto-route-9",
+  "rows": [
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "rattata",
+    "min": 17,
+    "max": 22,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "raticate",
+    "min": 17,
+    "max": 22,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "spearow",
+    "min": 17,
+    "max": 22,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "spearow",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "fearow",
+    "min": 17,
+    "max": 22,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "fearow",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "nidoran-f",
+    "min": 17,
+    "max": 22,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "nidorina",
+    "min": 17,
+    "max": 22,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "nidoran-m",
+    "min": 17,
+    "max": 22,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "nidorino",
+    "min": 17,
+    "max": 22,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 17,
+    "max": 22,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-10-area": {
+  "loc": "kanto-route-10",
+  "rows": [
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "rattata",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "raticate",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "spearow",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "spearow",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "fearow",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "fearow",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "nidoran-f",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "nidorina",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "nidoran-m",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "nidorino",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "tentacool",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "tentacruel",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "krabby",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "magikarp",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dratini",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "dragonair",
+    "min": 18,
+    "max": 23,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-11-area": {
+  "loc": "kanto-route-11",
+  "rows": [
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 13,
+    "max": 18,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 13,
+    "max": 18,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeot",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "rattata",
+    "min": 13,
+    "max": 18,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "raticate",
+    "min": 13,
+    "max": 18,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "tentacool",
+    "min": 13,
+    "max": 18,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "tentacruel",
+    "min": 13,
+    "max": 18,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "drowzee",
+    "min": 13,
+    "max": 18,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 13,
+    "max": 18,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "horsea",
+    "min": 13,
+    "max": 18,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "seadra",
+    "min": 13,
+    "max": 18,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "mr-mime",
+    "min": 13,
+    "max": 18,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "magikarp",
+    "min": 13,
+    "max": 18,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-13-area": {
+  "loc": "kanto-route-13",
+  "rows": [
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeot",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "oddish",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "gloom",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "tentacool",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "tentacruel",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "farfetchd",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "krabby",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "kingler",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "horsea",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "seadra",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "magikarp",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-14-area": {
+  "loc": "kanto-route-14",
+  "rows": [
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeot",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "oddish",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "gloom",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "venonat",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "venomoth",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "scyther",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "tauros",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-15-area": {
+  "loc": "kanto-route-15",
+  "rows": [
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeot",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "oddish",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "gloom",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "venonat",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "venomoth",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "scyther",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "tauros",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-16-area": {
+  "loc": "kanto-route-16",
+  "rows": [
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 31,
+    "max": 36,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 31,
+    "max": 36,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeot",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "rattata",
+    "min": 31,
+    "max": 36,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "raticate",
+    "min": 31,
+    "max": 36,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "doduo",
+    "min": 31,
+    "max": 36,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "dodrio",
+    "min": 31,
+    "max": 36,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 31,
+    "max": 36,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "snorlax",
+    "min": 34,
+    "max": 34,
+    "chance": 100,
+    "method": "pokeflute",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-17-area": {
+  "loc": "kanto-route-17",
+  "rows": [
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeot",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "rattata",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "raticate",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "psyduck",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "ponyta",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "rapidash",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "doduo",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "dodrio",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "eevee",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-18-area": {
+  "loc": "kanto-route-18",
+  "rows": [
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeot",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "rattata",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "raticate",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "tentacool",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "tentacruel",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "doduo",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "dodrio",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "staryu",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "starmie",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "magikarp",
+    "min": 33,
+    "max": 38,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-sea-route-21-area": {
+  "loc": "kanto-sea-route-21",
+  "rows": [
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeot",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "rattata",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "raticate",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "oddish",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "gloom",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "vileplume",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "tentacool",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "tentacruel",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "tangela",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "staryu",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "starmie",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "magikarp",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-22-area": {
+  "loc": "kanto-route-22",
+  "rows": [
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "rattata",
+    "min": 3,
+    "max": 4,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "spearow",
+    "min": 3,
+    "max": 4,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "spearow",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "fearow",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "nidoran-f",
+    "min": 3,
+    "max": 4,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "nidoran-m",
+    "min": 3,
+    "max": 4,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "poliwag",
+    "min": 3,
+    "max": 4,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "poliwhirl",
+    "min": 3,
+    "max": 4,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "magikarp",
+    "min": 3,
+    "max": 4,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-24-area": {
+  "loc": "kanto-route-24",
+  "rows": [
+   {
+    "mon": "charmander",
+    "min": 14,
+    "max": 14,
+    "chance": 100,
+    "method": "gift",
+    "cond": []
+   },
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "squirtle",
+    "min": 7,
+    "max": 12,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 7,
+    "max": 12,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeot",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "oddish",
+    "min": 7,
+    "max": 12,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "venonat",
+    "min": 7,
+    "max": 12,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "psyduck",
+    "min": 7,
+    "max": 12,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "tentacool",
+    "min": 7,
+    "max": 12,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "tentacruel",
+    "min": 7,
+    "max": 12,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "magikarp",
+    "min": 7,
+    "max": 12,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-25-area": {
+  "loc": "kanto-route-25",
+  "rows": [
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "squirtle",
+    "min": 9,
+    "max": 14,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 9,
+    "max": 14,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeot",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "oddish",
+    "min": 9,
+    "max": 14,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "venonat",
+    "min": 9,
+    "max": 14,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "psyduck",
+    "min": 9,
+    "max": 14,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "poliwag",
+    "min": 9,
+    "max": 14,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "poliwhirl",
+    "min": 9,
+    "max": 14,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "magikarp",
+    "min": 9,
+    "max": 14,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "digletts-cave-area": {
+  "loc": "digletts-cave",
+  "rows": [
+   {
+    "mon": "zubat",
+    "min": 13,
+    "max": 18,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "diglett",
+    "min": 13,
+    "max": 18,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "dugtrio",
+    "min": 13,
+    "max": 18,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 13,
+    "max": 18,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-victory-road-1-2f": {
+  "loc": "kanto-victory-road-1",
+  "rows": [
+   {
+    "mon": "zubat",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "golbat",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "machop",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "machoke",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "geodude",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "graveler",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "onix",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "hitmonlee",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "rhyhorn",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "rhydon",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "moltres",
+    "min": 50,
+    "max": 50,
+    "chance": 100,
+    "method": "static",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-victory-road-1-3f": {
+  "loc": "kanto-victory-road-1",
+  "rows": [
+   {
+    "mon": "zubat",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "golbat",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "machop",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "machoke",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "geodude",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "graveler",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "onix",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "hitmonchan",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "rhyhorn",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "rhydon",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-2-north-towards-pewter-city": {
+  "loc": "kanto-route-2",
+  "rows": [
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "caterpie",
+    "min": 3,
+    "max": 8,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "weedle",
+    "min": 3,
+    "max": 8,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 8,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeotto",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "pidgeot",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "rattata",
+    "min": 3,
+    "max": 8,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "oddish",
+    "min": 3,
+    "max": 8,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "viridian-forest-area": {
+  "loc": "viridian-forest",
+  "rows": [
+   {
+    "mon": "bulbasaur",
+    "min": 3,
+    "max": 6,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "caterpie",
+    "min": 3,
+    "max": 6,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "metapod",
+    "min": 3,
+    "max": 6,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "butterfree",
+    "min": 3,
+    "max": 6,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "weedle",
+    "min": 3,
+    "max": 6,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "kakuna",
+    "min": 3,
+    "max": 6,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pidgey",
+    "min": 3,
+    "max": 6,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "pikachu",
+    "min": 3,
+    "max": 6,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "oddish",
+    "min": 3,
+    "max": 6,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   }
+  ]
+ },
+ "cerulean-cave-1f": {
+  "loc": "cerulean-cave",
+  "rows": [
+   {
+    "mon": "zubat",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "golbat",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "psyduck",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "golduck",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "poliwag",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "poliwhirl",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "poliwrath",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "geodude",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "graveler",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "lickitung",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "rhyhorn",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "rhydon",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "magikarp",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "ditto",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "snorlax",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   }
+  ]
+ },
+ "cerulean-cave-2f": {
+  "loc": "cerulean-cave",
+  "rows": [
+   {
+    "mon": "zubat",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "golbat",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "geodude",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "graveler",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "lickitung",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "rhyhorn",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "rhydon",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "ditto",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "snorlax",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   }
+  ]
+ },
+ "cerulean-cave-b1f": {
+  "loc": "cerulean-cave",
+  "rows": [
+   {
+    "mon": "zubat",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "golbat",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "psyduck",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "golduck",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "poliwag",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "poliwhirl",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "poliwrath",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "geodude",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "graveler",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "lickitung",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "rhyhorn",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "rhydon",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "magikarp",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "ditto",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "snorlax",
+    "min": 51,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "mewtwo",
+    "min": 70,
+    "max": 70,
+    "chance": 100,
+    "method": "static",
+    "cond": []
+   }
+  ]
+ },
+ "mt-moon-b1f": {
+  "loc": "mt-moon",
+  "rows": [
+   {
+    "mon": "clefairy",
+    "min": 5,
+    "max": 10,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "zubat",
+    "min": 5,
+    "max": 10,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "paras",
+    "min": 5,
+    "max": 10,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "geodude",
+    "min": 5,
+    "max": 10,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "onix",
+    "min": 5,
+    "max": 10,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 5,
+    "max": 10,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   }
+  ]
+ },
+ "mt-moon-b2f": {
+  "loc": "mt-moon",
+  "rows": [
+   {
+    "mon": "clefairy",
+    "min": 5,
+    "max": 10,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "clefable",
+    "min": 5,
+    "max": 10,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "zubat",
+    "min": 5,
+    "max": 10,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "paras",
+    "min": 5,
+    "max": 10,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "geodude",
+    "min": 5,
+    "max": 10,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "onix",
+    "min": 5,
+    "max": 10,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 5,
+    "max": 10,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-route-23-area": {
+  "loc": "kanto-route-23",
+  "rows": [
+   {
+    "mon": "charizard",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   },
+   {
+    "mon": "spearow",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "spearow",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "fearow",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "fearow",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying",
+    "cond": []
+   },
+   {
+    "mon": "nidoran-f",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "nidorina",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "nidoqueen",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "nidoran-m",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "nidorino",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "nidoking",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "poliwag",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "poliwhirl",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "exeggcute",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "exeggutor",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "magikarp",
+    "min": 41,
+    "max": 46,
+    "chance": 100,
+    "method": "overworld-water",
+    "cond": []
+   },
+   {
+    "mon": "articuno",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-articuno"
+    ]
+   },
+   {
+    "mon": "zapdos",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-zapdos"
+    ]
+   },
+   {
+    "mon": "moltres",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": [
+     "other-caught-moltres"
+    ]
+   },
+   {
+    "mon": "dragonite",
+    "min": 3,
+    "max": 56,
+    "chance": 100,
+    "method": "overworld-flying-special",
+    "cond": []
+   }
+  ]
+ },
+ "kanto-power-plant-area": {
+  "loc": "kanto-power-plant",
+  "rows": [
+   {
+    "mon": "magnemite",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "magneton",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "grimer",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "muk",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "voltorb",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "electrode",
+    "min": 43,
+    "max": 43,
+    "chance": 100,
+    "method": "static",
+    "cond": []
+   },
+   {
+    "mon": "electrode",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "electabuzz",
+    "min": 37,
+    "max": 42,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "zapdos",
+    "min": 50,
+    "max": 50,
+    "chance": 100,
+    "method": "static",
+    "cond": []
+   }
+  ]
+ },
+ "pokemon-tower-3f": {
+  "loc": "pokemon-tower",
+  "rows": [
+   {
+    "mon": "zubat",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "golbat",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "gastly",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "haunter",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "cubone",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   }
+  ]
+ },
+ "pokemon-tower-4f": {
+  "loc": "pokemon-tower",
+  "rows": [
+   {
+    "mon": "zubat",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "golbat",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "gastly",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "haunter",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "cubone",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   }
+  ]
+ },
+ "pokemon-tower-5f": {
+  "loc": "pokemon-tower",
+  "rows": [
+   {
+    "mon": "zubat",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "golbat",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "gastly",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "haunter",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "cubone",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   }
+  ]
+ },
+ "pokemon-tower-6f": {
+  "loc": "pokemon-tower",
+  "rows": [
+   {
+    "mon": "zubat",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "golbat",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "gastly",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "haunter",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "cubone",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 27,
+    "max": 32,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   }
+  ]
+ },
+ "pokemon-mansion-1f": {
+  "loc": "pokemon-mansion",
+  "rows": [
+   {
+    "mon": "rattata",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "raticate",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "grimer",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "muk",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "magmar",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "ditto",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   }
+  ]
+ },
+ "pokemon-mansion-2f": {
+  "loc": "pokemon-mansion",
+  "rows": [
+   {
+    "mon": "rattata",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "raticate",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "grimer",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "muk",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "magmar",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "ditto",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   }
+  ]
+ },
+ "pokemon-mansion-3f": {
+  "loc": "pokemon-mansion",
+  "rows": [
+   {
+    "mon": "rattata",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "raticate",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "grimer",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "muk",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "magmar",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "ditto",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   }
+  ]
+ },
+ "pokemon-mansion-b1f": {
+  "loc": "pokemon-mansion",
+  "rows": [
+   {
+    "mon": "rattata",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "raticate",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "grimer",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "muk",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "chansey",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld-special",
+    "cond": []
+   },
+   {
+    "mon": "magmar",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   },
+   {
+    "mon": "ditto",
+    "min": 39,
+    "max": 44,
+    "chance": 100,
+    "method": "overworld",
+    "cond": []
+   }
+  ]
+ },
+ "saffron-city-fighting-dojo": {
+  "loc": "saffron-city",
+  "rows": [
+   {
+    "mon": "hitmonlee",
+    "min": 30,
+    "max": 30,
+    "chance": 100,
+    "method": "gift",
+    "cond": []
+   },
+   {
+    "mon": "hitmonchan",
+    "min": 30,
+    "max": 30,
+    "chance": 100,
+    "method": "gift",
+    "cond": []
+   }
+  ]
+ },
+ "cinnabar-island-cinnabar-lab": {
+  "loc": "cinnabar-island",
+  "rows": [
+   {
+    "mon": "omanyte",
+    "min": 44,
+    "max": 44,
+    "chance": 100,
+    "method": "gift",
+    "cond": []
+   },
+   {
+    "mon": "kabuto",
+    "min": 44,
+    "max": 44,
+    "chance": 100,
+    "method": "gift",
+    "cond": []
+   },
+   {
+    "mon": "aerodactyl",
+    "min": 44,
+    "max": 44,
+    "chance": 100,
+    "method": "gift",
+    "cond": []
+   }
+  ]
+ },
+ "saffron-city-silph-co": {
+  "loc": "saffron-city",
+  "rows": [
+   {
+    "mon": "porygon",
+    "min": 36,
+    "max": 36,
+    "chance": 100,
+    "method": "gift",
+    "cond": []
+   }
+  ]
+ },
+ "lavender-town-area": {
+  "loc": "lavender-town",
+  "rows": [
+   {
+    "mon": "diglett-alola",
+    "min": 25,
+    "max": 25,
+    "chance": 100,
+    "method": "npc-trade",
+    "cond": []
+   }
+  ]
+ },
+ "indigo-plateau-area": {
+  "loc": "indigo-plateau",
+  "rows": [
+   {
+    "mon": "exeggutor-alola",
+    "min": 46,
+    "max": 46,
+    "chance": 100,
+    "method": "npc-trade",
+    "cond": []
+   }
+  ]
+ },
+ "saffron-city-area": {
+  "loc": "saffron-city",
+  "rows": [
+   {
+    "mon": "raichu-alola",
+    "min": 30,
+    "max": 30,
+    "chance": 100,
+    "method": "npc-trade",
+    "cond": []
+   }
+  ]
+ }
+}

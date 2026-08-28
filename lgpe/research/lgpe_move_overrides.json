@@ -1,0 +1,71 @@
+{
+ "Absorb": {
+  "power": {
+   "generic": "20",
+   "lgpe": "40"
+  },
+  "basepp": {
+   "generic": "25",
+   "lgpe": "15"
+  },
+  "notes": [
+   "In [[Pokémon: Let's Go, Pikachu! and Let's Go, Eevee!]], Absorb's power was changed from 20 to 40, while its PP was reduced to 15."
+  ]
+ },
+ "Hydro Pump": {
+  "notes": [
+   "* Since [[Pokémon: Let's Go, Pikachu! and Let's Go, Eevee!]], the move has the same sound effect as it originally did in Generation I."
+  ]
+ },
+ "Mega Drain": {
+  "power": {
+   "generic": "40",
+   "lgpe": "75"
+  },
+  "basepp": {
+   "generic": "15",
+   "lgpe": "10"
+  },
+  "notes": [
+   "In [[Pokémon: Let's Go, Pikachu! and Let's Go, Eevee!]], Mega Drain's power was changed from 40 to 75, while its PP was reduced back to 10. This makes it functionally identical to Giga Drain, a change likely implemented due to the latter move's absence from the game."
+  ]
+ },
+ "Pika Papow": {
+  "notes": [
+   "'''Pika Papow''' (Japanese: '''ピカピカサンダー''' ''Pikapika Thunder'') is a damage-dealing {{type|Electric}} [[move]] introduced during [[Generation VII]], in {{LGPE}}. It is one of the [[signature move]]s and the partner power of the {{OBP|Partner Pokémon|Let's Go, Pikachu! and Let's Go, Eevee!|partner}} {{p|Pikachu}}. It acts as a fifth move that can only be used by shaking the game controller when pr"
+  ]
+ },
+ "Sky Attack": {
+  "power": {
+   "generic": "140",
+   "lgpe": "200"
+  },
+  "notes": [
+   "In [[Pokémon: Let's Go, Pikachu! and Let's Go, Eevee!]] only, Sky Attack's base power was increased to 200."
+  ]
+ },
+ "Solar Beam": {
+  "power": {
+   "generic": "120",
+   "lgpe": "200"
+  },
+  "notes": [
+   "In [[Pokémon: Let's Go, Pikachu! and Let's Go, Eevee!]], Solar Beam's power was increased from 120 to 200."
+  ]
+ },
+ "Teleport": {
+  "priority": {
+   "generic": "−6",
+   "lgpe": "0"
+  },
+  "notes": [
+   "In [[Pokémon: Let's Go, Pikachu! and Let's Go, Eevee!]], Teleport switches the user out. It has -6 [[priority]]. Teleport fails if the user is the only Pokémon in the [[party]] that is able to battle.",
+   "Teleport retains its effect from [[Pokémon: Let's Go, Pikachu! and Let's Go, Eevee!]], and it succeeds regardless of whether the user is trapped. It only ends a battle if used by a wild Pokémon."
+  ]
+ },
+ "Veevee Volley": {
+  "notes": [
+   "'''Veevee Volley''' (Japanese: '''ブイブイブレイク''' ''Vuivui Break'') is a damage-dealing {{type|Normal}} [[move]] introduced during [[Generation VII]], in {{LGPE}}. It is one of the [[signature move]]s and the partner power of the {{OBP|Partner Pokémon|Let's Go, Pikachu! and Let's Go, Eevee!|partner}} {{p|Eevee}}. It acts as a fifth move that can only be used by shaking the game controller when prompte"
+  ]
+ }
+}

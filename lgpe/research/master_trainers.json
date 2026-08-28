@@ -1,0 +1,1759 @@
+{
+ "battles": [
+  {
+   "trainer": "Lass Rena",
+   "loc": "Route 4",
+   "mon": "Bulbasaur",
+   "lv": 65,
+   "moves": [
+    "Sludge Bomb",
+    "Take Down",
+    "Growth"
+   ]
+  },
+  {
+   "trainer": "Lass Katrina",
+   "loc": "Route 14",
+   "mon": "Ivysaur",
+   "lv": 70,
+   "moves": [
+    "Sludge Bomb",
+    "Double-Edge",
+    "Growth"
+   ]
+  },
+  {
+   "trainer": "Lass Sal",
+   "loc": "Route 23",
+   "mon": "Venusaur",
+   "lv": 75,
+   "moves": [
+    "Sludge Bomb",
+    "Outrage",
+    "Growth"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Tim",
+   "loc": "Celadon Condominiums",
+   "mon": "Charmander",
+   "lv": 65,
+   "moves": [
+    "Slash",
+    "Seismic Toss",
+    "Smokescreen"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Christopher",
+   "loc": "Route 10",
+   "mon": "Charmeleon",
+   "lv": 70,
+   "moves": [
+    "Outrage",
+    "Dig",
+    "Smokescreen"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Edmund",
+   "loc": "Route 23",
+   "mon": "Charizard",
+   "lv": 75,
+   "moves": [
+    "Dragon Pulse",
+    "Thunder Punch",
+    "Protect"
+   ]
+  },
+  {
+   "trainer": "Beauty Suzy",
+   "loc": "Route 12",
+   "mon": "Squirtle",
+   "lv": 65,
+   "moves": [
+    "Headbutt",
+    "Bite",
+    "Withdraw"
+   ]
+  },
+  {
+   "trainer": "Beauty Prita",
+   "loc": "Route 20",
+   "mon": "Wartortle",
+   "lv": 70,
+   "moves": [
+    "Headbutt",
+    "Rock Slide",
+    "Skull Bash"
+   ]
+  },
+  {
+   "trainer": "Beauty Tessa",
+   "loc": "Route 20",
+   "mon": "Blastoise",
+   "lv": 80,
+   "moves": [
+    "Fake Out",
+    "Rock Slide",
+    "Dark Pulse",
+    "Substitute"
+   ]
+  },
+  {
+   "trainer": "Bug Catcher Jake",
+   "loc": "Route 18",
+   "mon": "Caterpie",
+   "lv": 65,
+   "moves": [
+    "Tackle",
+    "String Shot"
+   ]
+  },
+  {
+   "trainer": "Bug Catcher Bryson",
+   "loc": "Route 11",
+   "mon": "Metapod",
+   "lv": 65,
+   "moves": [
+    "Tackle",
+    "String Shot",
+    "Harden"
+   ]
+  },
+  {
+   "trainer": "Bug Catcher Bobby",
+   "loc": "Route 2",
+   "mon": "Butterfree",
+   "lv": 75,
+   "moves": [
+    "Quiver Dance",
+    "Sleep Powder",
+    "Air Slash"
+   ]
+  },
+  {
+   "trainer": "Bug Catcher Scott",
+   "loc": "Viridian Forest",
+   "mon": "Weedle",
+   "lv": 65,
+   "moves": [
+    "Poison Sting",
+    "String Shot"
+   ]
+  },
+  {
+   "trainer": "Bug Catcher Kenny",
+   "loc": "Route 13",
+   "mon": "Kakuna",
+   "lv": 65,
+   "moves": [
+    "Poison Sting",
+    "String Shot",
+    "Harden"
+   ]
+  },
+  {
+   "trainer": "Bug Catcher Terry",
+   "loc": "Route 8",
+   "mon": "Beedrill",
+   "lv": 75,
+   "moves": [
+    "Outrage",
+    "Drill Run",
+    "Agility"
+   ]
+  },
+  {
+   "trainer": "Bird Keeper Louey",
+   "loc": "Route 2",
+   "mon": "Pidgey",
+   "lv": 65,
+   "moves": [
+    "Fly",
+    "Toxic",
+    "Protect",
+    "Roost"
+   ]
+  },
+  {
+   "trainer": "Bird Keeper Howie",
+   "loc": "Route 16",
+   "mon": "Pidgeotto",
+   "lv": 70,
+   "moves": [
+    "Air Slash",
+    "Headbutt",
+    "Agility"
+   ]
+  },
+  {
+   "trainer": "Bird Keeper Wyatt",
+   "loc": "Route 12",
+   "mon": "Pidgeot",
+   "lv": 75,
+   "moves": [
+    "Sky Attack",
+    "Hyper Beam",
+    "Reflect",
+    "Roost"
+   ]
+  },
+  {
+   "trainer": "Youngster Bret",
+   "loc": "Route 10",
+   "mon": "Rattata",
+   "lv": 65,
+   "moves": [
+    "Bite",
+    "Headbutt",
+    "Thunder Wave"
+   ]
+  },
+  {
+   "trainer": "Youngster Denis",
+   "loc": "Cerulean City",
+   "mon": "Raticate",
+   "lv": 75,
+   "moves": [
+    "Double-Edge",
+    "Facade",
+    "Blizzard"
+   ]
+  },
+  {
+   "trainer": "Bird Keeper Ralph",
+   "loc": "Pewter City",
+   "mon": "Spearow",
+   "lv": 70,
+   "moves": [
+    "Fury Attack",
+    "Focus Energy"
+   ]
+  },
+  {
+   "trainer": "Bird Keeper Theo",
+   "loc": "Route 18",
+   "mon": "Fearow",
+   "lv": 80,
+   "moves": [
+    "Sky Attack",
+    "Focus Energy",
+    "Drill Run"
+   ]
+  },
+  {
+   "trainer": "Scientist Herbert",
+   "loc": "Route 4",
+   "mon": "Ekans",
+   "lv": 70,
+   "moves": [
+    "Glare",
+    "Bite",
+    "Rock Slide"
+   ]
+  },
+  {
+   "trainer": "Scientist Adam",
+   "loc": "Team Rocket Hideout",
+   "mon": "Arbok",
+   "lv": 75,
+   "moves": [
+    "Glare",
+    "Facade",
+    "Wrap",
+    "Sucker Punch"
+   ]
+  },
+  {
+   "trainer": "Lass Ikue",
+   "loc": "Viridian Forest",
+   "mon": "Pikachu",
+   "lv": 75,
+   "moves": [
+    "Slam",
+    "Toxic",
+    "Substitute",
+    "Reflect"
+   ]
+  },
+  {
+   "trainer": "Lass Charlotte",
+   "loc": "Pok\u00e9mon Tower",
+   "mon": "Raichu",
+   "lv": 75,
+   "moves": [
+    "Headbutt",
+    "Double Team",
+    "Hyper Beam"
+   ]
+  },
+  {
+   "trainer": "Hiker Paul",
+   "loc": "Route 11",
+   "mon": "Sandshrew",
+   "lv": 70,
+   "moves": [
+    "Poison Jab",
+    "Seismic Toss",
+    "Sand Attack"
+   ]
+  },
+  {
+   "trainer": "Hiker Benjamin",
+   "loc": "Route 7",
+   "mon": "Sandslash",
+   "lv": 75,
+   "moves": [
+    "Drill Run",
+    "Swords Dance",
+    "Substitute"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Ronnie",
+   "loc": "Route 3",
+   "mon": "Nidoran\u2640",
+   "lv": 65,
+   "moves": [
+    "Super Fang",
+    "Thunderbolt",
+    "Ice Beam"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Fred",
+   "loc": "Underground Path (Rt. 7-8)",
+   "mon": "Nidorina",
+   "lv": 70,
+   "moves": [
+    "Super Fang",
+    "Thunder",
+    "Blizzard"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Percy",
+   "loc": "Route 23",
+   "mon": "Nidoqueen",
+   "lv": 75,
+   "moves": [
+    "Super Fang",
+    "Blizzard",
+    "Surf"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Alvin",
+   "loc": "Route 4",
+   "mon": "Nidoran\u2642",
+   "lv": 70,
+   "moves": [
+    "Iron Tail",
+    "Headbutt"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Dave",
+   "loc": "Underground Path (Rt. 7-8)",
+   "mon": "Nidorino",
+   "lv": 75,
+   "moves": [
+    "Iron Tail",
+    "Dig"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Carlton",
+   "loc": "Route 23",
+   "mon": "Nidoking",
+   "lv": 80,
+   "moves": [
+    "Horn Drill",
+    "Drill Run",
+    "Ice Punch"
+   ]
+  },
+  {
+   "trainer": "Lass Chel",
+   "loc": "Saffron City",
+   "mon": "Clefairy",
+   "lv": 70,
+   "moves": [
+    "Sing",
+    "Metronome"
+   ]
+  },
+  {
+   "trainer": "Lass Alexandra",
+   "loc": "Mt. Moon",
+   "mon": "Clefable",
+   "lv": 80,
+   "moves": [
+    "Iron Tail",
+    "Moonblast",
+    "Minimize"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Finn",
+   "loc": "Route 6",
+   "mon": "Vulpix",
+   "lv": 70,
+   "moves": [
+    "Toxic",
+    "Fire Spin",
+    "Confuse Ray"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Arnold",
+   "loc": "Route 9",
+   "mon": "Ninetales",
+   "lv": 75,
+   "moves": [
+    "Hypnosis",
+    "Calm Mind",
+    "Dark Pulse",
+    "Dream Eater"
+   ]
+  },
+  {
+   "trainer": "Lass Marge",
+   "loc": "Pewter City",
+   "mon": "Jigglypuff",
+   "lv": 70,
+   "moves": [
+    "Sing",
+    "Body Slam",
+    "Disable"
+   ]
+  },
+  {
+   "trainer": "Lass Yumi",
+   "loc": "Silph Co.",
+   "mon": "Wigglytuff",
+   "lv": 75,
+   "moves": [
+    "Sing",
+    "Tri Attack",
+    "Disable"
+   ]
+  },
+  {
+   "trainer": "Scientist West",
+   "loc": "Rock Tunnel",
+   "mon": "Zubat",
+   "lv": 70,
+   "moves": [
+    "Air Slash",
+    "Confuse Ray"
+   ]
+  },
+  {
+   "trainer": "Scientist Keaton",
+   "loc": "",
+   "mon": "Golbat",
+   "lv": 75,
+   "moves": [
+    "Fly",
+    "Confuse Ray",
+    "Roost"
+   ]
+  },
+  {
+   "trainer": "Lass Amy",
+   "loc": "Viridian City",
+   "mon": "Oddish",
+   "lv": 65,
+   "moves": [
+    "Sludge Bomb"
+   ]
+  },
+  {
+   "trainer": "Lass Emma",
+   "loc": "Pewter City",
+   "mon": "Gloom",
+   "lv": 70,
+   "moves": [
+    "Sludge Bomb"
+   ]
+  },
+  {
+   "trainer": "Lass Satoko",
+   "loc": "Route 14",
+   "mon": "Vileplume",
+   "lv": 75,
+   "moves": [
+    "Substitute",
+    "Reflect",
+    "Hyper Beam"
+   ]
+  },
+  {
+   "trainer": "Bug Catcher Evan",
+   "loc": "Mt. Moon",
+   "mon": "Paras",
+   "lv": 70,
+   "moves": [
+    "X-Scissor",
+    "Sludge Bomb"
+   ]
+  },
+  {
+   "trainer": "Bug Catcher Hans",
+   "loc": "Route 2",
+   "mon": "Parasect",
+   "lv": 75,
+   "moves": [
+    "Leech Life",
+    "Sludge Bomb"
+   ]
+  },
+  {
+   "trainer": "Bug Catcher Olly",
+   "loc": "Route 24",
+   "mon": "Venonat",
+   "lv": 70,
+   "moves": [
+    "Disable",
+    "Sleep Powder",
+    "Psybeam"
+   ]
+  },
+  {
+   "trainer": "Bug Catcher Lajos",
+   "loc": "Route 15",
+   "mon": "Venomoth",
+   "lv": 75,
+   "moves": [
+    "Quiver Dance",
+    "Sleep Powder",
+    "Psychic"
+   ]
+  },
+  {
+   "trainer": "Hiker Colin",
+   "loc": "Diglett's Cave",
+   "mon": "Diglett",
+   "lv": 70,
+   "moves": [
+    "Sucker Punch",
+    "Dig"
+   ]
+  },
+  {
+   "trainer": "Hiker Dexter",
+   "loc": "Diglett's Cave",
+   "mon": "Dugtrio",
+   "lv": 75,
+   "moves": [
+    "Sand Attack",
+    "Substitute",
+    "Fissure",
+    "Slash"
+   ]
+  },
+  {
+   "trainer": "Youngster Ken",
+   "loc": "Viridian City",
+   "mon": "Meowth",
+   "lv": 70,
+   "moves": [
+    "Nasty Plot",
+    "Thunderbolt",
+    "Dark Pulse"
+   ]
+  },
+  {
+   "trainer": "Youngster Shawn",
+   "loc": "Team Rocket Hideout",
+   "mon": "Persian",
+   "lv": 75,
+   "moves": [
+    "Hypnosis",
+    "Dream Eater",
+    "Nasty Plot",
+    "Hyper Beam"
+   ]
+  },
+  {
+   "trainer": "Beauty Nicole",
+   "loc": "Route 21",
+   "mon": "Psyduck",
+   "lv": 70,
+   "moves": [
+    "Amnesia",
+    "Psychic",
+    "Rest"
+   ]
+  },
+  {
+   "trainer": "Beauty Camille",
+   "loc": "Route 4",
+   "mon": "Golduck",
+   "lv": 75,
+   "moves": [
+    "Yawn",
+    "Calm Mind",
+    "Psychic"
+   ]
+  },
+  {
+   "trainer": "Black Belt Tadashi",
+   "loc": "Route 5",
+   "mon": "Mankey",
+   "lv": 70,
+   "moves": [
+    "Focus Energy",
+    "Karate Chop",
+    "Fury Swipes"
+   ]
+  },
+  {
+   "trainer": "Black Belt Kano",
+   "loc": "Route 11",
+   "mon": "Primeape",
+   "lv": 75,
+   "moves": [
+    "Counter",
+    "Taunt",
+    "Brick Break"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Austin",
+   "loc": "Route 7",
+   "mon": "Growlithe",
+   "lv": 70,
+   "moves": [
+    "Dig",
+    "Toxic",
+    "Reflect"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Satch",
+   "loc": "Celadon City",
+   "mon": "Arcanine",
+   "lv": 75,
+   "moves": [
+    "Facade",
+    "Hyper Beam",
+    "Double-Edge",
+    "Reflect"
+   ]
+  },
+  {
+   "trainer": "Lass Vicky",
+   "loc": "Route 12",
+   "mon": "Poliwag",
+   "lv": 65,
+   "moves": [
+    "Hypnosis",
+    "Headbutt",
+    "Hydro Pump"
+   ]
+  },
+  {
+   "trainer": "Lass Kimberly",
+   "loc": "Cerulean City",
+   "mon": "Poliwhirl",
+   "lv": 70,
+   "moves": [
+    "Substitute",
+    "Scald",
+    "Psychic"
+   ]
+  },
+  {
+   "trainer": "Black Belt Yuen",
+   "loc": "Cerulean City",
+   "mon": "Poliwrath",
+   "lv": 75,
+   "moves": [
+    "Brick Break",
+    "Bulk Up",
+    "Psychic"
+   ]
+  },
+  {
+   "trainer": "Psychic Angelo",
+   "loc": "Viridian City",
+   "mon": "Abra",
+   "lv": 70,
+   "moves": [
+    "Calm Mind",
+    "Shadow Ball",
+    "Thunder Wave"
+   ]
+  },
+  {
+   "trainer": "Psychic Jaime",
+   "loc": "Saffron City",
+   "mon": "Kadabra",
+   "lv": 75,
+   "moves": [
+    "Iron Tail",
+    "Thunder Punch",
+    "Facade"
+   ]
+  },
+  {
+   "trainer": "Psychic Frasier",
+   "loc": "Route 10",
+   "mon": "Alakazam",
+   "lv": 80,
+   "moves": [
+    "Disable",
+    "Recover",
+    "Calm Mind",
+    "Tri Attack"
+   ]
+  },
+  {
+   "trainer": "Black Belt Masahiro",
+   "loc": "Silph Co.",
+   "mon": "Machop",
+   "lv": 65,
+   "moves": [
+    "Thunder Punch",
+    "Poison Jab",
+    "Bulk Up"
+   ]
+  },
+  {
+   "trainer": "Black Belt Ryuji",
+   "loc": "Fuchsia City",
+   "mon": "Machoke",
+   "lv": 70,
+   "moves": [
+    "Poison Jab",
+    "Fire Punch",
+    "Bulk Up"
+   ]
+  },
+  {
+   "trainer": "Black Belt Randy",
+   "loc": "Vermilion City",
+   "mon": "Machamp",
+   "lv": 75,
+   "moves": [
+    "Brick Break",
+    "Headbutt",
+    "Bulk Up"
+   ]
+  },
+  {
+   "trainer": "Lass Hana",
+   "loc": "Viridian City",
+   "mon": "Bellsprout",
+   "lv": 65,
+   "moves": [
+    "Poison Jab",
+    "Sludge Bomb",
+    "Growth"
+   ]
+  },
+  {
+   "trainer": "Lass Emily",
+   "loc": "Pok\u00e9mon Tower",
+   "mon": "Weepinbell",
+   "lv": 70,
+   "moves": [
+    "Poison Jab",
+    "Sludge Bomb",
+    "Growth"
+   ]
+  },
+  {
+   "trainer": "Lass Dianne",
+   "loc": "Celadon City",
+   "mon": "Victreebel",
+   "lv": 75,
+   "moves": [
+    "Poison Jab",
+    "Sucker Punch",
+    "Swords Dance"
+   ]
+  },
+  {
+   "trainer": "Scientist Francis",
+   "loc": "Route 20",
+   "mon": "Tentacool",
+   "lv": 75,
+   "moves": [
+    "Barrier",
+    "Headbutt",
+    "Hydro Pump"
+   ]
+  },
+  {
+   "trainer": "Scientist Melvin",
+   "loc": "Route 20",
+   "mon": "Tentacruel",
+   "lv": 80,
+   "moves": [
+    "Wrap",
+    "Screech",
+    "Barrier",
+    "Headbutt"
+   ]
+  },
+  {
+   "trainer": "Hiker Irwin",
+   "loc": "Rock Tunnel",
+   "mon": "Geodude",
+   "lv": 65,
+   "moves": [
+    "Bide",
+    "Brick Break"
+   ]
+  },
+  {
+   "trainer": "Hiker Dillan",
+   "loc": "",
+   "mon": "Graveler",
+   "lv": 70,
+   "moves": [
+    "Fire Blast",
+    "Sand Attack",
+    "Defense Curl"
+   ]
+  },
+  {
+   "trainer": "Hiker Valentino",
+   "loc": "Pewter Museum of Science",
+   "mon": "Golem",
+   "lv": 75,
+   "moves": [
+    "Dig",
+    "Fire Punch",
+    "Defense Curl",
+    "Protect"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Garret",
+   "loc": "Saffron City",
+   "mon": "Ponyta",
+   "lv": 70,
+   "moves": [
+    "Reflect",
+    "Toxic",
+    "Fire Spin",
+    "Rest"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Raymond",
+   "loc": "Saffron City",
+   "mon": "Rapidash",
+   "lv": 75,
+   "moves": [
+    "Hypnosis",
+    "Horn Drill",
+    "Drill Run"
+   ]
+  },
+  {
+   "trainer": "Beauty Jill",
+   "loc": "Route 21",
+   "mon": "Slowpoke",
+   "lv": 70,
+   "moves": [
+    "Thunder Wave",
+    "Earthquake",
+    "Facade"
+   ]
+  },
+  {
+   "trainer": "Beauty Haruka",
+   "loc": "Route 21",
+   "mon": "Slowbro",
+   "lv": 75,
+   "moves": [
+    "Disable",
+    "Calm Mind",
+    "Yawn",
+    "Shadow Ball"
+   ]
+  },
+  {
+   "trainer": "Scientist Murray",
+   "loc": "Underground Path (Rt. 5-6)",
+   "mon": "Magnemite",
+   "lv": 70,
+   "moves": [
+    "Flash Cannon",
+    "Supersonic"
+   ]
+  },
+  {
+   "trainer": "Scientist Julian",
+   "loc": "Underground Path (Rt. 5-6)",
+   "mon": "Magneton",
+   "lv": 75,
+   "moves": [
+    "Thunder",
+    "Hyper Beam"
+   ]
+  },
+  {
+   "trainer": "Bird Keeper Moe",
+   "loc": "Vermilion City",
+   "mon": "Farfetch'd",
+   "lv": 70,
+   "moves": [
+    "Swords Dance",
+    "Fly",
+    "Feint"
+   ]
+  },
+  {
+   "trainer": "Bird Keeper Barney",
+   "loc": "Cerulean City",
+   "mon": "Doduo",
+   "lv": 70,
+   "moves": [
+    "Swords Dance",
+    "Jump Kick"
+   ]
+  },
+  {
+   "trainer": "Bird Keeper Seymour",
+   "loc": "Route 15",
+   "mon": "Dodrio",
+   "lv": 75,
+   "moves": [
+    "Agility",
+    "Headbutt"
+   ]
+  },
+  {
+   "trainer": "Beauty Aina",
+   "loc": "Seafoam Islands",
+   "mon": "Seel",
+   "lv": 70,
+   "moves": [
+    "Double-Edge",
+    "Encore"
+   ]
+  },
+  {
+   "trainer": "Beauty Lois",
+   "loc": "Seafoam Islands",
+   "mon": "Dewgong",
+   "lv": 75,
+   "moves": [
+    "Horn Drill",
+    "Toxic",
+    "Rest",
+    "Protect"
+   ]
+  },
+  {
+   "trainer": "Scientist Cory",
+   "loc": "Celadon City",
+   "mon": "Grimer",
+   "lv": 70,
+   "moves": [
+    "Minimize",
+    "Fire Punch",
+    "Protect"
+   ]
+  },
+  {
+   "trainer": "Scientist Gordon",
+   "loc": "",
+   "mon": "Muk",
+   "lv": 75,
+   "moves": [
+    "Haze",
+    "Rock Slide",
+    "Thunder Punch"
+   ]
+  },
+  {
+   "trainer": "Beauty Shelly",
+   "loc": "Route 19",
+   "mon": "Shellder",
+   "lv": 70,
+   "moves": [
+    "Shell Smash",
+    "Ice Shard",
+    "Headbutt"
+   ]
+  },
+  {
+   "trainer": "Beauty Rose",
+   "loc": "Route 20",
+   "mon": "Cloyster",
+   "lv": 75,
+   "moves": [
+    "Barrier",
+    "Toxic",
+    "Protect",
+    "Rest"
+   ]
+  },
+  {
+   "trainer": "Psychic Arin",
+   "loc": "Lavender Town",
+   "mon": "Gastly",
+   "lv": 70,
+   "moves": [
+    "Shadow Ball"
+   ]
+  },
+  {
+   "trainer": "Psychic Danny",
+   "loc": "Lavender Town",
+   "mon": "Haunter",
+   "lv": 75,
+   "moves": [
+    "Shadow Ball"
+   ]
+  },
+  {
+   "trainer": "Psychic Ross",
+   "loc": "Lavender Town",
+   "mon": "Gengar",
+   "lv": 80,
+   "moves": [
+    "Hypnosis",
+    "Dream Eater",
+    "Thunderbolt"
+   ]
+  },
+  {
+   "trainer": "Hiker Jim",
+   "loc": "Underground Path (Rt. 7-8)",
+   "mon": "Onix",
+   "lv": 70,
+   "moves": [
+    "Wrap",
+    "Toxic",
+    "Harden",
+    "Protect"
+   ]
+  },
+  {
+   "trainer": "Psychic Anton",
+   "loc": "Viridian City",
+   "mon": "Drowzee",
+   "lv": 70,
+   "moves": [
+    "Thunder Wave",
+    "Headbutt",
+    "Meditate"
+   ]
+  },
+  {
+   "trainer": "Psychic Vlad",
+   "loc": "Pok\u00e9mon Tower",
+   "mon": "Hypno",
+   "lv": 75,
+   "moves": [
+    "Hypnosis",
+    "Nasty Plot",
+    "Shadow Ball"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Carl",
+   "loc": "Vermilion City",
+   "mon": "Krabby",
+   "lv": 70,
+   "moves": [
+    "Superpower",
+    "X-Scissor"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Leopold",
+   "loc": "Silph Co.",
+   "mon": "Kingler",
+   "lv": 75,
+   "moves": [
+    "Agility",
+    "Stomp",
+    "Scald",
+    "Guillotine"
+   ]
+  },
+  {
+   "trainer": "Scientist Humphrey",
+   "loc": "Power Plant",
+   "mon": "Voltorb",
+   "lv": 70,
+   "moves": [
+    "Light Screen",
+    "Swift"
+   ]
+  },
+  {
+   "trainer": "Scientist Elton",
+   "loc": "Route 17",
+   "mon": "Electrode",
+   "lv": 75,
+   "moves": [
+    "Screech",
+    "Headbutt",
+    "Light Screen"
+   ]
+  },
+  {
+   "trainer": "Lass Summer",
+   "loc": "Route 24",
+   "mon": "Exeggcute",
+   "lv": 70,
+   "moves": [
+    "Sludge Bomb",
+    "Facade"
+   ]
+  },
+  {
+   "trainer": "Lass Cindy",
+   "loc": "Cinnabar Island",
+   "mon": "Exeggutor",
+   "lv": 75,
+   "moves": [
+    "Hypnosis",
+    "Solar Beam",
+    "Hyper Beam"
+   ]
+  },
+  {
+   "trainer": "Hiker Richter",
+   "loc": "Route 8",
+   "mon": "Cubone",
+   "lv": 70,
+   "moves": [
+    "Bonemerang",
+    "Growl"
+   ]
+  },
+  {
+   "trainer": "Hiker Julius",
+   "loc": "Lavender Town",
+   "mon": "Marowak",
+   "lv": 75,
+   "moves": [
+    "Swords Dance",
+    "Double-Edge",
+    "Fire Punch"
+   ]
+  },
+  {
+   "trainer": "Black Belt Cheng",
+   "loc": "Fighting Dojo",
+   "mon": "Hitmonlee",
+   "lv": 75,
+   "moves": [
+    "High Jump Kick",
+    "Feint"
+   ]
+  },
+  {
+   "trainer": "Black Belt Wong",
+   "loc": "Fighting Dojo",
+   "mon": "Hitmonchan",
+   "lv": 75,
+   "moves": [
+    "Bulk Up",
+    "Thunder Punch",
+    "Ice Punch",
+    "Fire Punch"
+   ]
+  },
+  {
+   "trainer": "Youngster Cid",
+   "loc": "Route 16",
+   "mon": "Lickitung",
+   "lv": 70,
+   "moves": [
+    "Fire Blast",
+    "Blizzard",
+    "Thunder",
+    "Disable"
+   ]
+  },
+  {
+   "trainer": "Scientist Albert",
+   "loc": "Route 17",
+   "mon": "Koffing",
+   "lv": 70,
+   "moves": [
+    "Shadow Ball",
+    "Will-O-Wisp",
+    "Protect"
+   ]
+  },
+  {
+   "trainer": "Scientist Donnie",
+   "loc": "Team Rocket Hideout",
+   "mon": "Weezing",
+   "lv": 75,
+   "moves": [
+    "Flamethrower",
+    "Thunderbolt",
+    "Taunt"
+   ]
+  },
+  {
+   "trainer": "Hiker Farkas",
+   "loc": "Route 17",
+   "mon": "Rhyhorn",
+   "lv": 70,
+   "moves": [
+    "Dragon Pulse",
+    "Fire Blast"
+   ]
+  },
+  {
+   "trainer": "Hiker Eugine<!--</sic>-->",
+   "loc": "Team Rocket Hideout",
+   "mon": "Rhydon",
+   "lv": 75,
+   "moves": [
+    "Earthquake",
+    "Horn Drill"
+   ]
+  },
+  {
+   "trainer": "Lass Mizuki",
+   "loc": "Fuchsia City",
+   "mon": "Chansey",
+   "lv": 75,
+   "moves": [
+    "Seismic Toss",
+    "Soft-Boiled",
+    "Light Screen",
+    "Reflect"
+   ]
+  },
+  {
+   "trainer": "Lass Harleen",
+   "loc": "Route 15",
+   "mon": "Tangela",
+   "lv": 75,
+   "moves": [
+    "Bind",
+    "Hyper Beam",
+    "Toxic",
+    "Protect"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Mac",
+   "loc": "Fuchsia City",
+   "mon": "Kangaskhan",
+   "lv": 75,
+   "moves": [
+    "Rage",
+    "Headbutt"
+   ]
+  },
+  {
+   "trainer": "Beauty Beverly",
+   "loc": "Route 19",
+   "mon": "Horsea",
+   "lv": 70,
+   "moves": [
+    "Scald",
+    "Protect"
+   ]
+  },
+  {
+   "trainer": "Beauty Lucy",
+   "loc": "Route 12",
+   "mon": "Seadra",
+   "lv": 75,
+   "moves": [
+    "Smokescreen",
+    "Hyper Beam",
+    "Substitute"
+   ]
+  },
+  {
+   "trainer": "Beauty Evette",
+   "loc": "Route 12",
+   "mon": "Goldeen",
+   "lv": 70,
+   "moves": [
+    "Agility",
+    "Headbutt",
+    "Poison Jab"
+   ]
+  },
+  {
+   "trainer": "Beauty Arianna",
+   "loc": "Route 13",
+   "mon": "Seaking",
+   "lv": 75,
+   "moves": [
+    "Skull Bash",
+    "Scald",
+    "Protect"
+   ]
+  },
+  {
+   "trainer": "Beauty Jo",
+   "loc": "Route 19",
+   "mon": "Staryu",
+   "lv": 70,
+   "moves": [
+    "Tri Attack",
+    "Swift",
+    "Light Screen"
+   ]
+  },
+  {
+   "trainer": "Psychic Harrison",
+   "loc": "Route 25",
+   "mon": "Starmie",
+   "lv": 75,
+   "moves": [
+    "Minimize",
+    "Psywave",
+    "Light Screen"
+   ]
+  },
+  {
+   "trainer": "Psychic Rui",
+   "loc": "Celadon Condominiums",
+   "mon": "Mr. Mime",
+   "lv": 70,
+   "moves": [
+    "Calm Mind",
+    "Barrier",
+    "Dazzling Gleam"
+   ]
+  },
+  {
+   "trainer": "Bug Catcher Louie",
+   "loc": "Route 15",
+   "mon": "Scyther",
+   "lv": 75,
+   "moves": [
+    "Swords Dance",
+    "Slash",
+    "Roost"
+   ]
+  },
+  {
+   "trainer": "Psychic Avery",
+   "loc": "Cerulean City",
+   "mon": "Jynx",
+   "lv": 75,
+   "moves": [
+    "Calm Mind",
+    "Lovely Kiss",
+    "Dream Eater",
+    "Seismic Toss"
+   ]
+  },
+  {
+   "trainer": "Scientist Levi",
+   "loc": "Route 10",
+   "mon": "Electabuzz",
+   "lv": 75,
+   "moves": [
+    "Reflect",
+    "Fire Punch",
+    "Psychic"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Jace",
+   "loc": "",
+   "mon": "Magmar",
+   "lv": 75,
+   "moves": [
+    "Toxic",
+    "Confuse Ray",
+    "Psychic",
+    "Fire Spin"
+   ]
+  },
+  {
+   "trainer": "Bug Catcher Ryouta",
+   "loc": "Route 18",
+   "mon": "Pinsir",
+   "lv": 75,
+   "moves": [
+    "Rock Slide",
+    "X-Scissor",
+    "Guillotine"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Jaxson",
+   "loc": "Fuchsia City",
+   "mon": "Tauros",
+   "lv": 75,
+   "moves": [
+    "Double-Edge",
+    "Rage"
+   ]
+  },
+  {
+   "trainer": "Youngster Easton",
+   "loc": "Route 4",
+   "mon": "Magikarp",
+   "lv": 65,
+   "moves": [
+    "Tackle",
+    "Splash"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Dominic",
+   "loc": "Celadon City",
+   "mon": "Gyarados",
+   "lv": 75,
+   "moves": [
+    "Earthquake",
+    "Thunderbolt"
+   ]
+  },
+  {
+   "trainer": "Lass Hazel",
+   "loc": "Pok\u00e9mon Tower",
+   "mon": "Lapras",
+   "lv": 75,
+   "moves": [
+    "Solar Beam",
+    "Thunderbolt",
+    "Confuse Ray"
+   ]
+  },
+  {
+   "trainer": "Lass Aoi",
+   "loc": "Route 17",
+   "mon": "Eevee",
+   "lv": 75,
+   "moves": [
+    "Reflect",
+    "Double-Edge"
+   ]
+  },
+  {
+   "trainer": "Lass Yue",
+   "loc": "Celadon Department Store",
+   "mon": "Vaporeon",
+   "lv": 75,
+   "moves": [
+    "Shadow Ball",
+    "Toxic",
+    "Rest"
+   ]
+  },
+  {
+   "trainer": "Scientist Alphonse",
+   "loc": "Celadon Department Store",
+   "mon": "Jolteon",
+   "lv": 75,
+   "moves": [
+    "Light Screen",
+    "Yawn",
+    "Shadow Ball"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Dax",
+   "loc": "Celadon Department Store",
+   "mon": "Flareon",
+   "lv": 75,
+   "moves": [
+    "Flare Blitz",
+    "Superpower",
+    "Fire Spin"
+   ]
+  },
+  {
+   "trainer": "Scientist Jordan",
+   "loc": "Rocket Game Corner",
+   "mon": "Porygon",
+   "lv": 70,
+   "moves": [
+    "Iron Tail",
+    "Conversion",
+    "Shadow Ball",
+    "Thunderbolt"
+   ]
+  },
+  {
+   "trainer": "Hiker Colson",
+   "loc": "Mt. Moon",
+   "mon": "Omanyte",
+   "lv": 70,
+   "moves": [
+    "Scald",
+    "Blizzard"
+   ]
+  },
+  {
+   "trainer": "Hiker Lionel",
+   "loc": "Cinnabar Lab",
+   "mon": "Omastar",
+   "lv": 75,
+   "moves": [
+    "Shell Smash",
+    "Waterfall",
+    "Rock Slide",
+    "Bite"
+   ]
+  },
+  {
+   "trainer": "Hiker Barnaby",
+   "loc": "Mt. Moon",
+   "mon": "Kabuto",
+   "lv": 70,
+   "moves": [
+    "Reflect",
+    "Sand Attack",
+    "Substitute",
+    "Leech Life"
+   ]
+  },
+  {
+   "trainer": "Hiker Kenji",
+   "loc": "Pewter City",
+   "mon": "Kabutops",
+   "lv": 75,
+   "moves": [
+    "Mega Drain",
+    "Brick Break",
+    "Feint"
+   ]
+  },
+  {
+   "trainer": "Hiker Hisato",
+   "loc": "Pewter Museum of Science",
+   "mon": "Aerodactyl",
+   "lv": 75,
+   "moves": [
+    "Roost",
+    "Fly",
+    "Toxic",
+    "Iron Tail"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Jay",
+   "loc": "Route 16",
+   "mon": "Snorlax",
+   "lv": 75,
+   "moves": [
+    "Reflect",
+    "Facade",
+    "Rest"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Jirard",
+   "loc": "Route 23",
+   "mon": "Dratini",
+   "lv": 65,
+   "moves": [
+    "Dragon Pulse",
+    "Ice Beam",
+    "Agility"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Arjun",
+   "loc": "Seafoam Islands",
+   "mon": "Dragonair",
+   "lv": 70,
+   "moves": [
+    "Dragon Pulse",
+    "Blizzard",
+    "Thunder Wave",
+    "Light Screen"
+   ]
+  },
+  {
+   "trainer": "Ace Trainer Grayson",
+   "loc": "Cerulean City",
+   "mon": "Dragonite",
+   "lv": 75,
+   "moves": [
+    "Outrage",
+    "Ice Beam",
+    "Aqua Jet",
+    "Reflect"
+   ]
+  }
+ ],
+ "other": [
+  [
+   "Location",
+   "colspan=2 style=\"background:#;\" | Pok\u00e9mon",
+   "CP"
+  ],
+  [
+   "",
+   "Ditto",
+   "Ditto",
+   "4,000+"
+  ],
+  [
+   "Seafoam Islands",
+   "Articuno",
+   "Articuno",
+   "7,500+"
+  ],
+  [
+   "",
+   "Zapdos",
+   "Zapdos",
+   "7,500+"
+  ],
+  [
+   "",
+   "Moltres",
+   "Moltres",
+   "7,500+"
+  ],
+  [
+   "",
+   "Mewtwo",
+   "Mewtwo",
+   "9,000+"
+  ],
+  [
+   "",
+   "Mew",
+   "Mew",
+   "8,000+"
+  ],
+  [
+   "",
+   "Meltan",
+   "Meltan",
+   "4,000+"
+  ],
+  [
+   "",
+   "Melmetal",
+   "Melmetal",
+   "8,000+",
+   "}",
+   "background =",
+   "border =",
+   "headcolor =",
+   "sprite = VSRed PE.png",
+   "size = 90px",
+   "prize = none",
+   "class = Pok\u00e9mon Trainer",
+   "name =",
+   "location = Indigo Plateau",
+   "game = PE",
+   "pokemon = 6",
+   "gen = PE",
+   "ndex = 0025",
+   "pokemon = Pikachu",
+   "gender = male",
+   "level = 85",
+   "type1 = Electric",
+   "move1 = Thunderbolt | move1type = Electric | move1cat = Special",
+   "move2 = Brick Break | move2type = Fighting | move2cat = Physical",
+   "move3 = Iron Tail | move3type = Steel | move3cat = Physical",
+   "move4 = Reflect | move4type = Psychic | move4cat = Status",
+   "gen = PE",
+   "ndex = 0068",
+   "pokemon = Machamp",
+   "gender = male",
+   "level = 85",
+   "type1 = Fighting",
+   "move1 = Superpower | move1type = Fighting | move1cat = Physical",
+   "move2 = Fire Blast | move2type = Fire | move2cat = Special",
+   "move3 = Earthquake | move3type = Ground | move3cat = Physical",
+   "move4 = Hyper Beam | move4type = Normal | move4cat = Special",
+   "gen = PE",
+   "ndex = 0059",
+   "pokemon = Arcanine",
+   "gender = male",
+   "level = 85",
+   "type1 = Fire",
+   "move1 = Heat Wave | move1type = Fire | move1cat = Special",
+   "move2 = Crunch | move2type = Dark | move2cat = Physical",
+   "move3 = Will-O-Wisp | move3type = Fire | move3cat = Status",
+   "move4 = Roar | move4type = Normal | move4cat = Status",
+   "gen = PE",
+   "ndex = 0131",
+   "pokemon = Lapras",
+   "gender = female",
+   "level = 85",
+   "type1 = Water",
+   "type2 = Ice",
+   "move1 = Ice Shard | move1type = Ice | move1cat = Physical",
+   "move2 = Waterfall | move2type = Water | move2cat = Physical",
+   "move3 = Body Slam | move3type = Normal | move3cat = Physical",
+   "move4 = Megahorn | move4type = Bug | move4cat = Physical",
+   "gen = PE",
+   "ndex = 0143",
+   "pokemon = Snorlax",
+   "gender = male",
+   "level = 85",
+   "type1 = Normal",
+   "move1 = Toxic | move1type = Poison | move1cat = Status",
+   "move2 = Protect | move2type = Normal | move2cat = Status",
+   "move3 = Rest | move3type = Psychic | move3cat = Status",
+   "move4 = Body Slam | move4type = Normal | move4cat = Physical",
+   "gen = PE",
+   "ndex = 0003",
+   "pokemon = Venusaur",
+   "icon = mega",
+   "gender = male",
+   "level = 85",
+   "type1 = Grass",
+   "type2 = Poison",
+   "megastone = Venusaurite",
+   "move1 = Sludge Bomb | move1type = Poison | move1cat = Special",
+   "move2 = Mega Drain | move2type = Grass | move2cat = Special",
+   "move3 = Leech Seed | move3type = Grass | move3cat = Status",
+   "move4 = Amnesia | move4type = Psychic | move4cat = Status",
+   "zh_yue=\u5927\u5e2b\u8a13\u7df4\u5bb6 ''''",
+   "zh_cmn=\u5927\u5e2b\u8a13\u7df4\u5bb6 / \u5927\u5e08\u8bad\u7ec3\u5bb6 ''''",
+   "fr=Expert",
+   "de=Meistertrainer",
+   "it=Esperto",
+   "ko=\ub9c8\uc2a4\ud130 \ud2b8\ub808\uc774\ub108 ''Master Trainer''",
+   "pt_eu=Treinador Master",
+   "ru=\u041c\u0430\u0441\u0442\u0435\u0440-\u0422\u0440\u0435\u043d\u0435\u0440 ''Master-Trener''",
+   "es=Entrenador Maestro"
+  ],
+  [
+   "",
+   "ja=<Pok\u00e9mon>\u30de\u30b9\u30bf\u30fc ''<Pok\u00e9mon> Master''",
+   "zh_yue=<Pok\u00e9mon>\u5927\u5e2b ''''",
+   "zh_cmn=<Pok\u00e9mon>\u5927\u5e2b / <Pok\u00e9mon>\u5927\u5e08 ''''",
+   "fr=Expert <Pok\u00e9mon> ()<br>Experte <Pok\u00e9mon> ()",
+   "de=<Pok\u00e9mon>-Meister ()<br><Pok\u00e9mon>-Meisterin ()",
+   "it=Esperto <Pok\u00e9mon> ()<br>Esperta <Pok\u00e9mon> ()",
+   "ko=<Pok\u00e9mon>\ub9c8\uc2a4\ud130 ''<Pok\u00e9mon> Master''",
+   "es=Maestro <Pok\u00e9mon> ()<br>Maestra <Pok\u00e9mon> ()",
+   "",
+   "zh_yue=\u5c0d\u6230\u5927\u5e2b ''''",
+   "zh_cmn=\u5c0d\u6230\u5927\u5e2b / \u5bf9\u6218\u5927\u5e08 ''''",
+   "fr=Expert en Combat ()<br>Experte en Combat ()",
+   "de=Meisterk\u00e4mpfer ()<br>Meisterk\u00e4mpferin ()",
+   "it=Esperto lotta ()<br>Esperta lotta ()",
+   "ko=\ubc30\ud2c0\ub9c8\uc2a4\ud130 ''Battle Master''",
+   "es=Maestro del Combate ()<br>Maestra del Combate ()",
+   "",
+   "zh_yue=\u5168\u80fd\u5927\u5e2b ''''",
+   "zh_cmn=\u5168\u80fd\u5927\u5e2b / \u5168\u80fd\u5927\u5e08 ''''",
+   "fr=Grand Expert ()<br>Grande Experte ()",
+   "de=Gro\u00dfmeister ()<br>Gro\u00dfmeisterin ()",
+   "it=Sommo esperto ()<br>Somma esperta ()",
+   "ko=\uadf8\ub79c\ub4dc\ub9c8\uc2a4\ud130 ''Grand Master''",
+   "es=Gran Maestro ()<br>Gran Maestra ()",
+   "}"
+  ]
+ ]
+}

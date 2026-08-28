@@ -1,0 +1,422 @@
+{
+ "TM01": [
+  {
+   "move": "Headbutt",
+   "where": "Prize for defeating Brock",
+   "price": "N/A"
+  }
+ ],
+ "TM02": [
+  {
+   "move": "Taunt",
+   "where": "Cinnabar Lab",
+   "price": "N/A"
+  }
+ ],
+ "TM03": [
+  {
+   "move": "Helping Hand",
+   "where": "Celadon Department Store",
+   "price": "N/A"
+  }
+ ],
+ "TM04": [
+  {
+   "move": "Teleport",
+   "where": "Pokémon Tower",
+   "price": "N/A"
+  }
+ ],
+ "TM05": [
+  {
+   "move": "Rest",
+   "where": "Team Rocket Hideout",
+   "price": "N/A"
+  }
+ ],
+ "TM06": [
+  {
+   "move": "Light Screen",
+   "where": "Celadon Department Store",
+   "price": "N/A"
+  }
+ ],
+ "TM07": [
+  {
+   "move": "Protect",
+   "where": "Celadon Department Store",
+   "price": "N/A"
+  }
+ ],
+ "TM08": [
+  {
+   "move": "Substitute",
+   "where": "Saffron City",
+   "price": "N/A"
+  }
+ ],
+ "TM09": [
+  {
+   "move": "Reflect",
+   "where": "Celadon Department Store",
+   "price": "N/A"
+  }
+ ],
+ "TM10": [
+  {
+   "move": "Dig",
+   "where": "Cerulean City",
+   "price": "N/A"
+  }
+ ],
+ "TM11": [
+  {
+   "move": "Will-O-Wisp",
+   "where": "Viridian City",
+   "price": "N/A"
+  }
+ ],
+ "TM12": [
+  {
+   "move": "Facade",
+   "where": "Route 7",
+   "price": "N/A"
+  }
+ ],
+ "TM13": [
+  {
+   "move": "Brick Break",
+   "where": "Route 10",
+   "price": "N/A"
+  }
+ ],
+ "TM14": [
+  {
+   "move": "Fly",
+   "where": "Route 16",
+   "price": "N/A"
+  }
+ ],
+ "TM15": [
+  {
+   "move": "Seismic Toss",
+   "where": "Route 25",
+   "price": "N/A"
+  }
+ ],
+ "TM16": [
+  {
+   "move": "Thunder Wave",
+   "where": "",
+   "price": "N/A"
+  }
+ ],
+ "TM17": [
+  {
+   "move": "Dragon Tail",
+   "where": "Celadon Department Store",
+   "price": "N/A"
+  }
+ ],
+ "TM18": [
+  {
+   "move": "U-turn",
+   "where": "Celadon Department Store",
+   "price": "N/A"
+  }
+ ],
+ "TM19": [
+  {
+   "move": "Iron Tail",
+   "where": "Celadon Department Store",
+   "price": "N/A"
+  }
+ ],
+ "TM20": [
+  {
+   "move": "Dark Pulse",
+   "where": "Team Rocket Hideout",
+   "price": "N/A"
+  }
+ ],
+ "TM21": [
+  {
+   "move": "Foul Play",
+   "where": "Pokémon Mansion (Kanto)",
+   "price": "N/A"
+  }
+ ],
+ "TM22": [
+  {
+   "move": "Rock Slide",
+   "where": "Pokémon Mansion (Kanto)",
+   "price": "N/A"
+  }
+ ],
+ "TM23": [
+  {
+   "move": "Thunder Punch",
+   "where": "Fighting Dojo",
+   "price": "N/A"
+  }
+ ],
+ "TM24": [
+  {
+   "move": "X-Scissor",
+   "where": "",
+   "price": "N/A"
+  }
+ ],
+ "TM25": [
+  {
+   "move": "Waterfall",
+   "where": "Celadon Department Store",
+   "price": "N/A"
+  }
+ ],
+ "TM26": [
+  {
+   "move": "Poison Jab",
+   "where": "Celadon City",
+   "price": "N/A"
+  }
+ ],
+ "TM27": [
+  {
+   "move": "Toxic",
+   "where": "Prize for defeating Koga",
+   "price": "N/A"
+  }
+ ],
+ "TM28": [
+  {
+   "move": "Tri Attack",
+   "where": "Celadon Department Store",
+   "price": "N/A"
+  }
+ ],
+ "TM29": [
+  {
+   "move": "Scald",
+   "where": "Prize for defeating Misty",
+   "price": "N/A"
+  }
+ ],
+ "TM30": [
+  {
+   "move": "Bulk Up",
+   "where": "Celadon Department Store",
+   "price": "N/A"
+  }
+ ],
+ "TM31": [
+  {
+   "move": "Fire Punch",
+   "where": "Route 15",
+   "price": "N/A"
+  }
+ ],
+ "TM32": [
+  {
+   "move": "Dazzling Gleam",
+   "where": "Route 12",
+   "price": "N/A"
+  }
+ ],
+ "TM33": [
+  {
+   "move": "Calm Mind",
+   "where": "Prize for defeating Sabrina",
+   "price": "N/A"
+  }
+ ],
+ "TM34": [
+  {
+   "move": "Dragon Pulse",
+   "where": "Silph Co.",
+   "price": "N/A"
+  }
+ ],
+ "TM35": [
+  {
+   "move": "Ice Punch",
+   "where": "Route 21",
+   "price": "N/A"
+  }
+ ],
+ "TM36": [
+  {
+   "move": "Thunderbolt",
+   "where": "Prize for defeating Lt. Surge",
+   "price": "N/A"
+  }
+ ],
+ "TM37": [
+  {
+   "move": "Flamethrower",
+   "where": "Silph Co.",
+   "price": "N/A"
+  }
+ ],
+ "TM38": [
+  {
+   "move": "Thunder",
+   "where": "",
+   "price": "N/A"
+  }
+ ],
+ "TM39": [
+  {
+   "move": "Outrage",
+   "where": "",
+   "price": "N/A"
+  }
+ ],
+ "TM40": [
+  {
+   "move": "Psychic",
+   "where": "Saffron City",
+   "price": "N/A"
+  }
+ ],
+ "TM41": [
+  {
+   "move": "Earthquake",
+   "where": "Prize for defeating Giovanni",
+   "price": "N/A"
+  }
+ ],
+ "TM42": [
+  {
+   "move": "Self-Destruct",
+   "where": "Silph Co.",
+   "price": "N/A"
+  }
+ ],
+ "TM43": [
+  {
+   "move": "Shadow Ball",
+   "where": "Celadon Department Store",
+   "price": "N/A"
+  }
+ ],
+ "TM44": [
+  {
+   "move": "Play Rough",
+   "where": "Celadon Condominiums",
+   "price": "N/A"
+  }
+ ],
+ "TM45": [
+  {
+   "move": "Solar Beam",
+   "where": "",
+   "price": "N/A"
+  }
+ ],
+ "TM46": [
+  {
+   "move": "Fire Blast",
+   "where": "Prize for defeating Blaine",
+   "price": "N/A"
+  }
+ ],
+ "TM47": [
+  {
+   "move": "Surf",
+   "where": "Route 15",
+   "price": "N/A"
+  }
+ ],
+ "TM48": [
+  {
+   "move": "Hyper Beam",
+   "where": "Celadon Department Store",
+   "price": "N/A"
+  }
+ ],
+ "TM49": [
+  {
+   "move": "Superpower",
+   "where": "",
+   "price": "N/A"
+  }
+ ],
+ "TM50": [
+  {
+   "move": "Roost",
+   "where": "Route 12",
+   "price": "N/A"
+  }
+ ],
+ "TM51": [
+  {
+   "move": "Blizzard",
+   "where": "",
+   "price": "N/A"
+  }
+ ],
+ "TM52": [
+  {
+   "move": "Sludge Bomb",
+   "where": "",
+   "price": "N/A"
+  }
+ ],
+ "TM53": [
+  {
+   "move": "Mega Drain",
+   "where": "Prize for defeating Erika",
+   "price": "N/A"
+  }
+ ],
+ "TM54": [
+  {
+   "move": "Flash Cannon",
+   "where": "Silph Co.",
+   "price": "N/A"
+  }
+ ],
+ "TM55": [
+  {
+   "move": "Ice Beam",
+   "where": "Seafoam Islands",
+   "price": "N/A"
+  }
+ ],
+ "TM56": [
+  {
+   "move": "Stealth Rock",
+   "where": "",
+   "price": "N/A"
+  }
+ ],
+ "TM57": [
+  {
+   "move": "Pay Day",
+   "where": "Route 4",
+   "price": "N/A"
+  }
+ ],
+ "TM58": [
+  {
+   "move": "Drill Run",
+   "where": "Route 17",
+   "price": "N/A"
+  }
+ ],
+ "TM59": [
+  {
+   "move": "Dream Eater",
+   "where": "Route 12",
+   "price": "N/A"
+  }
+ ],
+ "TM60": [
+  {
+   "move": "Megahorn",
+   "where": "Cerulean City",
+   "price": "N/A"
+  }
+ ]
+}

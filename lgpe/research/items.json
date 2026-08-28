@@ -1,0 +1,2700 @@
+{
+ "Celadon City": [
+  {
+   "item": "Nugget",
+   "where": "Near the northeast corner of the city",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Razz Berry",
+   "where": "At the north end of the path on the east side of the city ''(hidden)'' (daily)",
+   "display": "[[Razz Berry]] \u00d75",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Rare Candy",
+   "where": "Near the northwest corner of the city",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pewter Crunchies",
+   "where": "Received from [[Brock]] in front of the [[Celadon Condominiums]]",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Tea",
+   "where": "Brock in front of the Celadon Condominiums{{sup/7|PE}}",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "None",
+   "where": "Taught by a {{tc|Rocker}} in front of the Rocket Game Corner after obtaining the [[Silph Scope]]",
+   "display": "[[Secret Technique",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Poison VI",
+   "where": "Received from the man north of the pond (requires [[Secret Technique",
+   "display": "{{TM|26|Poison Jab}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pretty Wing",
+   "where": "Infrequently found by some [[walking Pok\u00e9mon]] from the flower bed east of the fountain",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Celadon Game Corner": [
+  {
+   "item": "PP Up",
+   "where": "In all six spots (2% chance; ''hidden'')",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Health Candy XL",
+   "where": "Southwest corner of the building (5% chance; ''hidden'')",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Health Candy L",
+   "where": "Southwest corner of the building (10% chance; ''hidden'')",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Health Candy",
+   "where": "Southwest corner of the building (30% chance; ''hidden'')",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Mighty Candy XL",
+   "where": "In the fire extinguisher in the northwest of the building (5% chance; ''hidden'')",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Mighty Candy L",
+   "where": "In the fire extinguisher in the northwest of the building (10% chance; ''hidden'')",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Mighty Candy",
+   "where": "In the fire extinguisher in the northwest of the building (30% chance; ''hidden'')",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Tough Candy XL",
+   "where": "In front of the northernmost game on the east side in easternmost row of arcade games (5% chance; ''hidden'')",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Tough Candy L",
+   "where": "In front of the northernmost game on the east side in easternmost row of arcade games (10% chance; ''hidden'')",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Tough Candy",
+   "where": "In front of the northernmost game on the east side in easternmost row of arcade games (30% chance; ''hidden'')",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Smart Candy XL",
+   "where": "In front of the northernmost game on the west side in easternmost row of arcade games (5% chance; ''hidden'')",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Smart Candy L",
+   "where": "In front of the northernmost game on the west side in easternmost row of arcade games (10% chance; ''hidden'')",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Smart Candy",
+   "where": "In front of the northernmost game on the west side in easternmost row of arcade games (30% chance; ''hidden'')",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Courage Candy XL",
+   "where": "In between the counters separating the west and east sides (5% chance; ''hidden'')",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Courage Candy L",
+   "where": "In between the counters separating the west and east sides (10% chance; ''hidden'')",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Courage Candy",
+   "where": "In between the counters separating the west and east sides (30% chance; ''hidden'')",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Quick Candy XL",
+   "where": "South of the northeast couch on the east side(5% chance; ''hidden'')",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Quick Candy L",
+   "where": "South of the northeast couch on the east side (10% chance; ''hidden'')",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Quick Candy",
+   "where": "South of the northeast couch on the east side (30% chance; ''hidden'')",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Celadon Gym": [
+  {
+   "item": "TM Grass VI",
+   "where": "Reward for defeating Erika",
+   "display": "{{TM|53|Mega Drain}}",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Cerulean Cave": [
+  {
+   "item": "PP Max",
+   "where": "1F, near the ladder in the northeast corner of the floor",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Full Heal",
+   "where": "1F, at the end of the water",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Full Restore",
+   "where": "1F, on the plateau near the entrance ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Max Revive",
+   "where": "1F, northwest of the eastern ladder",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Max Repel",
+   "where": "1F, southwest of the northern ladder",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Rare Candy",
+   "where": "1F, south of the visible but inaccessible ladders to 2F and B1F in the northwest corner ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Max Lure",
+   "where": "2F, northwest of the pair of ladders",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Ultra Ball",
+   "where": "2F, near some rocks along the southern wall",
+   "display": "[[Ultra Ball]] \u00d75",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Rare Candy",
+   "where": "2F, northwest of the Ultra Balls",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Max Revive",
+   "where": "2F, in the southeast corner of the floor",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Escape Rope",
+   "where": "B1F, near the northeast corner of the floor",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Max Elixir",
+   "where": "B1F, in the south area of the floor",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Max Revive",
+   "where": "B1F, southeast of the pair of ladders ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "PP Max",
+   "where": "B1F, at the end of the water west of {{p|Mewtwo}}'s plateau ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Mewtwonite X",
+   "where": "B1F, received from {{ga|Green}} after defeating her",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Mewtwonite Y",
+   "where": "B1F, received from {{ga|Green}} after defeating her",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pok\u00e9 Ball",
+   "where": "B1F, on the ground after defeating {{ga|Green}}",
+   "display": "{{i|Pok\u00e9 Ball}} \u00d75",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pok\u00e9 Ball",
+   "where": "50/301 chance",
+   "display": "{{i|Pok\u00e9 Ball}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Great Ball",
+   "where": "100/301 chance",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Ultra Ball",
+   "where": "125/301 chance",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Ultra Ball",
+   "where": "25/301 chance",
+   "display": "[[Ultra Ball]] \u00d710",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Master Ball",
+   "where": "1/301 chance",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Golden Razz Berry",
+   "where": "1/2 chance",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Golden Nanab Berry",
+   "where": "1/3 chance",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Golden Pinap Berry",
+   "where": "1/6 chance",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Max Revive",
+   "where": "2F, sometimes found by large crystal (50% chance)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Old Amber",
+   "where": "2F, sometimes found by large crystal (10% chance)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Old Amber",
+   "where": "B1F, sometimes found on the central plateau east of {{p|Mewtwo}}'s plateau (20% chance)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Cerulean City": [
+  {
+   "item": "Heart Scale",
+   "where": "Received from the Bike Maniac after listening to all of his [[Bicycle]] descriptions",
+   "display": "[[Heart Scale]] \u00d75",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Rare Candy",
+   "where": "In the backyard of the Gym Badge man's house",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Ground VI",
+   "where": "Received from the Team Rocket Grunt after defeating him",
+   "display": "{{TM|10|Dig}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Burn Heal",
+   "where": "Southwest corner of town, south of the hedge wall",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Bug VI",
+   "where": "Reward for defeating {{tc|Coach Trainer}} Harjit, after becoming {{pkmn|Champion}}",
+   "display": "{{TM|60|Megahorn}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Escape Rope",
+   "where": "Received from {{ga|Trace}} outside [[Cerulean Cave]] after catching {{p|Mewtwo}}",
+   "display": "[[Escape Rope]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pretty Wing",
+   "where": "Infrequently found by some [[walking Pok\u00e9mon]] from the flower bed to the south of {{rt|24|Kanto|Nugget Bridge}}",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Cerulean Gym": [
+  {
+   "item": "TM Water VI",
+   "where": "Reward for defeating Misty",
+   "display": "{{TM|29|Scald}}",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Cinnabar Gym": [
+  {
+   "item": "TM Fire VI",
+   "where": "Reward for defeating Blaine",
+   "display": "{{TM|46|Fire Blast}}",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Cinnabar Island": [
+  {
+   "item": "Antidote",
+   "where": "Southwest of the {{ka|Pok\u00e9mon Mansion}} entrance",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "GO Park": [
+  {
+   "item": "Courage Candy",
+   "where": "Random reward from the minigames",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Health Candy",
+   "where": "Random reward from the minigames",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Mighty Candy",
+   "where": "Random reward from the minigames",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Quick Candy",
+   "where": "Random reward from the minigames",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Smart Candy",
+   "where": "Random reward from the minigames",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Tough Candy",
+   "where": "Random reward from the minigames",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Kanto Power Plant": [
+  {
+   "item": "Thunder Stone",
+   "where": "In the northeast room",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Max Revive",
+   "where": "Northeast of the entrance",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "X Sp. Def",
+   "where": "Southeast of Coach Trainer Mable",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Candy Red",
+   "where": "In the long horizontal area near the center of the facility ''(hidden)'' (daily)",
+   "display": "[[Candy",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Electric VI",
+   "where": "In the southeast area of the facility",
+   "display": "{{TM|38|Thunder}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Paralyze Heal",
+   "where": "In the small area north of the long horizontal area near the center of the facility, near an Electrode",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Kanto Route 1": [
+  {
+   "item": "Razz Berry",
+   "where": "Sometimes found by the {{player}}'s [[walking Pok\u00e9mon]] from the bush in the northeast corner of the route",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Kanto Route 11": [
+  {
+   "item": "Candy Yellow",
+   "where": "Reward for defeating {{tc|Coach Trainer}} Will",
+   "display": "{{DL|Candy|Pikachu Candy}} \u00d75",
+   "LP": true,
+   "LE": false
+  },
+  {
+   "item": "Candy Brown",
+   "where": "Reward for defeating {{tc|Coach Trainer}} Will",
+   "display": "{{DL|Candy|Eevee Candy}} \u00d75",
+   "LP": false,
+   "LE": true
+  },
+  {
+   "item": "X Defense",
+   "where": "Between two grass patches in the middle of the route",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Super Potion",
+   "where": "On the southwest side of the route, east of the first grass patch from the west",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Lure",
+   "where": "North side of the route, in the clearing north of a grassy patch, northeast of {{tc|Gentleman}} Wilco",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Super Repel",
+   "where": "At the terminus of the path in the northeast of the route",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Great Ball",
+   "where": "At the terminus of the small pathway south of the eastern [[gate]]",
+   "display": "[[Great Ball]] \u00d75",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Revive",
+   "where": "On a rock north of the eastern entrance to the [[gate]] ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "None",
+   "where": "From [[Professor's assistant",
+   "display": "[[Stats judge",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Razz Berry",
+   "where": "Sometimes found by the {{player}}'s [[walking Pok\u00e9mon]] from the bush near the northwestern corner of the route",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Silver Razz Berry",
+   "where": "Sometimes found by the {{player}}'s [[walking Pok\u00e9mon]] from the bush near the northwestern corner of the route",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Golden Razz Berry",
+   "where": "Often found by the {{player}}'s [[walking Pok\u00e9mon]] from the bush near the northwestern corner of the route",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Kanto Route 12": [
+  {
+   "item": "TM Flying VI",
+   "where": "From the girl on the second floor of the Lavender [[gate]]",
+   "display": "{{TM|50|Roost}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Silver Pinap Berry",
+   "where": "On the fence below the big tree to the east of the eastern entrance to Route 11 ''(hidden)''",
+   "display": "[[Silver Pinap Berry]] \u00d75",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Lure",
+   "where": "At a northern terminus of the pathway near the Lavender [[gate]]",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Bug",
+   "where": "On the island southeast of the Lavender [[gate]] (requires [[Secret Technique",
+   "display": "{{TM|24|X-Scissor}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Repel",
+   "where": "On the platform jutting out east from the pathway, north of the Fishing Area",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Ultra Ball",
+   "where": "At the eastern terminus of the pathway northeast Snorlax",
+   "display": "[[Ultra Ball]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Fairy",
+   "where": "From Mr. Dazzling inside his house after reminding him who he is",
+   "display": "{{TM|32|Dazzling Gleam}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Water Stone",
+   "where": "In the area enclosed by bushes southwest of Mr. Dazzling's house (requires [[Secret Technique",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Awakening",
+   "where": "On the board jutting out opposite the area enclosed by bushes",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Psychic VI",
+   "where": "Reward for defeating Coach Trainer Priya",
+   "display": "{{TM|59|Dream Eater}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Max Lure",
+   "where": "At the south end of the [[tall grass",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Kanto Route 13": [
+  {
+   "item": "PP Up",
+   "where": "Behind the field of tall grass in the northeast of the route (requires [[Secret Technique",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Golden Pinap Berry",
+   "where": "Against the opposite side of the fence to the [[Trainer Tips]] sign that hints to look on the other side of the fence ''(hidden)''",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Silver Nanab Berry",
+   "where": "At the dead end below Punk Guy Jared ''(hidden)'' (daily)",
+   "display": "[[Silver Nanab Berry]] \u00d75",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Full Heal",
+   "where": "In the northwest of the route, behind {{tc|Camper}} Perry",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Kanto Route 14": [
+  {
+   "item": "Hyper Potion",
+   "where": "Under the northeastern bush",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Nugget",
+   "where": "On the [[ledge]] south of the patch of tall grass",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Golden Razz Berry",
+   "where": "At the northernmost point of the patch of tall grass ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Nanab Berry",
+   "where": "Sometimes found by the {{player}}'s [[walking Pok\u00e9mon]] from the centermost bush on the east side of the route",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Silver Nanab Berry",
+   "where": "Sometimes found by the {{player}}'s [[walking Pok\u00e9mon]] from the centermost bush on the east side of the route",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Golden Nanab Berry",
+   "where": "Rarely found by the {{player}}'s [[walking Pok\u00e9mon]] from the centermost bush on the east side of the route",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Kanto Route 15": [
+  {
+   "item": "TM Fire VI",
+   "where": "Reward for defeating {{tc|Coach Trainer}} Midge (requires [[Secret Technique",
+   "display": "{{TM|31|Fire Punch}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Water VI",
+   "where": "In the northwest area of the route (requires [[Secret Technique",
+   "display": "{{TM|47|Surf}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Golden Nanab Berry",
+   "where": "In the third patch of grass from the eastern entrance ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Hyper Potion",
+   "where": "On the southern half of the route, south of Coach Trainer Midge",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Ultra Ball",
+   "where": "At the southeast end of the route",
+   "display": "[[Ultra Ball]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Clothing Trunk",
+   "where": "From [[Professor's assistant",
+   "display": "[[Trainer customization",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pinap Berry",
+   "where": "Sometimes found by the {{player}}'s [[walking Pok\u00e9mon]] from the bush southeast of {{tc|Coach Trainer}} Midge (requires [[Secret Technique",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Silver Pinap Berry",
+   "where": "Sometimes found by the {{player}}'s [[walking Pok\u00e9mon]] from the bush southeast of {{tc|Coach Trainer}} Midge (requires [[Secret Technique",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Golden Pinap Berry",
+   "where": "Rarely found by the {{player}}'s [[walking Pok\u00e9mon]] from the bush southeast of {{tc|Coach Trainer}} Midge (requires [[Secret Technique",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Kanto Route 17": [
+  {
+   "item": "Super Potion",
+   "where": "In front of the benches in the northeast",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Super Lure",
+   "where": "In the field of grass south of the [[Eeveelution]] Trainers",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Great Ball",
+   "where": "In the field of grass south of the Eeveelution Trainers",
+   "display": "[[Great Ball]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Elixir",
+   "where": "In the field of grass north of the body of water",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Ground VI",
+   "where": "Reward for defeating Coach Trainer Grantley",
+   "display": "{{TM|58|Drill Run}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Rare Candy",
+   "where": "In the field of grass south of the body of water",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Silver Razz Berry",
+   "where": "In the small yellow bush at the northeast corner of the southernmost field of grass ''(hidden)''",
+   "display": "[[Silver Razz Berry]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Silver Nanab Berry",
+   "where": "In the small yellow bush at the southeast corner of the two benches near Gentleman Orson ''(hidden)''",
+   "display": "[[Silver Nanab Berry]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Nugget",
+   "where": "Amidst yellow flowers near the southern benches",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Super Repel",
+   "where": "Behind the southernmost benches",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Clothing Trunk",
+   "where": "From [[Jessie]] and [[James]] after defeating them, after becoming {{pkmn|Champion}}",
+   "display": "{{DL|Trainer customization|Pok\u00e9mon: Let's Go, Pikachu! and Let's Go, Eevee!|Blast-Off Set}}",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Kanto Route 2": [
+  {
+   "item": "Great Ball",
+   "where": "North of Diglett's Cave (requires [[Secret Technique",
+   "display": "[[Great Ball]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Leaf Stone",
+   "where": "Southeast of the first pair of [[ledge]]s south of the eastern [[gate]] (requires [[Secret Technique",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Super Potion",
+   "where": "Southeast of the second pair of [[ledge]]s south of the eastern [[gate]] (requires [[Secret Technique",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "None",
+   "where": "Taught by one of [[Professor Oak]]'s [[Professor's assistant",
+   "display": "[[Secret Technique",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Kanto Route 20": [
+  {
+   "item": "Revive",
+   "where": "On a lone rock near the southwest corner of the eastern half of the route (requires [[Secret Technique",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Heart Scale",
+   "where": "Next to the southern Seafoam Islands entrance",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Ultra Ball",
+   "where": "On the island where {{tc|Bird Keeper}} Roger stands",
+   "display": "[[Ultra Ball]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Max Repel",
+   "where": "On the large unoccupied island near Cinnabar Island",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Stardust",
+   "where": "On the island nearest [[Cinnabar Island]], where Ace Trainer Marty stands ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Kanto Route 21": [
+  {
+   "item": "Hyper Potion",
+   "where": "On the island closest to [[Pallet Town]]",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Ice VI",
+   "where": "Reward for defeating {{tc|Coach Trainer}} Pam",
+   "display": "{{TM|35|Ice Punch}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Revive",
+   "where": "On the lone rock southwest of Coach Trainer Pam ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Water Stone",
+   "where": "On the island where {{tc|Fisherman}} Nolan stands",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "PP Up",
+   "where": "On the island closest to [[Cinnabar Island]]",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Stardust",
+   "where": "On the second island north of [[Cinnabar Island]] ''(hidden)'' (daily)",
+   "display": "[[Stardust]] \u00d73",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Kanto Route 22": [
+  {
+   "item": "Antidote",
+   "where": "In a bush north of the eastern patch of grass ''(hidden)''",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pok\u00e9 Ball",
+   "where": "In the southwest corner of the route",
+   "display": "{{i|Pok\u00e9 Ball}} \u00d75",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Kanto Route 24": [
+  {
+   "item": "Nugget",
+   "where": "Reward from the {{tc|Team Rocket Grunt}} for defeating the {{pkmn|Trainer}}s on Nugget Bridge{{tt|*|In the English and Japanese versions of Pok\u00e9mon FireRed and LeafGreen, due to a glitch it can be obtained multiple times by losing to the Grunt.}}",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Razz Berry",
+   "where": "On the east side of a plateau in the northwest area of the route",
+   "display": "[[Razz Berry]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "X Sp. Def",
+   "where": "On the west side of a plateau in the northeast area of the route, accessible from {{rt|25|Kanto}}",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pinap Berry",
+   "where": "In a bush east of Nugget Bridge, accessible from {{rt|25|Kanto}} ''(hidden)'' (daily)",
+   "display": "[[Pinap Berry]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Razz Berry",
+   "where": "Sometimes found by the {{player}}'s [[walking Pok\u00e9mon]] from the bush northeast of Nugget Bridge, accessible from {{rt|25|Kanto}}",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Silver Razz Berry",
+   "where": "Sometimes found by the player's walking Pok\u00e9mon from the bush northeast of Nugget Bridge, accessible from {{rt|25|Kanto}}",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Golden Razz Berry",
+   "where": "Rarely found by the player's walking Pok\u00e9mon from the bush northeast of Nugget Bridge, accessible from {{rt|25|Kanto}}",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Kanto Route 25": [
+  {
+   "item": "Super Potion",
+   "where": "Northeast of {{tc|Youngster}} Chad",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Electric VI",
+   "where": "North of the [[Secret Technique",
+   "display": "{{TM|16|Thunder Wave}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Ether",
+   "where": "Next to a fence southwest of {{tc|Lass}} Haley",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Fighting VI",
+   "where": "Reward for defeating {{tc|Coach Trainer}} Amala",
+   "display": "{{TM|15|Seismic Toss}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Lure",
+   "where": "Southeast of the [[Sea Cottage]]",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Nanab Berry",
+   "where": "In a bush southwest of the two ponds to the south of Sea Cottage ''(hidden)'' (daily)",
+   "display": "[[Nanab Berry]] \u00d73",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Kanto Route 3": [
+  {
+   "item": "Potion",
+   "where": "Between the ledges south of Youngster Calvin",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pok\u00e9 Ball",
+   "where": "South of the ledges south of Youngster Calvin",
+   "display": "{{i|Pok\u00e9 Ball}} \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Lure",
+   "where": "Next to a bush northeast of {{tc|Picnicker}} Robin",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Razz Berry",
+   "where": "Sometimes found by the {{player}}'s [[walking Pok\u00e9mon]] from the bush near the eastern end of the route",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Nanab Berry",
+   "where": "Sometimes found by the player's walking Pok\u00e9mon from the bush near the eastern end of the route",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Kanto Route 4": [
+  {
+   "item": "TM Normal VI",
+   "where": "Reward for defeating {{tc|Coach Trainer}} Oberon",
+   "display": "{{TM|57|Pay Day}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Escape Rope",
+   "where": "Between the three rocks west of the Pok\u00e9mon Center",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Paralyze Heal",
+   "where": "Southwest of the eastern [[Mt. Moon]] entrance",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pok\u00e9 Ball",
+   "where": "In the center of the plateau east of the eastern Mt. Moon entrance",
+   "display": "{{i|Pok\u00e9 Ball}} \u00d75",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "PP Up",
+   "where": "Eastern side of the route, in a bush to the east of the central plateau ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Repel",
+   "where": "At the end of the southernmost part of the route",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Great Ball",
+   "where": "Next to a bush near the entrance to [[Cerulean City]]",
+   "display": "[[Great Ball]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "PP Max",
+   "where": "On a plateau west of the [[Cerulean Cave]] entrance (requires [[Secret Technique",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Razz Berry",
+   "where": "Sometimes found by the {{player}}'s [[walking Pok\u00e9mon]] from the bush in between the plateaus",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Nanab Berry",
+   "where": "Sometimes found by the {{player}}'s [[walking Pok\u00e9mon]] from the bush in between the plateaus",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Kanto Route 5": [
+  {
+   "item": "Great Ball",
+   "where": "On the third ledge south of Cerulean City, southeast of the grass patch",
+   "display": "[[Great Ball]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Ether",
+   "where": "Northwest of the [[Saffron City]] [[gate]]",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Razz Berry",
+   "where": "In the bush on the west side of the daycare ''(hidden)'' (daily)",
+   "display": "[[Razz Berry]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Nanab Berry",
+   "where": "Against the west side of the {{OBP|Underground Path|Kanto Routes 5\u20136}} entrance",
+   "display": "[[Nanab Berry]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Revive",
+   "where": "From {{ga|Trace}} in front of the {{OBP|Underground Path|Kanto Routes 5\u20136}} entrance",
+   "display": "[[Revive]] \u00d73",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Kanto Route 6": [
+  {
+   "item": "Super Potion",
+   "where": "West of the Saffron City gate",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Rare Candy",
+   "where": "East of the Saffron City gate ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Guard Spec.",
+   "where": "On the west side of the route, between the grass patches, behind {{tc|Gentleman}} Edward",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Paralyze Heal",
+   "where": "In the southwest corner of the route, south of the pond",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Kanto Route 7": [
+  {
+   "item": "Elixir",
+   "where": "South of the [[gate]] to [[Saffron City]]",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Normal VI",
+   "where": "Reward for defeating {{tc|Coach Trainer}} Alpesh",
+   "display": "{{TM|12|Facade}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Nanab Berry",
+   "where": "Sometimes found by the {{player}}'s [[walking Pok\u00e9mon]] from the bush on the west side of the Underground Path entrance",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Silver Nanab Berry",
+   "where": "Sometimes found by the {{player}}'s [[walking Pok\u00e9mon]] from the bush on the west side of the Underground Path entrance",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Golden Nanab Berry",
+   "where": "Rarely found by the {{player}}'s [[walking Pok\u00e9mon]] from the bush on the west side of the Underground Path entrance",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Kanto Route 8": [
+  {
+   "item": "Fire Stone",
+   "where": "In the fenced [[tall grass",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Silver Pinap Berry",
+   "where": "In the bush northwest of Gamer Rich ''(hidden)'' (daily)",
+   "display": "[[Silver Pinap Berry]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "X Speed",
+   "where": "West side of the fence near the Underground Path entrance",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Big Mushroom",
+   "where": "Near the Underground Path entrance, on the first ledge down",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pinap Berry",
+   "where": "Rarely found by the {{player}}'s [[walking Pok\u00e9mon]] from the bush on the west side of the Underground Path entrance",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Silver Pinap Berry",
+   "where": "Sometimes found by the {{player}}'s [[walking Pok\u00e9mon]] from the bush on the west side of the Underground Path entrance",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Golden Pinap Berry",
+   "where": "Often found by the {{player}}'s [[walking Pok\u00e9mon]] from the bush on the west side of the Underground Path entrance",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Kanto Route 9": [
+  {
+   "item": "Super Potion",
+   "where": "In the southwest corner of the route",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Ether",
+   "where": "In the northwest corner of the route",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Super Potion",
+   "where": "In the northeast of the route, north of {{tc|Camper}} Drew",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pok\u00e9 Ball",
+   "where": "In the middle of the route, southwest of {{tc|Youngster}} Chris",
+   "display": "{{i|Pok\u00e9 Ball}} \u00d75",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pinap Berry",
+   "where": "In the southeast corner of the route, east of {{tc|Hiker}} Alan ''(hidden)''",
+   "display": "[[Pinap Berry]] \u00d75",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Lavender Town": [
+  {
+   "item": "Pok\u00e9 Flute",
+   "where": "From [[Mr. Fuji]] in the Pok\u00e9mon House after rescuing him from [[Team Rocket]] at the [[Pok\u00e9mon Tower]]",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Great Ball",
+   "where": "From a man near the {{rt|8|Kanto}} entrance after rescuing {{p|Cubone}} from the [[Team Rocket Hideout]]",
+   "display": "[[Great Ball]]s \u00d720",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pretty Wing",
+   "where": "Infrequently found by some [[walking Pok\u00e9mon]] from the flower bed south of [[Pok\u00e9mon Tower]]",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Mt. Moon": [
+  {
+   "item": "Potion",
+   "where": "1F, in the southwest area of the floor",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Great Ball",
+   "where": "1F, northwest of the Potion, near {{tc|Bug Catcher}} Kent",
+   "display": "[[Great Ball]] \u00d75",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Ether",
+   "where": "1F, near the southeast corner of the floor",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Awakening",
+   "where": "1F, northwest of the Ether, near {{tc|Super Nerd}} Jovan",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Repel",
+   "where": "1F, northeast of the [[Ether]], in the east area of the floor",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Stardust",
+   "where": "1F, in a crater in the northeast corner of the floor ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pearl",
+   "where": "1F, in the northwest area of the floor",
+   "display": "{{i|Pearl}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pok\u00e9 Ball",
+   "where": "1F, from a man in the northwest near the ladder to B1F, if the player has less than 10 {{i|Pok\u00e9 Ball}}s (repeatable)",
+   "display": "{{i|Pok\u00e9 Ball}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Big Mushroom",
+   "where": "B1F, down the first ladder east of the western entrance, to the west of the second crater between two groups of rocks ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Rare Candy",
+   "where": "B2F, on a plateau northeast of the {{tc|Team Rocket Grunt}} in a closed-off room accessible from the eastern ladder on 1F",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Moon Stone",
+   "where": "B2F, in a crater east of the {{tc|Team Rocket Grunt}} in a closed-off room accessible from the eastern ladder on 1F ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Moon Stone",
+   "where": "B2F, in a crater east of the ladder in a closed-off room accessible from the ladder exactly north of the entrance on 1F ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Nugget",
+   "where": "B2F, on a plateau in a closed-off room accessible from the ladder between the other two ladders on 1F",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Revive",
+   "where": "B2F, north of the ladder in the center of the floor that leads to B1F",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Potion",
+   "where": "B2F, northeast of the {{tc|Team Rocket Grunt}} northeast of the ladder in the center of the floor that leads to B1F",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Revive",
+   "where": "B2F, southeast of the {{tc|Team Rocket Grunt}} in the west area of the floor",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Dome Fossil",
+   "where": "B2F, choice between this or the [[Helix Fossil]] after defeating the {{tc|Super Nerd}}",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Helix Fossil",
+   "where": "B2F, choice between this or the [[Dome Fossil]] after defeating the {{tc|Super Nerd}}",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Pewter City": [
+  {
+   "item": "Potion",
+   "where": "From {{ga|Trace}} upon entering the city for the first time",
+   "display": "[[Potion]] \u00d75",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "X Defense",
+   "where": "Behind the [[Pok\u00e9mon Center]]",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pewter Crunchies",
+   "where": "Sold by a man inside the Pok\u00e9mon Center for {{pdollar}}500 (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Big Pearl",
+   "where": "From the lady west of the Pewter Museum of Science after watching over her {{p|Slowpoke}} (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Great Ball",
+   "where": "From {{ga|Blue}} in front of the [[Pewter Gym]] after defeating [[Brock]]",
+   "display": "[[Great Ball]] \u00d75",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Pewter Gym": [
+  {
+   "item": "TM Normal VI",
+   "where": "Reward for defeating Brock",
+   "display": "{{TM|01|Headbutt}}",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Pok\u00e9mon Road": [
+  {
+   "item": "Super Potion",
+   "where": "In front of the benches in the northeast",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Super Lure",
+   "where": "In the field of grass south of the [[Eeveelution]] Trainers",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Great Ball",
+   "where": "In the field of grass south of the Eeveelution Trainers",
+   "display": "[[Great Ball]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Elixir",
+   "where": "In the field of grass north of the body of water",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Ground VI",
+   "where": "Reward for defeating Coach Trainer Grantley",
+   "display": "{{TM|58|Drill Run}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Rare Candy",
+   "where": "In the field of grass south of the body of water",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Silver Razz Berry",
+   "where": "In the small yellow bush at the northeast corner of the southernmost field of grass ''(hidden)''",
+   "display": "[[Silver Razz Berry]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Silver Nanab Berry",
+   "where": "In the small yellow bush at the southeast corner of the two benches near Gentleman Orson ''(hidden)''",
+   "display": "[[Silver Nanab Berry]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Nugget",
+   "where": "Amidst yellow flowers near the southern benches",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Super Repel",
+   "where": "Behind the southernmost benches",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Clothing Trunk",
+   "where": "From [[Jessie]] and [[James]] after defeating them, after becoming {{pkmn|Champion}}",
+   "display": "{{DL|Trainer customization|Pok\u00e9mon: Let's Go, Pikachu! and Let's Go, Eevee!|Blast-Off Set}}",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Pok\u00e9mon Tower": [
+  {
+   "item": "Clothing Trunk",
+   "where": "1F, from the old lady",
+   "display": "{{DL|List of clothing in Pok\u00e9mon: Let's Go, Pikachu! and Let's Go, Eevee!|Formal Set}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Elixir",
+   "where": "2F, southwest corner",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pearl",
+   "where": "2F, on the easternmost tombstone against the southern wall ''(hidden)'' (daily)",
+   "display": "{{i|Pearl}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Candy Yellow",
+   "where": "2F, reward for defeating {{tc|Coach Trainer}} Holly",
+   "display": "{{DL|Candy|Pikachu Candy}} \u00d75",
+   "LP": true,
+   "LE": false
+  },
+  {
+   "item": "Candy Brown",
+   "where": "2F, reward for defeating {{tc|Coach Trainer}} Holly",
+   "display": "{{DL|Candy|Eevee Candy}} \u00d75",
+   "LP": false,
+   "LE": true
+  },
+  {
+   "item": "Awakening",
+   "where": "3F, against the northern wall",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Super Potion",
+   "where": "3F, in the middle of the floor",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Star Piece",
+   "where": "3F, in the northeast corner of the floor ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Escape Rope",
+   "where": "4F, in the middle of a ring of tombstones near the stairs to 3F",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Full Heal",
+   "where": "4F, north of the stairs to 3F",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Psychic VI",
+   "where": "4F, southwest of the center of the floor",
+   "display": "{{TM|04|Teleport}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Super Potion",
+   "where": "4F, in the northeast corner of the floor ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Nugget",
+   "where": "5F, in the northwest corner",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Ice Stone",
+   "where": "5F, in the southwest corner",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Big Pearl",
+   "where": "5F, on the tombstone in the southeast corner ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Revive",
+   "where": "6F, south of the stairs to 5F",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Ultra Ball",
+   "where": "6F, north of the stairs to 5F",
+   "display": "[[Ultra Ball]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Hyper Potion",
+   "where": "6F, in the northwest corner",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "PP Up",
+   "where": "6F, in a corner on the wall, south of the northwest corner ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Rare Candy",
+   "where": "6F, west of the stairs to 7F (requires [[Silph Scope]])",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pearl",
+   "where": "4F, Infrequently found by the {{player}}'s {{pkmn2|walking}} {{type|Ghost}} Pok\u00e9mon near the stairs to 3F",
+   "display": "{{i|Pearl}}",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Rock Tunnel": [
+  {
+   "item": "Repel",
+   "where": "1F, in the northeast of the room at the north entrance",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Escape Rope",
+   "where": "1F, in the southeast corner of the northeast section",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Super Potion",
+   "where": "1F, north of the rock formation in the southeast corner",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pok\u00e9 Ball",
+   "where": "1F, from a man in the southeast near the ladder to B1F, if the {{player}} has less than 10 {{i|Pok\u00e9 Ball}}s (repeatable)",
+   "display": "{{i|Pok\u00e9 Ball}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Stardust",
+   "where": "1F, at the north end of the second-easternmost room in the southeast",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pearl",
+   "where": "1F, in the southwest corner",
+   "display": "{{i|Pearl}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Revive",
+   "where": "1F, on a rock on the west side of the southern entrance ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Revive",
+   "where": "B1F, near the southwest corner of the floor, accessible from the northeasternmost ladder on 1F",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Dire Hit",
+   "where": "B1F, northeast of {{tc|Black Belt}} Dudley, in the middle of the floor",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Great Ball",
+   "where": "B1F, in the northeast corner",
+   "display": "[[Great Ball]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Full Heal",
+   "where": "B1F, in the northeast corner of the northeast section",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Rocket Hideout": [
+  {
+   "item": "Clothing Trunk",
+   "where": "B1F, from the spy disguised as a female {{tc|Team Rocket Grunt}} directly south of the stairs",
+   "display": "{{DL|List of clothing in Pok\u00e9mon: Let's Go, Pikachu! and Let's Go, Eevee!|Team Rocket Set}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Ultra Ball",
+   "where": "B1F, south of the table in the western room",
+   "display": "[[Ultra Ball]] \u00d75",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Mighty Candy",
+   "where": "B1F, under the southwest corner of the table in the eastern room",
+   "display": "[[Mighty Candy]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Great Ball",
+   "where": "B1F, north of the stairs in the southwest area of the floor, accessible from the southern stairs of B2F",
+   "display": "[[Great Ball]] \u00d75",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Hyper Potion",
+   "where": "B1F, in the northwest corner of the southwest area of the floor, accessible from the southern stairs of B2F",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Full Heal",
+   "where": "B1F, in the cardboard box by the northmost desk in the southwest area of the floor, accessible from the southern stairs of B2F ''(hidden)''",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Nugget",
+   "where": "B2F, in the northeast of the [[spin tile]] maze",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Awakening",
+   "where": "B2F, in the northwest of the spin tile maze",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Psychic VI",
+   "where": "B2F, in the center of the northern part of the spin tile maze",
+   "display": "{{TM|05|Rest}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "PP Up",
+   "where": "B2F, in the southwest of the spin tile maze",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "X Accuracy",
+   "where": "B2F, on the south side of the large block in the middle of the spin tile maze ''(hidden)''",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Dark VI",
+   "where": "B3F, south of the staircase leading to B2F",
+   "display": "{{TM|20|Dark Pulse}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Guard Spec.",
+   "where": "B3F, on the electronics boxes south of the machine with Pok\u00e9 Balls in it ''(hidden)''",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Revive",
+   "where": "B3F, in the northwest corner",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Rare Candy",
+   "where": "B3F, on the east side of the spin tile maze",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "X Speed",
+   "where": "B3F, in the northwest of the spin tile maze",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Hyper Potion",
+   "where": "B4F, in the room west of the stairs to B3F, in the north of the room",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "PP Up",
+   "where": "B4F, in the room west of the stairs to B3F, in the southwest corner of the room",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Lift Key",
+   "where": "B4F, on top of a wall in the middle of the floor after defeating the Team Rocket Grunt in the northwest area (must be retrieved by {{OBP|partner Pok\u00e9mon|Let's Go, Pikachu! and Let's Go, Eevee!}})",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Elixir",
+   "where": "B4F, in the southwest area of the floor (requires [[Lift Key]])",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Max Revive",
+   "where": "B4F, on the eastern chest of draws behind Giovanni's desk (requires [[Lift Key]]) ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Silph Scope",
+   "where": "B4F, received from Giovanni after his defeat (requires [[Lift Key]])",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Saffron City": [
+  {
+   "item": "Clothing Trunk",
+   "where": "From [[Officer Jenny]] near the Gym, after defeating [[Giovanni]] at [[Silph Co.]]",
+   "display": "[[List of clothing in Pok\u00e9mon: Let's Go, Pikachu! and Let's Go, Eevee!",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pretty Wing",
+   "where": "Infrequently found by some [[walking Pok\u00e9mon]] from the flower bed near the north entrance to the city",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Saffron Gym": [
+  {
+   "item": "TM Psychic VI",
+   "where": "Reward for defeating Sabrina",
+   "display": "{{TM|33|Calm Mind}}",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Seafoam Islands": [
+  {
+   "item": "Ice Heal",
+   "where": "1F, southeast of the westernmost ladder",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Rare Candy",
+   "where": "1F, reward for defeating {{tc|Coach Trainer}} Yas",
+   "display": "[[Rare Candy]] \u00d75",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Max Revive",
+   "where": "B1F, on a rock near the western [[hole]] ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Great Ball",
+   "where": "B1F, in the closed-off section accessible from the northeastern ladder on 1F",
+   "display": "[[Great Ball]] \u00d75",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Ice VI",
+   "where": "B2F, in the south area of the floor",
+   "display": "{{TM|55|Ice Beam}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Ice Stone",
+   "where": "B2F, on the southeast plateau",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pearl",
+   "where": "B2F, on a rock on the east side the tall rock pillar along the southern wall ''(hidden)'' (daily)",
+   "display": "{{i|Pearl}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Super Lure",
+   "where": "B3F, in the southeast area of the floor",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Ultra Ball",
+   "where": "B3F, northwest of the south-easternmost ladder",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Big Pearl",
+   "where": "B4F, southwest of {{p|Articuno}}",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Silph Co.": [
+  {
+   "item": "TM Normal VI",
+   "where": "2F, received from the woman in the northwest room",
+   "display": "{{TM|42|Self-Destruct}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Max Lure",
+   "where": "3F, in the first room to the west",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "X Sp. Def",
+   "where": "3F, in the eastern room",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Full Heal",
+   "where": "4F, in the storage room in the west",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Escape Rope",
+   "where": "4F, in the storage room in the west",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Dire Hit",
+   "where": "4F, in the southeast area of the floor",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Star Piece",
+   "where": "4F, in the storage room in the west",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Card Key",
+   "where": "5F, from {{ga|Trace}} after defeating [[Archer]] and a {{tc|Team Rocket Grunt}} in a [[Multi Battle]]",
+   "display": "{{ka|Card Key}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Silver Nanab Berry",
+   "where": "5F, in the two plants on the northern wall, west of the elevator ''(hidden)'' (daily)",
+   "display": "[[Silver Nanab Berry]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Max Ether",
+   "where": "5F, in the northwest room",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Steel VI",
+   "where": "5F, in the southwest room",
+   "display": "{{TM|54|Flash Cannon}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Nugget",
+   "where": "5F, in the narrow corridor in the east",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Guard Spec.",
+   "where": "5F, in the room in the middle of the floor",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Silver Pinap Berry",
+   "where": "6F, on the plant in the southeast corner ''(hidden)'' (daily)",
+   "display": "[[Silver Pinap Berry]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Max Repel",
+   "where": "6F, in the southwest room",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Hyper Potion",
+   "where": "6F, in the southwest room",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Dragon VI",
+   "where": "7F, in the eastern room",
+   "display": "{{TM|34|Dragon Pulse}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Nanab Berry",
+   "where": "7F, on the southernmost plant in the central hallway ''(hidden)'' (daily)",
+   "display": "[[Nanab Berry]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Smart Candy",
+   "where": "7F, in the southeast corner of the floor",
+   "display": "[[Smart Candy]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Rare Candy",
+   "where": "7F, in the room south of the counter",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Elixir",
+   "where": "9F, between the northern two beds ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Ultra Ball",
+   "where": "9F, on a shelf in the southern room",
+   "display": "[[Ultra Ball]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Rare Candy",
+   "where": "10F, in the southwest room",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "X Accuracy",
+   "where": "10F, on a box in the northeast room ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Full Heal",
+   "where": "10F, in the northwest",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Max Revive",
+   "where": "10F, in the southwest room",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Fire VI",
+   "where": "10F, in the southwest room",
+   "display": "{{TM|37|Flamethrower}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Master Ball",
+   "where": "11F, received from Silph Co.'s president after defeating [[Giovanni]]",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Max Elixir",
+   "where": "11F, near the southeast corner of the floor",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Vermilion City": [
+  {
+   "item": "Clothing Trunk",
+   "where": "Received from the [[Pok\u00e9mon Fan Club Chairman]]",
+   "display": "{{DL|List of clothing in Pok\u00e9mon: Let's Go, Pikachu! and Let's Go, Eevee!|Pikachu Set}}",
+   "LP": true,
+   "LE": false
+  },
+  {
+   "item": "Clothing Trunk",
+   "where": "Received from the [[Pok\u00e9mon Fan Club Chairman]] after becoming best friends with partner Pikachu",
+   "display": "{{DL|List of clothing in Pok\u00e9mon: Let's Go, Pikachu! and Let's Go, Eevee!|Raichu Set}}",
+   "LP": true,
+   "LE": false
+  },
+  {
+   "item": "Clothing Trunk",
+   "where": "Received from the [[Pok\u00e9mon Fan Club Chairman]]",
+   "display": "{{DL|List of clothing in Pok\u00e9mon: Let's Go, Pikachu! and Let's Go, Eevee!|Eevee Set}}",
+   "LP": false,
+   "LE": true
+  },
+  {
+   "item": "Clothing Trunk",
+   "where": "Received from the [[Pok\u00e9mon Fan Club Chairman]] after becoming best friends with partner Eevee",
+   "display": "[[List of clothing in Pok\u00e9mon: Let's Go, Pikachu! and Let's Go, Eevee!",
+   "LP": false,
+   "LE": true
+  },
+  {
+   "item": "Clothing Trunk",
+   "where": "From the ticket-inspecting Sailor upon showing the [[S.S. Ticket]]",
+   "display": "{{DL|List of clothing in Pok\u00e9mon: Let's Go, Pikachu! and Let's Go, Eevee!|Sailor Set}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Full Heal",
+   "where": "West of the southern storage container in the land being bulldozed flat by {{p|Machop}} ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Big Pearl",
+   "where": "East of Pok\u00e9mon Fan Club and behind the person sitting on bench (requires [[Secret Technique",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pretty Wing",
+   "where": "Sometimes found by the {{player}}'s [[walking Pok\u00e9mon]] from the flower beds near {{rt|11|Kanto}}",
+   "display": "[[Pretty Feather",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Victory Road (Kanto)": [
+  {
+   "item": "Candy Yellow",
+   "where": "Reward for defeating {{tc|Coach Trainer}} Alemana",
+   "display": "{{DL|Candy|Pikachu Candy}} \u00d710",
+   "LP": true,
+   "LE": false
+  },
+  {
+   "item": "Candy Brown",
+   "where": "Reward for defeating {{tc|Coach Trainer}} Alemana",
+   "display": "{{DL|Candy|Eevee Candy}} \u00d710",
+   "LP": false,
+   "LE": true
+  },
+  {
+   "item": "Leaf Stone",
+   "where": "In the north area of the floor",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Rock VI",
+   "where": "In the north area of the floor",
+   "display": "{{TM|56|Stealth Rock}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Ultra Ball",
+   "where": "In the northwest corner of the floor",
+   "display": "[[Ultra Ball]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Grass VI",
+   "where": "Southwest of {{tc|Black Belt}} Daisuke",
+   "display": "{{TM|45|Solar Beam}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Full Restore",
+   "where": "Southwest of {{tc|Tamer}} Vincent",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Fighting VI",
+   "where": "In the northeast area of the floor",
+   "display": "{{TM|49|Superpower}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "PP Max",
+   "where": "In the northwest area of the floor, south of {{p|Moltres}}",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pretty Wing",
+   "where": "On the stone pillar west of Moltres ''(hidden)'' (daily)",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Max Revive",
+   "where": "In the northeast area of the floor",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Ice VI",
+   "where": "In the northwest area of the floor",
+   "display": "{{TM|51|Blizzard}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Fresh Water",
+   "where": "Northeast of [[Officer Jenny]], in the dripping water on the north wall ''(hidden)''",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Max Potion",
+   "where": "Southeast of Officer Jenny, on the plateau",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Full Restore",
+   "where": "Near the southeast corner of the floor",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Golden Nanab Berry",
+   "where": "In the southern area, northeast of the pair of {{tc|Ace Trainer}}s",
+   "display": "[[Golden Nanab Berry]] \u00d75",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Dragon VI",
+   "where": "Reward for defeating {{tc|Coach Trainer}} Ryan",
+   "display": "{{TM|39|Outrage}}",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Viridian City": [
+  {
+   "item": "Parcel",
+   "where": "Received from the [[Pok\u00e9 Mart]] clerk outside the Pok\u00e9 Mart.",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Potion",
+   "where": "West of the [[Secret Technique",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Fire VI",
+   "where": "Received from the sleeping man in the southwestern part of the city (requires [[Secret Technique",
+   "display": "{{TM|11|Will-O-Wisp}}",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Pretty Wing",
+   "where": "Infrequently found by some [[walking Pok\u00e9mon]] from the flower bed east of the [[Pok\u00e9mon Center]]",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Viridian Forest": [
+  {
+   "item": "Antidote",
+   "where": "North of the southern entrance, to the east of the Trainer Tips sign",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Razz Berry",
+   "where": "Southeast corner of the forest, in the tall grass at the base of a tree",
+   "display": "[[Razz Berry]] \u00d73",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Potion",
+   "where": "Northeast corner of the forest, behind a tree",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "Potion",
+   "where": "South of northern entrance, in front of Bug Catcher Sammy ''(hidden)''",
+   "display": "",
+   "LP": true,
+   "LE": true
+  }
+ ],
+ "Viridian Gym": [
+  {
+   "item": "Revive",
+   "where": "Near {{tc|Ace Trainer}} Yuji northeast of the entrance",
+   "display": "",
+   "LP": true,
+   "LE": true
+  },
+  {
+   "item": "TM Ground VI",
+   "where": "Reward for defeating Giovanni",
+   "display": "{{TM|41|Earthquake}}",
+   "LP": true,
+   "LE": true
+  }
+ ]
+}
