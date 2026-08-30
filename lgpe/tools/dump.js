@@ -2,6 +2,17 @@
    exactly what the guide will show, rather than re-parsing the source. */
 const { chromium } = require('playwright');
 const path = require('path'), fs = require('fs');
+
+/* Regenerate the wrapped preview from the built file rather than reusing
+   whatever verify.js last left behind — a stale preview means the audits run
+   against a build that no longer exists. */
+const SRC = path.resolve(__dirname, '..', 'lets-go-pikachu-guide.html');
+const PREVIEW = path.resolve(__dirname, '..', '.preview.html');
+fs.writeFileSync(PREVIEW,
+  '<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n' +
+  '<meta name="viewport" content="width=device-width, initial-scale=1">\n' +
+  '</head>\n<body>\n' + fs.readFileSync(SRC, 'utf8') + '\n</body>\n</html>\n');
+
 (async () => {
   const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
   const p = await (await b.newContext()).newPage();

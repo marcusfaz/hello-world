@@ -1,46 +1,37 @@
 {
- "missing_lgp": [
-  "ekans",
-  "arbok",
-  "vulpix",
-  "ninetales",
-  "meowth",
-  "bellsprout",
-  "weepinbell",
-  "victreebel",
-  "koffing",
-  "weezing",
-  "goldeen",
-  "seaking",
-  "pinsir",
-  "articuno",
-  "zapdos",
-  "moltres",
-  "mewtwo",
-  "mew",
-  "meltan",
-  "melmetal"
- ],
- "missing_lge": [
+ "lgp_only": [
+  "gloom",
+  "grimer",
+  "growlithe",
+  "mankey",
+  "muk",
+  "oddish",
+  "primeape",
   "sandshrew",
   "sandslash",
-  "oddish",
-  "gloom",
-  "vileplume",
-  "mankey",
-  "primeape",
-  "growlithe",
-  "grimer",
-  "muk",
-  "goldeen",
-  "seaking",
   "scyther",
-  "articuno",
-  "zapdos",
-  "moltres",
-  "mewtwo",
-  "mew",
+  "vileplume"
+ ],
+ "lge_only": [
+  "arbok",
+  "bellsprout",
+  "ekans",
+  "koffing",
+  "meowth",
+  "ninetales",
+  "pinsir",
+  "victreebel",
+  "vulpix",
+  "weepinbell",
+  "weezing"
+ ],
+ "special": [
+  "melmetal",
   "meltan",
-  "melmetal"
+  "mew"
+ ],
+ "unreachable_either": [
+  "goldeen",
+  "seaking"
  ]
 }

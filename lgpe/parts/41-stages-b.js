@@ -92,8 +92,8 @@ band:[{k:"Party level",v:"34 → 38"},{k:"Badge",v:"Rainbow"},{k:"Unlocks",v:"Si
 body:[
 ["h","Routes 7 and 8, on the way in"],
 ["catch",[
- {n:"Arcanine", t:["Fire"], lg:true, where:"Routes 7 and 8 — 1%, Let’s Go, Pikachu! only", why:"<b>A fully evolved Arcanine in the wild, and this is the best rare hunt in the mid-game.</b> Chain Growlithe here — they are 19% of the grass — and at a combo of 31 the rare rate hits 50%. A caught Arcanine skips the entire Fire-Stone-timing problem."},
- {n:"Kadabra", t:["Psychic"], where:"Routes 7 and 8 — 1%", why:"Saves you evolving an Abra. Alakazam is still a trade evolution, so Kadabra is where a solo player stops — 120 Speed and 105 Special Attack is plenty."},
+ {n:"Arcanine", t:["Fire"], lgv:true, where:"Routes 7 and 8 — 1%, and only in your version", why:"<b>A fully evolved Arcanine in the wild, and the best rare hunt in the mid-game.</b> Chain Growlithe here — they are 19% of the grass — and at a combo of 31 the rare rate hits 50%. A caught Arcanine skips the Fire-Stone-timing problem entirely. <b>The species is not exclusive</b>: Eevee players are simply handed one in Vermilion for catching five Meowth."},
+ {n:"Kadabra", t:["Psychic"], where:"Routes 7 and 8 — 1%", why:"Saves you evolving an Abra. Alakazam is still a trade evolution, so Kadabra is where a solo player stops — <b>120 Special Attack behind 105 Speed</b> is plenty for the Poison and Fighting types ahead."},
  {n:"Porygon", t:["Normal"], where:"Route 7 — rare spawn", why:"<b>Note this now.</b> Silph Co. gives you one free at level 34 in two stages, but Porygon is a rare spawn here and nowhere else in Kanto — a spare is a second Master Trainer entry and insurance."},
  {n:"Alolan Sandshrew", t:["Ice","Steel"], lg:true, where:"Trade a Sandshrew in the Celadon Pokémon Center — repeatable, Let’s Go, Pikachu! only", why:"<b>Ice/Steel is a typing no other Pokémon in the game has.</b> Alolan Sandslash has 120 Defense and 100 Attack. Eevee players trade for an Alolan Vulpix here instead."}
 ]],
@@ -222,7 +222,7 @@ body:[
 ["p","Warp panels connect the floors in a deliberately confusing order. The route below is the short one. Trace joins you for a Multi Battle against Archer on 5F, which is where the Card Key comes from, and Giovanni is waiting on 11F."],
 ["catch",[
  {n:"Porygon", t:["Normal"], where:"Silph Co. — free from the office worker on 7F, at level 34", why:"<b>Take it.</b> Porygon has exactly two homes in this game — this gift and a rare spawn on Route 7 — and Porygon2 requires a trade, so the base form is what you keep. It is also a Master Trainer fight later."},
- {n:"Hitmonlee", t:["Fighting"], where:"Fighting Dojo — choose one, at level 30", why:"<b>Take Hitmonlee over Hitmonchan.</b> 120 Attack against 105, and it arrives with Brick Break already learnt at 20, Jump Kick at 30 and High Jump Kick at 45. Hitmonchan’s elemental punches look wider but run off a 35 Special Attack — its own stats fight its moveset."},
+ {n:"Hitmonlee", t:["Fighting"], where:"Fighting Dojo — choose one, at level 30", why:"<b>Take Hitmonlee over Hitmonchan.</b> Hitmonlee has 120 Attack against Hitmonchan’s 105, and it arrives with Brick Break already learnt at 20, Jump Kick at 30 and High Jump Kick at 45. Hitmonchan’s elemental punches look wider but run off a Special Attack of 35 — its own stats fight its moveset."},
  {n:"Alolan Raichu", t:["Electric","Psychic"], where:"Trade a Raichu in the Saffron Pokémon Center — repeatable", why:"<b>Electric/Psychic exists nowhere else.</b> You need a Raichu to trade — evolve the wild Pikachu you caught in Viridian Forest with a Thunder Stone. Your partner cannot evolve, so it is safe."}
 ]],
 ["team","<b>Put TM20 Dark Pulse on Arcanine before you fight Sabrina.</b> Dark is 2× into Psychic, Arcanine has 100 Special Attack, and Dark Pulse is 80 power special with a flinch chance. That single TM, from the Rocket Hideout floor you cleared last stage, is the difference between a comfortable gym and a slog — because Kanto simply does not give you a good Dark type."],
@@ -279,7 +279,7 @@ reward:"TM33 Calm Mind, the Marsh Badge, and obedience up to level 70."
  {t:"Take the <b>Rare Candy</b> on 7F and again on 10F.", sub:"Two of the easiest Rare Candies in the game, both in plain sight."},
  {t:"Take the free <b>Porygon</b> from the office worker on 7F.", sub:"Level 34. Porygon has exactly two sources in the game and this is the reliable one."},
  {at:"Silph Co. 11F", t:"Beat <b>Giovanni</b> and take the <b>Master Ball</b> from the president.", sub:"Persian 39, Rhyhorn 39, Nidoqueen 39. Save the ball for Mewtwo — nothing before it needs one."},
- {at:"Fighting Dojo", t:"Beat the Karate Master and take <b>Hitmonlee</b>.", sub:"120 Attack against Hitmonchan’s 105, and Hitmonchan’s elemental punches run off a 35 Special Attack. Take the kicker."},
+ {at:"Fighting Dojo", t:"Beat the Karate Master and take <b>Hitmonlee</b>.", sub:"Hitmonlee has 120 Attack against Hitmonchan’s 105, and Hitmonchan’s elemental punches run off a Special Attack of 35. Take the kicker."},
  {at:"Saffron Gym", t:"Show a level-45 Pokémon, then beat <b>Sabrina</b>.", sub:"Mr. Mime 43, Slowbro 43, Jynx 43, Alakazam 44. Remove Mr. Mime first to stop the screens; carry Awakenings."},
  {at:"Kanto", t:"Head for <b>Route 16</b>, west of Celadon.", sub:"There are two routes south to Fuchsia. Pokémon Road (16 → 17 → 18) is the one with the first Snorlax on it."}
 ]]

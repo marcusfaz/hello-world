@@ -1,0 +1,122 @@
+{
+ "charizard-mega-y": {
+  "hp": 78,
+  "attack": 104,
+  "defense": 78,
+  "special-attack": 159,
+  "special-defense": 115,
+  "speed": 100
+ },
+ "charizard-mega-x": {
+  "hp": 78,
+  "attack": 130,
+  "defense": 111,
+  "special-attack": 130,
+  "special-defense": 85,
+  "speed": 100
+ },
+ "venusaur-mega": {
+  "hp": 80,
+  "attack": 100,
+  "defense": 123,
+  "special-attack": 122,
+  "special-defense": 120,
+  "speed": 80
+ },
+ "blastoise-mega": {
+  "hp": 79,
+  "attack": 103,
+  "defense": 120,
+  "special-attack": 135,
+  "special-defense": 115,
+  "speed": 78
+ },
+ "aerodactyl-mega": {
+  "hp": 80,
+  "attack": 135,
+  "defense": 85,
+  "special-attack": 70,
+  "special-defense": 95,
+  "speed": 150
+ },
+ "mewtwo-mega-y": {
+  "hp": 106,
+  "attack": 150,
+  "defense": 70,
+  "special-attack": 194,
+  "special-defense": 120,
+  "speed": 140
+ },
+ "mewtwo-mega-x": {
+  "hp": 106,
+  "attack": 190,
+  "defense": 100,
+  "special-attack": 154,
+  "special-defense": 100,
+  "speed": 130
+ },
+ "gengar-mega": {
+  "hp": 60,
+  "attack": 65,
+  "defense": 80,
+  "special-attack": 170,
+  "special-defense": 95,
+  "speed": 130
+ },
+ "alakazam-mega": {
+  "hp": 55,
+  "attack": 50,
+  "defense": 65,
+  "special-attack": 175,
+  "special-defense": 105,
+  "speed": 150
+ },
+ "gyarados-mega": {
+  "hp": 95,
+  "attack": 155,
+  "defense": 109,
+  "special-attack": 70,
+  "special-defense": 130,
+  "speed": 81
+ },
+ "kangaskhan-mega": {
+  "hp": 105,
+  "attack": 125,
+  "defense": 100,
+  "special-attack": 60,
+  "special-defense": 100,
+  "speed": 100
+ },
+ "pinsir-mega": {
+  "hp": 65,
+  "attack": 155,
+  "defense": 120,
+  "special-attack": 65,
+  "special-defense": 90,
+  "speed": 105
+ },
+ "beedrill-mega": {
+  "hp": 65,
+  "attack": 150,
+  "defense": 40,
+  "special-attack": 15,
+  "special-defense": 80,
+  "speed": 145
+ },
+ "pidgeot-mega": {
+  "hp": 83,
+  "attack": 80,
+  "defense": 80,
+  "special-attack": 135,
+  "special-defense": 80,
+  "speed": 121
+ },
+ "slowbro-mega": {
+  "hp": 95,
+  "attack": 75,
+  "defense": 180,
+  "special-attack": 130,
+  "special-defense": 80,
+  "speed": 30
+ }
+}

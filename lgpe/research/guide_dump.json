@@ -253,8 +253,8 @@
        "t": [
         "Electric"
        ],
-       "where": "Viridian Forest — 5%",
-       "why": "A wild Pikachu is <b>not</b> your partner and is a completely ordinary Pokémon with ordinary stats. Catch one anyway: it is the species the Saffron trade wants, once evolved with a Thunder Stone, for an <b>Alolan Raichu</b>."
+       "where": "Viridian Forest — 5%, in both versions",
+       "why": "<b>This is not your partner and it is not version-exclusive</b> — wild Pikachu spawn here in Let’s Go, Eevee! too, just as wild Eevee spawn on Route 17 in yours. Only the <i>partner</i> is locked to the box you bought. A wild one has ordinary Pikachu stats, and it is the species the Saffron trade wants, once evolved with a Thunder Stone, for an <b>Alolan Raichu</b>."
       },
       {
        "n": "Butterfree",
@@ -262,9 +262,9 @@
         "Bug",
         "Flying"
        ],
-       "lg": true,
-       "where": "Viridian Forest — 1%, Let’s Go, Pikachu! only",
-       "why": "<b>Version exclusive.</b> Eevee players see a 1% Beedrill here instead. A fully evolved catch at level 3–6 is free experience and a species you would otherwise have to grind Caterpie for."
+       "lgv": true,
+       "where": "Viridian Forest — 1%, and only in your version",
+       "why": "<b>The spawn is exclusive, not the species</b> — Eevee players see a 1% Beedrill in this slot but can still raise a Caterpie like anyone else. A fully evolved catch at level 3–6 is free experience and saves you the grind."
       },
       {
        "n": "Caterpie",
@@ -1010,9 +1010,9 @@
        "t": [
         "Normal"
        ],
-       "lg": true,
-       "where": "Free from the Black Belt west of the Poké Mart, after catching five Growlithe — Let’s Go, Pikachu! only",
-       "why": "<b>Do this errand. It is the best quality-of-life reward in the game.</b> This Persian can be <i>ridden</i>, which moves you faster than running for the rest of the run. Eevee players get a rideable Arcanine for catching five Meowth instead; you get the cat."
+       "lgv": true,
+       "where": "Free from the Black Belt west of the Poké Mart, after catching five Growlithe",
+       "why": "<b>Do this errand. It is the best quality-of-life reward in the game.</b> This Persian can be <i>ridden</i>, which moves you faster than running for the rest of the run. <b>The gift is version-locked, the species is not</b> — Eevee players reach Persian by evolving a Meowth, and their errand pays out a rideable Arcanine instead."
       },
       {
        "n": "Alolan Geodude",
@@ -1591,9 +1591,9 @@
        "t": [
         "Fire"
        ],
-       "lg": true,
-       "where": "Routes 7 and 8 — 1%, Let’s Go, Pikachu! only",
-       "why": "<b>A fully evolved Arcanine in the wild, and this is the best rare hunt in the mid-game.</b> Chain Growlithe here — they are 19% of the grass — and at a combo of 31 the rare rate hits 50%. A caught Arcanine skips the entire Fire-Stone-timing problem."
+       "lgv": true,
+       "where": "Routes 7 and 8 — 1%, and only in your version",
+       "why": "<b>A fully evolved Arcanine in the wild, and the best rare hunt in the mid-game.</b> Chain Growlithe here — they are 19% of the grass — and at a combo of 31 the rare rate hits 50%. A caught Arcanine skips the Fire-Stone-timing problem entirely. <b>The species is not exclusive</b>: Eevee players are simply handed one in Vermilion for catching five Meowth."
       },
       {
        "n": "Kadabra",
@@ -1601,7 +1601,7 @@
         "Psychic"
        ],
        "where": "Routes 7 and 8 — 1%",
-       "why": "Saves you evolving an Abra. Alakazam is still a trade evolution, so Kadabra is where a solo player stops — 120 Speed and 105 Special Attack is plenty."
+       "why": "Saves you evolving an Abra. Alakazam is still a trade evolution, so Kadabra is where a solo player stops — <b>120 Special Attack behind 105 Speed</b> is plenty for the Poison and Fighting types ahead."
       },
       {
        "n": "Porygon",
@@ -2097,7 +2097,7 @@
         "Fighting"
        ],
        "where": "Fighting Dojo — choose one, at level 30",
-       "why": "<b>Take Hitmonlee over Hitmonchan.</b> 120 Attack against 105, and it arrives with Brick Break already learnt at 20, Jump Kick at 30 and High Jump Kick at 45. Hitmonchan’s elemental punches look wider but run off a 35 Special Attack — its own stats fight its moveset."
+       "why": "<b>Take Hitmonlee over Hitmonchan.</b> Hitmonlee has 120 Attack against Hitmonchan’s 105, and it arrives with Brick Break already learnt at 20, Jump Kick at 30 and High Jump Kick at 45. Hitmonchan’s elemental punches look wider but run off a Special Attack of 35 — its own stats fight its moveset."
       },
       {
        "n": "Alolan Raichu",
@@ -2310,7 +2310,7 @@
       {
        "at": "Fighting Dojo",
        "t": "Beat the Karate Master and take <b>Hitmonlee</b>.",
-       "sub": "120 Attack against Hitmonchan’s 105, and Hitmonchan’s elemental punches run off a 35 Special Attack. Take the kicker."
+       "sub": "Hitmonlee has 120 Attack against Hitmonchan’s 105, and Hitmonchan’s elemental punches run off a Special Attack of 35. Take the kicker."
       },
       {
        "at": "Saffron Gym",
@@ -2350,7 +2350,7 @@
     ],
     [
      "team",
-     "<b>Take the Route 16 Snorlax into your party and drop Primeape for it.</b> 160 HP, 110 Attack and 110 Special Defense on a body that has no weakness except Fighting. It arrives around level 34 with Headbutt and Rest, learns <b>Body Slam at 52</b>, <b>Crunch at 58</b> and <b>Superpower at 65</b>, and it is the Pokémon that survives the Elite Four’s worst turns. Feed it a Golden Razz Berry before you throw — a five-minute fight you have to redo is a five-minute fight wasted."
+     "<b>Take the Route 16 Snorlax into your party and drop Primeape for it.</b> Snorlax brings 160 HP, 110 Attack and 110 Special Defense on a body whose only weakness is Fighting. It arrives around level 34 with Headbutt and Rest, learns <b>Body Slam at 52</b>, <b>Crunch at 58</b> and <b>Superpower at 65</b>, and it is the Pokémon that survives the Elite Four’s worst turns. Feed it a Golden Razz Berry before you throw — a five-minute fight you have to redo is a five-minute fight wasted."
     ],
     [
      "catch",
@@ -2377,7 +2377,7 @@
         "Fire"
        ],
        "where": "Route 17 — 20%",
-       "why": "Rapidash at 40. Genuinely fast — 105 base Speed — and it is on Blaine’s and Trace’s teams."
+       "why": "Rapidash at 40, and genuinely fast: Rapidash has 105 base Speed, and it turns up on both Blaine’s and Trace’s teams."
       },
       {
        "n": "Doduo",
@@ -2504,13 +2504,13 @@
          "Bug",
          "Poison"
         ],
-        "note": "Sludge Bomb, Protect, Psychic, Bug Buzz. Bug/Poison is <b>4× weak to Psychic</b> and 2× to Flying, Fire and Rock."
+        "note": "Sludge Bomb, Protect, Psychic, Bug Buzz. Bug/Poison is <b>2× weak to Psychic, Flying, Fire and Rock</b> — Bug has not been weak to Psychic since Generation I."
        }
       ],
       "plan": [
        "<b>Ground is the type that beats this gym.</b> Poison takes 2× from Ground, and Sandslash’s Earthquake or a Dugtrio removes three of the four. Golbat is the exception — it is part Flying, so Ground does nothing to it.",
        "<b>Bring your partner for the Golbat</b>. Electric is 2× into Poison/Flying, and Zippy Zap moving first with a guaranteed crit ends it before Fly gets off the ground.",
-       "<b>Venomoth is 4× weak to Psychic.</b> One Psychic from Kadabra, Mr. Mime or anything holding TM40 removes it outright.",
+       "<b>Venomoth takes 2× from Psychic, Flying, Fire and Rock</b> — nothing hits it for four. A Psychic from Kadabra or Mr. Mime is the cleanest answer; your partner’s Floaty Fall does the same job off a different stat.",
        "The gym’s whole plan is <b>Toxic, then Protect</b> — badly poison you, then stall while the damage escalates. Answer it two ways: carry <b>Antidotes</b>, and if a Pokémon does get poisoned, <b>TM12 Facade doubles to 140 power</b> while the status is on it. Coach Trainer Alpesh on Route 7 gave you that TM for exactly this fight.",
        "Do not stand in front of the Weezing at low HP. <b>Explosion</b> is 250 base power and Koga will use it."
       ],
@@ -2635,7 +2635,7 @@
         "Water"
        ],
        "where": "Routes 12 and 13 — 5%",
-       "why": "130 Attack. Krabby is 15% here if you would rather raise one; the fully evolved spawn saves you 27 levels."
+       "why": "Kingler has 130 Attack. Krabby is 15% here if you would rather raise one, but the fully evolved spawn saves you 27 levels."
       },
       {
        "n": "Venomoth",
@@ -3043,7 +3043,7 @@
         "Water"
        ],
        "where": "Cinnabar Lab — revive the Dome Fossil, level 44",
-       "why": "Kabutops at 40, so it evolves almost immediately. 115 Attack behind physical Rock and Water STAB — the stats and the moves point the same way."
+       "why": "Kabutops at 40, so it evolves almost immediately — and Kabutops has 115 Attack behind physical Rock and Water STAB, so its stats and its moves point the same way."
       },
       {
        "n": "Aerodactyl",
@@ -3078,7 +3078,7 @@
        "t": [
         "Fire"
        ],
-       "where": "Pokémon Mansion — 15%",
+       "where": "Pokémon Mansion — 14% on 1F–3F, 10% in the basement",
        "why": "The only place Magmar lives. 100 Special Attack; Magmortar does not exist in this game, so this is the whole line."
       },
       {
@@ -3086,8 +3086,8 @@
        "t": [
         "Normal"
        ],
-       "where": "Pokémon Mansion — 10%",
-       "why": "<b>Do not skip this.</b> The Pokémon Mansion is one of only two homes for Ditto. There is no breeding in this game so Ditto has no mechanical use at all — it is purely a Pokédex entry and a Master Trainer, and it is easy to leave the island without one."
+       "where": "Pokémon Mansion — 1% on 1F–3F, but <b>10% in the basement</b>",
+       "why": "<b>Do not skip this, and hunt it downstairs.</b> Ditto is ten times commoner on B1F than on the floors above. The Mansion is one of only two homes it has, and because there is no breeding in this game Ditto has no mechanical use at all — it is purely a Pokédex entry and a Master Trainer, which is exactly why people leave the island without one."
       },
       {
        "n": "Grimer",
@@ -3095,8 +3095,8 @@
         "Poison"
        ],
        "lg": true,
-       "where": "Pokémon Mansion — 15%, Let’s Go, Pikachu! only",
-       "why": "Version exclusive, and the trade stock for Alolan Grimer downstairs. Catch several."
+       "where": "Pokémon Mansion — 40% on 1F–3F, 30% in the basement",
+       "why": "<b>Version exclusive</b> — Eevee players get Koffing in this slot — and the trade stock for the Alolan Grimer downstairs. At 40% of the floor you will not have to look for it."
       }
      ]
     ],
@@ -3195,7 +3195,7 @@
         "t": [
          "Fire"
         ],
-        "note": "Fire Blast, Quick Attack. 81 Special Attack and 109 Speed; the Fire Blast is 110 power and will hurt."
+        "note": "Fire Blast, Quick Attack. 81 Special Attack behind 100 Speed — this is the Kantonian form, not the faster Alolan one — and its Fire Blast is 110 power."
        },
        {
         "m": "Arcanine",
@@ -3234,8 +3234,8 @@
       },
       {
        "at": "Pokémon Mansion",
-       "t": "Catch <b>Ditto</b> (10%), <b>Magmar</b> (15%) and several <b>Grimer</b> (15%).",
-       "sub": "The mansion is one of only two places Ditto exists, and Ditto has no use in this game beyond the Pokédex — which is exactly why people forget it."
+       "t": "Catch <b>Magmar</b> (14%) and several <b>Grimer</b> (40%) on the way through, then hunt <b>Ditto</b> in the basement.",
+       "sub": "Ditto is 1% on the upper floors and 10% on B1F, so do the Ditto hunting downstairs. It has no use in this game beyond the Pokédex — which is exactly why people forget it."
       },
       {
        "t": "Work the four floors, flipping the statue switches as you go.",
@@ -3332,8 +3332,9 @@
        "t": [
         "Poison"
        ],
-       "where": "Power Plant — uncommon",
-       "why": "A fully evolved spawn. Saves you levelling the Grimer you caught on Cinnabar."
+       "lg": true,
+       "where": "Power Plant — uncommon, Let’s Go, Pikachu! only",
+       "why": "<b>Version exclusive</b>, like the Grimer it evolves from — Eevee players get Koffing and Weezing instead. A fully evolved spawn here saves you levelling the Grimer you caught on Cinnabar."
       }
      ]
     ],
@@ -3898,13 +3899,13 @@
          "Water",
          "Ice"
         ],
-        "note": "Blizzard, Dragon Pulse, Hydro Pump. 130 HP and it hits from the special side; expect to spend two or three turns."
+        "note": "Blizzard, Dragon Pulse, Hydro Pump. Lapras has 130 HP and hits from the special side; expect to spend two or three turns."
        }
       ],
       "plan": [
        "<b>Four of her five are part Water, and all but Jynx are part Ice.</b> <b>Electric</b> is the through-line: your partner’s Zippy Zap is 2× on four of the five, always crits, and moves first at +2 priority — which beats Dewgong’s Aqua Jet and Ice Shard.",
        "<b>Grass answers Cloyster and Slowbro</b> where Electric only ties. Venusaur’s Solar Beam or Mega Drain is 2× into both, and Cloyster’s 180 Defense is irrelevant against a special hit.",
-       "<b>Fighting handles Jynx</b> — Ice/Psychic takes 2× from Fighting, Bug, Fire, Ghost, Dark and Steel. Hitmonlee’s Brick Break, or a Snorlax carrying Earthquake, ends it before Lovely Kiss lands.",
+       "<b>Do not send Fighting at Jynx.</b> Ice/Psychic looks like a Fighting target and is not — Fighting is 2× into the Ice half but halved by the Psychic half, so it lands at neutral. What is actually 2× is <b>Bug, Fire, Rock, Ghost and Dark</b>: Arcanine’s Flare Blitz or Dark Pulse, or Snorlax’s Crunch, end it before Lovely Kiss lands.",
        "<b>Bring Awakenings and use them immediately.</b> A sleeping lead against five bulky Water types is how this fight goes long enough to run you out of Full Restores in round one.",
        "Do not lead a Ground type. Every one of her Pokémon carries a Water move and Ground takes 2× from all of them."
       ],
@@ -4086,7 +4087,7 @@
       ],
       "plan": [
        "<b>Your partner Pikachu is the answer to this entire room.</b> Aerodactyl and Gyarados are both <b>4× weak to Electric</b>, Charizard is 2×, and Zippy Zap is a guaranteed critical hit at +2 priority. Three of five die before they act.",
-       "<b>Lapras handles the Dragonite</b> — Ice Beam is 4× into Dragon/Flying, and Lapras’ 130 HP survives an Outrage if the Ice Beam somehow does not finish it.",
+       "<b>Lapras handles the Dragonite</b> — Ice Beam is 4× into Dragon/Flying. Lapras’ 130 HP survives an Outrage if the Ice Beam somehow does not finish it.",
        "<b>Fairy is completely immune to Dragon.</b> A Clefable, or anything carrying TM32 Dazzling Gleam, cannot be touched by Dragonite’s Outrage or Seadra’s and Charizard’s Dragon Pulse at all. If you have one, this is its best room in the game.",
        "<b>Four of the five carry Hyper Beam</b> — 150 power, and then they lose their next turn recharging. Survive it and you get a free turn; plan the switch around that.",
        "Do not bring a Rock type expecting to punish the Flying half. Aerodactyl and Charizard both carry Earthquake or Rock Slide of their own, and Rock is the type this room is best equipped to beat."
@@ -4150,11 +4151,11 @@
         "t": [
          "Electric"
         ],
-        "note": "Thunder, Quick Attack, Pin Missile. <b>This is the Let’s Go, Pikachu! version of his team</b> — Eevee players face a Raichu here instead. 130 Speed and 110 Special Attack."
+        "note": "Thunder, Quick Attack, Pin Missile. Jolteon has <b>130 Speed and 110 Special Attack</b> and moves before almost anything you own. <b>This slot is version-locked</b>: because you took the Pikachu, Trace took the Eevee — Let’s Go, Eevee! players face a Raichu here instead."
        }
       ],
       "plan": [
-       "<b>Mega Evolve Charizard Y and lead with it.</b> 159 Special Attack, Fire is 2× into Vileplume, and Air Slash or Heat Wave answers four of the six. One Mega per battle — spend it here.",
+       "<b>Mega Evolve Charizard Y and lead with it.</b> Mega Charizard Y’s 159 Special Attack, Fire 2× into Vileplume, and Air Slash or Heat Wave answering four of the six. One Mega per battle — spend it here.",
        "<b>Lapras or your partner for the Marowak</b>: pure Ground takes 2× from Water, Grass and Ice, and Splishy Splash is 2× into it while Zippy Zap is a zero.",
        "<b>Jolteon is the last Pokémon and the fastest thing on the field.</b> Ground is a straight immunity to its Thunder — send Snorlax with Earthquake, or a Sandslash, and it cannot touch you.",
        "<b>TM13 Brick Break breaks Reflect and Light Screen on contact.</b> Between Vileplume and Slowbro he will put both up; one Brick Break removes whichever is standing.",
@@ -5262,9 +5263,9 @@
        "t": [
         "Fire"
        ],
-       "lg": true,
+       "lgv": true,
        "where": "Routes 7 and 8 — 1%",
-       "why": "A fully evolved wild Arcanine, which skips the stone-timing problem entirely. Chain Growlithe to force it."
+       "why": "<b>The spawn, not the species.</b> A fully evolved wild Arcanine skips the stone-timing problem entirely — chain Growlithe to force it. Eevee players get Arcanine as the Vermilion gift instead."
       },
       {
        "n": "Grimer",
@@ -5291,27 +5292,27 @@
         "Bug",
         "Flying"
        ],
-       "lg": true,
+       "lgv": true,
        "where": "Viridian Forest — 1%",
-       "why": "Eevee players get a 1% Beedrill in this slot instead."
+       "why": "<b>The spawn, not the species.</b> Eevee players get a 1% Beedrill in this slot, and both of you can raise the line from a Caterpie or Weedle regardless."
       },
       {
        "n": "Persian",
        "t": [
         "Normal"
        ],
-       "lg": true,
+       "lgv": true,
        "where": "Vermilion City — free, for catching five Growlithe",
-       "why": "<b>Rideable.</b> Eevee players get a rideable Arcanine for catching five Meowth."
+       "why": "<b>Rideable, and the gift is what is exclusive.</b> Eevee players do the same errand with five Meowth and get a rideable Arcanine — and they reach Persian anyway by evolving one of those Meowth."
       },
       {
        "n": "Pikachu",
        "t": [
         "Electric"
        ],
-       "lg": true,
-       "where": "Viridian Forest — 5%, and Pallet Town as your partner",
-       "why": "Wild Pikachu only spawn on your version. Evolve one with a Thunder Stone for the Saffron Alolan Raichu trade."
+       "lgv": true,
+       "where": "Pallet Town — your partner",
+       "why": "<b>Only the partner is exclusive.</b> Wild Pikachu spawn in Viridian Forest in both versions, exactly as wild Eevee spawn on Route 17 in both. What Eevee players cannot have is a <i>partner</i> Pikachu, with its inflated stats and its three tutor moves. Evolve a wild one with a Thunder Stone for the Saffron Alolan Raichu trade."
       }
      ]
     ],
@@ -6161,7 +6162,7 @@
   "k05": {
    "lv": "21 → 24",
    "badges": "2 badges",
-   "sum": "The second free starter. Charmander is the most valuable of the three here — two Mega Stones, 109 Special Attack, and it becomes one of your three sky mounts after the League.",
+   "sum": "The second free starter, and the most valuable of the three: Charmander is the only one of them that grows into a Pokémon with <b>two</b> Mega Stones, and Charizard’s 109 Special Attack is the highest you will field for a long while. It also becomes one of your three sky mounts after the League.",
    "slots": [
     {
      "n": "Charmander",
@@ -6392,7 +6393,7 @@
      ],
      "role": "Fighting",
      "st": "keep",
-     "w": "Evolved at 28. 105 Attack. It stays until Snorlax turns up on Route 16."
+     "w": "Evolved at 28, and Primeape carries 105 Attack. It stays until Snorlax turns up on Route 16."
     },
     {
      "n": "Pikachu",
@@ -6506,7 +6507,7 @@
      ],
      "role": "Physical Fire · Sabrina answer",
      "st": "keep",
-     "w": "Play Rough at 35 — Fairy, 90 power, and 2× into Dark, Dragon and Fighting. <b>Also put TM20 Dark Pulse on it</b>: 80 power special Dark off a 100 Special Attack is your answer to Sabrina."
+     "w": "Play Rough at 35 — Fairy, 90 power, and 2× into Dark, Dragon and Fighting. <b>Also put TM20 Dark Pulse on it</b>: 80 power special Dark, and once it is an Arcanine that runs off a Special Attack of 100. This is your answer to Sabrina."
     },
     {
      "n": "Sandshrew",
@@ -6547,7 +6548,7 @@
      "at": "TM20 · Rocket Hideout B3F",
      "learn": "<b>Dark Pulse</b>",
      "drop": "Helping Hand",
-     "why": "80 power special Dark off a 100 Special Attack. Kanto gives you almost no Dark, and this is the move that makes Sabrina straightforward."
+     "why": "80 power special Dark, running off Arcanine’s Special Attack of 100. Kanto gives you almost no Dark, and this is the move that makes Sabrina straightforward."
     },
     {
      "p": "Sandshrew",
@@ -6653,7 +6654,7 @@
      ],
      "role": "Lead · Brick Break",
      "st": "keep",
-     "w": "<b>Zippy Zap removes Alakazam.</b> 55 HP and 45 Defense behind 120 Speed — a guaranteed crit at +2 priority is exactly the answer to a glass cannon. Brick Break clears Mr. Mime’s screens."
+     "w": "<b>Zippy Zap removes Alakazam.</b> Alakazam has 55 HP and 45 Defense behind 120 Speed, so a guaranteed critical hit at +2 priority is exactly the answer to a glass cannon. Brick Break clears Mr. Mime’s screens."
     },
     {
      "n": "Venusaur",
@@ -6712,7 +6713,7 @@
   "k12": {
    "lv": "45 → 48",
    "badges": "Soul Badge",
-   "sum": "Snorlax takes Primeape’s slot. 160 HP, 110 Attack, no weakness except Fighting — it is the body that survives the fights your glass cannons lose.",
+   "sum": "Snorlax takes Primeape’s slot. With 160 HP and 110 Attack behind a typing whose only weakness is Fighting, Snorlax is the body that survives the fights your glass cannons lose.",
    "slots": [
     {
      "n": "Snorlax",
@@ -7063,7 +7064,7 @@
      ],
      "role": "Special attacker · Mega Y",
      "st": "keep",
-     "w": "<b>Blue’s Charizardite Y is the stone to use.</b> Mega Charizard Y takes 109 Special Attack to 159 and keeps Fire/Flying, which is what Flamethrower and Fire Blast want. X trades the Flying half for Dragon and pushes Attack instead — the wrong stat for this Charizard."
+     "w": "<b>Blue’s Charizardite Y is the stone to use.</b> Charizard’s Special Attack is 109; Mega Charizard Y raises it to <b>159</b> and keeps Fire/Flying, which is what Flamethrower and Fire Blast want. X trades the Flying half for Dragon and pushes Attack instead — the wrong stat for this Charizard."
     },
     {
      "n": "Snorlax",
@@ -7282,7 +7283,7 @@
      ],
      "role": "Lance and Giovanni’s ghosts",
      "st": "keep",
-     "w": "Ice Beam is 4× into Dragonite and 2× into half of Bruno. 130 HP is what carries you through a gauntlet with no healing station."
+     "w": "Ice Beam is 4× into Dragonite and 2× into half of Bruno, and Lapras’ 130 HP is what carries you through a gauntlet with no healing station."
     },
     {
      "n": "Snorlax",
@@ -7301,7 +7302,7 @@
      ],
      "role": "Bruno and Trace · Mega Y",
      "st": "keep",
-     "w": "Flying is 2× into four of Bruno’s five. <b>Mega Evolve in the Champion’s room</b> — 159 Special Attack, and Heat Wave answers Trace’s Vileplume, Pidgeot and Marowak."
+     "w": "Flying is 2× into four of Bruno’s five. <b>Mega Evolve in the Champion’s room</b> — Mega Charizard Y’s 159 Special Attack, and Heat Wave answers Trace’s Vileplume, Pidgeot and Marowak."
     },
     {
      "n": "Venusaur",
@@ -7320,7 +7321,7 @@
      ],
      "role": "Agatha and Bruno",
      "st": "keep",
-     "w": "Dark Pulse is 2× into both Gengar; Flare Blitz answers Bruno’s Onix and Trace’s Vileplume. 95 Speed outruns most of the gauntlet."
+     "w": "Dark Pulse is 2× into both Gengar; Flare Blitz answers Bruno’s Onix and Trace’s Vileplume. Arcanine’s 95 Speed outruns most of the gauntlet."
     }
    ],
    "mv": [
@@ -7425,7 +7426,7 @@
      ],
      "role": "Speed control",
      "st": "keep",
-     "w": "<b>Zippy Zap is one of the very few moves that reliably moves before Mewtwo.</b> +2 priority beats 130 base Speed. Splishy Splash’s 30% paralysis is the other reason to bring it."
+     "w": "<b>Zippy Zap is one of the very few moves that reliably moves before Mewtwo.</b> Priority of +2 beats Mewtwo’s 130 base Speed outright. Splishy Splash’s 30% paralysis is the other reason to bring it."
     },
     {
      "n": "Snorlax",
@@ -7443,7 +7444,7 @@
      ],
      "role": "Dark Pulse",
      "st": "keep",
-     "w": "Dark Pulse off a 100 Special Attack. Along with Snorlax’s Crunch this is most of the damage you have that Mewtwo does not resist."
+     "w": "Dark Pulse, running off Arcanine’s Special Attack of 100. Along with Snorlax’s Crunch this is most of the damage you have that Mewtwo does not resist."
     },
     {
      "n": "Charizard",
@@ -7453,7 +7454,7 @@
      ],
      "role": "Mega Y",
      "st": "keep",
-     "w": "Neutral, but 159 Special Attack as Mega Y is raw damage that gets through anything."
+     "w": "Neutral into Psychic, but Mega Charizard Y’s 159 Special Attack is raw damage that gets through anything."
     },
     {
      "n": "Lapras",

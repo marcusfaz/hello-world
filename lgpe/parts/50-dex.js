@@ -101,12 +101,12 @@ body:[
  {n:"Sandshrew", t:["Ground"], lg:true, where:"Routes 3 and 4 — 20%", why:"Sandslash at 22 — but hold it to 36 for Earthquake. Also the trade stock for <b>Alolan Sandshrew</b> in Celadon."},
  {n:"Mankey", t:["Fighting"], lg:true, where:"Routes 3 and 4 — 20%", why:"Primeape at 28. The only Fighting type before the Saffron Dojo."},
  {n:"Growlithe", t:["Fire"], lg:true, where:"Routes 5, 6, 7 and 8 — 19–20%", why:"Arcanine with a Fire Stone — but wait until level 38 for Flare Blitz. Catching five of them earns the rideable Persian in Vermilion."},
- {n:"Arcanine", t:["Fire"], lg:true, where:"Routes 7 and 8 — 1%", why:"A fully evolved wild Arcanine, which skips the stone-timing problem entirely. Chain Growlithe to force it."},
+ {n:"Arcanine", t:["Fire"], lgv:true, where:"Routes 7 and 8 — 1%", why:"<b>The spawn, not the species.</b> A fully evolved wild Arcanine skips the stone-timing problem entirely — chain Growlithe to force it. Eevee players get Arcanine as the Vermilion gift instead."},
  {n:"Grimer", t:["Poison"], lg:true, where:"Pokémon Mansion and the Power Plant", why:"Muk at 38, and the trade stock for <b>Alolan Grimer</b> on Cinnabar."},
  {n:"Scyther", t:["Bug","Flying"], lg:true, where:"Routes 14 and 15 — 1%", why:"110 Attack, 105 Speed. Scizor does not exist here, so the line ends at Scyther. Chain Oddish or Venonat to force it."},
- {n:"Butterfree", t:["Bug","Flying"], lg:true, where:"Viridian Forest — 1%", why:"Eevee players get a 1% Beedrill in this slot instead."},
- {n:"Persian", t:["Normal"], lg:true, where:"Vermilion City — free, for catching five Growlithe", why:"<b>Rideable.</b> Eevee players get a rideable Arcanine for catching five Meowth."},
- {n:"Pikachu", t:["Electric"], lg:true, where:"Viridian Forest — 5%, and Pallet Town as your partner", why:"Wild Pikachu only spawn on your version. Evolve one with a Thunder Stone for the Saffron Alolan Raichu trade."}
+ {n:"Butterfree", t:["Bug","Flying"], lgv:true, where:"Viridian Forest — 1%", why:"<b>The spawn, not the species.</b> Eevee players get a 1% Beedrill in this slot, and both of you can raise the line from a Caterpie or Weedle regardless."},
+ {n:"Persian", t:["Normal"], lgv:true, where:"Vermilion City — free, for catching five Growlithe", why:"<b>Rideable, and the gift is what is exclusive.</b> Eevee players do the same errand with five Meowth and get a rideable Arcanine — and they reach Persian anyway by evolving one of those Meowth."},
+ {n:"Pikachu", t:["Electric"], lgv:true, where:"Pallet Town — your partner", why:"<b>Only the partner is exclusive.</b> Wild Pikachu spawn in Viridian Forest in both versions, exactly as wild Eevee spawn on Route 17 in both. What Eevee players cannot have is a <i>partner</i> Pikachu, with its inflated stats and its three tutor moves. Evolve a wild one with a Thunder Stone for the Saffron Alolan Raichu trade."}
 ]],
 ["h","Theirs — Let’s Go, Eevee!"],
 ["catch",[

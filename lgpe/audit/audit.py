@@ -98,6 +98,45 @@ for s, cards in blocks('catch'):
         if toks and not hit:
             bad('catch-location', f"{s['id']}: {name} card says “{where}” but its encounters are {sorted(enc_by_mon.get(sl, set()))[:5]}")
 
+# -------------------------------------------- 1b. version-exclusive flags
+# The catch card's version chip is rendered from c.lg, so the flag has to be on
+# exactly the species Let's Go, Pikachu! actually has to itself.
+EX = load('exclusives.json')
+def _disp(x): return x.replace('-', ' ').title()
+LGP_ONLY = {_disp(x) for x in EX['lgp_only']}
+LGE_ONLY = {_disp(x) for x in EX['lge_only']}
+# Alolan forms come from version-split trade counters, so they inherit the
+# exclusivity of the Kantonian form the NPC asks for.
+ALOLAN_LGP = {'Alolan Sandshrew', 'Alolan Sandslash', 'Alolan Grimer', 'Alolan Muk'}
+ALOLAN_LGE = {'Alolan Vulpix', 'Alolan Ninetales', 'Alolan Meowth', 'Alolan Persian'}
+
+for s, cards in blocks('catch'):
+    for c in cards:
+        n = c['n']
+        flagged = bool(c.get('lg'))
+        if c.get('lg') and c.get('lgv'):
+            bad('version-flag', f"{s['id']}: {n} carries both version chips")
+        exclusive = n in LGP_ONLY or n in ALOLAN_LGP
+        theirs = n in LGE_ONLY or n in ALOLAN_LGE
+        # a card that deliberately describes the other version's stock
+        describes_theirs = re.search(r'eevee only|let.s go, eevee', strip(c.get('where', '')), re.I)
+        if flagged and theirs:
+            bad('version-flag', f"{s['id']}: {n} is flagged as yours but it is Let’s Go, Eevee! exclusive")
+        elif flagged and not exclusive:
+            bad('version-flag', f"{s['id']}: {n} is flagged version-exclusive but it exists in both versions")
+        elif exclusive and not flagged and not c.get('lgv') and not describes_theirs:
+            bad('version-flag', f"{s['id']}: {n} is Let’s Go, Pikachu! exclusive but its card carries no version chip")
+        elif c.get('lgv') and exclusive:
+            bad('version-flag', f"{s['id']}: {n} is flagged as a version-locked <i>spawn</i>, but the whole species is exclusive — use the species chip")
+
+# No renderer may name a different game. The engine came from a LeafGreen
+# guide, and a stale literal in a template is invisible in the source data.
+FOREIGN = re.compile(r"(LeafGreen|FireRed|Sevii|Kanto Circuit)\s*(only|version|exclusive)", re.I)
+for part in ('20-engine.js', '72-roster-render.js', '90-widgets.js'):
+    src = open(os.path.join(R, '..', 'parts', part), encoding='utf-8').read()
+    for m in FOREIGN.finditer(src):
+        bad('foreign-game', f"parts/{part} renders the literal “{m.group(0)}” — this guide is Let’s Go, Pikachu!")
+
 # ---------------------------------------------------------------- 2. bosses
 def norm(n): return re.sub(r'[^a-z]', '', str(n).lower())
 # Several Bulbapedia pages render the trainer name through a template, so the
@@ -380,6 +419,222 @@ for st in G['stages']:
                           f"position {far}, behind {prev_id} at {prev_med} — the guide is "
                           f"visiting Kanto out of the game's own order")
     prev_med, prev_id = max(prev_med, far), st['id']
+
+# ------------------------------------------------- 10. type-effectiveness claims
+# "4x into Rhydon", "2x on Rock", "immune to Electric" - every one of these is
+# checkable against the Generation VII chart, and a wrong one loses a fight.
+TYPES = ['Normal','Fire','Water','Electric','Grass','Ice','Fighting','Poison','Ground',
+         'Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel','Fairy']
+CHART = {
+  'Normal':{'Rock':.5,'Ghost':0,'Steel':.5},
+  'Fire':{'Fire':.5,'Water':.5,'Grass':2,'Ice':2,'Bug':2,'Rock':.5,'Dragon':.5,'Steel':2},
+  'Water':{'Fire':2,'Water':.5,'Grass':.5,'Ground':2,'Rock':2,'Dragon':.5},
+  'Electric':{'Water':2,'Electric':.5,'Grass':.5,'Ground':0,'Flying':2,'Dragon':.5},
+  'Grass':{'Fire':.5,'Water':2,'Grass':.5,'Poison':.5,'Ground':2,'Flying':.5,'Bug':.5,'Rock':2,'Dragon':.5,'Steel':.5},
+  'Ice':{'Fire':.5,'Water':.5,'Grass':2,'Ice':.5,'Ground':2,'Flying':2,'Dragon':2,'Steel':.5},
+  'Fighting':{'Normal':2,'Ice':2,'Poison':.5,'Flying':.5,'Psychic':.5,'Bug':.5,'Rock':2,'Ghost':0,'Dark':2,'Steel':2,'Fairy':.5},
+  'Poison':{'Grass':2,'Poison':.5,'Ground':.5,'Rock':.5,'Ghost':.5,'Steel':0,'Fairy':2},
+  'Ground':{'Fire':2,'Electric':2,'Grass':.5,'Poison':2,'Flying':0,'Bug':.5,'Rock':2,'Steel':2},
+  'Flying':{'Electric':.5,'Grass':2,'Fighting':2,'Bug':2,'Rock':.5,'Steel':.5},
+  'Psychic':{'Fighting':2,'Poison':2,'Psychic':.5,'Dark':0,'Steel':.5},
+  'Bug':{'Fire':.5,'Grass':2,'Fighting':.5,'Poison':.5,'Flying':.5,'Psychic':2,'Ghost':.5,'Dark':2,'Steel':.5,'Fairy':.5},
+  'Rock':{'Fire':2,'Ice':2,'Fighting':.5,'Ground':.5,'Flying':2,'Bug':2,'Steel':.5},
+  'Ghost':{'Normal':0,'Psychic':2,'Ghost':2,'Dark':.5},
+  'Dragon':{'Dragon':2,'Steel':.5,'Fairy':0},
+  'Dark':{'Fighting':.5,'Psychic':2,'Ghost':2,'Dark':.5,'Fairy':.5},
+  'Steel':{'Fire':.5,'Water':.5,'Electric':.5,'Ice':2,'Rock':2,'Steel':.5,'Fairy':2},
+  'Fairy':{'Fire':.5,'Fighting':2,'Poison':.5,'Dragon':2,'Dark':2,'Steel':.5},
+}
+def eff(atk, defs): 
+    m = 1.0
+    for d in defs: m *= CHART.get(atk, {}).get(d, 1)
+    return m
+
+MON_TYPES = {}
+for _sl, _d in MONS.items():
+    MON_TYPES[fold(_sl)] = [t.title() for t in _d['types']]
+MOVE_TYPE = {fold(k): v['type'] for k, v in MOVEDATA.items()}
+
+# English states these in two directions and they mean opposite things:
+#   offensive  "Grass is 4x into Rhydon"      -> eff(Grass, Rhydon)
+#   defensive  "Ice/Flying is 4x weak to Rock" -> eff(Rock, Ice/Flying)
+# Reading one as the other is exactly the mistake that loses a fight, so parse
+# the direction explicitly rather than guessing.
+SUBJ = r"[A-Za-z][A-Za-z’'\-]*(?:[ /][A-Za-z][A-Za-z’'\-]*){0,2}"
+OFFENSIVE = re.compile(
+  r'(?P<atk>' + SUBJ + r')\s+(?:is|are)\s+(?P<val>4×|2×|½|a straight zero|zero)\s*'
+  r'(?:back\s+)?(?:into|on)\s+(?P<def>' + SUBJ + r')', re.I)
+DEFENSIVE = re.compile(
+  r'(?P<def>' + SUBJ + r')\s+(?:is|are)\s+'
+  r'(?:(?P<val>4×|2×|½)\s*weak\s+to|(?P<imm>immune)\s+to)\s+(?P<atk>' + SUBJ + r')', re.I)
+TAKES = re.compile(
+  r'(?P<def>' + SUBJ + r')\s+takes?\s+(?P<val>4×|2×|½)\s+from\s+(?P<atk>' + SUBJ + r')', re.I)
+VAL = {'4×':4.0, '2×':2.0, '½':0.5, 'a straight zero':0.0, 'zero':0.0}
+
+def as_types(word):
+    """A claim's subject may be a type, a dual typing, a move, or a Pokémon."""
+    w = fold(word)
+    for t in TYPES:
+        if fold(t) == w: return ('type', [t])
+    if '/' in word:
+        parts = [p.strip() for p in word.split('/')]
+        ts = [t for p in parts for t in TYPES if fold(t) == fold(p)]
+        if len(ts) == len(parts): return ('type', ts)
+    if w in MON_TYPES: return ('mon', MON_TYPES[w])
+    if w in MOVE_TYPE: return ('move', [MOVE_TYPE[w].title()])
+    return (None, None)
+
+checked = 0
+for st in G['stages']:
+    text = re.sub(r'<[^>]+>', '', json.dumps(st['body'], ensure_ascii=False)).replace('\\"', '"')
+    for rx, direction in ((OFFENSIVE, 'off'), (DEFENSIVE, 'def'), (TAKES, 'def')):
+        for m in rx.finditer(text):
+            ak, at = as_types(m.group('atk'))
+            dk, dt = as_types(m.group('def'))
+            if not at or not dt: continue
+            if dk == 'move': continue
+            want = 0.0 if m.groupdict().get('imm') else VAL.get((m.group('val') or '').lower())
+            if want is None: continue
+            # an attacking claim uses one type at a time; a defending one uses them all
+            got = max(eff(a, dt) for a in at)
+            checked += 1
+            if got != want:
+                bad('type-claim', f"{st['id']}: “{re.sub(chr(92)+'s+', ' ', m.group(0))}” "
+                                  f"— the chart says ×{got:g}")
+print('   (type-effectiveness claims checked: %d)' % checked, file=sys.stderr)
+
+# ------------------------------------------------------- 11. spawn percentages
+# PokeAPI reports every Let's Go encounter chance as 100, so the only source for
+# a rate is Bulbapedia's walkthrough tables. Check each quoted figure against them.
+rate_by_mon = collections.defaultdict(set)
+for _rows in CATCHES.values():
+    for _r in _rows:
+        if _r['LGP'] != 'yes': continue
+        for _pct in re.findall(r'(\d+)%', _r['rarity'] or ''):
+            rate_by_mon[fold(_r['mon'])].add(int(_pct))
+        # "P:30%<br>E:40%" - the P figure is ours
+        _m = re.search(r'P:\s*(\d+)%', _r['rarity'] or '')
+        if _m: rate_by_mon[fold(_r['mon'])].add(int(_m.group(1)))
+
+for st, cards in blocks('catch'):
+    for c in cards:
+        where = strip(c.get('where', ''))
+        known = rate_by_mon.get(fold(c['n']))
+        if not known: continue
+        for pct in re.findall(r'(\d+)\s*%', where):
+            if int(pct) not in known:
+                bad('spawn-rate', f"{st['id']}: {c['n']} card says {pct}%, but the tables list "
+                                  f"{sorted(known)}% for it")
+
+# --------------------------------------------------------- 12. quoted base stats
+# "160 HP", "130 Attack", "115 Speed" - all checkable, and all load-bearing for
+# the recommendations they sit inside.
+STATKEY = {'hp':'hp', 'attack':'attack', 'defense':'defense', 'defence':'defense',
+           'special attack':'special-attack', 'sp. atk':'special-attack',
+           'special defense':'special-defense', 'special defence':'special-defense',
+           'sp. def':'special-defense', 'speed':'speed'}
+STAT = re.compile(r'(?P<n>\d{2,3})\s+(?:base\s+)?(?P<s>HP|Attack|Defen[cs]e|Special Attack|'
+                  r'Special Defen[cs]e|Sp\. Atk|Sp\. Def|Speed)\b')
+# Mega forms have their own spreads, which PokeAPI serves under a -mega slug.
+MEGA = {'mega charizard y':'charizard-mega-y', 'mega charizard x':'charizard-mega-x',
+        'mega venusaur':'venusaur-mega', 'mega blastoise':'blastoise-mega',
+        'mega aerodactyl':'aerodactyl-mega', 'mega mewtwo y':'mewtwo-mega-y',
+        'mega mewtwo x':'mewtwo-mega-x', 'mega gengar':'gengar-mega',
+        'mega alakazam':'alakazam-mega', 'mega gyarados':'gyarados-mega',
+        'mega kangaskhan':'kangaskhan-mega', 'mega pinsir':'pinsir-mega',
+        'mega beedrill':'beedrill-mega', 'mega pidgeot':'pidgeot-mega',
+        'mega slowbro':'slowbro-mega'}
+MEGASTATS = load('mega_stats.json') if os.path.exists(os.path.join(R, 'mega_stats.json')) else {}
+
+# Scan each text field on its own, with the subject taken from the record it
+# belongs to (a catch card names its species, a roster slot names its Pokémon,
+# a boss row names the one it describes). Guessing a subject out of concatenated
+# JSON produces nothing but false alarms.
+SUBJ_TOKEN = re.compile(r"(?:Mega\s+[A-Z][a-z]+(?:\s+[XY])?|Alolan\s+[A-Z][a-z]+|[A-Z][A-Za-z’'\.\-]{2,11})")
+PARTNER = {'hp':45, 'attack':80, 'defense':50, 'special-attack':75,
+           'special-defense':60, 'speed':120}
+def resolve_subject(tok):
+    t = tok.strip()
+    if t.lower() in MEGA: return ('mega', MEGA[t.lower()])
+    # every Pikachu in this guide's party is the partner, which has its own spread
+    if fold(t) in ('pikachu', 'pikachus'): return ('partner', 'partner Pikachu')
+    if t.startswith('Alolan '):
+        sl = fold(t[7:]) + '-alola'
+        return ('mon', sl) if sl in MONS else (None, None)
+    f = fold(t)
+    for cand in (f, f.rstrip('s')):
+        if cand in MONS: return ('mon', cand)
+    return (None, None)
+
+def stat_of(kind, sl, key):
+    if kind == 'partner': return PARTNER.get(key)
+    if kind == 'mega': return (MEGASTATS.get(sl) or {}).get(key)
+    return MONS[sl]['stats'].get(key)
+
+def scan_field(sid, text, owner):
+    """owner: the species this field is about, or None for free prose."""
+    text = strip(text)
+    for m in STAT.finditer(text):
+        key = STATKEY.get(m.group('s').lower().replace('defence', 'defense'))
+        if not key: continue
+        before = text[:m.start()]
+        # A name only claims the number if it is adjacent to it and in the same
+        # sentence. "Snorlax takes Primeape's slot. 160 HP" must not read as
+        # Primeape's; "Arcanine's 95 Speed" must read as Arcanine's. Anything
+        # further away loses to the record the field belongs to.
+        # split on sentence boundaries only — a colon ("Starmie with a Water
+        # Stone: 115 Speed") still belongs to the same clause as its subject
+        clause = re.split(r'(?<=[.!?])\s+(?=[A-Z“<])', before)[-1]
+        after = text[m.end():m.end() + 24]
+        cands = [(p, resolve_subject(t)) for p, t in
+                 ((mm.start(), mm.group(0)) for mm in SUBJ_TOKEN.finditer(clause))]
+        cands = [(p, r) for p, r in cands if r[0]]
+        adjacent = [(p, r) for p, r in cands if len(clause) - p <= 60]
+        # English also puts the name straight after the figure: "130 HP Lapras survives"
+        follow = next((r for r in (resolve_subject(mm.group(0))
+                                   for mm in SUBJ_TOKEN.finditer(after)) if r[0]), None)
+        picks = {r for _, r in adjacent} | ({follow} if follow else set())
+        if len(picks) > 1:
+            continue                       # a comparison names two; do not guess
+        subj = (follow or (adjacent[-1][1] if adjacent else None)) or owner
+        if not subj: continue
+        real = stat_of(subj[0], subj[1], key)
+        if real is None: continue
+        if int(m.group('n')) != real:
+            bad('base-stat', f"{sid}: “{m.group(0)}” reads as {subj[1]}’s, "
+                             f"but its {m.group('s')} is {real}")
+
+for st in G['stages']:
+    for b in st['body']:
+        kind, v = b[0], b[1]
+        if kind == 'catch':
+            for c in v:
+                own = resolve_subject(c['n'])
+                for fld in ('why', 'where'):
+                    if c.get(fld): scan_field(st['id'], c[fld], own if own[0] else None)
+        elif kind == 'boss':
+            for mm in v['team']:
+                own = resolve_subject(mm['m'])
+                if mm.get('note'): scan_field(st['id'], mm['note'], own if own[0] else None)
+            for line in v.get('plan', []): scan_field(st['id'], line, None)
+        elif kind in ('p', 'tip', 'warn', 'team', 'ver', 'lgpe', 'h'):
+            if isinstance(v, str): scan_field(st['id'], v, None)
+        elif kind == 'ul':
+            for line in v: scan_field(st['id'], line, None)
+        elif kind == 'do':
+            for step in v:
+                for fld in ('t', 'sub'):
+                    if isinstance(step, dict) and step.get(fld): scan_field(st['id'], step[fld], None)
+
+for rid, r in G['rosters'].items():
+    for sl in r['slots']:
+        own = resolve_subject(sl['n'])
+        if sl.get('w'): scan_field(rid, sl['w'], own if own[0] else None)
+    for mv in r.get('mv', []):
+        own = resolve_subject(mv['p'])
+        if mv.get('why'): scan_field(rid, mv['why'], own if own[0] else None)
+    for fld in ('sum', 'now'):
+        if r.get(fld): scan_field(rid, r[fld], None)
 
 # ---------------------------------------------------------------- report
 total = sum(len(v) for v in problems.values())

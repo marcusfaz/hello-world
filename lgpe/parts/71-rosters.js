@@ -60,7 +60,7 @@ mv:[
 ]});
 
 R("k05",{lv:"21 → 24", badges:"2 badges",
-sum:"The second free starter. Charmander is the most valuable of the three here — two Mega Stones, 109 Special Attack, and it becomes one of your three sky mounts after the League.",
+sum:"The second free starter, and the most valuable of the three: Charmander is the only one of them that grows into a Pokémon with <b>two</b> Mega Stones, and Charizard’s 109 Special Attack is the highest you will field for a long while. It also becomes one of your three sky mounts after the League.",
 slots:[
  {n:"Charmander", t:["Fire"], role:"Special attacker · future Mega", st:"add", replaces:"Rattata", w:"Free from the boy on the north-west hill of Route 24 at 50 species caught, at level 14. Charizard gets <b>both</b> Charizardite X and Y, and Y takes its Special Attack to 159."},
  {n:"Ivysaur", t:["Grass","Poison"], role:"Grass", st:"keep", w:"Evolved at 16. Razor Leaf at 31 — but note it is <b>physical</b> against Ivysaur’s 80 Special Attack, so the real plan is TMs."},
@@ -101,7 +101,7 @@ slots:[
 R("k08",{lv:"31 → 34", badges:"3 badges",
 sum:"Rock Tunnel and Lavender. No changes to the six — but Route 10 hides <b>TM13 Brick Break</b>, which is the fourth move your partner keeps for the rest of the game.",
 slots:[
- {n:"Primeape", t:["Fighting"], role:"Fighting", st:"keep", w:"Evolved at 28. 105 Attack. It stays until Snorlax turns up on Route 16."},
+ {n:"Primeape", t:["Fighting"], role:"Fighting", st:"keep", w:"Evolved at 28, and Primeape carries 105 Attack. It stays until Snorlax turns up on Route 16."},
  {n:"Pikachu", t:["Electric"], role:"Lead", st:"keep", w:"<b>Pick up TM13 Brick Break on Route 10.</b> 75 power Fighting, and it destroys Reflect and Light Screen on contact — which is Sabrina’s entire gym."},
  {n:"Ivysaur", t:["Grass","Poison"], role:"Grass", st:"keep", w:"Nothing due. Keep it levelling on the Rock Tunnel trainers."},
  {n:"Charmeleon", t:["Fire"], role:"Special attacker", st:"keep", w:"Fire Spin at 33. Decline it — 35 power is not worth a slot."},
@@ -120,14 +120,14 @@ slots:[
  {n:"Pikachu", t:["Electric"], role:"Lead · Floaty Fall", st:"keep", w:"<b>Take Floaty Fall from the Celadon Move Tutor before the gym.</b> Flying, physical, 90 power — 2× on every Pokémon Erika owns."},
  {n:"Charmeleon", t:["Fire"], role:"Erika counter", st:"keep", w:"Fire is 2× on all three of Erika’s. Charizard at 36 arrives with <b>Heat Wave</b> and <b>Wing Attack</b> free on evolution."},
  {n:"Ivysaur", t:["Grass","Poison"], role:"Grass", st:"keep", w:"<b>Mega Drain from Erika goes straight on this.</b> 75 power in this game — not the 40 it is elsewhere — special, and it heals for half the damage."},
- {n:"Growlithe", t:["Fire"], role:"Physical Fire · Sabrina answer", st:"keep", w:"Play Rough at 35 — Fairy, 90 power, and 2× into Dark, Dragon and Fighting. <b>Also put TM20 Dark Pulse on it</b>: 80 power special Dark off a 100 Special Attack is your answer to Sabrina."},
+ {n:"Growlithe", t:["Fire"], role:"Physical Fire · Sabrina answer", st:"keep", w:"Play Rough at 35 — Fairy, 90 power, and 2× into Dark, Dragon and Fighting. <b>Also put TM20 Dark Pulse on it</b>: 80 power special Dark, and once it is an Arcanine that runs off a Special Attack of 100. This is your answer to Sabrina."},
  {n:"Sandshrew", t:["Ground"], role:"Ground", st:"keep", w:"<b>Earthquake at 36.</b> The moment it lands, let it become Sandslash."},
  {n:"Primeape", t:["Fighting"], role:"Fighting", st:"keep", w:"Nothing due. Erika’s gym is a bad room for it — Vileplume’s Moonblast is Fairy."}
 ],
 mv:[
  {p:"Pikachu", at:"Celadon tutor", learn:"<b>Floaty Fall</b>", drop:"Thunder Wave", why:"90 power physical Flying with a 30% flinch, and 2× into Grass, Fighting and Bug. The second of your partner’s three exclusive moves."},
  {p:"Ivysaur", at:"TM53 · from Erika", learn:"<b>Mega Drain</b>", drop:"Take Down", why:"<b>75 power in Let’s Go</b>, special, and it heals half the damage dealt — functionally Giga Drain. Ivysaur’s 80 Special Attack is the stat this move uses; Razor Leaf is physical and uses the wrong one."},
- {p:"Growlithe", at:"TM20 · Rocket Hideout B3F", learn:"<b>Dark Pulse</b>", drop:"Helping Hand", why:"80 power special Dark off a 100 Special Attack. Kanto gives you almost no Dark, and this is the move that makes Sabrina straightforward."},
+ {p:"Growlithe", at:"TM20 · Rocket Hideout B3F", learn:"<b>Dark Pulse</b>", drop:"Helping Hand", why:"80 power special Dark, running off Arcanine’s Special Attack of 100. Kanto gives you almost no Dark, and this is the move that makes Sabrina straightforward."},
  {p:"Sandshrew", lv:36, learn:"<b>Earthquake</b>", drop:"Fury Swipes", why:"100 power, perfect accuracy, and the payoff for fourteen levels of holding B. Evolve it into Sandslash immediately afterwards."}
 ]});
 
@@ -147,7 +147,7 @@ sum:"Eleven floors of Silph Co. is what gets you to the level-45 bar on Sabrina�
 slots:[
  {n:"Charizard", t:["Fire","Flying"], role:"Special attacker · future Mega", st:"keep", w:"Evolved at 36 with <b>Heat Wave</b> and <b>Wing Attack</b> free. <b>Put TM37 Flamethrower on it from Silph Co. 10F</b> — Charizard does not learn it until level 54 otherwise."},
  {n:"Arcanine", t:["Fire"], role:"Sabrina counter · Dark Pulse", st:"keep", w:"Use the Fire Stone now, once Flare Blitz is in at 38. <b>Lead it against Sabrina</b>: Dark Pulse is 2× into three of her four, off a 100 Special Attack, and its 95 Speed outruns everything except Alakazam."},
- {n:"Pikachu", t:["Electric"], role:"Lead · Brick Break", st:"keep", w:"<b>Zippy Zap removes Alakazam.</b> 55 HP and 45 Defense behind 120 Speed — a guaranteed crit at +2 priority is exactly the answer to a glass cannon. Brick Break clears Mr. Mime’s screens."},
+ {n:"Pikachu", t:["Electric"], role:"Lead · Brick Break", st:"keep", w:"<b>Zippy Zap removes Alakazam.</b> Alakazam has 55 HP and 45 Defense behind 120 Speed, so a guaranteed critical hit at +2 priority is exactly the answer to a glass cannon. Brick Break clears Mr. Mime’s screens."},
  {n:"Venusaur", t:["Grass","Poison"], role:"Grass", st:"keep", w:"<b>Keep it out of the Saffron Gym.</b> Poison takes 2× from Psychic and Venusaur is half Poison."},
  {n:"Sandslash", t:["Ground"], role:"Ground", st:"keep", w:"Earthquake. Neutral into everything Sabrina owns, which is more than most of your team manages."},
  {n:"Primeape", t:["Fighting"], role:"Fighting · last stage", st:"keep", w:"Psychic resists Fighting, so it is a poor fit here too. Snorlax takes this slot on Route 16."}
@@ -159,7 +159,7 @@ mv:[
 ]});
 
 R("k12",{lv:"45 → 48", badges:"Soul Badge",
-sum:"Snorlax takes Primeape’s slot. 160 HP, 110 Attack, no weakness except Fighting — it is the body that survives the fights your glass cannons lose.",
+sum:"Snorlax takes Primeape’s slot. With 160 HP and 110 Attack behind a typing whose only weakness is Fighting, Snorlax is the body that survives the fights your glass cannons lose.",
 slots:[
  {n:"Snorlax", t:["Normal"], role:"The wall · 160 HP", st:"add", replaces:"Primeape", w:"Wake the Route 16 one with the Poké Flute and knock it out before you throw. It arrives around level 34 with <b>at least three perfect IVs</b>, learns Body Slam at 52 and Crunch at 58, and takes TM41 Earthquake off Giovanni later."},
  {n:"Pikachu", t:["Electric"], role:"Lead · Splishy Splash", st:"keep", w:"<b>Take Splishy Splash from the Fuchsia Move Tutor.</b> Water, special, 90 power, 30% paralysis — and it covers Ground and Rock, which are the only things that threaten your partner. The set is now complete."},
@@ -223,7 +223,7 @@ R("k16",{lv:"56 → 58", badges:"7 badges",
 sum:"Zapdos, then the Mega Stones. Lapras carries the catch; Charizard carries the rest of the game once you pick a stone.",
 slots:[
  {n:"Lapras", t:["Water","Ice"], role:"Zapdos catcher", st:"keep", w:"<b>Ice Beam, not Rock.</b> Electric/Flying is 4× weak to Rock and will die to it. Ice is 2× and gives you the controlled damage a catch needs."},
- {n:"Charizard", t:["Fire","Flying"], role:"Special attacker · Mega Y", st:"keep", w:"<b>Blue’s Charizardite Y is the stone to use.</b> Mega Charizard Y takes 109 Special Attack to 159 and keeps Fire/Flying, which is what Flamethrower and Fire Blast want. X trades the Flying half for Dragon and pushes Attack instead — the wrong stat for this Charizard."},
+ {n:"Charizard", t:["Fire","Flying"], role:"Special attacker · Mega Y", st:"keep", w:"<b>Blue’s Charizardite Y is the stone to use.</b> Charizard’s Special Attack is 109; Mega Charizard Y raises it to <b>159</b> and keeps Fire/Flying, which is what Flamethrower and Fire Blast want. X trades the Flying half for Dragon and pushes Attack instead — the wrong stat for this Charizard."},
  {n:"Snorlax", t:["Normal"], role:"The wall", st:"sit", w:"Rock Slide again. Keep it out of the Zapdos fight."},
  {n:"Venusaur", t:["Grass","Poison"], role:"Grass · Mega fallback", st:"keep", w:"Grass is resisted by Electric and Flying both — nothing to do against Zapdos. The Venusaurite is the fallback if you would rather have a wall than a cannon."},
  {n:"Arcanine", t:["Fire"], role:"Fire", st:"keep", w:"Nothing due."},
@@ -263,11 +263,11 @@ R("k19",{lv:"62 → 65", badges:"Champion",
 sum:"The final six. Five battles with no Pokémon Center between them — buy twenty Full Restores, use Madame Memorial to fix any move you regret, and spend your one Mega on Charizard Y in the Champion’s room.",
 slots:[
  {n:"Pikachu", t:["Electric"], role:"Lorelei and Lance", st:"keep", w:"<b>The best Pokémon on your team for two of the five rooms.</b> Electric is 2× into four of Lorelei’s five, and Lance’s Aerodactyl and Gyarados are both <b>4×</b>. Zippy Zap’s guaranteed crit at +2 priority removes them before they move."},
- {n:"Lapras", t:["Water","Ice"], role:"Lance and Giovanni’s ghosts", st:"keep", w:"Ice Beam is 4× into Dragonite and 2× into half of Bruno. 130 HP is what carries you through a gauntlet with no healing station."},
+ {n:"Lapras", t:["Water","Ice"], role:"Lance and Giovanni’s ghosts", st:"keep", w:"Ice Beam is 4× into Dragonite and 2× into half of Bruno, and Lapras’ 130 HP is what carries you through a gauntlet with no healing station."},
  {n:"Snorlax", t:["Normal"], role:"The wall · Earthquake", st:"keep", w:"Earthquake is 2× into four of Agatha’s five — every one of them is part Poison. <b>Body Slam does nothing at all to either Gengar</b>, so Earthquake is the move you use in that room."},
- {n:"Charizard", t:["Fire","Flying"], role:"Bruno and Trace · Mega Y", st:"keep", w:"Flying is 2× into four of Bruno’s five. <b>Mega Evolve in the Champion’s room</b> — 159 Special Attack, and Heat Wave answers Trace’s Vileplume, Pidgeot and Marowak."},
+ {n:"Charizard", t:["Fire","Flying"], role:"Bruno and Trace · Mega Y", st:"keep", w:"Flying is 2× into four of Bruno’s five. <b>Mega Evolve in the Champion’s room</b> — Mega Charizard Y’s 159 Special Attack, and Heat Wave answers Trace’s Vileplume, Pidgeot and Marowak."},
  {n:"Venusaur", t:["Grass","Poison"], role:"Bruno and Lorelei", st:"keep", w:"Grass is 4× on Bruno’s Onix and 2× on Poliwrath, Cloyster and Slowbro. Keep it away from Trace’s Pidgeot and Rapidash."},
- {n:"Arcanine", t:["Fire"], role:"Agatha and Bruno", st:"keep", w:"Dark Pulse is 2× into both Gengar; Flare Blitz answers Bruno’s Onix and Trace’s Vileplume. 95 Speed outruns most of the gauntlet."}
+ {n:"Arcanine", t:["Fire"], role:"Agatha and Bruno", st:"keep", w:"Dark Pulse is 2× into both Gengar; Flare Blitz answers Bruno’s Onix and Trace’s Vileplume. Arcanine’s 95 Speed outruns most of the gauntlet."}
 ],
 mv:[
  {p:"Pikachu", at:"Madame Memorial", learn:"<i>check the set</i>", drop:"—", why:"Zippy Zap, Splishy Splash, Floaty Fall and Brick Break. If any of the three tutor moves is missing, the tutors in Cerulean, Celadon and Fuchsia will re-teach them free."},
@@ -289,10 +289,10 @@ slots:[
 R("p02",{lv:"70+", badges:"Champion",
 sum:"Mewtwo is a five-minute battle against a level-70 Psychic with Recover and 130 Speed. Status first, damage second, Master Ball third.",
 slots:[
- {n:"Pikachu", t:["Electric"], role:"Speed control", st:"keep", w:"<b>Zippy Zap is one of the very few moves that reliably moves before Mewtwo.</b> +2 priority beats 130 base Speed. Splishy Splash’s 30% paralysis is the other reason to bring it."},
+ {n:"Pikachu", t:["Electric"], role:"Speed control", st:"keep", w:"<b>Zippy Zap is one of the very few moves that reliably moves before Mewtwo.</b> Priority of +2 beats Mewtwo’s 130 base Speed outright. Splishy Splash’s 30% paralysis is the other reason to bring it."},
  {n:"Snorlax", t:["Normal"], role:"The wall · Crunch", st:"keep", w:"<b>Dark is 2× into Psychic</b> and Snorlax learns Crunch at 58. 160 HP also means it survives a boosted Psychic, which most of your team will not."},
- {n:"Arcanine", t:["Fire"], role:"Dark Pulse", st:"keep", w:"Dark Pulse off a 100 Special Attack. Along with Snorlax’s Crunch this is most of the damage you have that Mewtwo does not resist."},
- {n:"Charizard", t:["Fire","Flying"], role:"Mega Y", st:"keep", w:"Neutral, but 159 Special Attack as Mega Y is raw damage that gets through anything."},
+ {n:"Arcanine", t:["Fire"], role:"Dark Pulse", st:"keep", w:"Dark Pulse, running off Arcanine’s Special Attack of 100. Along with Snorlax’s Crunch this is most of the damage you have that Mewtwo does not resist."},
+ {n:"Charizard", t:["Fire","Flying"], role:"Mega Y", st:"keep", w:"Neutral into Psychic, but Mega Charizard Y’s 159 Special Attack is raw damage that gets through anything."},
  {n:"Lapras", t:["Water","Ice"], role:"Bulk", st:"keep", w:"Neutral into Psychic and bulky enough to eat a hit while you set up paralysis."},
  {n:"Venusaur", t:["Grass","Poison"], role:"Sleep Powder", st:"sit", w:"<b>Bring it for one reason:</b> Sleep Powder. A sleeping Mewtwo cannot use Recover, which is the only thing that actually beats you here. Parasect’s Spore never misses if you would rather be certain."}
 ]});

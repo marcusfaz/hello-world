@@ -39,6 +39,7 @@ python3 tools/build_movedata.py                       # merge the two
 python3 tools/tm_locations.py                         # per-TM in-game locations
 python3 tools/mtrainers.py                            # Master Trainer table
 python3 tools/walk_sequence.py                        # Bulbapedia's own route order
+python3 tools/exclusives.py                           # per-version species reachability
 python3 tools/build_refdata.py                        # -> parts/80-refdata.js
 python3 tools/mon_images.py 144 80                    # -> research/mon_webp
 python3 tools/build_images.py                         # -> parts/10-img.js
@@ -89,6 +90,29 @@ document nobody will ever see.
    against the page's own engine, carrying exactly six at every stage
 8. every listed item being collectable from a ticked route step
 9. the stage order against Bulbapedia's own walkthrough sequence
+10. the version-exclusive chip on every catch card — the strong chip
+    ("Pikachu only") only where the *species* is exclusive, the weaker one
+    ("this spawn, Pikachu only") where only that encounter is. Arcanine is the
+    trap: Let's Go, Pikachu! has a 1% wild one, Let's Go, Eevee! gives it away
+    in Vermilion, so the spawn is exclusive and the species is not.
+    `tools/exclusives.py` computes both sets by closing the per-version catch
+    tables over the evolution chains
+11. no renderer naming another game — the engine came from a LeafGreen guide,
+    and a stale literal in a template is invisible in the source data
+12. every type-effectiveness claim in prose, parsed in both directions:
+    offensive ("Grass is 4x into Rhydon") and defensive ("Ice/Flying is 4x weak
+    to Rock") mean opposite things, and reading one as the other loses a fight
+13. every quoted spawn percentage against Bulbapedia's tables
+14. every quoted base stat, attributed to the record the text belongs to or to
+    an adjacent named subject, with Mega forms and the partner Pikachu's own
+    inflated spread handled separately
 
-`audit/selftest.py` breaks each of those facts deliberately and fails if the
-audit does not notice. An audit that cannot fail is not an audit.
+`audit/selftest.py` breaks each of those facts deliberately — eighteen
+mutations, including a stat transposed between two members of one evolution
+line — and fails if the audit does not notice. An audit that cannot fail is not
+an audit.
+
+Two of the audits earn their keep on prose rather than data. If the base-stat
+check cannot tell which Pokémon a number belongs to, the sentence is ambiguous
+to a reader too, so the fix is to name the subject next to the figure rather
+than to loosen the check.

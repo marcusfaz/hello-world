@@ -43,6 +43,25 @@ mutate('a Secret Technique used before it is obtained',
 mutate('party ledger dropped to five',
        lambda d: d['rosters']['k01']['slots'].pop())
 
+mutate('version chip put on a Let\'s Go, Eevee! exclusive',
+       lambda d: find_block(d, 'k03', 'catch')[1][0].__setitem__('n', 'Vulpix'))
+mutate('version chip removed from an exclusive',
+       lambda d: find_block(d, 'k03', 'catch')[1][0].pop('lg', None))
+mutate('type-effectiveness claim inverted',
+       lambda d: find_stage(d, 'k12')['body'].append(
+           ['p', 'Ground is 2\u00d7 into Flying, so Earthquake answers the Golbat.']))
+mutate('defensive type claim overstated',
+       lambda d: find_stage(d, 'k12')['body'].append(
+           ['p', 'Bug/Poison is 4\u00d7 weak to Psychic.']))
+mutate('spawn percentage changed',
+       lambda d: find_block(d, 'k03', 'catch')[1][0].__setitem__('where', 'Routes 3 and 4 \u2014 77%'))
+mutate('base stat misquoted',
+       lambda d: find_stage(d, 'k12')['body'].append(
+           ['p', 'Snorlax has 999 HP, which is why it survives.']))
+mutate('a stat transposed between two of a line',
+       lambda d: find_stage(d, 'k09')['body'].append(
+           ['p', 'Kadabra is worth it \u2014 Kadabra has 120 Speed.']))
+
 fails = 0
 for name, fn in MUT:
     d = json.loads(orig)

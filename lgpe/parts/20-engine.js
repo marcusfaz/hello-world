@@ -22,7 +22,8 @@ function key(scope, text){
 }
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const tpill = t => '<span class="t ty-' + String(t).toLowerCase() + '">' + esc(t) + '</span>';
-/* imagery: FireRed/LeafGreen game sprites, embedded as data URIs */
+/* imagery: Let's Go has no 2D game sprites, so these are the 3D model
+   renders, re-encoded to WebP and embedded as data URIs */
 /* Display names map to PokeAPI slugs: "Nidoran♀" -> nidoran-f, "Mr. Mime" -> mr-mime,
    "Alolan Sandslash" -> sandslash-alola. */
 const SLUG_FIX = {"Nidoran♀":"nidoran-f","Nidoran♂":"nidoran-m","Mr. Mime":"mr-mime",
@@ -108,7 +109,8 @@ function renderBlock(b, stageId){
     case 'catch': return '<div class="grid">' + v.map(c =>
         '<div class="card' + (monSrc(c.n) ? ' hasart' : '') + '">' +
         monArt(c.n, 'sprbg') + monArt(c.n, 'spr') +
-        '<div class="nm">' + esc(c.n) + ' ' + tpills(c.t) + (c.lg ? ' <span class="lgx">LeafGreen only</span>' : '') + '</div>' +
+        '<div class="nm">' + esc(c.n) + ' ' + tpills(c.t) + (c.lg ? ' <span class="lgx">Pikachu only</span>'
+                : c.lgv ? ' <span class="lgx spawn">this spawn, Pikachu only</span>' : '') + '</div>' +
         '<span class="loc">' + esc(c.where) + '</span>' +
         (c.why ? '<div class="why">' + c.why + '</div>' : '') + '</div>').join('') + '</div>';
 

@@ -8,11 +8,11 @@ body:[
 ["lgpe","<b>There is no Bicycle in this game and Cycling Road is now Pokémon Road.</b> You walk it, or you ride the Persian you earned in Vermilion. Nothing is gated behind a bike, and there is no bike to buy — the Cerulean bike shop exists only to give you five Heart Scales."],
 ["h","The Snorlax on Route 16"],
 ["warn","<b>Snorlax is an interactive Pokémon: you must battle it and knock it out before you can throw a ball.</b> That is true of both Snorlax, of the disguised Electrode in the Power Plant, and of every legendary in the game. The rules of an interactive encounter are: a <b>five-minute timer</b> that does not pause for the HOME button or sleep mode, <b>boosted stats</b> — Snorlax gets an Attack or Defense boost, legendaries get a lift on everything — and <b>at least three perfect IVs guaranteed</b> on whatever you catch. Save before you play the flute."],
-["team","<b>Take the Route 16 Snorlax into your party and drop Primeape for it.</b> 160 HP, 110 Attack and 110 Special Defense on a body that has no weakness except Fighting. It arrives around level 34 with Headbutt and Rest, learns <b>Body Slam at 52</b>, <b>Crunch at 58</b> and <b>Superpower at 65</b>, and it is the Pokémon that survives the Elite Four’s worst turns. Feed it a Golden Razz Berry before you throw — a five-minute fight you have to redo is a five-minute fight wasted."],
+["team","<b>Take the Route 16 Snorlax into your party and drop Primeape for it.</b> Snorlax brings 160 HP, 110 Attack and 110 Special Defense on a body whose only weakness is Fighting. It arrives around level 34 with Headbutt and Rest, learns <b>Body Slam at 52</b>, <b>Crunch at 58</b> and <b>Superpower at 65</b>, and it is the Pokémon that survives the Elite Four’s worst turns. Feed it a Golden Razz Berry before you throw — a five-minute fight you have to redo is a five-minute fight wasted."],
 ["catch",[
  {n:"Snorlax", t:["Normal"], where:"Route 16 — wake with the Poké Flute, then battle it", why:"<b>The best non-legendary body in the game.</b> Interactive encounter: defeat it inside five minutes, then throw. Guaranteed three perfect IVs. There is a second one on Route 12 — catch both, because a spare Snorlax is a level-75 Master Trainer fight later."},
  {n:"Eevee", t:["Normal"], where:"Route 17 — 5%", why:"<b>The only wild Eevee in Let’s Go, Pikachu!</b> — and it is a plain Eevee, not a partner Eevee. You need it for Vaporeon, Jolteon and Flareon, which are three separate Pokédex entries and three separate Master Trainers. Catch four."},
- {n:"Ponyta", t:["Fire"], where:"Route 17 — 20%", why:"Rapidash at 40. Genuinely fast — 105 base Speed — and it is on Blaine’s and Trace’s teams."},
+ {n:"Ponyta", t:["Fire"], where:"Route 17 — 20%", why:"Rapidash at 40, and genuinely fast: Rapidash has 105 base Speed, and it turns up on both Blaine’s and Trace’s teams."},
  {n:"Doduo", t:["Normal","Flying"], where:"Routes 16, 17 and 18 — 20–25%", why:"Dodrio at 31, and Dodrio is also wild here at 5–10%. Two dex entries for the price of a walk."},
  {n:"Alolan Marowak", t:["Fire","Ghost"], where:"Trade a Marowak in the Fuchsia Pokémon Center — repeatable", why:"<b>Fire/Ghost, 110 Defense, and it exists nowhere else.</b> Raise a Cubone from Rock Tunnel or the Tower to 28 and trade it. Immune to Normal and Fighting, and it burns things."}
 ]],
@@ -36,12 +36,12 @@ team:[
  {m:"Weezing", l:43, t:["Poison"], note:"Toxic, Protect, Sludge Bomb, <b>Explosion</b>. Explosion is 250 power and it will take your lead with it."},
  {m:"Muk", l:43, t:["Poison"], note:"Toxic, Protect, Sludge Bomb, <b>Moonblast</b>. The Fairy move is there to punish a Fighting or Dark answer."},
  {m:"Golbat", l:43, t:["Poison","Flying"], note:"Toxic, Protect, Fly, Leech Life. Poison/Flying is <b>2× weak to Electric, Ice, Psychic and Rock</b>."},
- {m:"Venomoth", l:44, t:["Bug","Poison"], note:"Sludge Bomb, Protect, Psychic, Bug Buzz. Bug/Poison is <b>4× weak to Psychic</b> and 2× to Flying, Fire and Rock."}
+ {m:"Venomoth", l:44, t:["Bug","Poison"], note:"Sludge Bomb, Protect, Psychic, Bug Buzz. Bug/Poison is <b>2× weak to Psychic, Flying, Fire and Rock</b> — Bug has not been weak to Psychic since Generation I."}
 ],
 plan:[
  "<b>Ground is the type that beats this gym.</b> Poison takes 2× from Ground, and Sandslash’s Earthquake or a Dugtrio removes three of the four. Golbat is the exception — it is part Flying, so Ground does nothing to it.",
  "<b>Bring your partner for the Golbat</b>. Electric is 2× into Poison/Flying, and Zippy Zap moving first with a guaranteed crit ends it before Fly gets off the ground.",
- "<b>Venomoth is 4× weak to Psychic.</b> One Psychic from Kadabra, Mr. Mime or anything holding TM40 removes it outright.",
+ "<b>Venomoth takes 2× from Psychic, Flying, Fire and Rock</b> — nothing hits it for four. A Psychic from Kadabra or Mr. Mime is the cleanest answer; your partner’s Floaty Fall does the same job off a different stat.",
  "The gym’s whole plan is <b>Toxic, then Protect</b> — badly poison you, then stall while the damage escalates. Answer it two ways: carry <b>Antidotes</b>, and if a Pokémon does get poisoned, <b>TM12 Facade doubles to 140 power</b> while the status is on it. Coach Trainer Alpesh on Route 7 gave you that TM for exactly this fight.",
  "Do not stand in front of the Weezing at low HP. <b>Explosion</b> is 250 base power and Koga will use it."
 ],
@@ -75,7 +75,7 @@ body:[
  {n:"Scyther", t:["Bug","Flying"], lg:true, where:"Routes 14 and 15 — 1%, Let’s Go, Pikachu! only", why:"<b>Version exclusive and a 1% spawn — this is the hardest catch left before the League.</b> Chain Oddish or Venonat here to force it. Scyther has 110 Attack and 105 Speed; Scizor does not exist in this game, so this is where the line stops."},
  {n:"Farfetch'd", t:["Normal","Flying"], where:"Routes 12 and 13 — 10%", why:"There is no in-game trade for it in this game — Route 12 is simply where it lives. Take one; it is a Pokédex entry that is easy to forget exists."},
  {n:"Tauros", t:["Normal"], where:"Routes 14 and 15 — 5%", why:"100 Attack, 110 Speed, and it is on Blue’s Champion-era team. One of the better Normal types in the game."},
- {n:"Kingler", t:["Water"], where:"Routes 12 and 13 — 5%", why:"130 Attack. Krabby is 15% here if you would rather raise one; the fully evolved spawn saves you 27 levels."},
+ {n:"Kingler", t:["Water"], where:"Routes 12 and 13 — 5%", why:"Kingler has 130 Attack. Krabby is 15% here if you would rather raise one, but the fully evolved spawn saves you 27 levels."},
  {n:"Venomoth", t:["Bug","Poison"], where:"Routes 14 and 15 — 9%", why:"A fully evolved spawn, which is cheaper than raising the Venonat you caught on Route 24."},
  {n:"Horsea", t:["Water"], where:"Routes 12 and 13 with Sea Skim — 30%", why:"Seadra at 32. Kingdra needs a trade with an item that does not exist here, so Seadra is the end of the line — and it is on Lance’s team."}
 ]],
@@ -178,13 +178,13 @@ body:[
 ["h","The Cinnabar Lab"],
 ["lgpe","<b>You are not limited to one fossil Pokémon here.</b> Hand the scientist in the Testing Room whichever fossils you are carrying and he revives each one on the spot — Helix into Omanyte, Dome into Kabuto, Old Amber into Aerodactyl, all at <b>level 44</b>. The only limit is which fossils you own, and Cerulean Cave respawns the ones you refused at Mt. Moon after the League. Revive everything you have."],
 ["catch",[
- {n:"Kabuto", t:["Rock","Water"], where:"Cinnabar Lab — revive the Dome Fossil, level 44", why:"Kabutops at 40, so it evolves almost immediately. 115 Attack behind physical Rock and Water STAB — the stats and the moves point the same way."},
+ {n:"Kabuto", t:["Rock","Water"], where:"Cinnabar Lab — revive the Dome Fossil, level 44", why:"Kabutops at 40, so it evolves almost immediately — and Kabutops has 115 Attack behind physical Rock and Water STAB, so its stats and its moves point the same way."},
  {n:"Aerodactyl", t:["Rock","Flying"], where:"Cinnabar Lab — revive the Old Amber, level 44", why:"<b>130 Speed and 105 Attack.</b> This is the Pokémon you went back to Pewter for in stage 07 — and after the League it becomes one of your three sky mounts."},
  {n:"Omanyte", t:["Rock","Water"], where:"Cinnabar Lab — revive the Helix Fossil, level 44", why:"Only if you took Helix at Mt. Moon. Omastar has 115 Special Attack and 125 Defense; it is the slower, tankier half of the fossil pair."},
  {n:"Alolan Grimer", t:["Poison","Dark"], lg:true, where:"Trade a Grimer in the Cinnabar Pokémon Center — repeatable, Let’s Go, Pikachu! only", why:"<b>Poison/Dark, and Grimer is a Let’s Go, Pikachu! exclusive.</b> Alolan Muk has 105 HP and 105 Attack and is immune to Psychic-boosting nonsense. Eevee players trade for an Alolan Meowth here instead."},
- {n:"Magmar", t:["Fire"], where:"Pokémon Mansion — 15%", why:"The only place Magmar lives. 100 Special Attack; Magmortar does not exist in this game, so this is the whole line."},
- {n:"Ditto", t:["Normal"], where:"Pokémon Mansion — 10%", why:"<b>Do not skip this.</b> The Pokémon Mansion is one of only two homes for Ditto. There is no breeding in this game so Ditto has no mechanical use at all — it is purely a Pokédex entry and a Master Trainer, and it is easy to leave the island without one."},
- {n:"Grimer", t:["Poison"], lg:true, where:"Pokémon Mansion — 15%, Let’s Go, Pikachu! only", why:"Version exclusive, and the trade stock for Alolan Grimer downstairs. Catch several."}
+ {n:"Magmar", t:["Fire"], where:"Pokémon Mansion — 14% on 1F–3F, 10% in the basement", why:"The only place Magmar lives. 100 Special Attack; Magmortar does not exist in this game, so this is the whole line."},
+ {n:"Ditto", t:["Normal"], where:"Pokémon Mansion — 1% on 1F–3F, but <b>10% in the basement</b>", why:"<b>Do not skip this, and hunt it downstairs.</b> Ditto is ten times commoner on B1F than on the floors above. The Mansion is one of only two homes it has, and because there is no breeding in this game Ditto has no mechanical use at all — it is purely a Pokédex entry and a Master Trainer, which is exactly why people leave the island without one."},
+ {n:"Grimer", t:["Poison"], lg:true, where:"Pokémon Mansion — 40% on 1F–3F, 30% in the basement", why:"<b>Version exclusive</b> — Eevee players get Koffing in this slot — and the trade stock for the Alolan Grimer downstairs. At 40% of the floor you will not have to look for it."}
 ]],
 ["h","The Pokémon Mansion"],
 ["p","Four floors of statues that flip hidden switches, opening one door and closing another. The route below is the shortest path that also collects everything. The Secret Key is in the last room of the basement and the gym does not open without it."],
@@ -204,7 +204,7 @@ name:"Blaine", role:"Cinnabar Island Gym · Fire", badge:"Volcano Badge",
 team:[
  {m:"Magmar", l:47, t:["Fire"], note:"Flamethrower, Low Kick, Confuse Ray. Confuse Ray is the annoyance — it costs you turns at random."},
  {m:"Rapidash", l:47, t:["Fire"], note:"Flare Blitz, Quick Attack, Fury Attack. Flare Blitz recoils, so it damages itself for you."},
- {m:"Ninetales", l:47, t:["Fire"], note:"Fire Blast, Quick Attack. 81 Special Attack and 109 Speed; the Fire Blast is 110 power and will hurt."},
+ {m:"Ninetales", l:47, t:["Fire"], note:"Fire Blast, Quick Attack. 81 Special Attack behind 100 Speed — this is the Kantonian form, not the faster Alolan one — and its Fire Blast is 110 power."},
  {m:"Arcanine", l:48, t:["Fire"], note:"Flare Blitz, <b>Outrage</b>, Crunch. Outrage is 120 power Dragon and it is the move that catches people out in a Fire gym."}
 ],
 plan:[
@@ -220,7 +220,7 @@ reward:"TM46 Fire Blast, the Volcano Badge, and obedience up to level 80."
  {at:"Cinnabar Island", t:"Trade a Grimer in the Pokémon Center for an <b>Alolan Grimer</b>.", sub:"Poison/Dark. Grimer is a Let’s Go, Pikachu! exclusive and it lives in the mansion up the road — catch a few first if you have none."},
  {at:"Cinnabar Lab", t:"Take <b>TM02 Taunt</b> from the scientist in the Research Room."},
  {t:"Revive <b>every fossil you are carrying</b> in the Testing Room.", sub:"Dome into Kabuto, Helix into Omanyte, Old Amber into Aerodactyl — all at level 44, and there is no limit on how many you hand over."},
- {at:"Pokémon Mansion", t:"Catch <b>Ditto</b> (10%), <b>Magmar</b> (15%) and several <b>Grimer</b> (15%).", sub:"The mansion is one of only two places Ditto exists, and Ditto has no use in this game beyond the Pokédex — which is exactly why people forget it."},
+ {at:"Pokémon Mansion", t:"Catch <b>Magmar</b> (14%) and several <b>Grimer</b> (40%) on the way through, then hunt <b>Ditto</b> in the basement.", sub:"Ditto is 1% on the upper floors and 10% on B1F, so do the Ditto hunting downstairs. It has no use in this game beyond the Pokédex — which is exactly why people forget it."},
  {t:"Work the four floors, flipping the statue switches as you go.", sub:"Each statue opens one door and closes another. Read the four journal entries on the way — they are the Mewtwo backstory."},
  {t:"Beat <b>Coach Trainer Rita</b> on 2F for <b>TM22 Rock Slide</b>."},
  {t:"Take <b>TM21 Foul Play</b> on 3F and <b>TM52 Sludge Bomb</b> in the basement.", sub:"Sludge Bomb is 90 power special Poison — the STAB move Venusaur’s stat spread has been waiting for."},
@@ -245,7 +245,7 @@ body:[
  {n:"Electabuzz", t:["Electric"], where:"Power Plant — uncommon", why:"The only place it lives. Electivire does not exist here, so Electabuzz is the whole line — and it is on Lt. Surge’s rematch team."},
  {n:"Electrode", t:["Electric"], where:"Power Plant — disguised as items", why:"Interactive encounters with three guaranteed perfect IVs. 150 base Speed. Catch every one."},
  {n:"Magneton", t:["Electric","Steel"], where:"Power Plant — uncommon", why:"120 Special Attack. Electric/Steel resists an enormous list, and Magnezone does not exist here."},
- {n:"Muk", t:["Poison"], where:"Power Plant — uncommon", why:"A fully evolved spawn. Saves you levelling the Grimer you caught on Cinnabar."}
+ {n:"Muk", t:["Poison"], lg:true, where:"Power Plant — uncommon, Let’s Go, Pikachu! only", why:"<b>Version exclusive</b>, like the Grimer it evolves from — Eevee players get Koffing and Weezing instead. A fully evolved spawn here saves you levelling the Grimer you caught on Cinnabar."}
 ]],
 ["h","Mega Evolution"],
 ["lgpe","<b>Let’s Go has Mega Evolution and it is easy to walk past.</b> After the Power Plant, Trace drags you back to Oak’s lab, where <b>Blue hands you the Key Stone plus the Venusaurite, Charizardite X, Charizardite Y and Blastoisinite</b>. There are no held items in this game, so a Mega Stone sits in your Bag and applies to that species automatically — you simply get a Mega button in battle. <b>One Mega per battle</b>, it lasts until the fight ends, and the only other stones are the Mewtwonite X and Y that Green gives you in Cerulean Cave after the League, plus a merchant at the Indigo Plateau who sells the rest."],
@@ -402,12 +402,12 @@ team:[
  {m:"Jynx", l:51, t:["Ice","Psychic"], note:"Lovely Kiss, Psychic, Blizzard. <b>Lovely Kiss is the fight-loser.</b> 75% accurate sleep, and there is no timer on sleep here."},
  {m:"Cloyster", l:51, t:["Water","Ice"], note:"Ice Beam, Spike Cannon, Hydro Pump. 180 base Defense — do not try to punch through it physically."},
  {m:"Slowbro", l:51, t:["Water","Psychic"], note:"Surf, Flamethrower, Psychic. The Flamethrower is there for the Grass and Steel types you would bring against the rest."},
- {m:"Lapras", l:52, t:["Water","Ice"], note:"Blizzard, Dragon Pulse, Hydro Pump. 130 HP and it hits from the special side; expect to spend two or three turns."}
+ {m:"Lapras", l:52, t:["Water","Ice"], note:"Blizzard, Dragon Pulse, Hydro Pump. Lapras has 130 HP and hits from the special side; expect to spend two or three turns."}
 ],
 plan:[
  "<b>Four of her five are part Water, and all but Jynx are part Ice.</b> <b>Electric</b> is the through-line: your partner’s Zippy Zap is 2× on four of the five, always crits, and moves first at +2 priority — which beats Dewgong’s Aqua Jet and Ice Shard.",
  "<b>Grass answers Cloyster and Slowbro</b> where Electric only ties. Venusaur’s Solar Beam or Mega Drain is 2× into both, and Cloyster’s 180 Defense is irrelevant against a special hit.",
- "<b>Fighting handles Jynx</b> — Ice/Psychic takes 2× from Fighting, Bug, Fire, Ghost, Dark and Steel. Hitmonlee’s Brick Break, or a Snorlax carrying Earthquake, ends it before Lovely Kiss lands.",
+ "<b>Do not send Fighting at Jynx.</b> Ice/Psychic looks like a Fighting target and is not — Fighting is 2× into the Ice half but halved by the Psychic half, so it lands at neutral. What is actually 2× is <b>Bug, Fire, Rock, Ghost and Dark</b>: Arcanine’s Flare Blitz or Dark Pulse, or Snorlax’s Crunch, end it before Lovely Kiss lands.",
  "<b>Bring Awakenings and use them immediately.</b> A sleeping lead against five bulky Water types is how this fight goes long enough to run you out of Full Restores in round one.",
  "Do not lead a Ground type. Every one of her Pokémon carries a Water move and Ground takes 2× from all of them."
 ],
@@ -460,7 +460,7 @@ team:[
 ],
 plan:[
  "<b>Your partner Pikachu is the answer to this entire room.</b> Aerodactyl and Gyarados are both <b>4× weak to Electric</b>, Charizard is 2×, and Zippy Zap is a guaranteed critical hit at +2 priority. Three of five die before they act.",
- "<b>Lapras handles the Dragonite</b> — Ice Beam is 4× into Dragon/Flying, and Lapras’ 130 HP survives an Outrage if the Ice Beam somehow does not finish it.",
+ "<b>Lapras handles the Dragonite</b> — Ice Beam is 4× into Dragon/Flying. Lapras’ 130 HP survives an Outrage if the Ice Beam somehow does not finish it.",
  "<b>Fairy is completely immune to Dragon.</b> A Clefable, or anything carrying TM32 Dazzling Gleam, cannot be touched by Dragonite’s Outrage or Seadra’s and Charizard’s Dragon Pulse at all. If you have one, this is its best room in the game.",
  "<b>Four of the five carry Hyper Beam</b> — 150 power, and then they lose their next turn recharging. Survive it and you get a free turn; plan the switch around that.",
  "Do not bring a Rock type expecting to punish the Flying half. Aerodactyl and Charizard both carry Earthquake or Rock Slide of their own, and Rock is the type this room is best equipped to beat."
@@ -475,10 +475,10 @@ team:[
  {m:"Marowak", l:56, t:["Ground"], note:"Fire Punch, Bonemerang, Brick Break. <b>Bonemerang hits twice</b>, which cuts through a Substitute."},
  {m:"Rapidash", l:56, t:["Fire"], note:"Flare Blitz, Quick Attack, Poison Jab. Flare Blitz recoils — it does a third of the work for you."},
  {m:"Slowbro", l:56, t:["Water","Psychic"], note:"Psychic, Surf, Light Screen. The second screen. Between this and Vileplume’s Reflect he can halve both your damage types."},
- {m:"Jolteon", l:57, t:["Electric"], note:"Thunder, Quick Attack, Pin Missile. <b>This is the Let’s Go, Pikachu! version of his team</b> — Eevee players face a Raichu here instead. 130 Speed and 110 Special Attack."}
+ {m:"Jolteon", l:57, t:["Electric"], note:"Thunder, Quick Attack, Pin Missile. Jolteon has <b>130 Speed and 110 Special Attack</b> and moves before almost anything you own. <b>This slot is version-locked</b>: because you took the Pikachu, Trace took the Eevee — Let’s Go, Eevee! players face a Raichu here instead."}
 ],
 plan:[
- "<b>Mega Evolve Charizard Y and lead with it.</b> 159 Special Attack, Fire is 2× into Vileplume, and Air Slash or Heat Wave answers four of the six. One Mega per battle — spend it here.",
+ "<b>Mega Evolve Charizard Y and lead with it.</b> Mega Charizard Y’s 159 Special Attack, Fire 2× into Vileplume, and Air Slash or Heat Wave answering four of the six. One Mega per battle — spend it here.",
  "<b>Lapras or your partner for the Marowak</b>: pure Ground takes 2× from Water, Grass and Ice, and Splishy Splash is 2× into it while Zippy Zap is a zero.",
  "<b>Jolteon is the last Pokémon and the fastest thing on the field.</b> Ground is a straight immunity to its Thunder — send Snorlax with Earthquake, or a Sandslash, and it cannot touch you.",
  "<b>TM13 Brick Break breaks Reflect and Light Screen on contact.</b> Between Vileplume and Slowbro he will put both up; one Brick Break removes whichever is standing.",
