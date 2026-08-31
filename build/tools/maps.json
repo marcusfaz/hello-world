@@ -1,0 +1,23 @@
+{
+ "h01": ["Hoenn Littleroot Town Map.png", "Littleroot Town, Route 101 and Route 103"],
+ "h02": ["Hoenn Petalburg Woods Map.png", "Route 102, Petalburg City and Petalburg Woods"],
+ "h03": ["Hoenn Rustboro City Map.png", "Rustboro City and Rusturf Tunnel"],
+ "h04": ["Hoenn Dewford Town Map.png", "Dewford Town and Granite Cave"],
+ "h05": ["Hoenn Slateport City Map.png", "Route 109 and Slateport City"],
+ "h06": ["Hoenn Mauville City Map.png", "Route 110, Mauville City and New Mauville"],
+ "h07": ["Hoenn Route 111 Map.png", "Route 111, the desert, and Fallarbor Town"],
+ "h08": ["Hoenn Mt Chimney Map.png", "Mt. Chimney, Jagged Pass and Lavaridge Town"],
+ "h09": ["Hoenn Petalburg City Map.png", "Petalburg City — Norman's Gym"],
+ "h10": ["Hoenn Fortree City Map.png", "Routes 118-120, the Weather Institute and Fortree City"],
+ "h11": ["Hoenn Lilycove City Map.png", "Route 121, Lilycove City and Mt. Pyre"],
+ "h12": ["Hoenn Jagged Pass Map.png", "Jagged Pass — the Magma Hideout"],
+ "h13": ["Hoenn Mossdeep City Map.png", "Route 124, Mossdeep City and the Space Center"],
+ "h14": ["Hoenn Sootopolis City Map.png", "Seafloor Cavern, Sootopolis City and the Sky Pillar"],
+ "e4":  ["Hoenn Ever Grande City Map.png", "Victory Road and Ever Grande City"],
+ "p01": ["Hoenn Littleroot Town Map.png", "Littleroot Town — where the National Dex is handed over"],
+ "p02": ["Hoenn Sealed Chamber Map.png", "The Sealed Chamber, under Route 134"],
+ "p03": ["Hoenn Sky Pillar Map.png", "Sky Pillar, and the roaming weather caves"],
+ "p04": ["Hoenn Meteor Falls Map.png", "Meteor Falls — Steven's rematch"],
+ "bf01":["Hoenn Battle Frontier Map.png", "The Battle Frontier, south of Route 130"],
+ "dex-safari": ["Hoenn Safari Zone Map.png", "The Hoenn Safari Zone"]
+}
