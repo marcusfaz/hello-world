@@ -81,20 +81,33 @@ for key, f in ITEMS.items():
         print('  no item art: %s (%s)' % (key, f), file=sys.stderr)
 print('itm %d' % len(IMG['itm']), file=sys.stderr)
 
-# ---- 4. location maps, one per stage that has one ----
+# ---- 4. in-game area maps, several per stage ----
+# These are tile-based pixel art, so a palette PNG keeps the tiles crisp; a lossy
+# WebP smears the 16x16 grid into mush at exactly the sizes people zoom in to read.
 MAPS = json.load(open('maps.json'))
-for sid, (f, loc) in MAPS.items():
-    try:
-        raw = wiki_file(f)
-        if raw: IMG['map'][sid] = {'src': webp(raw), 'loc': loc}
-        else: print('  no map: %s (%s)' % (sid, f), file=sys.stderr)
-    except Exception as e:
-        print('  map fail %s: %s' % (sid, e), file=sys.stderr)
-print('map %d' % len(IMG['map']), file=sys.stderr)
+for sid, rows in MAPS.items():
+    got = []
+    for f, loc in rows:
+        try:
+            raw = wiki_file(f)
+        except Exception as e:
+            print('  map fail %s/%s: %s' % (sid, f, e), file=sys.stderr); continue
+        if not raw:
+            print('  no map: %s (%s)' % (sid, f), file=sys.stderr); continue
+        got.append({'src': png(raw, trim=False, maxw=520), 'loc': loc})
+    if got: IMG['map'][sid] = got
+print('map %d stages, %d images'
+      % (len(IMG['map']), sum(len(v) for v in IMG['map'].values())), file=sys.stderr)
 
 out = 'const IMG=' + json.dumps(IMG, ensure_ascii=False, separators=(',', ':')) + ';'
 open('../src/20-assets.js', 'w').write(out)
 mb = len(out) / 1048576
-per = {k: sum(len(x if isinstance(x, str) else x['src']) for x in v.values()) / 1048576
-       for k, v in IMG.items()}
+def _bytes(v):
+    n = 0
+    for x in v.values():
+        if isinstance(x, str): n += len(x)
+        elif isinstance(x, list): n += sum(len(y['src']) for y in x)
+        else: n += len(x['src'])
+    return n / 1048576
+per = {k: _bytes(v) for k, v in IMG.items()}
 print('assets.js %.2f MB  (%s)' % (mb, ', '.join('%s %.2f' % kv for kv in per.items())))

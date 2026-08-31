@@ -1,23 +1,266 @@
 {
- "h01": ["Hoenn Littleroot Town Map.png", "Littleroot Town, Route 101 and Route 103"],
- "h02": ["Hoenn Petalburg Woods Map.png", "Route 102, Petalburg City and Petalburg Woods"],
- "h03": ["Hoenn Rustboro City Map.png", "Rustboro City and Rusturf Tunnel"],
- "h04": ["Hoenn Dewford Town Map.png", "Dewford Town and Granite Cave"],
- "h05": ["Hoenn Slateport City Map.png", "Route 109 and Slateport City"],
- "h06": ["Hoenn Mauville City Map.png", "Route 110, Mauville City and New Mauville"],
- "h07": ["Hoenn Route 111 Map.png", "Route 111, the desert, and Fallarbor Town"],
- "h08": ["Hoenn Mt Chimney Map.png", "Mt. Chimney, Jagged Pass and Lavaridge Town"],
- "h09": ["Hoenn Petalburg City Map.png", "Petalburg City — Norman's Gym"],
- "h10": ["Hoenn Fortree City Map.png", "Routes 118-120, the Weather Institute and Fortree City"],
- "h11": ["Hoenn Lilycove City Map.png", "Route 121, Lilycove City and Mt. Pyre"],
- "h12": ["Hoenn Jagged Pass Map.png", "Jagged Pass — the Magma Hideout"],
- "h13": ["Hoenn Mossdeep City Map.png", "Route 124, Mossdeep City and the Space Center"],
- "h14": ["Hoenn Sootopolis City Map.png", "Seafloor Cavern, Sootopolis City and the Sky Pillar"],
- "e4":  ["Hoenn Ever Grande City Map.png", "Victory Road and Ever Grande City"],
- "p01": ["Hoenn Littleroot Town Map.png", "Littleroot Town — where the National Dex is handed over"],
- "p02": ["Hoenn Sealed Chamber Map.png", "The Sealed Chamber, under Route 134"],
- "p03": ["Hoenn Sky Pillar Map.png", "Sky Pillar, and the roaming weather caves"],
- "p04": ["Hoenn Meteor Falls Map.png", "Meteor Falls — Steven's rematch"],
- "bf01":["Hoenn Battle Frontier Map.png", "The Battle Frontier, south of Route 130"],
- "dex-safari": ["Hoenn Safari Zone Map.png", "The Hoenn Safari Zone"]
+ "h01": [
+  [
+   "Littleroot Town E.png",
+   "Littleroot Town"
+  ],
+  [
+   "Hoenn Route 101 E.png",
+   "Route 101"
+  ],
+  [
+   "Hoenn Route 103 E.png",
+   "Route 103"
+  ]
+ ],
+ "h02": [
+  [
+   "Hoenn Route 102 E.png",
+   "Route 102"
+  ],
+  [
+   "Hoenn Route 104 E.png",
+   "Route 104 — south below the woods, north above"
+  ],
+  [
+   "Petalburg Woods E.png",
+   "Petalburg Woods"
+  ]
+ ],
+ "h03": [
+  [
+   "Rustboro City E.png",
+   "Rustboro City"
+  ],
+  [
+   "Hoenn Route 116 E.png",
+   "Route 116"
+  ],
+  [
+   "Rusturf Tunnel E.png",
+   "Rusturf Tunnel"
+  ]
+ ],
+ "h04": [
+  [
+   "Dewford Town E.png",
+   "Dewford Town"
+  ],
+  [
+   "Granite Cave 1F entrance E.png",
+   "Granite Cave 1F"
+  ],
+  [
+   "Granite Cave B1F E.png",
+   "Granite Cave B1F — Aron"
+  ]
+ ],
+ "h05": [
+  [
+   "Hoenn Route 109 E.png",
+   "Route 109"
+  ],
+  [
+   "Slateport City E.png",
+   "Slateport City"
+  ]
+ ],
+ "h06": [
+  [
+   "Hoenn Route 110 E.png",
+   "Route 110"
+  ],
+  [
+   "Mauville City E.png",
+   "Mauville City"
+  ],
+  [
+   "Hoenn Route 117 E.png",
+   "Route 117 — the Day Care"
+  ]
+ ],
+ "h07": [
+  [
+   "Hoenn Route 111 E.png",
+   "Route 111"
+  ],
+  [
+   "Fiery Path RSE.png",
+   "Fiery Path"
+  ],
+  [
+   "Hoenn Route 113 E.png",
+   "Route 113 — the ash"
+  ],
+  [
+   "Meteor Falls 1F1R E.png",
+   "Meteor Falls 1F"
+  ]
+ ],
+ "h08": [
+  [
+   "Mt Chimney E.png",
+   "Mt. Chimney"
+  ],
+  [
+   "Jagged Pass E.png",
+   "Jagged Pass"
+  ],
+  [
+   "Lavaridge Town E.png",
+   "Lavaridge Town"
+  ],
+  [
+   "Mirage Tower 1F E.png",
+   "Mirage Tower 1F"
+  ]
+ ],
+ "h09": [
+  [
+   "Petalburg City E.png",
+   "Petalburg City"
+  ],
+  [
+   "Abandoned Ship 1F and rooms RSE.png",
+   "Abandoned Ship 1F — TM13 Ice Beam"
+  ],
+  [
+   "New Mauville outside E.png",
+   "New Mauville"
+  ]
+ ],
+ "h10": [
+  [
+   "Hoenn Route 119 E.png",
+   "Route 119"
+  ],
+  [
+   "Weather Institute 1F RSE.png",
+   "Weather Institute"
+  ],
+  [
+   "Fortree City E.png",
+   "Fortree City"
+  ]
+ ],
+ "h11": [
+  [
+   "Hoenn Route 121 E.png",
+   "Route 121"
+  ],
+  [
+   "Lilycove City E.png",
+   "Lilycove City"
+  ],
+  [
+   "Mt Pyre 1F RSE.png",
+   "Mt. Pyre"
+  ]
+ ],
+ "h12": [
+  [
+   "Magma Hideout entrance E.png",
+   "The Magma Hideout"
+  ],
+  [
+   "Aqua Hideout ORAS Concept Art.png",
+   "The Aqua Hideout"
+  ]
+ ],
+ "h13": [
+  [
+   "Hoenn Route 124 E.png",
+   "Route 124"
+  ],
+  [
+   "Mossdeep City E.png",
+   "Mossdeep City"
+  ],
+  [
+   "Shoal Cave entrance high tide E.png",
+   "Shoal Cave"
+  ]
+ ],
+ "h14": [
+  [
+   "Seafloor Cavern entrance E.png",
+   "Seafloor Cavern"
+  ],
+  [
+   "Sootopolis City E.png",
+   "Sootopolis City"
+  ],
+  [
+   "Sky Pillar 1F before E.png",
+   "Sky Pillar"
+  ]
+ ],
+ "e4": [
+  [
+   "Victory Road B1F E.png",
+   "Victory Road 1F"
+  ],
+  [
+   "Ever Grande City E.png",
+   "Ever Grande City"
+  ]
+ ],
+ "p01": [
+  [
+   "Littleroot Town E.png",
+   "Littleroot Town — the National Dex"
+  ],
+  [
+   "Desert Underpass E.png",
+   "Desert Underpass"
+  ],
+  [
+   "Meteor Falls B1F R1 E.png",
+   "Meteor Falls B1F — Steven"
+  ]
+ ],
+ "p02": [
+  [
+   "Sealed Chamber 1R E.png",
+   "Sealed Chamber, first room"
+  ],
+  [
+   "Desert Ruins E.png",
+   "Desert Ruins — Regirock"
+  ],
+  [
+   "Island Cave E.png",
+   "Island Cave — Regice"
+  ],
+  [
+   "Ancient Tomb interior E.png",
+   "Ancient Tomb — Registeel"
+  ]
+ ],
+ "p03": [
+  [
+   "Terra Cave E.png",
+   "Terra Cave — Groudon"
+  ],
+  [
+   "Marine Cave E.png",
+   "Marine Cave — Kyogre"
+  ],
+  [
+   "Sky Pillar 5F before E.png",
+   "Sky Pillar summit — Rayquaza"
+  ]
+ ],
+ "bf01": [
+  [
+   "Battle Frontier E.png",
+   "The Battle Frontier"
+  ]
+ ],
+ "dex-safari": [
+  [
+   "Hoenn Safari Zone E.png",
+   "The Hoenn Safari Zone"
+  ]
+ ]
 }

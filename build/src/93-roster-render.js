@@ -79,10 +79,14 @@ function rosterHTML(id){
 }
 
 function mapHTML(id){
-  const m = (typeof IMG !== 'undefined') && IMG.map[id];
-  if (!m) return "";
-  return '<figure class="mapfig"><img src="' + m.src + '" alt="Map of ' + esc(m.loc) + '" loading="lazy">' +
-    '<figcaption><b>' + esc(m.loc) + '</b><span>map · Bulbapedia</span></figcaption></figure>';
+  const rows = (typeof IMG !== 'undefined') && IMG.map[id];
+  if (!rows || !rows.length) return "";
+  /* the in-game area maps for everywhere this stage takes you, in walking order */
+  return '<div class="maprow">' + rows.map(m =>
+    '<figure class="mapfig"><div class="mapimg"><img src="' + m.src +
+      '" alt="In-game map of ' + esc(m.loc) + '" loading="lazy"></div>' +
+    '<figcaption><b>' + esc(m.loc) + '</b><span>Emerald · Bulbapedia</span></figcaption></figure>'
+  ).join('') + '</div>';
 }
 function renderRosters(){
   buildFlow();

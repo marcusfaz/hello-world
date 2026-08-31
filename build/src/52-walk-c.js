@@ -1,9 +1,9 @@
 /* ===================== HOENN 11–14 ===================== */
 
 STAGES.push({
-id:"h11", ch:"hoenn", tag:"Stage 11", place:"Route 121 · Lilycove City · Mt. Pyre · Aqua Hideout",
+id:"h11", ch:"hoenn", tag:"Stage 11", place:"Route 121 · Lilycove City · Mt. Pyre",
 title:"Lilycove, Mt. Pyre, and both orbs stolen",
-lede:"The plot's hinge. Team Aqua takes one orb, Team Magma takes the other, and an old couple hands you the key to a cave you walked past four stages ago.",
+lede:"The plot's hinge. Team Aqua takes one orb, Team Magma takes the other, and an old couple hands you the key to a cave you walked past four stages ago. Lilycove's shops first — you will not be back here with money for a while.",
 band:[{k:"Party level",v:"44 → 47"},{k:"Badges",v:"6"},{k:"Unlocks",v:"Magma Emblem"}],
 body:[
 ["ver","<b>Both orbs are stolen and you get neither.</b> In Ruby and Sapphire the player ends up holding an orb. In Emerald, Team Aqua takes the <b>Red Orb</b> and Team Magma has already taken the <b>Blue Orb</b> — and yes, that is the wrong way round from what the colours suggest. Emerald swaps which team uses which orb, so Maxie awakens Groudon with the <i>Blue</i> Orb and Archie awakens Kyogre with the <i>Red</i> one. You are given the <b>Magma Emblem</b> instead."],
@@ -17,18 +17,14 @@ body:[
  {t:"Take <b>TM44 Rest</b> from the man in the easternmost house"},
  {t:"Register for the <b>Lilycove Contest Hall</b>", sub:"<b>All four Contest ranks run out of this one hall in Emerald</b> — Normal, Super, Hyper and Master. Ruby and Sapphire scattered them across four towns. If you are doing Contests at all, this is where."},
  {t:"Buy a <b>Pokéblock Case</b> and blend berries in the Contest Hall's Berry Blender", sub:"Pokéblocks raise Contest conditions. Only worth it if you want the Contest ribbons — they are not required for the Pokédex."},
- {at:"Mt. Pyre", t:"Climb to the summit through the outside path", sub:"Catch a <b>Vulpix</b> outside — 30%, and this is the only patch in Hoenn."},
+ {at:"Mt. Pyre", t:"Take the <b>Cleanse Tag</b> from the lady in the <b>1F north-east corner</b>", sub:"It lowers the wild encounter rate while held — genuinely useful when you are re-crossing routes you have already cleared."},
+ {t:"Climb the interior floors, then take the outside path to the summit", sub:"Catch a <b>Vulpix</b> on the outside slope — 30%, and this is the only patch in Hoenn."},
  {t:"Catch a <b>Duskull</b> and a <b>Chimecho</b>", sub:"Duskull 10–13% on the upper floors. <b>Chimecho is 2% on the summit and this is the only place in the entire game it appears</b> — do not leave without it, or you are coming back for an hour."},
  {t:"Take <b>TM30 Shadow Ball</b> on 6F and <b>TM48 Skill Swap</b> on the outside ledges"},
  {t:"Fight through the Team Aqua Grunts at the summit"},
  {t:"Watch Team Aqua take the <b>Red Orb</b>", sub:"Team Magma already has the Blue Orb. Both teams now have what they came for."},
  {t:"Take the <b>Magma Emblem</b> from the old couple", sub:"<b>This opens the hidden cave on Jagged Pass.</b> That is the next stage."},
- {t:"Take the <b>Cleanse Tag</b> from the old woman"},
- {at:"Team Aqua Hideout", t:"Go to <b>Lilycove's</b> east shore and enter the hideout", sub:"You reach it by Surf from the beach east of the city."},
- {t:"Navigate the warp-tile maze", sub:"The floors teleport you between rooms. Follow the guide grunts' pattern — north-most warp first."},
- {t:"Beat <b>Aqua Admin Matt</b>", sub:"Lv 34 Mightyena and a Lv 34 Golbat. He is stalling while Archie leaves with the submarine."},
- {t:"Take the <b>Master Ball</b> from the hideout", sub:"<b>Save it.</b> The obvious use is a roaming Latios or Latias, which cannot be trapped and flees every turn. Do not spend it on a stationary legendary you can just throw Ultra Balls at."},
- {t:"Take the <b>Nugget</b> and the other floor items"}
+ {t:"Leave the Aqua Hideout alone for now", sub:"<b>The hideout east of Lilycove is not open yet.</b> Team Aqua only retreats there after they steal Captain Stern's submarine, and that happens after you have cleared the Magma Hideout. Going now finds a locked cave — Stage 12 handles it."}
 ]],
 ["h","The Lilycove Department Store shopping list"],
 ["p","4F is the only TM counter in the game and it sells eight machines you cannot find anywhere in the field. Buy in this order as money allows."],
@@ -54,15 +50,16 @@ body:[
 ]});
 
 STAGES.push({
-id:"h12", ch:"hoenn", tag:"Stage 12", place:"Jagged Pass · Magma Hideout · Slateport Harbor",
-title:"The Magma Hideout, and Groudon wakes up",
-lede:"An Emerald-only dungeon in an Emerald-only location, ending with the first of the two ancient Pokémon getting loose. This whole stage does not exist in Ruby or Sapphire in this form.",
-band:[{k:"Party level",v:"47 → 49"},{k:"Badges",v:"6"},{k:"Needs",v:"Magma Emblem · Strength"}],
+id:"h12", ch:"hoenn", tag:"Stage 12", place:"Jagged Pass · Magma Hideout · Slateport · Aqua Hideout",
+title:"Both hideouts — Groudon wakes, and Archie takes the submarine",
+lede:"Magma's hideout first, then Aqua's — in that order, because the second one does not open until Archie steals the submarine. An Emerald-only dungeon in an Emerald-only location, and the stage where the first ancient Pokémon gets loose.",
+band:[{k:"Party level",v:"47 → 51"},{k:"Badges",v:"6"},{k:"Needs",v:"Magma Emblem · Strength · Surf"}],
 body:[
 ["ver","<b>Team Magma's hideout is a hidden cave on Jagged Pass in Emerald.</b> Ruby put it somewhere else entirely and gave it a different layout. It is also where <b>Groudon is first encountered</b> — but not caught. Groudon flees the moment Maxie wakes it, and you will not see it again until after the Hall of Fame, in a cave that moves."],
 ["h","The walk"],
 ["do",[
- {at:"Jagged Pass", t:"Walk to the spot on the pass where the <b>Magma Emblem</b> reacts", sub:"It is on the middle-left ledge. The cave mouth appears when you stand on the tile."},
+ {at:"Jagged Pass", t:"Fly to <b>Lavaridge</b> and come at Jagged Pass from below", sub:"Either climb from the south on the <b>Acro Bike</b>, or ride the cable car to the Mt. Chimney summit and walk down. Both reach the halfway point."},
+ {t:"Stand on the tile where the <b>Magma Emblem</b> reacts", sub:"Middle of the pass. The cave mouth only appears once you are on it."},
  {at:"Magma Hideout", t:"Push the <b>Strength</b> boulders through the lava-rock maze", sub:"Several routes are dead ends. Take the boulder path that leads down and left."},
  {t:"Catch a <b>Torkoal</b> if you skipped Fiery Path", sub:"30% here — a much better rate than Fiery Path's 18%."},
  {t:"Beat the <b>Team Magma Grunts</b> on the way in"},
@@ -70,9 +67,15 @@ body:[
  {t:"Watch <b>Maxie</b> wake <b>Groudon</b> with the Blue Orb", sub:"It flees immediately. There is nothing you can do and nothing you should try."},
  {t:"Beat <b>Maxie</b>", sub:"Lv 37 Mightyena, Lv 38 Crobat, Lv 39 Camerupt. Surf is 4× on the Camerupt; Thunderbolt or Ice handles the Crobat."},
  {t:"Take the <b>Max Elixir</b>, <b>Full Restore</b> and <b>Nugget</b> from the hideout floors"},
- {at:"Slateport Harbor", t:"Fly to Slateport and go to the harbour", sub:"You can Fly now — the Feather Badge two stages ago is what makes this possible."},
- {t:"Watch Team Aqua steal <b>Captain Stern's submarine</b>", sub:"Archie announces the hideout is in Lilycove — which you have already cleared. The plot now points you east."},
- {t:"Fly to <b>Lilycove</b> and Surf east onto Route 124"}
+ {at:"Slateport Harbor", t:"Fly to Slateport and go to the harbour in the north-east", sub:"You can Fly — the Feather Badge two stages ago is what makes this possible."},
+ {t:"Talk to <b>Captain Stern</b> outside the harbour", sub:"He has found an undersea cavern on Route 128. Team Aqua interrupts."},
+ {t:"Watch Team Aqua steal <b>Captain Stern's submarine</b>", sub:"Archie taunts you and names the hideout in Lilycove. <b>This is the event that opens it</b> — the cave was sealed until now."},
+ {at:"Team Aqua Hideout", t:"Fly to <b>Lilycove</b> and Surf east from the beach to the hideout", sub:"North-east of the beach. It has only just become enterable."},
+ {t:"Navigate the warp-tile maze", sub:"The floor panels teleport you between rooms. Follow the grunts' pattern — take the north-most warp first."},
+ {t:"Take the <b>Master Ball</b> in Archie's office", sub:"<b>Four items sit by the far wall and two of them are Electrode in disguise.</b> The top-left is the Master Ball and the bottom-left is a Nugget. <b>Save the Master Ball</b> for a roaming Latios or Latias — nothing else in the game needs it."},
+ {t:"Take the <b>Nugget</b> from the same wall"},
+ {t:"Beat <b>Aqua Admin Matt</b> by the submarine dock", sub:"Lv 34 Mightyena and a Lv 34 Golbat. He is stalling, and it works — Archie leaves in the sub while you fight."},
+ {t:"Leave and Surf east onto Route 124", sub:"You cannot follow the submarine. Dive comes from Steven in Mossdeep, which is the next stage."}
 ]],
 ["boss",{name:"Maxie", role:"Team Magma Leader · Fire", badge:"Magma Hideout", team:[
  {m:"Mightyena", l:37, t:["Dark"], note:"<b>Intimidate</b> drops your Attack on entry. Roar will force a switch — annoying if you set up."},
@@ -104,6 +107,8 @@ body:[
  {t:"Take <b>TM07 Hail</b> from the ice room"},
  {at:"Mossdeep City", t:"Beat <b>Tate & Liza</b> in the Mossdeep Gym", sub:"The gym is a rotating-tile puzzle. Step on the arrows in sequence — the wrong tile sends you back to the entrance."},
  {t:"Take the <b>Mind Badge</b> and <b>TM04 Calm Mind</b>", sub:"Dive now works in the field once you have HM08. <b>Calm Mind on Gardevoir is the single best move investment in the game</b> — +1 Special Attack and +1 Special Defence a turn on a 125 Special Attack body."},
+ {t:"Take the <b>Super Rod</b> from the Fisherman in the house <b>east of the Gym</b>", sub:"The last rod. It is what turns up Feebas, Corsola, Luvdisc and the deep-water dex entries — several of which have no other source."},
+ {t:"Take the <b>King's Rock</b> from the boy outside Steven's house"},
  {t:"Visit the <b>Game Corner</b> for Pokémon Jump and Dodrio Berry Picking", sub:"Emerald replaced Ruby and Sapphire's e-Reader Trainer house with these two wireless minigames."},
  {at:"Space Center", t:"Fight through the <b>Team Magma Grunts</b> on 1F and 2F"},
  {t:"Fight <b>Maxie and Tabitha alongside Steven</b>", sub:"<b>The only Multi Battle in the story.</b> Steven brings Metang Lv 42, Skarmory Lv 43 and Aggron Lv 44 — three Steel types, which cover most of what Magma throws. Let him tank and focus your damage on Camerupt."},
@@ -152,7 +157,7 @@ body:[
  {t:"Watch <b>Archie</b> wake <b>Kyogre</b> with the Red Orb", sub:"It vanishes, the weather breaks, and both team leaders realise they cannot control it."},
  {t:"Beat <b>Archie</b>", sub:"Lv 41 Mightyena, Lv 41 Crobat, Lv 43 Sharpedo. Thunderbolt clears the Sharpedo without touching its Rough Skin."},
  {at:"Sootopolis City", t:"Fly or Dive to Sootopolis", sub:"The weather is now alternating between blazing sun and torrential rain across the whole region."},
- {t:"Follow <b>Steven</b> into the <b>Cave of Origin</b> and meet <b>Wallace</b>", sub:"He tells you Rayquaza can stop it and leaves for the Sky Pillar."},
+ {t:"Surf west from the Gym to meet <b>Steven</b>, then follow him into the <b>Cave of Origin</b>", sub:"<b>Sweep the cave before you trigger anything.</b> Wallace is inside; he tells you Rayquaza can stop the fight and leaves for the Sky Pillar — and <b>the cave entrance is sealed for the rest of the game once Rayquaza is awake</b>."},
  {at:"Sky Pillar", t:"Surf to the Sky Pillar on Route 131 and let Wallace unlock the door"},
  {t:"Climb to the top", sub:"<b>On this first visit almost none of the floor is cracked</b> — you do not need the Mach Bike yet. That changes when you come back to catch it."},
  {t:"Wake <b>Rayquaza</b>", sub:"It flies to Sootopolis, calls both ancient Pokémon off, and returns to the tower. <b>You do not catch it here.</b>"},
@@ -160,7 +165,8 @@ body:[
  {t:"Take <b>TM31 Brick Break</b> from the Black Belt in the north-western house", sub:"75 power Fighting, 100% accurate, and <b>it shatters Reflect and Light Screen</b>. Juan does not use screens, but the Elite Four and the Frontier do."},
  {t:"Beat <b>Juan</b>", sub:"Luvdisc, Whiscash, Sealeo, Crawdaunt and a Lv 46 Kingdra."},
  {t:"Take the <b>Rain Badge</b> and <b>TM03 Water Pulse</b>", sub:"<b>All eight badges.</b> Waterfall works in the field and every traded Pokémon obeys you."},
- {t:"Go back to the <b>Sky Pillar</b> with the Mach Bike and catch <b>Rayquaza</b>", sub:"<b>The floors are cracked now.</b> Ride the Mach Bike across them without stopping. Rayquaza is at <b>Lv 70</b> — see the legendary chapter for the catch plan. You can do this before the Elite Four and it is worth it."}
+ {t:"Go back to the <b>Sky Pillar</b> with the <b>Mach Bike</b>", sub:"<b>The floors are cracked on this second visit.</b> Speed over the unstable patches on 2F without stopping — but on <b>4F you stop deliberately</b> on one of the two cracked tiles on the north side, so you fall through to the part of 3F you could not otherwise reach. Then climb to 5F and take the north-east stairs."},
+ {t:"<b>Save</b>, then catch <b>Rayquaza</b> at the apex", sub:"<b>Lv 70 — the highest-level Pokémon in the game before the credits.</b> Bring several dozen Timer Balls if you are keeping the Master Ball for a roaming Latios or Latias, and be careful with Ice moves: Dragon/Flying takes 4× and you want it alive."}
 ]],
 ["boss",{name:"Archie", role:"Team Aqua Leader · Water", badge:"Seafloor Cavern", team:[
  {m:"Mightyena", l:41, t:["Dark"], note:"<b>Intimidate</b>, Roar, Swagger. Swagger confuses you while raising your Attack — a real risk on a physical lead."},

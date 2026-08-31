@@ -6,6 +6,7 @@ and rebuild.
     python3 build.py            # src/*  ->  ../emerald-guide.html (+ cache/wrapped.html)
     python3 tools/verify.py     # headless render: JS errors, images, overflow, contrast
     python3 tools/audit.py      # content: catch cards, boss teams, move levels, TMs, party, route
+    python3 tools/steps.py      # placement: every route step against the leg it sits under
 
 Run all three on every change. `build.py` also emits `cache/wrapped.html`, the page
 inside the doctype/head/body skeleton the Artifact publisher adds — both checkers read
@@ -47,6 +48,20 @@ Nothing in this guide is written from memory.
   `emerald` version group and the `hoenn` pokedex.
 * **Item placements** — Bulbapedia `{{Itemlist}}` rows filtered to `E=yes`, so a
   Ruby-only or ORAS-only pickup cannot leak in.
+* **Step ordering** — checked against `Walkthrough:Pokémon Emerald/Part 1..22`, which is
+  the canonical play order.
+* **Area maps** — the `<Place>_E.png` in-game maps, discovered per stage by
+  `tools/mapfind.py`. It prefers the `_E` (Emerald) redraw over `_RS` every time: the
+  Magma Hideout and the Safari Zone expansions only exist in the Emerald versions.
+
+### The failure `tools/steps.py` exists to catch
+
+A step can be factually correct and still be filed under the wrong place, which sends
+the reader there at the wrong point in the walk. That is invisible when you read the
+guide top to bottom. `steps.py` checks each step's items against the location data for
+the leg it sits under, and knows that **Route 104 is one wiki page but two disconnected
+halves** split by Petalburg Woods — the flower shop and TM09 are on the north half, Mr.
+Briney's cottage and the beach on the south.
 
 ### One trap worth knowing about
 
