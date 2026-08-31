@@ -7,6 +7,7 @@ and rebuild.
     python3 tools/verify.py     # headless render: JS errors, images, overflow, contrast
     python3 tools/audit.py      # content: catch cards, boss teams, move levels, TMs, party, route
     python3 tools/steps.py      # placement: every route step against the leg it sits under
+    python3 tools/lightbox.py   # drives the map viewer: opens, scales, navigates, closes
 
 Run all three on every change. `build.py` also emits `cache/wrapped.html`, the page
 inside the doctype/head/body skeleton the Artifact publisher adds — both checkers read
@@ -33,6 +34,7 @@ inheriting colour, which produces false contrast failures.
 | `90-roster-engine.js` | party continuity — families, carry-forward, departures |
 | `91-rosters.js` | per-stage rosters, `NOW` band, move plan |
 | `93-roster-render.js` | roster board and map rendering |
+| `94-lightbox.js` | the pop-out map viewer |
 | `95-widgets.js` | TM index, damage-class table, type calculator, planner, backup |
 | `96-boot.js` | planner pool, starter select, boot |
 
@@ -52,7 +54,19 @@ Nothing in this guide is written from memory.
   the canonical play order.
 * **Area maps** — the `<Place>_E.png` in-game maps, discovered per stage by
   `tools/mapfind.py`. It prefers the `_E` (Emerald) redraw over `_RS` every time: the
-  Magma Hideout and the Safari Zone expansions only exist in the Emerald versions.
+  Magma Hideout and the Safari Zone expansions only exist in the Emerald versions. A
+  candidate matching none of `_E` / `_E_annotated` / `_RSE` / `_RS` is **rejected**
+  rather than used — falling through to "the first match" once put ORAS concept art in
+  the guide as the Aqua Hideout map.
+
+### Why the map viewer has its own checker
+
+`verify.py` only ever sees the page at rest, so a dialog that is hidden on load is
+invisible to it. `lightbox.py` opens one and re-runs the contrast and overflow checks
+with the overlay up, then exercises next/prev, the arrow keys, Escape, the backdrop
+click and focus restoration. It also asserts the pop-out is actually bigger than the
+thumbnail and that pixel art lands on a whole-number scale, since a fractional scale
+is what turns a 16px tile grid to mush.
 
 ### The failure `tools/steps.py` exists to catch
 

@@ -83,9 +83,14 @@ function mapHTML(id){
   if (!rows || !rows.length) return "";
   /* the in-game area maps for everywhere this stage takes you, in walking order */
   return '<div class="maprow">' + rows.map(m =>
-    '<figure class="mapfig"><div class="mapimg"><img src="' + m.src +
-      '" alt="In-game map of ' + esc(m.loc) + '" loading="lazy"></div>' +
-    '<figcaption><b>' + esc(m.loc) + '</b><span>Emerald · Bulbapedia</span></figcaption></figure>'
+    '<figure class="mapfig">' +
+      '<button class="mapimg" type="button" data-zoom="' + esc(m.loc) + '" ' +
+        'aria-label="Zoom in on the map of ' + esc(m.loc) + '">' +
+        '<img src="' + m.src + '" alt="In-game map of ' + esc(m.loc) + '" loading="lazy">' +
+        '<span class="maghint" aria-hidden="true">' + MAGNIFY + '</span>' +
+      '</button>' +
+      '<figcaption><b>' + esc(m.loc) + '</b><span>Emerald · Bulbapedia</span></figcaption>' +
+    '</figure>'
   ).join('') + '</div>';
 }
 function renderRosters(){

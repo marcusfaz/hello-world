@@ -455,14 +455,18 @@ td.mon .ms{width:34px;height:34px;vertical-align:-11px;margin-right:5px}
 .maprow{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:0 0 26px}
 .mapfig{margin:0;border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;
   background:var(--surface);box-shadow:var(--shadow);display:flex;flex-direction:column;min-width:0}
-/* one fixed viewport per map so the cards line up; tall route maps scroll inside it */
-.mapfig .mapimg{flex:1;display:flex;align-items:center;justify-content:center;
-  height:300px;overflow:auto;overscroll-behavior:contain;background:var(--sunk);
-  scrollbar-width:thin}
-.mapfig .mapimg img{margin:auto}
-.mapfig .mapimg::-webkit-scrollbar{width:8px;height:8px}
-.mapfig .mapimg::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
-.mapfig img{display:block;max-width:100%;height:auto;image-rendering:pixelated}
+/* the card is a thumbnail — the whole map, contained. Click pops it out bigger. */
+.mapfig .mapimg{flex:1;display:flex;align-items:center;justify-content:center;position:relative;
+  height:300px;padding:8px;border:0;background:var(--sunk);cursor:zoom-in;overflow:hidden}
+.mapfig .mapimg img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;
+  image-rendering:pixelated;transition:transform .18s ease}
+.mapfig .mapimg:hover img,.mapfig .mapimg:focus-visible img{transform:scale(1.03)}
+.mapfig .maghint{position:absolute;right:8px;bottom:8px;display:flex;align-items:center;
+  justify-content:center;width:28px;height:28px;border-radius:50%;
+  background:color-mix(in srgb,var(--surface) 88%,transparent);color:var(--ink2);
+  box-shadow:0 1px 3px rgba(0,0,0,.3), inset 0 0 0 1px var(--line);
+  opacity:.85;transition:opacity .18s ease,color .18s ease}
+.mapfig .mapimg:hover .maghint,.mapfig .mapimg:focus-visible .maghint{opacity:1;color:var(--indigo)}
 .mapfig figcaption{padding:9px 13px;font-size:12px;font-weight:700;color:var(--ink2);
   border-top:1px solid var(--line);background:var(--surface2);line-height:1.35}
 .mapfig figcaption b{display:block}
@@ -470,7 +474,37 @@ td.mon .ms{width:34px;height:34px;vertical-align:-11px;margin-right:5px}
   text-transform:uppercase;letter-spacing:.09em}
 @media (max-width:480px){
   .maprow{grid-template-columns:1fr}
-  .mapfig .mapimg{height:360px}
+  .mapfig .mapimg{height:340px}
+}
+
+/* ── the popped-out map ── */
+body.lbopen{overflow:hidden}
+.lightbox{position:fixed;inset:0;z-index:200;display:flex;flex-direction:column;
+  background:color-mix(in srgb,var(--sunk) 92%,transparent);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.lightbox .lbbar{flex:0 0 auto;display:flex;align-items:center;gap:10px;
+  padding:12px 16px;border-bottom:1px solid var(--line);background:var(--surface)}
+.lightbox .lbcap{font-family:"Baloo 2","Nunito",sans-serif;font-weight:800;font-size:17px;
+  color:var(--ink);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lightbox .lbcount{font-family:"DM Mono",ui-monospace,monospace;font-size:12px;color:var(--ink3);
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+.lightbox .lbbtn{display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;flex:0 0 auto;border:2px solid var(--line);border-radius:50%;
+  background:var(--surface);color:var(--ink2);cursor:pointer}
+.lightbox .lbbtn:hover{border-color:var(--gold);color:var(--ink);background:var(--gold-wash)}
+.lightbox .lbprev{margin-left:auto}
+.lightbox .lbclose{margin-left:6px}
+.lightbox .lbstage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;
+  padding:12px;overflow:auto;overscroll-behavior:contain}
+.lightbox .lbstage img{display:block;margin:auto;image-rendering:pixelated;
+  border-radius:var(--r-sm);box-shadow:var(--shadow-lg)}
+@media (max-width:480px){
+  .lightbox .lbbar{padding:10px 12px;gap:8px}
+  .lightbox .lbcap{font-size:15px}
+  .lightbox .lbstage{padding:6px}
+}
+@media (prefers-reduced-motion: reduce){
+  .mapfig .mapimg:hover img,.mapfig .mapimg:focus-visible img{transform:none}
 }
 
 /* ── misc ── */

@@ -33,7 +33,13 @@ def png(raw, trim=True, maxw=None):
         bb = im.getbbox()
         if bb: im = im.crop(bb)
     if maxw and im.width > maxw:
-        im = im.resize((maxw, max(1, round(im.height * maxw / im.width))), Image.NEAREST)
+        # Halve repeatedly while it stays above the cap: a 2:1 box reduction keeps a
+        # 16px tile grid aligned, where an arbitrary NEAREST ratio drops whole rows
+        # of pixels and visibly warps the tiles.
+        while im.width // 2 >= maxw:
+            im = im.resize((im.width // 2, max(1, im.height // 2)), Image.BOX)
+        if im.width > maxw:
+            im = im.resize((maxw, max(1, round(im.height * maxw / im.width))), Image.LANCZOS)
     im = im.quantize(colors=255, method=Image.FASTOCTREE)
     b = io.BytesIO(); im.save(b, 'PNG', optimize=True)
     return datauri(b.getvalue(), 'image/png')
@@ -94,7 +100,7 @@ for sid, rows in MAPS.items():
             print('  map fail %s/%s: %s' % (sid, f, e), file=sys.stderr); continue
         if not raw:
             print('  no map: %s (%s)' % (sid, f), file=sys.stderr); continue
-        got.append({'src': png(raw, trim=False, maxw=520), 'loc': loc})
+        got.append({'src': png(raw, trim=False, maxw=1100), 'loc': loc})
     if got: IMG['map'][sid] = got
 print('map %d stages, %d images'
       % (len(IMG['map']), sum(len(v) for v in IMG['map'].values())), file=sys.stderr)

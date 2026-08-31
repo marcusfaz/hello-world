@@ -93,7 +93,11 @@ def run(pw, theme, width, height, label):
     if reqfail: FAIL.append('%s: failed requests %s' % (label, reqfail[:4]))
 
     # broken images
+    # An <img> with no src, or one inside a closed dialog, is not a broken image —
+    # it is an empty placeholder that never renders. A src that fails to decode is.
     broken = pg.evaluate("""() => [...document.images]
+        .filter(i => i.getAttribute('src'))
+        .filter(i => !i.closest('[hidden]'))
         .filter(i => i.complete && i.naturalWidth === 0)
         .map(i => (i.src||'').slice(0,60))""")
     if broken: FAIL.append('%s: %d broken images e.g. %s' % (label, len(broken), broken[:3]))

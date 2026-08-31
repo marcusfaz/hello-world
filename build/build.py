@@ -28,6 +28,7 @@ ORDER = [
     ('90-roster-engine.js', 'js'),
     ('91-rosters.js',     'js'),
     ('93-roster-render.js', 'js'),
+    ('94-lightbox.js',    'js'),
     ('95-widgets.js',     'js'),
     ('96-boot.js',        'js'),
 ]

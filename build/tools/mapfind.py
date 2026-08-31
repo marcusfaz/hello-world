@@ -47,8 +47,8 @@ WANT = {
  'h11': [('Hoenn Route 121', r'^Hoenn_Route_121', 'Route 121'),
          ('Lilycove City', r'^Lilycove_City_E\.png|^Lilycove_City_RS\.png', 'Lilycove City'),
          ('Mt. Pyre', r'^Mt_Pyre_Exterior|^Mt_Pyre_1F', 'Mt. Pyre')],
- 'h12': [('Magma Hideout (Jagged Pass)', r'^Magma_Hideout', 'The Magma Hideout'),
-         ('Team Aqua Hideout', r'^(Team_)?Aqua_Hideout', 'The Aqua Hideout')],
+ 'h12': [('Magma Hideout (Jagged Pass)', r'^Magma_Hideout_entrance_E', 'The Magma Hideout entrance, on Jagged Pass'),
+         ('Team Aqua Hideout', r'^Lilycove_Hideout', 'The Aqua Hideout, east of Lilycove')],
  'h13': [('Hoenn Route 124', r'^Hoenn_Route_124', 'Route 124'),
          ('Mossdeep City', r'^Mossdeep_City', 'Mossdeep City'),
          ('Shoal Cave', r'^Shoal_Cave', 'Shoal Cave')],
@@ -76,14 +76,21 @@ def images(page):
     try: return json.loads(_get(u))['parse']['images']
     except Exception: return []
 
+# Things that match a location's name but are not an in-game Generation III map.
+# Falling through to "the first hit" once put ORAS concept art in the guide, so a
+# candidate that matches none of the version suffixes below is rejected outright.
+REJECT = re.compile(r'Concept_Art|ORAS|Anime|Adventures|Manga|Tiling_Error|'
+                    r'Artwork|_XY|_BW|_HGSS|_DP|Masters|TCG', re.I)
+
 def pick(page, pat):
-    ims = images(page)
+    ims = [i for i in images(page) if not REJECT.search(i)]
     hits = [i for i in ims if re.search(pat, i)]
-    # prefer the Emerald redraw, then annotated, then Ruby/Sapphire
+    # prefer the Emerald redraw, then Emerald annotated, then the shared RSE art,
+    # then the Ruby/Sapphire original. Never anything else.
     for want in (r'_E\.png$', r'_E_annotated\.png$', r'_RSE\.png$', r'_RS\.png$'):
         for h in hits:
             if re.search(want, h): return h
-    return hits[0] if hits else None
+    return None
 
 out, missing = {}, []
 for stage, wants in WANT.items():
