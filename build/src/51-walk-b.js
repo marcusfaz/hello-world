@@ -52,7 +52,8 @@ body:[
  {n:"Oddish", t:["Grass","Poison"], where:"Route 110 — 10%, Route 117 — 40%", why:"<b>Two evolution branches from Gloom:</b> Leaf Stone gives Vileplume, Sun Stone gives Bellossom. Both are separate dex entries, so catch two Oddish and split them."},
  {n:"Magnemite", t:["Electric","Steel"], where:"New Mauville — 50%, after Surf", why:"Electric/Steel resists eleven types in Generation III. A strong Frontier body, and the only place it is catchable."}
 ]],
-["tip","<b>Take the Mach Bike, not the Acro Bike.</b> Rydel swaps them free at any time, so this is not a permanent choice — but the Mach Bike is on the critical path twice (Mirage Tower's collapsing floors and the Sky Pillar's cracked ones) and the Acro Bike is only needed for a handful of optional item ledges."]
+["tip","<b>Take the Mach Bike, not the Acro Bike.</b> Rydel swaps them free at any time, so this is not a permanent choice — but the Mach Bike is on the critical path twice (Mirage Tower's collapsing floors and the Sky Pillar's cracked ones) and the Acro Bike is only needed for a handful of optional item ledges."],
+["zones","h06"]
 ]});
 
 STAGES.push({
@@ -95,11 +96,12 @@ body:[
  {n:"Skarmory", t:["Steel","Flying"], where:"Route 113 — 5%", why:"<b>Steel/Flying is the best defensive typing in Generation III</b> — nine resistances, immune to Ground and Poison, and Steel still resists Ghost and Dark here. Slow and weak offensively, but it walls two Elite Four members by itself."},
  {n:"Numel", t:["Fire","Ground"], where:"Route 112 — 75%", why:"Camerupt at 33. Fire/Ground with Earthquake and Flamethrower covers a lot, and it is immune to Electric like Swampert. A real alternative if you would rather not run Manectric."},
  {n:"Swablu", t:["Normal","Flying"], where:"Route 114 — 40%, Route 115 — 30%", why:"Altaria at 35 is <b>Dragon/Flying</b> with Natural Cure and Dragon Dance. One of only two raisable Dragon lines in Hoenn, and far easier to get than Bagon."},
- {n:"Solrock", t:["Rock","Psychic"], where:"Meteor Falls — 30%", why:"<b>Emerald has Solrock; Lunatone is Sapphire-exclusive.</b> Levitate makes it immune to Ground, and Rock/Psychic is an odd but useful pair."},
+ {n:"Solrock", t:["Rock","Psychic"], where:"Meteor Falls — 20% on 1F, 35% in the back rooms", why:"<b>Emerald has Solrock; Lunatone is Sapphire-exclusive.</b> Levitate makes it immune to Ground, and Rock/Psychic is an odd but useful pair."},
  {n:"Seviper", t:["Poison"], where:"Route 114 — 9%, Route 121 — later", why:"<b>Emerald has Seviper; Zangoose is Ruby-exclusive and needs a trade.</b> Take it now — this and Route 121 are your patches."},
  {n:"Spinda", t:["Normal"], where:"Route 113 — 70%", why:"Only here. Its spot pattern is derived from its personality value, so no two are alike. Purely a dex entry."}
 ]],
-["tip","<b>Carry a Slugma from here to the end of the game.</b> Filling the Hoenn Dex needs Azurill, Wynaut and several other baby forms, and every one of them is an Egg. Magma Armor turns that grind into half a grind, and it costs you nothing but a party slot you were not using."]
+["tip","<b>Carry a Slugma from here to the end of the game.</b> Filling the Hoenn Dex needs Azurill, Wynaut and several other baby forms, and every one of them is an Egg. Magma Armor turns that grind into half a grind, and it costs you nothing but a party slot you were not using."],
+["zones","h07"]
 ]});
 
 STAGES.push({
@@ -160,7 +162,8 @@ body:[
  {n:"Sandshrew", t:["Ground"], where:"Route 111 desert — 35%, Mirage Tower — 50%", why:"The best pure HM mule in Hoenn: Cut, Strength, Rock Smash and Dig on one body that can actually take a hit."},
  {n:"Lileep", t:["Rock","Grass"], where:"<b>Root Fossil</b> at Mirage Tower, revived in Rustboro", why:"<b>Take the Root Fossil.</b> Rock/Grass resists Water, Electric, Ground, Normal and Poison, and Cradily's Suction Cups plus 107 Special Defence make it a wall. The Claw Fossil is recoverable in the Desert Underpass after the Hall of Fame, so this choice is not permanent — but you only get one now."}
 ]],
-["ver","<b>The fossils are in Mirage Tower in Emerald, not lying in the desert sand.</b> Ruby and Sapphire put the Root and Claw Fossils on the ground on Route 111. Emerald built a four-storey tower that only appears sometimes, requires the Mach Bike, and <b>collapses permanently</b> the moment you take a fossil. The one you leave behind sinks — but Emerald also added the <b>Desert Underpass</b> behind the Fossil Maniac's house on Route 114, where you can collect the other one after entering the Hall of Fame."]
+["ver","<b>The fossils are in Mirage Tower in Emerald, not lying in the desert sand.</b> Ruby and Sapphire put the Root and Claw Fossils on the ground on Route 111. Emerald built a four-storey tower that only appears sometimes, requires the Mach Bike, and <b>collapses permanently</b> the moment you take a fossil. The one you leave behind sinks — but Emerald also added the <b>Desert Underpass</b> behind the Fossil Maniac's house on Route 114, where you can collect the other one after entering the Hall of Fame."],
+["zones","h08"]
 ]});
 
 STAGES.push({
@@ -216,7 +219,8 @@ body:[
  {n:"Voltorb", t:["Electric"], where:"<b>New Mauville — 50%</b>", why:"Also only here. Electrode has 140 Speed — the fastest thing in Generation III — and Soundproof. A Frontier piece more than a story one."},
  {n:"Kecleon", t:["Normal"], where:"Routes 118, 119, 120, 121 — <b>after the Devon Scope</b>", why:"Invisible without the Devon Scope, which Steven gives you on Route 120. Colour Change makes it take on the type of the last move that hit it. Noted here so you know why the route looks empty."}
 ]],
-["tip","<b>Surf goes on Swampert and stays there for the rest of the game.</b> It is 95 power, special, and Swampert's Special Attack is respectable — but more importantly Surf is a field move you will use hundreds of times, and Swampert is never leaving your party."]
+["tip","<b>Surf goes on Swampert and stays there for the rest of the game.</b> It is 95 power, special, and Swampert's Special Attack is respectable — but more importantly Surf is a field move you will use hundreds of times, and Swampert is never leaving your party."],
+["zones","h09"]
 ]});
 
 STAGES.push({
@@ -268,5 +272,6 @@ body:[
  {n:"Kecleon", t:["Normal"], where:"Routes 118–121 — <b>needs the Devon Scope</b>", why:"Invisible until Steven hands you the scope on Route 120. Colour Change is unique to it. A required dex entry and you have to fight one to enter the Fortree Gym anyway."},
  {n:"Feebas", t:["Water"], where:"Route 119 — six specific water tiles", why:"<b>The hardest catch in the game.</b> Six of Route 119's ~440 fishing tiles hold it, and which six is derived from the trendy phrase set in Dewford Hall. Milotic is worth it, but do not start this hunt now — the dex chapter covers the method."}
 ]],
-["ver","<b>Winona is the last Gym Leader before Emerald's plot diverges hard from Ruby and Sapphire.</b> From here both evil teams run parallel storylines, the Magma Hideout moves to Jagged Pass, and the Sootopolis Gym has a different Leader than the one Ruby and Sapphire put there. Anything you remember about the back half of Hoenn from another cartridge is now unreliable."]
+["ver","<b>Winona is the last Gym Leader before Emerald's plot diverges hard from Ruby and Sapphire.</b> From here both evil teams run parallel storylines, the Magma Hideout moves to Jagged Pass, and the Sootopolis Gym has a different Leader than the one Ruby and Sapphire put there. Anything you remember about the back half of Hoenn from another cartridge is now unreliable."],
+["zones","h10"]
 ]});

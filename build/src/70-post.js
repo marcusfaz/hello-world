@@ -44,7 +44,8 @@ body:[
  "<b>Cradily's Ingrain means it cannot be forced out and heals every turn.</b> You have to out-damage it. Ice, Fighting, Steel and Bug are all 2× on Rock/Grass.",
  "<b>Metagross is the real fight.</b> 135 Attack, 130 Defence, and Meteor Mash. Fire is 2× and Ground is 2×; Fighting is 2×. It has a Sitrus Berry so plan for one extra hit.",
  "<b>He is Lv 75–78 and you are probably Lv 65.</b> This is optional and it is meant to be hard. Come back at 70+ with a Rayquaza if you want it to be comfortable."
-], reward:"Bragging rights, ₽7,800, and a rematch that resets — you can fight him again."}]
+], reward:"Bragging rights, ₽7,800, and a rematch that resets — you can fight him again."}],
+["zones","p01"]
 ]});
 
 STAGES.push({
@@ -100,7 +101,8 @@ body:[
  "<b>Regice has 200 Special Defence and 100 Defence.</b> Physical damage is the only sensible way to bring it down.",
  "<b>In Emerald, if you run from one it respawns as soon as you leave the area</b> — you do not have to reset. If you knock one out, it comes back after you next enter the Hall of Fame."
 ]],
-["tip","<b>Do the Regis before Groudon and Kyogre.</b> The Regis stand still and wait, so they are the low-pressure practice run for your catching kit — False Swipe, a sleep move and thirty Ultra Balls. The weather trio are in caves that move and are twenty-five levels higher."]
+["tip","<b>Do the Regis before Groudon and Kyogre.</b> The Regis stand still and wait, so they are the low-pressure practice run for your catching kit — False Swipe, a sleep move and thirty Ultra Balls. The weather trio are in caves that move and are twenty-five levels higher."],
+["zones","p02"]
 ]});
 
 STAGES.push({
@@ -150,5 +152,6 @@ body:[
  ["<b>Groudon</b>, <b>Kyogre</b>, <b>Rayquaza</b>","Terra Cave, Marine Cave, Sky Pillar","Hall of Fame; Rayquaza needs only the story","<b>Yes</b> — all three, in-game."],
  ["<b>Latias</b> or <b>Latios</b>","Roaming Hoenn","The television answer","<b>Yes</b> — one of them. The other needs the Eon Ticket."]
 ]}],
-["tip","<b>Nine of the sixteen legendary Pokémon in Emerald are genuinely catchable.</b> Rayquaza, Groudon, Kyogre, the three Regis and one of Latias/Latios make seven, plus the two fossil revivals if you count them. The rest are event-locked and always were — a complete Hoenn Dex does not require any of them, and neither does the Johto starter, which explicitly excludes Jirachi and Deoxys."]
+["tip","<b>Nine of the sixteen legendary Pokémon in Emerald are genuinely catchable.</b> Rayquaza, Groudon, Kyogre, the three Regis and one of Latias/Latios make seven, plus the two fossil revivals if you count them. The rest are event-locked and always were — a complete Hoenn Dex does not require any of them, and neither does the Johto starter, which explicitly excludes Jirachi and Deoxys."],
+["zones","p03"]
 ]});

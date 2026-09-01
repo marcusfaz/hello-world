@@ -59,7 +59,8 @@ body:[
  "<b>6 · Battle Palace.</b> You give no orders, so your Natures do the playing. Pick three with aggressive Natures and attacking movesets only.",
  "<b>7 · Battle Pyramid.</b> Leave it last. No items, seven dark floors, and Brandon's gold team is <b>Articuno, Zapdos and Moltres</b>."
 ]],
-["tip","<b>Do the vitamin run before anything else.</b> Six vitamins at 1 BP each, up to 100 EVs per stat, is the single highest-value thing on the island. Twenty or thirty BP from a couple of Factory runs buys you a fully EV-trained Pokémon, and that is what makes the rest of the Symbols achievable."]
+["tip","<b>Do the vitamin run before anything else.</b> Six vitamins at 1 BP each, up to 100 EVs per stat, is the single highest-value thing on the island. Twenty or thirty BP from a couple of Factory runs buys you a fully EV-trained Pokémon, and that is what makes the rest of the Symbols achievable."],
+["zones","bf01"]
 ]});
 
 STAGES.push({

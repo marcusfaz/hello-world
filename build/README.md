@@ -21,6 +21,7 @@ inheriting colour, which produces false contrast failures.
 | `00-head.html` | `<title>`, font links, the whole stylesheet |
 | `10-shell.html` | rail, topbar, mount points |
 | `20-assets.js` | **generated** by `tools/assets.py` — every image as a data URI |
+| `26-zones.js` | **generated** by `tools/zonemap.py` — every area's encounter table |
 | `30-engine.js` | persistence, block renderers, search, hide-done, theme, type chart |
 | `40-chapters.js` | chapter list and order |
 | `41-core.js` | Gen 3 rules, abilities, weather |
@@ -48,6 +49,13 @@ Nothing in this guide is written from memory.
   page; keying on that field is what stops the wrong version's roster being used.
 * **Encounters, learnsets, machine numbering, sprites** — PokeAPI, filtered to the
   `emerald` version group and the `hoenn` pokedex.
+* **The per-area encounter index** — `tools/zones.py` then `tools/zonemap.py`. PokeAPI
+  returns one entry per encounter SLOT, so a species holding four walking slots appears
+  four times; the rate for a method is the sum of its slot chances (Wingull walks Route
+  104 at 4+4+1+1 = 10%). `max_chance` sums across methods and is useless for display —
+  a Magikarp reachable by three rods reads as 130%. `zonemap.py` fails if any area is
+  left unassigned, so the guide cannot walk you somewhere without saying what lives
+  there.
 * **Item placements** — Bulbapedia `{{Itemlist}}` rows filtered to `E=yes`, so a
   Ruby-only or ORAS-only pickup cannot leak in.
 * **Step ordering** — checked against `Walkthrough:Pokémon Emerald/Part 1..22`, which is

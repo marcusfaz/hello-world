@@ -153,7 +153,72 @@ notes.append('machine placements cross-checked against location pages: %d'
              % sum(1 for n, m, t, w in re.findall(r'\["(TM\d\d|HM\d\d)","([^"]+)","([^"]+)","([^"]+)"\]', src_all)
                    if ('%s %s' % (n, m)).lower() in ITEM_AT))
 
-# ── 6 & 7. rendered checks: party size, route numbering ──
+# ── 6. the zone index is complete: nothing catchable is left out ──
+ZONES_SRC = open(os.path.join(SRC, '26-zones.js'), encoding='utf-8').read()
+ZONES = json.loads(ZONES_SRC.split('const ZONES = ', 1)[1].rstrip(';\n'))
+ZDATA = json.load(open(os.path.join(CACHE, 'zones.json')))
+
+in_guide = {}
+for stage, areas in ZONES.items():
+    for a in areas:
+        for r in a['m']:
+            in_guide.setdefault(r['n'], set()).add(a['z'])
+
+# every species with an Emerald encounter must be somewhere in the guide
+catchable = {r['n'] for rows in ZDATA.values() for r in rows}
+absent = sorted(catchable - set(in_guide))
+if absent:
+    bad('zones', '%d catchable species appear nowhere: %s' % (len(absent), absent[:12]))
+
+# and every area's row set must match the source data exactly
+by_label = {}
+for stage, areas in ZONES.items():
+    for a in areas:
+        by_label.setdefault(a['z'], []).append({r['n'] for r in a['m']})
+src_sets = [{r['n'] for r in rows} for rows in ZDATA.values()]
+for label, sets in by_label.items():
+    for st in sets:
+        if st not in src_sets:
+            bad('zones', 'area "%s" lists a species set that is not in the encounter data' % label)
+
+# a hand-written encounter rate on a catch card must exist in the encounter data
+RATES = {}
+for a, rows in ZDATA.items():
+    for r in rows:
+        RATES.setdefault(r['n'], set()).update(w['rate'] for w in r['ways'])
+for name, types, where in cards:
+    plain = re.sub(r'<[^>]+>', '', where)
+    claimed = [int(x) for x in re.findall(r'(\d+)\s*%', plain)]
+    have = RATES.get(name, set())
+    off = [p for p in claimed if p not in have]
+    if off:
+        bad('rate', '%s card claims %s%% — the encounter data has %s'
+            % (name, off, sorted(have)))
+
+# the guide's own catch cards must agree with the zone data
+for name, types, where in cards:
+    if name in in_guide: continue
+    slug = SLUG.get(name)
+    if slug and slug in ENC['bymon']:
+        bad('zones', '%s has wild encounters but is missing from every zone table' % name)
+
+# the reported regression, kept as a fixture
+r104 = [r for rows in ZDATA.values() for r in rows]
+w = [a for st in ZONES.values() for a in st if a['z'] == 'Route 104']
+if not w:
+    bad('zones', 'Route 104 has no zone table')
+else:
+    names = {r['n'] for r in w[0]['m']}
+    for must in ('Wingull', 'Marill', 'Taillow', 'Poochyena', 'Wurmple', 'Magikarp', 'Pelipper'):
+        if must not in names:
+            bad('zones', 'Route 104 zone table is missing %s' % must)
+
+notes.append('zone index: %d areas, %d species rows, %d distinct species'
+             % (sum(len(v) for v in ZONES.values()),
+                sum(len(a['m']) for v in ZONES.values() for a in v),
+                len(in_guide)))
+
+# ── 7 & 8. rendered checks: party size, route numbering ──
 with sync_playwright() as pw:
     b = pw.chromium.launch(executable_path='/opt/pw-browsers/chromium-1194/chrome-linux/chrome',
                            args=['--no-sandbox'])

@@ -99,5 +99,6 @@ body:[
  "<b>Gyarados' Intimidate plus Dragon Dance</b> is the sweep condition. Thunderbolt is 4× on it and ends it before it sets up.",
  "Toxic from Tentacruel and Milotic puts a timer on your whole run. Carry Full Heals and use them the turn it lands, not three turns later."
 ], reward:"The Hall of Fame, the National Pokédex on your next visit home, the Battle Frontier, and every legendary in the game."}],
-["warn","<b>Right after the credits, the television asks you the colour of the Pokémon in the report. Answer deliberately.</b> Say <b>red</b> and <b>Latias</b> roams Hoenn while Latios waits on Southern Island. Say <b>blue</b> and it is the other way round. Southern Island needs the <b>Eon Ticket</b>, which was a promotional item — so in practice you are choosing which of the two you can actually catch. See the post-game chapter before you answer."]
+["warn","<b>Right after the credits, the television asks you the colour of the Pokémon in the report. Answer deliberately.</b> Say <b>red</b> and <b>Latias</b> roams Hoenn while Latios waits on Southern Island. Say <b>blue</b> and it is the other way round. Southern Island needs the <b>Eon Ticket</b>, which was a promotional item — so in practice you are choosing which of the two you can actually catch. See the post-game chapter before you answer."],
+["zones","e4"]
 ]});

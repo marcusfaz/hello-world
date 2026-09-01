@@ -86,6 +86,9 @@ def run(pw, theme, width, height, label):
     pg.goto(HTML, wait_until='load')
     if theme in ('light', 'dark'):
         pg.evaluate("t => document.documentElement.setAttribute('data-theme', t)", theme)
+    # Collapsed <details> render nothing, so their contents would never be measured.
+    # Open every one before checking contrast, overflow and images.
+    pg.evaluate("() => document.querySelectorAll('details').forEach(d => d.open = true)")
     pg.wait_for_timeout(1200)
 
     res = {'label': label}

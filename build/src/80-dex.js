@@ -99,5 +99,6 @@ body:[
  "<b>Houndour</b> — Houndoom is Dark/Fire with 110 Special Attack, and <b>Dark is a special type in Generation III</b>, so Crunch and Flamethrower both run off the same stat. Unusually well-built for this generation.",
  "<b>Miltank</b> — 105 HP, 105 Defence and Thick Fat. Milk Drink heals half its HP.",
  "<b>Pikachu</b> — three dex entries from one catch, and it is the only one in Hoenn."
-]]
+]],
+["zones","dex-safari"]
 ]});

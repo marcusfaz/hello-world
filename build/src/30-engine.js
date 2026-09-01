@@ -64,6 +64,41 @@ function renderBlock(b, stageId){
     /* a location map on a stage that has no roster board of its own */
     case 'map':   return '<div data-map="' + esc(v) + '"></div>';
 
+    /* Every species catchable in every area this stage reaches — generated from the
+       Emerald encounter tables, so it is complete rather than a selection. The catch
+       cards above it stay opinionated; this is the full index. */
+    case 'zones': {
+      const areas = (typeof ZONES !== 'undefined' && ZONES[v]) || [];
+      if (!areas.length) return '';
+      const total = areas.reduce((n, a) => n + a.m.length, 0);
+      const seen = {};
+      areas.forEach(a => a.m.forEach(r => { seen[r.n] = 1; }));
+      return '<details class="zones"><summary>' +
+        '<span class="zsum">Everything catchable here</span>' +
+        '<span class="zcount">' + Object.keys(seen).length + ' species · ' +
+        areas.length + (areas.length === 1 ? ' area' : ' areas') + '</span></summary>' +
+        areas.map(a =>
+          '<div class="zone"><div class="zh"><b>' + esc(a.z) + '</b>' +
+            '<span>' + a.m.length + '</span></div>' +
+            '<div class="tblwrap"><table class="ztable"><thead><tr>' +
+              '<th>Pokémon</th><th>Type</th><th>How, and how often</th>' +
+            '</tr></thead><tbody>' +
+            a.m.map(r =>
+              '<tr><td class="mon">' + monArt(r.n, 'ms') + esc(r.n) + '</td>' +
+              '<td>' + tpills(r.t) + '</td>' +
+              '<td class="ways">' + r.ways.map(w =>
+                '<span class="way' + (w.rate >= 25 ? ' common' : w.rate <= 5 ? ' rare' : '') + '">' +
+                esc(w.m) + (w.rate ? ' <b>' + w.rate + '%</b>' : '') +
+                ' <i>Lv ' + w.lo + (w.hi !== w.lo ? '–' + w.hi : '') + '</i></span>'
+              ).join('') + '</td></tr>').join('') +
+            '</tbody></table></div></div>').join('') +
+        '<p class="znote">Rates are the total of a species&rsquo; encounter slots for that ' +
+        'method. Anything at 5% or less is marked <span class="way rare">rare</span>; ' +
+        '25% or more is <span class="way common">common</span>. Two entries for one ' +
+        'Pok&eacute;mon means two different ways of finding it in the same place.</p>' +
+        '</details>';
+    }
+
     /* The route and the checklist are the same list: an ordered walk, ticked as
        you go.  Items carrying `at` open a new leg; the rest continue the last one. */
     case 'do': {

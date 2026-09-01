@@ -46,7 +46,8 @@ body:[
  {n:"Vulpix", t:["Fire"], where:"<b>Mt. Pyre outside — 30%. The only patch in Hoenn.</b>", why:"Ninetales needs a Fire Stone from the Lilycove Department Store. <b>Vulpix has Flash Fire in Emerald, not Drought</b> — that only arrived in Generation V. Catch it for the dex if nothing else."},
  {n:"Absol", t:["Dark"], where:"Route 120 and 121 — 8%", why:"130 Attack and Pressure. If you skipped it on Route 120, this is your second chance."}
 ]],
-["warn","<b>Save the Master Ball for a roaming Latios or Latias.</b> Roaming Pokémon in Generation III flee on the first turn every time you find them, cannot be trapped by Mean Look or Arena Trap, and take dozens of encounters to whittle down. Every other legendary in Emerald stands still and lets you throw Ultra Balls at it."]
+["warn","<b>Save the Master Ball for a roaming Latios or Latias.</b> Roaming Pokémon in Generation III flee on the first turn every time you find them, cannot be trapped by Mean Look or Arena Trap, and take dozens of encounters to whittle down. Every other legendary in Emerald stands still and lets you throw Ultra Balls at it."],
+["zones","h11"]
 ]});
 
 STAGES.push({
@@ -87,7 +88,8 @@ body:[
  "<b>Crobat is the one that beats you.</b> It outspeeds your whole team and Confuse Ray means a 50% chance you hit yourself. Thunderbolt or Ice Beam kills it before it gets two turns; do not try to grind it down through confusion.",
  "Mightyena's Roar will drag out a random party member. Kill it first if you plan to Calm Mind."
 ], reward:"The plot moves to Slateport Harbor, and Groudon is loose."}],
-["tip","<b>Bring a Slugma or a Torkoal out of this cave if you have not got one.</b> Torkoal is 30% here against 18% in the Fiery Path, and it is the only wild Torkoal in the game."]
+["tip","<b>Bring a Slugma or a Torkoal out of this cave if you have not got one.</b> Torkoal is 30% here against 18% in the Fiery Path, and it is the only wild Torkoal in the game."],
+["zones","h12"]
 ]});
 
 STAGES.push({
@@ -138,7 +140,8 @@ body:[
  {n:"Wailmer", t:["Water"], where:"Routes 122–129 — Super Rod, very common", why:"Wailord at 40 is the largest Pokémon in the game and <b>it is one of the two Pokémon required for the Regi puzzle</b>. You need it. Catch it now while you are on the water."},
  {n:"Relicanth", t:["Water","Rock"], where:"Underwater on Route 124/126 — after Dive", why:"<b>The other half of the Regi puzzle.</b> No Relicanth, no legendary giants. It is an underwater encounter, so it waits until Dive."}
 ]],
-["warn","<b>Catch a Wailmer and a Relicanth before you leave the sea routes.</b> The Regi trio's Sealed Chamber puzzle requires both of them in your party in a specific order, and Relicanth is underwater-only. Getting them now saves a dedicated trip later."]
+["warn","<b>Catch a Wailmer and a Relicanth before you leave the sea routes.</b> The Regi trio's Sealed Chamber puzzle requires both of them in your party in a specific order, and Relicanth is underwater-only. Getting them now saves a dedicated trip later."],
+["zones","h13"]
 ]});
 
 STAGES.push({
@@ -200,5 +203,6 @@ body:[
  {n:"Luvdisc", t:["Water"], where:"Routes 128 and 132–134 — Super Rod", why:"A required dex entry, and it sometimes holds a <b>Heart Scale</b>. Catch a few with Thief if you are short of scales."},
  {n:"Corsola", t:["Water","Rock"], where:"Routes 128 and 129 — Super Rod, rare", why:"Uncommon and easy to forget. A required dex entry with no alternative location."}
 ]],
-["warn","<b>Go back for Rayquaza before the Elite Four, not after.</b> The Sky Pillar's floors are cracked on the second visit and need the Mach Bike — ride across without stopping or you fall through. A level-70 Dragon/Flying with Air Lock trivialises Drake and makes catching Groudon and Kyogre straightforward instead of miserable."]
+["warn","<b>Go back for Rayquaza before the Elite Four, not after.</b> The Sky Pillar's floors are cracked on the second visit and need the Mach Bike — ride across without stopping or you fall through. A level-70 Dragon/Flying with Air Lock trivialises Drake and makes catching Groudon and Kyogre straightforward instead of miserable."],
+["zones","h14"]
 ]});

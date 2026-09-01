@@ -33,7 +33,8 @@ body:[
  {n:"Poochyena", t:["Dark"], where:"Route 101 — 45%, Route 103 — 60%", why:"Everywhere, and Mightyena is a passable Bite user for the early game. Mostly this is a dex entry and a body — it falls off hard by Mauville."},
  {n:"Wurmple", t:["Bug"], where:"Route 101 — 45%, Route 104 — 20%", why:"Its evolution is decided by a hidden value at level 7, so you cannot choose. Catch two and you will get one of each branch. Four dex entries hang off this one catch."}
 ]],
-["tip","There is no Poké Mart worth shopping at yet and you have almost no money. Do not buy Poké Balls in Oldale — Route 104's shop is on your way and by then you will be able to afford a useful number."]
+["tip","There is no Poké Mart worth shopping at yet and you have almost no money. Do not buy Poké Balls in Oldale — Route 104's shop is on your way and by then you will be able to afford a useful number."],
+["zones","h01"]
 ]});
 
 STAGES.push({
@@ -82,7 +83,8 @@ body:[
  {n:"Slakoth", t:["Normal"], where:"Petalburg Woods — 5%, Route 116 — rare", why:"Truant means it attacks every other turn, so it is painful to raise — but Slaking's 670 base stat total is the highest of any non-legendary in Generation III, and the dex entry is only here and on Route 116."},
  {n:"Lotad", t:["Water","Grass"], where:"Route 102 — 20%, Route 114 — 30%", why:"Ludicolo needs a Water Stone and is genuinely good — Water/Grass has only two weaknesses and Swift Swim doubles its Speed in rain. A real alternative sixth slot if you would rather not raise a Manectric."}
 ]],
-["tip","<b>Do not use the Great Ball on anything yet.</b> Save it for the Ralts if you keep losing it, or for Slakoth — a 5% encounter you fail to catch is a 5% encounter you have to find again."]
+["tip","<b>Do not use the Great Ball on anything yet.</b> Save it for the Ralts if you keep losing it, or for Slakoth — a 5% encounter you fail to catch is a 5% encounter you have to find again."],
+["zones","h02"]
 ]});
 
 STAGES.push({
@@ -132,7 +134,8 @@ body:[
  {n:"Skitty", t:["Normal"], where:"Route 116 — 2%", why:"<b>Pure Normal in Gen 3</b>, and one of only two places it appears. Cute Charm and a Moon Stone evolution. Take it if it shows; do not spend an hour hunting it now."},
  {n:"Aron", t:["Steel","Rock"], where:"Granite Cave B1F — next stage", why:"Noted here so you plan for it: this is your fourth team slot and the reason Phoebe and half of Sidney's team stop working."}
 ]],
-["ver","Roxanne's Emerald team is the same three as Ruby and Sapphire, but her <b>rematch</b> teams are not — Match Call lets you fight her again in a <b>Double Battle</b> with Golem, Kabutops, Onix and eventually Aerodactyl and Steelix, none of which are catchable in Hoenn. That is an Emerald-only system and it is covered in the post-game chapter."]
+["ver","Roxanne's Emerald team is the same three as Ruby and Sapphire, but her <b>rematch</b> teams are not — Match Call lets you fight her again in a <b>Double Battle</b> with Golem, Kabutops, Onix and eventually Aerodactyl and Steelix, none of which are catchable in Hoenn. That is an Emerald-only system and it is covered in the post-game chapter."],
+["zones","h03"]
 ]});
 
 STAGES.push({
@@ -181,7 +184,8 @@ body:[
  {n:"Sableye", t:["Dark","Ghost"], where:"Granite Cave B1F — 10%, B2F — 20%", why:"<b>Dark/Ghost has zero weaknesses in Generation III.</b> Nothing on the type chart hits it for more than neutral. Its stats are poor, but it is a real Battle Frontier piece and a dex entry you will not find elsewhere until Victory Road."},
  {n:"Nosepass", t:["Rock"], where:"<b>Granite Cave B2F — 30%</b>", why:"<b>This is the only wild Nosepass in Hoenn.</b> If you leave without it you are coming back with Flash specifically for this. Catch it on the Steven trip."},
  {n:"Mawile", t:["Steel"], where:"Victory Road — much later, 5%", why:"Noted so you stop looking: Mawile is <i>not</i> in Granite Cave in Emerald. It is a Victory Road catch at 5% and it is <b>pure Steel</b>, not Steel/Fairy."}
-]]
+]],
+["zones","h04"]
 ]});
 
 STAGES.push({
@@ -221,5 +225,6 @@ body:[
  ["<b>Verdanturf</b>","Battle Palace","Your Pokémon <b>choose their own moves</b> based on Nature. You give no commands at all.","After Wattson — Stage 06"],
  ["<b>Fallarbor</b>","Battle Arena","Three turns, then a judge scores mind, skill and body. Switching is banned.","Stage 07"]
 ]}],
-["tip","<b>The Verdanturf tent is where you learn what Natures do.</b> A Pokémon with an aggressive Nature picks attacks; a timid one picks status. It is the only place the game shows you that mapping directly, and it is exactly how the Battle Palace works when you get there with real stakes."]
+["tip","<b>The Verdanturf tent is where you learn what Natures do.</b> A Pokémon with an aggressive Nature picks attacks; a timid one picks status. It is the only place the game shows you that mapping directly, and it is exactly how the Battle Palace works when you get there with real stakes."],
+["zones","h05"]
 ]});

@@ -13,6 +13,7 @@ ORDER = [
     ('00-head.html',      'raw'),
     ('10-shell.html',     'raw'),
     ('20-assets.js',      'js'),
+    ('26-zones.js',       'js'),
     ('30-engine.js',      'js'),
     ('40-chapters.js',    'js'),
     ('41-core.js',        'js'),
