@@ -1047,7 +1047,7 @@ body:[
 ["h","A six that works, all catchable in Johto without trading"],
 ["catch",[
  {n:"Typhlosion", t:["Fire"], where:"Starter — New Bark Town", why:"Your special sweeper all game. Flamethrower via the Goldenrod Game Corner is the single biggest power spike available before badge five."},
- {n:"Gyarados", t:["Water","Flying"], where:"Red Gyarados, Lake of Rage — Lv 30, free, guaranteed", why:"Enormous Attack, arrives fully evolved right when the level curve gets steep, and carries Surf, Waterfall, Whirlpool and Strength. Intimidate blunts every physical gym leader."},
+ {n:"Gyarados", t:["Water","Flying"], where:"Red Gyarados, Lake of Rage — Lv 30, free, guaranteed", why:"Enormous Attack, arrives fully evolved right when the level curve gets steep, and takes <b>Surf and Waterfall</b> off your hands — both are strong STAB attacks, so they cost it nothing. Intimidate blunts every physical gym leader."},
  {n:"Ampharos", t:["Electric"], where:"Mareep — Route 32, then Route 42/43", why:"Johto's only convenient Electric line. Answers the Water and Flying that Typhlosion cannot, and Thunder Wave turns hard fights into manageable ones."},
  {n:"Crobat", t:["Poison","Flying"], where:"Zubat — Dark Cave / Union Cave (evolves at high friendship)", why:"Absurdly fast, learns Fly, and Flying beats Bugsy, Chuck, Bruno and half of Karen's team. Friendship evolution pairs nicely with the Goldenrod haircut and Daisy's massages."},
  {n:"Heracross", t:["Bug","Fighting"], where:"Headbutt trees — Azalea Town, Routes 42/44/45/46", why:"The answer to Whitney, to Kanto's Normal walls, and to Karen's Dark types. Requires Headbutt from the Ilex Forest tutor, so it slots in right after badge two."},
@@ -1063,18 +1063,20 @@ body:[
  "<b>Togekiss</b> is <i>not</i> available: the Shiny Stone is post-game, and in Gen 4 Togekiss is Normal/Flying, not Fairy."
 ]],
 ["h","The HM problem, solved once"],
-["p","Eight field moves, six team slots. The trick is to let real attackers carry the water HMs and to keep exactly one disposable carrier for the rest."],
-["table",{cols:["HM","Where you get it","Who should carry it"],rows:[
- ["HM01 Cut","Ilex Forest — from the charcoal maker after you return his Farfetch’d","The mule (Furret is the classic — Sentret is on Routes 29–31)"],
- ["HM02 Fly","Cianwood City — Chuck’s wife, after the gym","Crobat, or a Noctowl/Pidgeot mule"],
- ["HM03 Surf","Ecruteak Dance Theatre — after the Kimono Girls’ Rocket","Gyarados or Lapras — Surf is a genuinely good attack"],
- ["HM04 Strength","Route 42 — Hiker outside Mt. Mortar","Gyarados, Quagsire or the mule"],
- ["HM05 Whirlpool","Rocket HQ — Lance gives it after the generator","Gyarados or Lapras"],
- ["HM06 Rock Smash","Route 36 — man east of the Sudowoodo tree","The mule (and it breaks rocks hiding Heart Scales)"],
- ["HM07 Waterfall","Ice Path 1F","Gyarados or Lapras — also a strong physical STAB"],
- ["HM08 Rock Climb","Pallet Town — Prof. Oak, after all 16 badges","Ampharos or Donphan — <b>not</b> Furret, which cannot learn it"]
+["p","Eight field moves, and <b>every Pokémon holds exactly four moves</b>. That is the whole problem: eight HMs need at least two bodies, and in Gen 4 an HM move cannot be overwritten normally — only the <b>Move Deleter in Blackthorn City</b> can strip one out. So decide the split once and stop re-teaching."],
+["warn","Being <i>able</i> to learn an HM is not the same as carrying it. Furret is compatible with five field moves but can only hold four at a time, and Gyarados is compatible with five while wanting two of its slots for Ice Fang and Dragon Dance. Plan slots, not compatibility."],
+["table",{cols:["HM","Where you get it","Slot it goes in"],rows:[
+ ["HM01 Cut","Ilex Forest — from the charcoal maker after you return his Farfetch’d","<b>Furret</b>, slot 1"],
+ ["HM06 Rock Smash","Route 36 — man east of the Sudowoodo tree","<b>Furret</b>, slot 2 — it also breaks the rocks hiding Heart Scales"],
+ ["HM04 Strength","Route 42 — Hiker outside Mt. Mortar","<b>Furret</b>, slot 3"],
+ ["HM05 Whirlpool","Rocket HQ — Lance gives it after the generator","<b>Furret</b>, slot 4. That fills the mule; it never needs a fifth"],
+ ["HM03 Surf","Ecruteak Dance Theatre — after the Kimono Girls’ Rocket","<b>Gyarados</b> — 95 power STAB, so this costs it nothing"],
+ ["HM07 Waterfall","Ice Path 1F","<b>Gyarados</b> — 80 power physical STAB, likewise free"],
+ ["HM02 Fly","Cianwood City — Chuck’s wife, after the gym","<b>Crobat</b> — 90 power STAB, and it is your fast travel"],
+ ["HM08 Rock Climb","Pallet Town — Prof. Oak, after all 16 badges","<b>Ampharos</b> — the only genuinely wasted slot on the team, and it arrives after the sixteenth badge, so it barely matters"]
 ]}],
-["tip","Build the mule early. A <b>Furret</b> caught on Route 29 covers Cut, Strength, Rock Smash, Surf and Whirlpool — five of the eight. It <i>cannot</i> learn Fly, Waterfall or Rock Climb, so plan those three onto real team members: Fly on Crobat, Waterfall on Gyarados, and Rock Climb on Ampharos or a Donphan."],
+["p","That is all eight, inside the four-slot limit, with one slot spent on something you would not otherwise run. Gyarados keeps Ice Fang and Dragon Dance; Crobat and Ampharos keep three real moves each; Furret does nothing but open doors. <b>Typhlosion and Quagsire can also carry Rock Climb and the water HMs</b> if you would rather move it — but do not put field moves on your starter, whose four slots are the most contested on the team."],
+["tip","Build the mule early. A <b>Furret</b> caught on Route 29 is compatible with Cut, Rock Smash, Strength, Whirlpool <i>and</i> Surf — but it can only hold four, so give it the first four and let Gyarados take Surf. It cannot learn Fly, Waterfall or Rock Climb at all."],
 ["mount","planner"]
 ]});
 
@@ -1141,7 +1143,7 @@ body:[
 ]],
 ["h","Worth catching now"],
 ["catch",[
- {n:"Sentret", t:["Normal"], where:"Routes 29–31, day", why:"This is your HM mule. Furret learns Cut, Strength, Rock Smash, Surf and Whirlpool — five of the eight field moves on one body. It cannot learn Fly, Waterfall or Rock Climb."},
+ {n:"Sentret", t:["Normal"], where:"Routes 29–31, day", why:"This is your HM mule. Every Pokémon holds only four moves, so give Furret <b>Cut, Rock Smash, Strength and Whirlpool</b> — that is four of the eight field moves on a body that never has to fight. It is also compatible with Surf, but there is no fifth slot; Gyarados takes that one."},
  {n:"Hoothoot", t:["Normal","Flying"], where:"Routes 29–31, night", why:"Temporary Flying coverage for the first two badges. Fly goes on Crobat later — box Hoothoot at Stage 3."},
  {n:"Bellsprout", t:["Grass","Poison"], where:"Routes 30–31, Sprout Tower", why:"Catch a spare: a trainer beside the Violet City Pokémon Center trades an Onix for one."},
  {n:"Spinarak", t:["Bug","Poison"], where:"Routes 30–31, night (HeartGold only)", why:"Version exclusive — grab one for the dex while you are here rather than trekking back."},
@@ -1601,7 +1603,7 @@ body:[
 ["p","The gym is blocked by a man selling RageCandyBars — a not-very-subtle sign that Team Rocket is underneath the souvenir shop. Head north up Route 43 to the Lake of Rage first; the story requires it."],
 ["h","Lake of Rage"],
 ["p","Every Magikarp in the lake is enraged because of a Rocket radio signal, and in the middle is a <b>shiny red Gyarados at level 30</b>."],
-["warn","<b>Catch it, do not knock it out.</b> It holds the <b>Red Scale</b>, which you trade to Mr. Pokémon on Route 30 for the <b>Exp. Share</b> — the game’s only one, and the tool that lets you bring a sixth member up to Elite Four level. The Gyarados itself is also a top-three team member: level 30, fully evolved, Intimidate, and it carries Surf, Waterfall, Whirlpool and Strength for you."],
+["warn","<b>Catch it, do not knock it out.</b> It holds the <b>Red Scale</b>, which you trade to Mr. Pokémon on Route 30 for the <b>Exp. Share</b> — the game’s only one, and the tool that lets you bring a sixth member up to Elite Four level. The Gyarados itself is also a top-three team member: level 30, fully evolved, Intimidate, and it carries <b>Surf and Waterfall</b> as real attacks rather than as dead HM slots."],
 ["do",[
  {at:"Route 42", t:"Take <b>HM04 Strength</b> from the Hiker outside Mt. Mortar."},
  {t:"Grab <b>TM65 Shadow Claw</b>."},
@@ -2965,7 +2967,7 @@ function R(id, o){ ROSTERS[id] = o; }
 R("j01",{lv:"5 → 9", form:"base", sum:"Three bodies is plenty. Everything here dies to a strong hit, so the job is catching your long-term pieces early rather than winning fights elegantly.",
 slots:[
  {n:"%S%", role:"Lead · your only real attacker", st:"keep", w:"Every fight goes through it until Violet City."},
- {n:"Sentret", t:["Normal"], role:"HM mule", st:"add", w:"Route 29. Never needs to fight — it exists to carry Cut, Rock Smash, Strength and Surf."},
+ {n:"Sentret", t:["Normal"], role:"HM mule", st:"add", w:"Route 29. Never needs to fight — its four slots exist to carry Cut, Rock Smash, Strength and Whirlpool. Surf goes on Gyarados later, which is a real attack for it."},
  {n:"Hoothoot", t:["Normal","Flying"], role:"Flying coverage", st:"add", w:"Night catch on 29–31. Temporary — Crobat replaces it around badge five."},
  {n:"Geodude", t:["Rock","Ground"], role:"Emergency Rock", st:"add", only:["chikorita"], w:"Dark Cave, off Route 31. Chikorita is 2× weak to Falkner and Bugsy both; this is the body that carries you through them."}
 ],
@@ -3088,9 +3090,9 @@ slots:[
 ],
 notes:{chikorita:"Meganium is walled hard here — Grass does nothing to Steel. Lean entirely on Quagsire and Growlithe for this badge."}});
 
-R("j12",{lv:"32 → 36", form:"mid", sum:"The biggest single roster upgrade in the game. The red Gyarados is level 30, fully evolved, free, and it takes over four HMs at once — which frees your mule off the team permanently.",
+R("j12",{lv:"32 → 36", form:"mid", sum:"The biggest single roster upgrade in the game. The red Gyarados is level 30, fully evolved, free, and it takes Surf and Waterfall as real attacks — which lets the mule sit in the PC and only come out to open a door.",
 slots:[
- {n:"Gyarados", t:["Water","Flying"], role:"Physical ace · water HMs", st:"add", w:"Lake of Rage. Intimidate blunts every physical gym leader left, and it carries Surf, Waterfall, Whirlpool and Strength. It also learns <b>Ice Fang at 32</b>, which is your Clair and Lance answer and costs you nothing."},
+ {n:"Gyarados", t:["Water","Flying"], role:"Physical ace · water HMs", st:"add", w:"Lake of Rage. Intimidate blunts every physical gym leader left. Its four slots settle as <b>Surf, Waterfall, Ice Fang</b> (learned at 32 — your Clair and Lance answer) <b>and Dragon Dance</b> at 44. Leave Whirlpool and Strength on the mule."},
  {n:"%S%", role:"Lead", st:"keep", w:""},
  {n:"Ampharos", t:["Electric"], role:"Special attacker · Rock Climb", st:"keep", w:"Also your Rock Climb carrier much later — it is one of the few team members that learns HM08."},
  {n:"Crobat", t:["Poison","Flying"], role:"Fast sweeper · Fly", st:"keep", w:""},
