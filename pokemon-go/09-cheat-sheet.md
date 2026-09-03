@@ -87,10 +87,28 @@ All at **Level 40**. Stop there until the roster is complete.
 
 ## Useful storage searches
 
+**Transfer fodder — shows only Pokémon not worth keeping.** Tag your PvE roster
+`keep` first, then paste:
+
 ```
-!shiny&!legendary&!mythical&!lucky&!costume&!shadow&!purified&!dynamax&!gigantamax&!defender&!buddy&!traded&1*,2*
+!4*&!3*&!shiny&!legendary&!mythical&!ultra beast&!shadow&!purified&!lucky&!costume&!dynamax&!gigantamax&!favorite&!defender&!buddy&!evolvenew&!tradeevolve&!keep
 ```
-↑ mass-transfer candidates. **Eyeball the list before confirming.**
+
+Short version: `!4*&!3*&!shiny&!legendary&!mythical&!shadow&!lucky&!favorite&!evolvenew&!keep`
+
+**Eyeball the list before confirming. Transfers are permanent.**
+
+> **Never mix `&` and `,` in a cull search.** Sources disagree on whether `a,b&c`
+> means `(a OR b) AND c` or `a OR (b AND c)`, and there are no parentheses to
+> disambiguate. Under the wrong parse a trailing `1*,2*` surfaces *every* 2★ you own,
+> shinies and legendaries included. Use `!4*&!3*` instead — same result, unambiguous.
+
+**Rule-of-Six overflow**, one species at a time (commas alone are safe):
+
+```
+machop,machoke,machamp
+```
+Sort by CP, keep six, transfer the tail.
 
 | Search | Finds |
 |---|---|
@@ -102,6 +120,8 @@ All at **Level 40**. Stop there until the roster is complete.
 | `shadow` | Your Frustration backlog |
 | `@2frustration` | Shadows still stuck with Frustration |
 | `4*` | Best IVs |
+
+**Star bands (total IVs / 45):** 0★ 0–22 · 1★ 23–29 · 2★ 30–36 · 3★ 37–44 · 4★ 45
 
 ---
 

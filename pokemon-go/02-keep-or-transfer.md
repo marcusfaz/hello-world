@@ -102,25 +102,100 @@ Keep these because they are *hard to obtain*, not because they are good:
 
 ---
 
-## 2.6 Bulk clean-up: search strings that do the work for you
+## 2.6 The transfer-fodder search
 
-Type these into the search bar in your Pokémon storage. Combine with `&` (AND),
-`,` (OR) and `!` (NOT).
+One search string that shows **only Pokémon not worth keeping**. Paste it into the
+search bar in your Pokémon storage, then long-press to multi-select and transfer.
 
-**Safe mass-transfer candidate search** — everything you almost certainly don't want:
+### The string
 
 ```
-!shiny&!legendary&!mythical&!lucky&!costume&!shadow&!purified&!dynamax&!gigantamax&!defender&!buddy&!traded&1*,2*
+!4*&!3*&!shiny&!legendary&!mythical&!ultra beast&!shadow&!purified&!lucky&!costume&!dynamax&!gigantamax&!favorite&!defender&!buddy&!evolvenew&!tradeevolve
 ```
 
-Then hold-select and transfer. **Always eyeball the list before confirming.**
+Every clause is an exclusion, so what survives is: **mediocre IVs, ordinary form,
+not special to you, and nothing lost by transferring it.**
 
-Other useful searches:
+| Clause | Protects |
+|---|---|
+| `!4*&!3*` | Anything above ~80% IVs (star bands: 3★ = 37–44, 4★ = 45 total IVs) |
+| `!shiny` `!costume` | Irreplaceable forms |
+| `!legendary&!mythical&!ultra beast` | Rare tiers |
+| `!shadow&!purified` | Rocket-sourced; Shadows are your best attackers |
+| `!lucky` | Half-price power-ups, 12/12/12 floor |
+| `!dynamax&!gigantamax` | Max Battle roster — very hard to replace |
+| `!favorite&!defender&!buddy` | Flagged, in a Gym, or walking with you |
+| `!evolvenew` | Evolving it would give you a **new dex entry** |
+| `!tradeevolve` | Has a free trade evolution pending |
+
+### ⚠️ Why it has no commas in it
+
+Pokémon GO supports `&` (AND), `!` (NOT) and `,` (OR) — **but not parentheses**, and
+published sources genuinely disagree on how `&` and `,` bind when mixed. Some
+document `a,b&c` as `(a OR b) AND c`; others as `a OR (b AND c)`.
+
+Those two parses differ enormously here. Under the second one, a trailing `1*,2*`
+would mean *"(everything excluded… AND 1★) **OR** any 2★ at all"* — and every 2★
+shiny and legendary you own would land in a list you are about to mass-transfer.
+
+**So this string is built from `&` and `!` only.** `!4*&!3*` selects the same
+Pokémon as `1*,2*,0*` and cannot be mis-parsed. Avoid mixing the two operators in
+any search where a wrong answer costs you a Pokémon.
+
+### Make it scale: add `!keep`
+
+The string above is blind to **species**, and for a PvE player species matters far
+more than IVs — a 4★ Pidgey is junk, while a 1★ Machop is worth keeping until you
+have six Machamp. A pure-IV filter gets this exactly backwards.
+
+Fix it with one tag. Tag everything on your PvE roster `keep` (see
+[§2.7](#27-use-tags--they-are-the-real-storage-system)), then append `&!keep`:
+
+```
+!4*&!3*&!shiny&!legendary&!mythical&!ultra beast&!shadow&!purified&!lucky&!costume&!dynamax&!gigantamax&!favorite&!defender&!buddy&!evolvenew&!tradeevolve&!keep
+```
+
+One tag replaces a hundred `&!machop&!machoke&!machamp…` clauses, and it stays
+correct as your roster changes. **This is the version to actually use.**
+
+### Short version
+
+If you are typing rather than pasting, this catches most of it:
+
+```
+!4*&!3*&!shiny&!legendary&!mythical&!shadow&!lucky&!favorite&!evolvenew&!keep
+```
+
+### Rule-of-Six overflow culls
+
+The searches above never surface your 7th–20th Machop, because star rating doesn't
+know you already have six. Do that per species, one line at a time:
+
+```
+machop,machoke,machamp
+```
+
+Commas alone are unambiguous — the precedence problem only appears when you mix them
+with `&`. Sort by **CP descending**, keep your best six, transfer the tail.
+
+Worth running for every species in your
+[workhorse roster](04-raids-and-counters.md#workhorse-tier-accessible-farmable-candy)
+once a month.
+
+### Before you hit transfer
+
+1. **Eyeball the list.** Always. No search string is a substitute for a glance.
+2. **Check the count** against what you expect. A surprisingly large number means a
+   clause didn't apply — stop and re-read the string.
+3. **Transfers are permanent.** Favorite or tag anything you are unsure about
+   instead; it'll be excluded next time.
+
+### Other useful searches
 
 | Search | Finds |
 |---|---|
 | `age0` | Caught today — review before they get lost in storage. |
-| `4*` / `3*` / `2*` / `1*` / `0*` | By appraisal star rating. |
+| `4*` / `3*` / `2*` / `1*` / `0*` | By appraisal star rating (total IVs: 0★ 0–22, 1★ 23–29, 2★ 30–36, 3★ 37–44, 4★ 45). |
 | `shiny` `lucky` `shadow` `purified` `costume` | Special forms. |
 | `dynamax` / `gigantamax` | Your Max Battle roster. |
 | `legendary` `mythical` `ultra beast` | Rare tiers. |
@@ -128,15 +203,20 @@ Other useful searches:
 | `distance5000-` | Caught 5,000 km+ away — Candy XL trade fodder. |
 | `evolve` | Can evolve right now with the candy you have. |
 | `evolvenew` | Evolving would give you a **new dex entry**. |
+| `tradeevolve` | Has a free trade evolution available. |
+| `buddy0`–`buddy5` | By buddy/friendship level. |
 | `@1flying` | Has a Flying-type **fast** move. (`@2` = charged, `@3` = 2nd charged.) |
 | `@dragon breath` | Has that specific move. |
 | `defender` | Currently in a Gym (cannot transfer). |
+| `favorite` | Flagged — cannot be transferred. |
 | `year2016` | Caught in a given year — your oldest, most sentimental mons. |
 | `cp1500-2500` | CP range. |
 | `hp10-` | HP 10 or above. |
 
-> The full list of supported search terms is in-game: **Pokémon storage → search bar
-> → the `?` / "Search Help" link**. It is updated when new terms are added.
+> Term support changes between releases. The authoritative list is in-game:
+> **Pokémon storage → search bar → the `?` / "Search Help" link.** If a clause in the
+> long string above does nothing, it is silently ignored rather than erroring — which
+> is exactly why you eyeball the results.
 
 ---
 
@@ -146,6 +226,7 @@ Tags are far more useful than nicknames. A workable PvE tag set:
 
 | Tag | Meaning |
 |---|---|
+| **`keep`** | **The umbrella tag. Anything on this list is off-limits to the transfer-fodder search above.** Apply it to everything below as well. |
 | `RAID` | On an active raid team. Never transfer. |
 | `INVEST` | Next in line for Stardust. |
 | `XL` | Worth taking to Level 50 eventually. |
@@ -157,6 +238,11 @@ Tags are far more useful than nicknames. A workable PvE tag set:
 
 Tag on catch, clean up weekly, and you will never agonise over an individual
 Pokémon again. You can search by tag, and tags survive evolution.
+
+> **The `keep` tag is what makes the transfer-fodder search safe.** A search string
+> can only know about IVs and forms; it cannot know that you are farming Machop for a
+> Machamp team. The tag carries that knowledge, so `&!keep` turns a blunt IV filter
+> into one that respects your actual plans.
 
 ---
 
