@@ -1,4 +1,1 @@
-# hello-world
-Hello world
-
-This is just a test.
+Personal Pokémon walkthroughs and strategy guides — interactive 100% completion guides for HeartGold, LeafGreen, Emerald and Let's Go, plus a PvE-focused Pokémon GO guide.
