@@ -17,10 +17,13 @@ Each guide lives on its own branch and has not been merged to `master` yet.
 | **Pokémon: Let's Go, Pikachu!** | **The Volt Circuit** — interactive 100% completion guide | Single-file HTML | [`claude/pokemon-lets-go-guide-gmfty2`](../../tree/claude/pokemon-lets-go-guide-gmfty2) |
 
 > **Note on formats.** The four main-series guides are self-contained interactive
-> HTML documents built from a `build/` or `tools/` pipeline. The Pokémon GO guide is
-> currently plain Markdown — a live-service mobile game needs frequent factual
-> updates rather than a one-pass 100% route, so it is written to be easy to edit.
-> It can be rebuilt in the interactive HTML style to match the others.
+> HTML documents built from a `build/` or `tools/` pipeline. That suits a finished
+> game: the 100% route is fixed, so it is worth building once and richly.
+>
+> The Pokémon GO guide is plain Markdown by design. It covers a live-service game
+> whose numbers, tier lists and mechanics shift every few months, so it is optimised
+> for being *edited* — small diffable files, one concern per chapter, no build step
+> between a correction and a commit.
 
 ---
 
