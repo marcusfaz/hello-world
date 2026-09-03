@@ -1,6 +1,8 @@
 # Pokémon Guides
 
-A personal collection of Pokémon walkthroughs and strategy guides.
+Personal Pokémon walkthroughs and strategy guides — interactive 100% completion
+guides for HeartGold, LeafGreen, Emerald and Let's Go, plus a PvE-focused
+Pokémon GO guide.
 
 Each guide lives on its own branch and has not been merged to `master` yet.
 
